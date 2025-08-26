@@ -25,7 +25,7 @@ const articles = [
   },
   {
     id: '3',
-    title: 'Horaires d\'été 2025',
+    title: 'Horaires d&apos;été 2025',
     excerpt: 'Les nouveaux horaires des messes pour la période estivale sont maintenant disponibles.',
     date: '2024-12-05',
     image: '/images/articles/horaires-ete.jpg',

@@ -96,7 +96,7 @@ export default function Home() {
               }
             />
             <QuickAccessCard
-              title="Feuilles d'annonces"
+              title="Feuilles d&apos;annonces"
               description="Documents PDF"
               href="/documents"
               color="purple"
