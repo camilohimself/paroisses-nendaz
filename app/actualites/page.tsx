@@ -123,7 +123,7 @@ export default function ActualitesPage() {
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
               <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                S'abonner
+                S&apos;abonner
               </button>
             </div>
           </div>
