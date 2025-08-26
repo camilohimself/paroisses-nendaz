@@ -27,10 +27,10 @@ export default function LoginPage() {
         setError('Email ou mot de passe incorrect')
       } else {
         // Vérifier la session pour obtenir le rôle
-        const session = await getSession()
+        await getSession()
         router.push('/admin/dashboard')
       }
-    } catch (error) {
+    } catch {
       setError('Une erreur est survenue')
     } finally {
       setLoading(false)
@@ -49,7 +49,7 @@ export default function LoginPage() {
           Administration
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Connexion à l'espace d'administration
+          Connexion à l&apos;espace d&apos;administration
         </p>
       </div>
 
