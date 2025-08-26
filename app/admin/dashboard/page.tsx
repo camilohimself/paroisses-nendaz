@@ -1,40 +1,44 @@
-import { getAuthSession } from '@/lib/auth'
-import { redirect } from 'next/navigation'
-import { prisma } from '@/lib/prisma'
-
 export default async function DashboardPage() {
-  const session = await getAuthSession()
+  // TODO: Re-enable auth when database is configured
+  // const session = await getAuthSession()
+  // if (!session) {
+  //   redirect('/admin/login')
+  // }
+
+  // Données temporaires pour la démo
+  const [eventsCount, articlesCount, parishionersCount, newsletterCount] = [6, 3, 85, 24]
   
-  if (!session) {
-    redirect('/admin/login')
-  }
-
-  // Statistiques rapides
-  const stats = await Promise.all([
-    prisma.event.count({ where: { published: true } }),
-    prisma.article.count({ where: { published: true } }),
-    prisma.parishioner.count({ where: { active: true } }),
-    prisma.newsletterSubscription.count({ where: { active: true } }),
-  ])
-
-  const [eventsCount, articlesCount, parishionersCount, newsletterCount] = stats
-
-  // Derniers événements
-  const recentEvents = await prisma.event.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' },
-    include: { parish: true }
-  })
-
-  // Derniers articles
-  const recentArticles = await prisma.article.findMany({
-    take: 5,
-    orderBy: { createdAt: 'desc' },
-    include: { 
-      category: true,
-      author: { select: { name: true } }
+  const recentEvents = [
+    {
+      id: '1',
+      title: 'Messe en famille',
+      startDate: new Date('2025-01-19T10:00:00'),
+      parish: { name: 'Nendaz' }
+    },
+    {
+      id: '2',
+      title: 'Parcours confirmation',
+      startDate: new Date('2025-01-25T13:30:00'),
+      parish: { name: 'Nendaz' }
     }
-  })
+  ]
+
+  const recentArticles = [
+    {
+      id: '1',
+      title: 'Nouvelle année pastorale 2024-2025',
+      category: { name: 'Pastorale' },
+      author: { name: 'Administrateur' },
+      published: true
+    },
+    {
+      id: '2',
+      title: 'Inscriptions catéchisme',
+      category: { name: 'Formation' },
+      author: { name: 'Secrétariat' },
+      published: true
+    }
+  ]
 
   return (
     <div className="py-8">
@@ -45,7 +49,7 @@ export default async function DashboardPage() {
             Tableau de bord
           </h1>
           <p className="text-gray-600">
-            Bienvenue {session.user?.name}
+            Bienvenue Administrateur
           </p>
         </div>
 

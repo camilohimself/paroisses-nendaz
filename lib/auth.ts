@@ -1,12 +1,12 @@
 import { getServerSession } from 'next-auth/next'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { PrismaAdapter } from '@auth/prisma-adapter'
-import { prisma } from '@/lib/prisma'
-import bcrypt from 'bcryptjs'
+// import { PrismaAdapter } from '@auth/prisma-adapter'
+// import { prisma } from '@/lib/prisma'
+// import bcrypt from 'bcryptjs'
 import type { NextAuthOptions } from 'next-auth'
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
+  // adapter: PrismaAdapter(prisma), // Disabled until database is configured
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -19,23 +19,26 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email
+        // Temporary hardcoded users for demo
+        const demoUsers = [
+          {
+            id: '1',
+            email: 'admin@paroisses-nendaz.ch',
+            name: 'Administrateur',
+            password: 'admin123',
+            role: 'ADMIN'
+          },
+          {
+            id: '2',
+            email: 'secretariat@paroisses-nendaz.ch',
+            name: 'Secrétariat',
+            password: 'admin123',
+            role: 'EDITOR'
           }
-        })
+        ]
 
-        if (!user || !user.active) {
-          return null
-        }
-
-        // Vérifier le mot de passe
-        const isPasswordValid = await bcrypt.compare(
-          credentials.password,
-          user.password
-        )
-
-        if (!isPasswordValid) {
+        const user = demoUsers.find(u => u.email === credentials.email)
+        if (!user || user.password !== credentials.password) {
           return null
         }
 
