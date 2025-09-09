@@ -1,13 +1,37 @@
 import Link from 'next/link'
+import DecorativeOrnament from './DecorativeOrnament'
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
+    <footer className="bg-gradient-to-b from-[var(--foreground)] to-[var(--brun-terre)] text-white relative overflow-hidden">
+      {/* Ornement décoratif en arrière-plan */}
+      <div className="absolute top-0 left-0 w-full h-32 opacity-5">
+        <svg className="w-full h-full" viewBox="0 0 400 100" fill="none">
+          <path d="M0 50 Q100 20 200 50 T400 50" stroke="var(--jaune-lumiere)" strokeWidth="2" fill="none" />
+          <path d="M0 60 Q100 30 200 60 T400 60" stroke="var(--rouge-communion)" strokeWidth="1" fill="none" />
+          <path d="M0 40 Q100 10 200 40 T400 40" stroke="var(--bleu-ciel)" strokeWidth="1" fill="none" />
+        </svg>
+      </div>
+      
+      <div className="container mx-auto px-4 py-12 relative z-10">
+        {/* En-tête avec citation */}
+        <div className="text-center mb-12">
+          <DecorativeOrnament type="divider" />
+          <p className="text-accent text-lg italic mt-4 text-[var(--jaune-lumiere)] max-w-2xl mx-auto">
+            « Là où deux ou trois sont rassemblés en mon nom, je suis au milieu d'eux »
+          </p>
+          <p className="text-sm text-gray-300 mt-2">— Matthieu 18:20</p>
+        </div>
+        
         <div className="grid md:grid-cols-4 gap-8">
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Paroisses du secteur de Nendaz</h3>
+            <h3 className="text-lg font-semibold mb-4 text-lumiere flex items-center gap-2">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
+              </svg>
+              Paroisses du secteur de Nendaz
+            </h3>
             <div className="text-gray-300 space-y-2">
               <p>Route de Nendaz 355</p>
               <p>1996 Basse-Nendaz</p>
@@ -53,7 +77,7 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <div className="text-gray-300 space-y-2">
               <a 
-                href="https://youtube.com/@paroisses-nendaz" 
+                href="https://www.youtube.com/@paroissesnendazetveysonnaz" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block hover:text-white transition-colors"
@@ -73,15 +97,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-gray-600 mt-12 pt-8">
+          <DecorativeOrnament type="divider" className="mb-6" />
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-300 text-sm">
               © 2025 Paroisses de Nendaz. Tous droits réservés.
+              <br />
+              <span className="text-accent italic text-xs">Avec amour et foi au service de notre communauté</span>
             </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a 
                 href="#" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-lumiere transition-parish"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -89,10 +116,10 @@ export default function Footer() {
                 </svg>
               </a>
               <a 
-                href="https://youtube.com/@paroisses-nendaz" 
+                href="https://www.youtube.com/@paroissesnendazetveysonnaz" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-communion transition-parish"
                 aria-label="YouTube"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

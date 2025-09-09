@@ -8,7 +8,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-md border-b-2 border-parish">
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -27,49 +27,55 @@ export default function Header() {
           <div className="hidden md:flex space-x-8">
             <Link 
               href="/" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-[var(--foreground)] hover:text-communion font-medium transition-parish relative group"
             >
-              Accueil
+              <span>Accueil</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-communion transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
               href="/paroisses" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-[var(--foreground)] hover:text-ciel font-medium transition-parish relative group"
             >
-              Paroisses
+              <span>Paroisses</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ciel transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
               href="/pastorale" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-[var(--foreground)] hover:text-esperance font-medium transition-parish relative group"
             >
-              Pastorale
+              <span>Pastorale</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esperance transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
               href="/actualites" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-[var(--foreground)] hover:text-chaleur font-medium transition-parish relative group"
             >
-              Actualités
+              <span>Actualités</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-chaleur transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
               href="/contact" 
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-[var(--foreground)] hover:text-mystique font-medium transition-parish relative group"
             >
-              Contact
+              <span>Contact</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-mystique transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </div>
 
           {/* Quick Access Buttons */}
           <div className="hidden lg:flex space-x-2">
             <a
-              href="https://youtube.com/@paroisses-nendaz"
+              href="https://www.youtube.com/@paroissesnendazetveysonnaz"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-red-600 text-white px-3 py-2 rounded-md text-sm hover:bg-red-700 transition-colors"
+              className="bg-communion text-white px-4 py-2 rounded-lg text-sm hover:bg-[var(--rouge-communion)]/90 transition-parish font-semibold flex items-center gap-2 shadow-lg"
             >
-              🔴 Live
+              <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+              Live
             </a>
             <a
               href="#"
-              className="bg-blue-600 text-white px-3 py-2 rounded-md text-sm hover:bg-blue-700 transition-colors"
+              className="bg-ciel text-white px-4 py-2 rounded-lg text-sm hover:bg-[var(--bleu-ciel)]/90 transition-parish font-semibold shadow-lg"
             >
               Enoria
             </a>
@@ -107,55 +113,56 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t bg-white py-4">
+          <div className="md:hidden border-t bg-parchemin py-4">
             <div className="flex flex-col space-y-4">
               <Link 
                 href="/" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-[var(--foreground)] hover:text-communion transition-parish font-medium py-2 border-l-4 border-transparent hover:border-communion pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Accueil
               </Link>
               <Link 
                 href="/paroisses" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-[var(--foreground)] hover:text-ciel transition-parish font-medium py-2 border-l-4 border-transparent hover:border-ciel pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Paroisses
               </Link>
               <Link 
                 href="/pastorale" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-[var(--foreground)] hover:text-esperance transition-parish font-medium py-2 border-l-4 border-transparent hover:border-esperance pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Pastorale
               </Link>
               <Link 
                 href="/actualites" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-[var(--foreground)] hover:text-chaleur transition-parish font-medium py-2 border-l-4 border-transparent hover:border-chaleur pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Actualités
               </Link>
               <Link 
                 href="/contact" 
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="text-[var(--foreground)] hover:text-mystique transition-parish font-medium py-2 border-l-4 border-transparent hover:border-mystique pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
               </Link>
-              <div className="flex space-x-2 pt-2 border-t">
+              <div className="flex space-x-2 pt-4 border-t border-gray-200">
                 <a
-                  href="https://youtube.com/@paroisses-nendaz"
+                  href="https://www.youtube.com/@paroissesnendazetveysonnaz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-red-600 text-white px-3 py-2 rounded-md text-sm hover:bg-red-700 transition-colors"
+                  className="bg-communion text-white px-3 py-2 rounded-lg text-sm hover:bg-[var(--rouge-communion)]/90 transition-parish font-semibold flex items-center gap-2"
                 >
-                  🔴 Live
+                  <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                  Live
                 </a>
                 <a
                   href="#"
-                  className="bg-blue-600 text-white px-3 py-2 rounded-md text-sm hover:bg-blue-700 transition-colors"
+                  className="bg-ciel text-white px-3 py-2 rounded-lg text-sm hover:bg-[var(--bleu-ciel)]/90 transition-parish font-semibold"
                 >
                   Enoria
                 </a>
