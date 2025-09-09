@@ -7,23 +7,25 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Secrétariat paroissial</h3>
+            <h3 className="text-lg font-semibold mb-4">Paroisses du secteur de Nendaz</h3>
             <div className="text-gray-300 space-y-2">
-              <p>Route de la Cure 1</p>
+              <p>Route de Nendaz 355</p>
               <p>1996 Basse-Nendaz</p>
-              <p>Tél: 027 288 23 43</p>
-              <p>paroisse.nendaz@netplus.ch</p>
+              <p>Tél: 027 / 288 22 50</p>
+              <p>paroisse_nendaz@bluemail.ch</p>
             </div>
           </div>
 
           {/* Horaires */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Horaires</h3>
+            <h3 className="text-lg font-semibold mb-4">Heures de présence</h3>
             <div className="text-gray-300 space-y-2">
-              <p>Lundi - Vendredi</p>
+              <p className="font-medium">Mardi</p>
               <p>8h30 - 11h30</p>
-              <p className="pt-2">Urgences 24h/24</p>
-              <p>Onction des malades</p>
+              <p>14h00 - 16h30</p>
+              <p className="font-medium pt-2">Vendredi</p>
+              <p>8h30 - 11h30</p>
+              <p>14h00 - 16h30</p>
             </div>
           </div>
 
