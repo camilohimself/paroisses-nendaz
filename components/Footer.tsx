@@ -16,7 +16,7 @@ export default function Footer() {
         {/* En-tête avec citation */}
         <div className="text-center mb-12">
           <p className="text-accent text-lg italic text-[var(--jaune-lumiere)] max-w-2xl mx-auto">
-            « Là où deux ou trois sont rassemblés en mon nom, je suis au milieu d'eux »
+            « Là où deux ou trois sont rassemblés en mon nom, je suis au milieu d&apos;eux »
           </p>
           <p className="text-sm text-gray-300 mt-2">— Matthieu 18:20</p>
         </div>
