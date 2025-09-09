@@ -1,6 +1,11 @@
 # 📋 CLAUDE.md - Journal de développement Paroisses Nendaz
 
-## 🚀 État actuel du projet (26 août 2025)
+## 🔗 Références importantes
+- **Site actuel de référence** : https://paroisses-nendaz.ch/
+- **Logo officiel** : Intégré dans `/public/logo-paroisses.png`
+- **Palette de couleurs** : Basée sur le site actuel et le logo multicolore
+
+## 🚀 État actuel du projet (9 septembre 2025)
 
 ### ✅ Réalisations complétées
 - **Structure Next.js 15** avec TypeScript et Tailwind CSS
@@ -11,6 +16,19 @@
 - **Dashboard admin** avec statistiques et vue d'ensemble
 - **Déploiement Vercel** fonctionnel
 - **Site live** : https://paroisses-nendaz.vercel.app
+
+### 🎨 Identité visuelle
+- **Logo** : Logo multicolore avec croix puzzle représentant les paroisses
+- **Couleurs primaires** : 
+  - Rouge (#d14f42)
+  - Orange (#f7a145)
+  - Rouge foncé (#a2473e)
+- **Couleurs secondaires** (du logo) :
+  - Bleu (#4A90E2)
+  - Vert (#52C41A)
+  - Jaune (#FADB14)
+  - Violet (#722ED1)
+- **Typographie** : Montserrat (titres) et Crimson Text (texte)
 
 ### 🔧 Configuration temporaire
 - **Pas de base de données** : Données hardcodées pour la démo
@@ -23,6 +41,18 @@
 - **Login admin** : https://paroisses-nendaz.vercel.app/admin/login
   - Email : admin@paroisses-nendaz.ch
   - Password : admin123
+
+## 💡 Pourquoi une base de données ?
+
+Une base de données est **essentielle** pour :
+1. **Gestion dynamique du contenu** : Permettre aux administrateurs de modifier actualités, événements et horaires sans toucher au code
+2. **Authentification sécurisée** : Gérer les comptes administrateurs de manière sécurisée
+3. **Historique et archivage** : Conserver l'historique des événements et actualités
+4. **Recherche et filtrage** : Permettre aux utilisateurs de rechercher dans le contenu
+5. **Multi-utilisateurs** : Plusieurs personnes peuvent gérer le site simultanément
+6. **Intégrations futures** : Newsletter, inscriptions événements, réservations salles
+
+Sans base de données, tout changement nécessite une modification du code et un redéploiement, ce qui n'est pas viable pour une paroisse.
 
 ## 📝 TODO List - Priorités
 
