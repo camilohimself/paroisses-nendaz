@@ -33,11 +33,11 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-communion transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
-              href="/paroisses" 
-              className="text-[var(--foreground)] hover:text-ciel font-medium transition-parish relative group"
+              href="/actualites" 
+              className="text-[var(--foreground)] hover:text-chaleur font-medium transition-parish relative group"
             >
-              <span>Paroisses</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ciel transition-all duration-300 group-hover:w-full"></span>
+              <span>Actualités</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-chaleur transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
               href="/pastorale" 
@@ -47,11 +47,11 @@ export default function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esperance transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
-              href="/actualites" 
-              className="text-[var(--foreground)] hover:text-chaleur font-medium transition-parish relative group"
+              href="/paroisses" 
+              className="text-[var(--foreground)] hover:text-ciel font-medium transition-parish relative group"
             >
-              <span>Actualités</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-chaleur transition-all duration-300 group-hover:w-full"></span>
+              <span>Paroisses</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ciel transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link 
               href="/contact" 
@@ -125,11 +125,11 @@ export default function Header() {
                 Accueil
               </Link>
               <Link 
-                href="/paroisses" 
-                className="text-[var(--foreground)] hover:text-ciel transition-parish font-medium py-2 border-l-4 border-transparent hover:border-ciel pl-4"
+                href="/actualites" 
+                className="text-[var(--foreground)] hover:text-chaleur transition-parish font-medium py-2 border-l-4 border-transparent hover:border-chaleur pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Paroisses
+                Actualités
               </Link>
               <Link 
                 href="/pastorale" 
@@ -139,11 +139,11 @@ export default function Header() {
                 Pastorale
               </Link>
               <Link 
-                href="/actualites" 
-                className="text-[var(--foreground)] hover:text-chaleur transition-parish font-medium py-2 border-l-4 border-transparent hover:border-chaleur pl-4"
+                href="/paroisses" 
+                className="text-[var(--foreground)] hover:text-ciel transition-parish font-medium py-2 border-l-4 border-transparent hover:border-ciel pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Actualités
+                Paroisses
               </Link>
               <Link 
                 href="/contact" 
