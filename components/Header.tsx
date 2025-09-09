@@ -10,20 +10,17 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm">
       <nav className="container mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <Image
               src="/logo-paroisses.png"
               alt="Paroisses de Nendaz"
-              width={50}
-              height={50}
-              className="h-12 w-auto"
+              width={180}
+              height={60}
+              className="h-14 w-auto md:h-16"
               priority
             />
-            <span className="font-semibold text-gray-900 hidden md:block">
-              Paroisses de Nendaz
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
