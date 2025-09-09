@@ -2,35 +2,15 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-[var(--foreground)] to-[var(--brun-terre)] text-white relative overflow-hidden">
-      {/* Ornement décoratif en arrière-plan */}
-      <div className="absolute top-0 left-0 w-full h-32 opacity-5">
-        <svg className="w-full h-full" viewBox="0 0 400 100" fill="none">
-          <path d="M0 50 Q100 20 200 50 T400 50" stroke="var(--jaune-lumiere)" strokeWidth="2" fill="none" />
-          <path d="M0 60 Q100 30 200 60 T400 60" stroke="var(--rouge-communion)" strokeWidth="1" fill="none" />
-          <path d="M0 40 Q100 10 200 40 T400 40" stroke="var(--bleu-ciel)" strokeWidth="1" fill="none" />
-        </svg>
-      </div>
-      
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* En-tête avec citation */}
-        <div className="text-center mb-12">
-          <p className="text-accent text-lg italic text-[var(--jaune-lumiere)] max-w-2xl mx-auto">
-            « Là où deux ou trois sont rassemblés en mon nom, je suis au milieu d&apos;eux »
-          </p>
-          <p className="text-sm text-gray-300 mt-2">— Matthieu 18:20</p>
-        </div>
-        
+    <footer className="bg-gray-50 text-[var(--foreground)] border-t border-gray-200">
+      <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-lumiere flex items-center gap-2">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z"/>
-              </svg>
-              Paroisses du secteur de Nendaz
+            <h3 className="text-lg font-semibold mb-4">
+              Paroisses de Nendaz et Veysonnaz
             </h3>
-            <div className="text-gray-300 space-y-2">
+            <div className="text-gray-600 space-y-2">
               <p>Route de Nendaz 355</p>
               <p>1996 Basse-Nendaz</p>
               <p>Tél: 027 / 288 22 50</p>
@@ -41,7 +21,7 @@ export default function Footer() {
           {/* Horaires */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Heures de présence</h3>
-            <div className="text-gray-300 space-y-2">
+            <div className="text-gray-600 space-y-2">
               <p className="font-medium">Mardi</p>
               <p>8h30 - 11h30</p>
               <p>14h00 - 16h30</p>
@@ -54,17 +34,17 @@ export default function Footer() {
           {/* Navigation */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Navigation</h3>
-            <div className="text-gray-300 space-y-2">
-              <Link href="/paroisses" className="block hover:text-white transition-colors">
+            <div className="text-gray-600 space-y-2">
+              <Link href="/paroisses" className="block hover:text-[var(--foreground)] transition-colors">
                 Nos paroisses
               </Link>
-              <Link href="/pastorale" className="block hover:text-white transition-colors">
+              <Link href="/pastorale" className="block hover:text-[var(--foreground)] transition-colors">
                 Pastorale
               </Link>
-              <Link href="/actualites" className="block hover:text-white transition-colors">
+              <Link href="/actualites" className="block hover:text-[var(--foreground)] transition-colors">
                 Actualités
               </Link>
-              <Link href="/horaires" className="block hover:text-white transition-colors">
+              <Link href="/horaires" className="block hover:text-[var(--foreground)] transition-colors">
                 Horaires messes
               </Link>
             </div>
@@ -73,45 +53,42 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
-            <div className="text-gray-300 space-y-2">
+            <div className="text-gray-600 space-y-2">
               <a 
                 href="https://www.youtube.com/@paroissesnendazetveysonnaz" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block hover:text-white transition-colors"
+                className="block hover:text-[var(--foreground)] transition-colors"
               >
-                🔴 Messe en direct
+                Messe en direct
               </a>
               <a 
                 href="https://web.enoria.app/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block hover:text-lumiere transition-parish flex items-center gap-2"
+                className="block hover:text-[var(--foreground)] transition-colors"
               >
-                <span className="w-1.5 h-1.5 bg-enoria rounded-full"></span>
                 Base Enoria
               </a>
-              <Link href="/reservation" className="block hover:text-white transition-colors">
+              <Link href="/reservation" className="block hover:text-[var(--foreground)] transition-colors">
                 Réservation salle
               </Link>
-              <Link href="/documents" className="block hover:text-white transition-colors">
+              <Link href="/documents" className="block hover:text-[var(--foreground)] transition-colors">
                 Feuilles annonces
               </Link>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-600 mt-12 pt-8">
+        <div className="border-t border-gray-200 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-300 text-sm">
-              © 2025 Paroisses de Nendaz. Tous droits réservés.
-              <br />
-              <span className="text-accent italic text-xs">Avec amour et foi au service de notre communauté</span>
+            <div className="text-gray-500 text-sm">
+              © 2025 Paroisses de Nendaz et Veysonnaz. Tous droits réservés.
             </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a 
                 href="#" 
-                className="text-gray-400 hover:text-lumiere transition-parish"
+                className="text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -122,7 +99,7 @@ export default function Footer() {
                 href="https://www.youtube.com/@paroissesnendazetveysonnaz" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-communion transition-parish"
+                className="text-gray-400 hover:text-gray-600 transition-colors"
                 aria-label="YouTube"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
