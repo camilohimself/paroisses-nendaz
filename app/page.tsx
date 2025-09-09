@@ -36,16 +36,16 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50 to-white py-20">
+      <section className="bg-gradient-to-b from-neutral-parchemin to-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-neutral-charcoal mb-6">
             Paroisses de Nendaz
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-neutral-gris mb-8">
             Nendaz • Veysonnaz
           </p>
-          <div className="bg-yellow-100 border-l-4 border-yellow-500 p-4 mb-8 mx-auto max-w-2xl">
-            <p className="text-yellow-800">
+          <div className="bg-liturgique-lumiere/20 border-l-4 border-liturgique-lumiere p-4 mb-8 mx-auto max-w-2xl">
+            <p className="text-neutral-charcoal">
               <strong>Messe en direct</strong> • Dimanche 10h00 sur YouTube
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function Home() {
       {/* Quick Access */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-bold text-center mb-8 text-gray-900">
+          <h2 className="text-2xl font-bold text-center mb-8 text-neutral-charcoal">
             Accès rapides
           </h2>
           <div className="grid md:grid-cols-4 gap-6">

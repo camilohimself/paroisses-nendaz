@@ -19,15 +19,18 @@
 
 ### 🎨 Identité visuelle
 - **Logo** : Logo multicolore avec croix puzzle représentant les paroisses
-- **Couleurs primaires** : 
-  - Rouge (#d14f42)
-  - Orange (#f7a145)
-  - Rouge foncé (#a2473e)
-- **Couleurs secondaires** (du logo) :
-  - Bleu (#4A90E2)
-  - Vert (#52C41A)
-  - Jaune (#FADB14)
-  - Violet (#722ED1)
+- **Palette officielle - Couleurs liturgiques** :
+  - Rouge communion (#DC143C) - Passion, amour
+  - Bleu ciel (#4169E1) - Spiritualité, ciel
+  - Jaune lumière (#FFD700) - Lumière divine  
+  - Vert espérance (#228B22) - Espérance, nature
+  - Orange chaleur (#FF8C00) - Chaleur communautaire
+  - Violet mystique (#8B008B) - Mystère, transcendance
+- **Couleurs neutres** :
+  - Charcoal (#2C3E50) - Texte principal
+  - Gris doux (#7F8C8D) - Texte secondaire
+  - Blanc pur (#FFFFFF) - Fond principal
+  - Beige parchemin (#FBF8F3) - Fond alternatif
 - **Typographie** : Montserrat (titres) et Crimson Text (texte)
 
 ### 🔧 Configuration temporaire

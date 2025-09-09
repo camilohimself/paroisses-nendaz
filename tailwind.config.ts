@@ -11,29 +11,21 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        // Palette inspirée du site référence et du logo
-        primary: {
-          red: '#d14f42',      // Rouge principal du site
-          orange: '#f7a145',   // Orange chaud
-          darkRed: '#a2473e',  // Rouge foncé
+        // Palette officielle du projet - Couleurs liturgiques et spirituelles
+        liturgique: {
+          communion: '#DC143C',      // Rouge profond - passion, amour
+          ciel: '#4169E1',          // Bleu royal - spiritualité, ciel  
+          lumiere: '#FFD700',       // Jaune or - lumière divine
+          esperance: '#228B22',     // Vert forêt - espérance, nature
+          chaleur: '#FF8C00',       // Orange foncé - chaleur communautaire
+          mystique: '#8B008B',      // Violet - mystère, transcendance
         },
-        secondary: {
-          blue: '#4A90E2',     // Bleu du logo
-          green: '#52C41A',    // Vert du logo
-          yellow: '#FADB14',   // Jaune du logo
-          purple: '#722ED1',   // Violet du logo
-        },
+        // Couleurs neutres
         neutral: {
-          50: '#fafafa',
-          100: '#f5f5f5',
-          200: '#e5e5e5',
-          300: '#d4d4d4',
-          400: '#a3a3a3',
-          500: '#737373',
-          600: '#525252',
-          700: '#404040',
-          800: '#262626',
-          900: '#171717',
+          charcoal: '#2C3E50',     // Texte principal
+          gris: '#7F8C8D',         // Texte secondaire
+          blanc: '#FFFFFF',        // Fond principal
+          parchemin: '#FBF8F3',    // Fond alternatif
         },
       },
       fontFamily: {

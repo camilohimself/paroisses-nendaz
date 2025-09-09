@@ -9,14 +9,14 @@ interface Event {
 }
 
 const eventTypeColors = {
-  MASS: 'bg-blue-100 text-blue-800',
-  BAPTISM: 'bg-green-100 text-green-800',
-  WEDDING: 'bg-pink-100 text-pink-800',
-  FUNERAL: 'bg-gray-100 text-gray-800',
-  CONFESSION: 'bg-purple-100 text-purple-800',
-  MEETING: 'bg-orange-100 text-orange-800',
-  CELEBRATION: 'bg-yellow-100 text-yellow-800',
-  OTHER: 'bg-gray-100 text-gray-800'
+  MASS: 'bg-liturgique-ciel/20 text-liturgique-ciel',
+  BAPTISM: 'bg-liturgique-esperance/20 text-liturgique-esperance',
+  WEDDING: 'bg-liturgique-communion/20 text-liturgique-communion',
+  FUNERAL: 'bg-neutral-gris/20 text-neutral-charcoal',
+  CONFESSION: 'bg-liturgique-mystique/20 text-liturgique-mystique',
+  MEETING: 'bg-liturgique-chaleur/20 text-liturgique-chaleur',
+  CELEBRATION: 'bg-liturgique-lumiere/20 text-neutral-charcoal',
+  OTHER: 'bg-neutral-gris/20 text-neutral-charcoal'
 }
 
 const eventTypeLabels = {
@@ -47,16 +47,16 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
   }
 
   return (
-    <div className={`bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow ${className}`}>
-      <div className="text-sm text-blue-600 mb-2">
+    <div className={`bg-neutral-parchemin p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-neutral-gris/10 ${className}`}>
+      <div className="text-sm text-liturgique-ciel font-medium mb-2">
         {formatDate(event.date)}
       </div>
       
-      <h3 className="font-semibold text-lg mb-2 text-gray-900">
+      <h3 className="font-semibold text-lg mb-2 text-neutral-charcoal">
         {event.title}
       </h3>
       
-      <div className="text-gray-600 text-sm mb-4 space-y-1">
+      <div className="text-neutral-gris text-sm mb-4 space-y-1">
         <div className="flex items-center">
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -73,7 +73,7 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
       </div>
 
       {event.description && (
-        <p className="text-gray-600 text-sm mb-4">
+        <p className="text-neutral-gris text-sm mb-4">
           {event.description}
         </p>
       )}

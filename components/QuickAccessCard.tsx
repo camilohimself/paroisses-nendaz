@@ -10,12 +10,12 @@ interface QuickAccessCardProps {
 }
 
 const colorClasses = {
-  red: 'bg-red-600 hover:bg-red-700',
-  blue: 'bg-blue-600 hover:bg-blue-700',
-  green: 'bg-green-600 hover:bg-green-700',
-  purple: 'bg-purple-600 hover:bg-purple-700',
-  yellow: 'bg-yellow-600 hover:bg-yellow-700',
-  orange: 'bg-orange-600 hover:bg-orange-700'
+  red: 'bg-liturgique-communion hover:bg-liturgique-communion/80 shadow-lg hover:shadow-xl',
+  blue: 'bg-liturgique-ciel hover:bg-liturgique-ciel/80 shadow-lg hover:shadow-xl',
+  green: 'bg-liturgique-esperance hover:bg-liturgique-esperance/80 shadow-lg hover:shadow-xl',
+  purple: 'bg-liturgique-mystique hover:bg-liturgique-mystique/80 shadow-lg hover:shadow-xl',
+  yellow: 'bg-liturgique-lumiere text-neutral-charcoal hover:bg-liturgique-lumiere/80 shadow-lg hover:shadow-xl',
+  orange: 'bg-liturgique-chaleur hover:bg-liturgique-chaleur/80 shadow-lg hover:shadow-xl'
 }
 
 export default function QuickAccessCard({
@@ -26,7 +26,9 @@ export default function QuickAccessCard({
   external = false,
   icon
 }: QuickAccessCardProps) {
-  const baseClasses = `${colorClasses[color]} text-white p-6 rounded-lg transition-colors duration-200 block group`
+  const isYellow = color === 'yellow'
+  const textColor = isYellow ? '' : 'text-white'
+  const baseClasses = `${colorClasses[color]} ${textColor} p-6 rounded-lg transition-all duration-300 block group transform hover:scale-105`
 
   const content = (
     <>
