@@ -17,6 +17,9 @@
   --beige-parchemin: #FBF8F3;
   --gris-doux: #7F8C8D;
   --brun-terre: #8B4513;
+  
+  /* Couleur partenaires */
+  --vert-enoria: #2A8B8C;
 }
 
 @theme inline {
@@ -84,6 +87,7 @@ h3 {
 .bg-chaleur { background-color: var(--orange-chaleur); }
 .bg-mystique { background-color: var(--violet-mystique); }
 .bg-parchemin { background-color: var(--beige-parchemin); }
+.bg-enoria { background-color: var(--vert-enoria); }
 
 /* Effet vitrail sur les éléments importants */
 .vitrail-glow {

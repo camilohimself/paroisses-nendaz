@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import DecorativeOrnament from './DecorativeOrnament'
 
 export default function Footer() {
   return (
@@ -16,8 +15,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-12 relative z-10">
         {/* En-tête avec citation */}
         <div className="text-center mb-12">
-          <DecorativeOrnament type="divider" />
-          <p className="text-accent text-lg italic mt-4 text-[var(--jaune-lumiere)] max-w-2xl mx-auto">
+          <p className="text-accent text-lg italic text-[var(--jaune-lumiere)] max-w-2xl mx-auto">
             « Là où deux ou trois sont rassemblés en mon nom, je suis au milieu d'eux »
           </p>
           <p className="text-sm text-gray-300 mt-2">— Matthieu 18:20</p>
@@ -84,7 +82,13 @@ export default function Footer() {
               >
                 🔴 Messe en direct
               </a>
-              <a href="#" className="block hover:text-white transition-colors">
+              <a 
+                href="https://web.enoria.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:text-lumiere transition-parish flex items-center gap-2"
+              >
+                <span className="w-1.5 h-1.5 bg-enoria rounded-full"></span>
                 Base Enoria
               </a>
               <Link href="/reservation" className="block hover:text-white transition-colors">
@@ -98,7 +102,6 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-600 mt-12 pt-8">
-          <DecorativeOrnament type="divider" className="mb-6" />
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-300 text-sm">
               © 2025 Paroisses de Nendaz. Tous droits réservés.

@@ -1,7 +1,6 @@
 import EventCard from '@/components/EventCard'
 import QuickAccessCard from '@/components/QuickAccessCard'
 import YouTubeLiveIndicator from '@/components/YouTubeLiveIndicator'
-import DecorativeOrnament from '@/components/DecorativeOrnament'
 
 // Données temporaires - seront remplacées par la base de données
 const upcomingEvents = [
@@ -58,10 +57,9 @@ export default function Home() {
       {/* Quick Access */}
       <section className="py-16 bg-white relative">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4 text-[var(--foreground)]">
+          <h2 className="text-3xl font-bold text-center mb-8 text-[var(--foreground)]">
             Accès rapides
           </h2>
-          <DecorativeOrnament type="divider" className="mb-8" />
           <div className="grid md:grid-cols-4 gap-6">
             <QuickAccessCard
               title="Messe en direct"
@@ -79,8 +77,8 @@ export default function Home() {
             <QuickAccessCard
               title="Base Enoria"
               description="Accès paroissiens"
-              href="#"
-              color="blue"
+              href="https://web.enoria.app/"
+              color="enoria"
               external
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -138,11 +136,9 @@ export default function Home() {
       </section>
 
       {/* Mass Schedule */}
-      <section className="py-16 bg-white relative">
-        <DecorativeOrnament type="corner" position="top" />
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-[var(--foreground)]">Horaires des messes</h2>
-          <DecorativeOrnament type="cross" className="mb-8" />
+          <h2 className="text-3xl font-bold text-center mb-12 text-[var(--foreground)]">Horaires des messes</h2>
           <div className="max-w-4xl mx-auto">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -185,14 +181,12 @@ export default function Home() {
       </section>
 
       {/* YouTube Live Section */}
-      <section className="py-16 bg-gradient-to-br from-[var(--beige-parchemin)] to-white relative">
-        <DecorativeOrnament type="corner" position="bottom" />
+      <section className="py-16 bg-gradient-to-br from-[var(--beige-parchemin)] to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-[var(--foreground)] mb-4 text-center">
+            <h2 className="text-3xl font-bold text-[var(--foreground)] mb-8 text-center">
               Messe en direct
             </h2>
-            <DecorativeOrnament type="divider" className="mb-8" />
             <YouTubeLiveIndicator />
           </div>
         </div>

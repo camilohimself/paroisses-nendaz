@@ -74,8 +74,10 @@ export default function Header() {
               Live
             </a>
             <a
-              href="#"
-              className="bg-ciel text-white px-4 py-2 rounded-lg text-sm hover:bg-[var(--bleu-ciel)]/90 transition-parish font-semibold shadow-lg"
+              href="https://web.enoria.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-enoria text-white px-4 py-2 rounded-lg text-sm hover:bg-[var(--vert-enoria)]/90 transition-parish font-semibold shadow-lg"
             >
               Enoria
             </a>
@@ -161,8 +163,10 @@ export default function Header() {
                   Live
                 </a>
                 <a
-                  href="#"
-                  className="bg-ciel text-white px-3 py-2 rounded-lg text-sm hover:bg-[var(--bleu-ciel)]/90 transition-parish font-semibold"
+                  href="https://web.enoria.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-enoria text-white px-3 py-2 rounded-lg text-sm hover:bg-[var(--vert-enoria)]/90 transition-parish font-semibold"
                 >
                   Enoria
                 </a>
