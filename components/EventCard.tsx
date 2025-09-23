@@ -9,14 +9,14 @@ interface Event {
 }
 
 const eventTypeColors = {
-  MASS: 'bg-liturgique-ciel/20 text-liturgique-ciel',
-  BAPTISM: 'bg-liturgique-esperance/20 text-liturgique-esperance',
-  WEDDING: 'bg-liturgique-communion/20 text-liturgique-communion',
-  FUNERAL: 'bg-neutral-gris/20 text-neutral-charcoal',
-  CONFESSION: 'bg-liturgique-mystique/20 text-liturgique-mystique',
-  MEETING: 'bg-liturgique-chaleur/20 text-liturgique-chaleur',
-  CELEBRATION: 'bg-liturgique-lumiere/20 text-neutral-charcoal',
-  OTHER: 'bg-neutral-gris/20 text-neutral-charcoal'
+  MASS: 'bg-paroisse-bleuCiel/20 text-paroisse-bleuCiel',
+  BAPTISM: 'bg-paroisse-vert/20 text-paroisse-vert',
+  WEDDING: 'bg-paroisse-rouge/20 text-paroisse-rouge',
+  FUNERAL: 'bg-neutral-gris/20 text-neutral-anthracite',
+  CONFESSION: 'bg-paroisse-violet/20 text-paroisse-violet',
+  MEETING: 'bg-paroisse-jaune/20 text-paroisse-jaune',
+  CELEBRATION: 'bg-paroisse-jaune/20 text-neutral-anthracite',
+  OTHER: 'bg-neutral-gris/20 text-neutral-anthracite'
 }
 
 const eventTypeLabels = {
@@ -47,12 +47,12 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
   }
 
   return (
-    <div className={`bg-neutral-parchemin p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-neutral-gris/10 ${className}`}>
-      <div className="text-sm text-liturgique-ciel font-medium mb-2">
+    <div className={`bg-neutral-grisClaire p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-neutral-gris/10 ${className}`}>
+      <div className="text-sm text-paroisse-bleuCiel font-medium mb-2">
         {formatDate(event.date)}
       </div>
       
-      <h3 className="font-semibold text-lg mb-2 text-neutral-charcoal">
+      <h3 className="font-semibold text-lg mb-2 text-neutral-anthracite">
         {event.title}
       </h3>
       

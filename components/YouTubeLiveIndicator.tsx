@@ -69,7 +69,7 @@ export default function YouTubeLiveIndicator({
     <div className={`${className}`}>
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
         {/* Header avec statut */}
-        <div className={`p-4 ${isLive ? 'bg-communion' : 'bg-ciel'} text-white`}>
+        <div className={`p-4 ${isLive ? 'bg-paroisse-rouge' : 'bg-paroisse-bleuCiel'} text-white`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className={`w-3 h-3 rounded-full ${isLive ? 'bg-white animate-pulse' : 'bg-white/60'}`}></div>
@@ -102,7 +102,7 @@ export default function YouTubeLiveIndicator({
                 href={`https://youtube.com/${channelHandle}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-communion hover:bg-[var(--rouge-communion)]/90 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-parish"
+                className="w-full bg-paroisse-rouge hover:bg-paroisse-rouge/90 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-parish"
               >
                 <span>Rejoindre la messe</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +115,7 @@ export default function YouTubeLiveIndicator({
               <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">
                 Prochaine messe en direct
               </h3>
-              <p className="text-accent text-esperance mb-4 font-medium">
+              <p className="text-paroisse-vert mb-4 font-medium">
                 {nextMassTime}
               </p>
               <div className="aspect-video bg-gray-100 rounded-lg mb-4 flex items-center justify-center border-2 border-dashed border-gray-300">
@@ -130,7 +130,7 @@ export default function YouTubeLiveIndicator({
                 href={`https://youtube.com/${channelHandle}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-ciel hover:bg-[var(--bleu-ciel)]/90 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-parish"
+                className="w-full bg-paroisse-bleuCiel hover:bg-paroisse-bleuCiel/90 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-parish"
               >
                 <span>Visiter la chaîne YouTube</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,11 +142,11 @@ export default function YouTubeLiveIndicator({
         </div>
         
         {/* Footer avec infos */}
-        <div className="px-6 py-4 bg-parchemin border-t">
-          <div className="flex items-center justify-between text-sm text-[var(--gris-doux)]">
+        <div className="px-6 py-4 bg-neutral-grisClaire border-t">
+          <div className="flex items-center justify-between text-sm text-neutral-gris">
             <span>Messes dominicales</span>
             <span className="flex items-center gap-1">
-              <span className="w-2 h-2 bg-esperance rounded-full"></span>
+              <span className="w-2 h-2 bg-paroisse-vert rounded-full"></span>
               10h00 - Basse-Nendaz
             </span>
           </div>
