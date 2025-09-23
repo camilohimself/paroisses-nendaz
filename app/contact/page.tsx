@@ -174,60 +174,135 @@ export default function ContactPage() {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">Équipe pastorale</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Curé */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden text-center">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Abbé Félicien Roux */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-48 bg-gray-200 flex items-center justify-center">
                 <span className="text-gray-500 text-4xl">👨‍💼</span>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Abbé Vincent Lafargue</h3>
-                <p className="text-blue-600 font-medium mb-2">Curé</p>
-                <p className="text-sm text-gray-600">
-                  Responsable pastoral des deux paroisses
-                </p>
+                <h3 className="text-xl font-semibold mb-2">Abbé Félicien Roux</h3>
+                <p className="text-blue-600 font-medium mb-3">Prêtre</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>Rte de Nendaz 355</p>
+                  <p>1996 Basse-Nendaz</p>
+                  <p className="font-medium">027.288.22.50</p>
+                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                    Email
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Vicaire */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden text-center">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500 text-4xl">👨‍💼</span>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Abbé Jean-Marie Cettou</h3>
-                <p className="text-green-600 font-medium mb-2">Vicaire</p>
-                <p className="text-sm text-gray-600">
-                  Pastorale des jeunes et catéchèse
-                </p>
-              </div>
-            </div>
-
-            {/* Assistante pastorale */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden text-center">
+            {/* Blandine Bornet */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-48 bg-gray-200 flex items-center justify-center">
                 <span className="text-gray-500 text-4xl">👩‍💼</span>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Sophie Fournier</h3>
-                <p className="text-purple-600 font-medium mb-2">Assistante pastorale</p>
-                <p className="text-sm text-gray-600">
-                  Accompagnement sacrements et animation
-                </p>
+                <h3 className="text-xl font-semibold mb-2">Blandine Bornet</h3>
+                <p className="text-purple-600 font-medium mb-3">Membre de l'équipe</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>Ch des Crêtes 9</p>
+                  <p>1996 Basse-Nendaz</p>
+                  <p className="font-medium">027.288.51.59</p>
+                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                    Email
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Sacristain */}
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden text-center">
+            {/* Jean-Philippe Glassey */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-48 bg-gray-200 flex items-center justify-center">
-                <span className="text-gray-500 text-4xl">👨‍🔧</span>
+                <span className="text-gray-500 text-4xl">👨‍💼</span>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">Pierre Délèze</h3>
-                <p className="text-orange-600 font-medium mb-2">Sacristain</p>
-                <p className="text-sm text-gray-600">
-                  Entretien des églises et préparation liturgique
+                <h3 className="text-xl font-semibold mb-2">Jean-Philippe Glassey</h3>
+                <p className="text-green-600 font-medium mb-3">Membre de l'équipe</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>Rte de Magrappé 9</p>
+                  <p>1993 Veysonnaz</p>
+                  <p className="font-medium">027.207.13.18</p>
+                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                    Email
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Martin Fendrych */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="h-48 bg-gray-200 flex items-center justify-center">
+                <span className="text-gray-500 text-4xl">👨‍💼</span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Martin Fendrych</h3>
+                <p className="text-orange-600 font-medium mb-3">Membre de l'équipe</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>Ch du Fio 15</p>
+                  <p>1991 Salins</p>
+                  <p className="font-medium">027.346.00.03</p>
+                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                    Email
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Nadia Fendrych */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="h-48 bg-gray-200 flex items-center justify-center">
+                <span className="text-gray-500 text-4xl">👩‍💼</span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Nadia Fendrych</h3>
+                <p className="text-purple-600 font-medium mb-3">Membre de l'équipe</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>Chemin du Fio 15</p>
+                  <p>1991 Salins</p>
+                  <p className="font-medium">027.346.00.03</p>
+                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                    Email
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Camilo Rivera */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="h-48 bg-gray-200 flex items-center justify-center">
+                <span className="text-gray-500 text-4xl">👨‍💼</span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Camilo Rivera</h3>
+                <p className="text-blue-600 font-medium mb-3">Membre de l'équipe</p>
+                <div className="text-sm text-gray-600 space-y-1">
+                  <p>Rue de Clodevis</p>
+                  <p>1967 Bramois</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section Secrétariat */}
+          <div className="mt-16 max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+            <h3 className="text-2xl font-bold mb-6 text-center">Secrétariat</h3>
+            <div className="text-gray-600 space-y-4">
+              <p className="text-center">
+                Vous pouvez prendre contact avec notre secrétaire <strong>Caroline Karlen</strong> durant les heures de présence:
+              </p>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>Pour annoncer vos manifestations à paraître dans le Bulletin paroissial (un mois à l'avance), ou sur le site.</li>
+                <li>Pour vos intentions de messe (délai 2 semaines avant). Il est possible de les transmettre via notre site.</li>
+                <li>Pour toute autre question (baptême, mariages, etc.).</li>
+              </ul>
+              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6">
+                <p className="text-blue-700">
+                  <strong>Horaires du secrétariat :</strong><br/>
+                  Lundi - Vendredi : 8h30 - 11h30
                 </p>
               </div>
             </div>

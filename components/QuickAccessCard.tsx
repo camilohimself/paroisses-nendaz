@@ -10,13 +10,13 @@ interface QuickAccessCardProps {
 }
 
 const colorClasses = {
-  red: 'bg-communion hover:bg-[var(--rouge-communion)]/90 shadow-lg hover:shadow-xl text-white',
-  blue: 'bg-ciel hover:bg-[var(--bleu-ciel)]/90 shadow-lg hover:shadow-xl text-white',
-  green: 'bg-esperance hover:bg-[var(--vert-esperance)]/90 shadow-lg hover:shadow-xl text-white',
-  purple: 'bg-mystique hover:bg-[var(--violet-mystique)]/90 shadow-lg hover:shadow-xl text-white',
-  yellow: 'bg-lumiere hover:bg-[var(--jaune-lumiere)]/90 shadow-lg hover:shadow-xl text-[var(--foreground)]',
-  orange: 'bg-chaleur hover:bg-[var(--orange-chaleur)]/90 shadow-lg hover:shadow-xl text-white',
-  enoria: 'bg-enoria hover:bg-[var(--vert-enoria)]/90 shadow-lg hover:shadow-xl text-white'
+  red: 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 shadow-lg hover:shadow-xl text-white',
+  blue: 'bg-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/90 shadow-lg hover:shadow-xl text-white',
+  green: 'bg-paroisse-vert hover:bg-paroisse-vert/90 shadow-lg hover:shadow-xl text-white',
+  purple: 'bg-paroisse-violet hover:bg-paroisse-violet/90 shadow-lg hover:shadow-xl text-white',
+  yellow: 'bg-paroisse-jaune hover:bg-paroisse-jaune/90 shadow-lg hover:shadow-xl text-neutral-anthracite',
+  orange: 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 shadow-lg hover:shadow-xl text-white',
+  enoria: 'bg-enoria hover:bg-enoria/90 shadow-lg hover:shadow-xl text-white'
 }
 
 export default function QuickAccessCard({

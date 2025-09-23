@@ -8,7 +8,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white shadow-md border-b-2 border-parish">
+    <header className="bg-white shadow-md border-b-2 border-paroisse-bleuRoi">
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -25,40 +25,40 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            <Link 
-              href="/" 
-              className="text-[var(--foreground)] hover:text-communion font-medium transition-parish relative group"
+            <Link
+              href="/"
+              className="text-neutral-anthracite hover:text-paroisse-rouge font-medium transition-colors relative group"
             >
               <span>Accueil</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-communion transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-rouge transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link 
-              href="/actualites" 
-              className="text-[var(--foreground)] hover:text-chaleur font-medium transition-parish relative group"
+            <Link
+              href="/actualites"
+              className="text-neutral-anthracite hover:text-paroisse-jaune font-medium transition-colors relative group"
             >
               <span>Actualités</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-chaleur transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-jaune transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link 
-              href="/pastorale" 
-              className="text-[var(--foreground)] hover:text-esperance font-medium transition-parish relative group"
+            <Link
+              href="/pastorale"
+              className="text-neutral-anthracite hover:text-paroisse-vert font-medium transition-colors relative group"
             >
               <span>Pastorale</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-esperance transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-vert transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link 
-              href="/paroisses" 
-              className="text-[var(--foreground)] hover:text-ciel font-medium transition-parish relative group"
+            <Link
+              href="/paroisses"
+              className="text-neutral-anthracite hover:text-paroisse-bleuRoi font-medium transition-colors relative group"
             >
               <span>Paroisses</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-ciel transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-bleuRoi transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link 
-              href="/contact" 
-              className="text-[var(--foreground)] hover:text-mystique font-medium transition-parish relative group"
+            <Link
+              href="/contact"
+              className="text-neutral-anthracite hover:text-paroisse-violet font-medium transition-colors relative group"
             >
               <span>Contact</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-mystique transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-violet transition-all duration-300 group-hover:w-full"></span>
             </Link>
           </div>
 
@@ -68,7 +68,7 @@ export default function Header() {
               href="https://www.youtube.com/@paroissesnendazetveysonnaz"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-communion text-white px-4 py-2 rounded-lg text-sm hover:bg-[var(--rouge-communion)]/90 transition-parish font-semibold flex items-center gap-2 shadow-lg"
+              className="bg-paroisse-rouge text-white px-4 py-2 rounded-lg text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2 shadow-lg"
             >
               <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
               Live
@@ -77,7 +77,7 @@ export default function Header() {
               href="https://web.enoria.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-enoria text-white px-4 py-2 rounded-lg text-sm hover:bg-[var(--vert-enoria)]/90 transition-parish font-semibold shadow-lg"
+              className="bg-enoria text-white px-4 py-2 rounded-lg text-sm hover:bg-enoria/90 transition-colors font-semibold shadow-lg"
             >
               Enoria
             </a>
@@ -115,39 +115,39 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t bg-parchemin py-4">
+          <div className="md:hidden border-t bg-neutral-grisClaire py-4">
             <div className="flex flex-col space-y-4">
-              <Link 
-                href="/" 
-                className="text-[var(--foreground)] hover:text-communion transition-parish font-medium py-2 border-l-4 border-transparent hover:border-communion pl-4"
+              <Link
+                href="/"
+                className="text-neutral-anthracite hover:text-paroisse-rouge transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-rouge pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Accueil
               </Link>
-              <Link 
-                href="/actualites" 
-                className="text-[var(--foreground)] hover:text-chaleur transition-parish font-medium py-2 border-l-4 border-transparent hover:border-chaleur pl-4"
+              <Link
+                href="/actualites"
+                className="text-neutral-anthracite hover:text-paroisse-jaune transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-jaune pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Actualités
               </Link>
-              <Link 
-                href="/pastorale" 
-                className="text-[var(--foreground)] hover:text-esperance transition-parish font-medium py-2 border-l-4 border-transparent hover:border-esperance pl-4"
+              <Link
+                href="/pastorale"
+                className="text-neutral-anthracite hover:text-paroisse-vert transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-vert pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Pastorale
               </Link>
-              <Link 
-                href="/paroisses" 
-                className="text-[var(--foreground)] hover:text-ciel transition-parish font-medium py-2 border-l-4 border-transparent hover:border-ciel pl-4"
+              <Link
+                href="/paroisses"
+                className="text-neutral-anthracite hover:text-paroisse-bleuRoi transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-bleuRoi pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Paroisses
               </Link>
-              <Link 
-                href="/contact" 
-                className="text-[var(--foreground)] hover:text-mystique transition-parish font-medium py-2 border-l-4 border-transparent hover:border-mystique pl-4"
+              <Link
+                href="/contact"
+                className="text-neutral-anthracite hover:text-paroisse-violet transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-violet pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
@@ -157,7 +157,7 @@ export default function Header() {
                   href="https://www.youtube.com/@paroissesnendazetveysonnaz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-communion text-white px-3 py-2 rounded-lg text-sm hover:bg-[var(--rouge-communion)]/90 transition-parish font-semibold flex items-center gap-2"
+                  className="bg-paroisse-rouge text-white px-3 py-2 rounded-lg text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2"
                 >
                   <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
                   Live
@@ -166,7 +166,7 @@ export default function Header() {
                   href="https://web.enoria.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-enoria text-white px-3 py-2 rounded-lg text-sm hover:bg-[var(--vert-enoria)]/90 transition-parish font-semibold"
+                  className="bg-enoria text-white px-3 py-2 rounded-lg text-sm hover:bg-enoria/90 transition-colors font-semibold"
                 >
                   Enoria
                 </a>

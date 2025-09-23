@@ -7,6 +7,38 @@
 
 ## 🚀 État actuel du projet (9 septembre 2025 - 17h15)
 
+## 🎯 SÉANCE DU 16 SEPTEMBRE 2025 - ARCHITECTURE MULTI-CALENDRIERS COMPLÈTE ✅
+
+### ✨ RÉALISATION MAJEURE : SYSTÈME MULTI-CALENDRIERS 20+ LIEUX
+
+**🏗️ ARCHITECTURE MULTI-CALENDRIERS IMPLÉMENTÉE**
+- **Configuration complète** : 20+ calendriers mappés (Nendaz, Veysonnaz, autres secteurs)
+- **API multi-parallèle** : Récupération simultanée de tous les calendriers Google
+- **Filtrage intelligent** : Par secteur, par calendrier, par type d'événement
+- **Typologie complète** : Églises, chapelles, EMS, oratoires, équipe pastorale
+
+**🗓️ COMPOSANT HORAIREDESMESSE RÉVOLUTIONNÉ**
+- **Sélecteurs dynamiques** : Secteurs + calendriers spécifiques
+- **Affichage coloré** : Chaque lieu a sa couleur unique
+- **Types d'événements** : Messe, adoration, confession, baptême, mariage, etc.
+- **Responsive + fallback** : Fonctionne même si Google Calendar est hors ligne
+
+**📍 PAGES INDIVIDUELLES PAR LIEU**
+- **Routes dynamiques** : `/paroisses/[slug]` pour chaque église/chapelle
+- **Horaires dédiés** : Chaque lieu affiche uniquement ses propres événements
+- **Design contextuel** : Couleurs et icônes selon le type de lieu
+- **Navigation intelligente** : Liens vers autres lieux du même secteur
+
+**🗂️ PAGE INDEX PAROISSES**
+- **Navigation par secteurs** : Nendaz, Veysonnaz, Autres, Transversal
+- **Statistiques visuelles** : Nombres d'églises, chapelles, EMS
+- **Cartes interactives** : Chaque lieu avec sa couleur et description
+
+**👥 MISE À JOUR ÉQUIPE PASTORALE**
+- **Nouvelle équipe complète** : 6 membres avec coordonnées détaillées
+- **Section secrétariat** : Ajout Caroline Karlen avec horaires et services
+- **Design amélioré** : Cartes avec adresses et téléphones pour chaque membre
+
 ## 🎯 SÉANCE DU 9 SEPTEMBRE 2025 - TRANSFORMATION IDENTITÉ PAROISSIALE
 
 ### ✨ Améliorations réalisées cette séance :
@@ -47,139 +79,211 @@
 
 **🎉 RÉSULTAT : Site avec identité paroissiale authentique, moderne et fonctionnel**
 
-## 🚀 État actuel du projet (9 septembre 2025)
+## 🎯 SÉANCE DU 23 SEPTEMBRE 2025 - INTÉGRATION CONTENUS HISTORIQUES ✅
+
+### ✨ RÉALISATION MAJEURE : PAGES ENRICHIES AVEC CONTENUS MD
+
+**📚 BASE DE DONNÉES CONTENUS COMPLÈTE**
+- **20+ fiches détaillées** : Histoire, patron, dates de construction, particularités
+- **Correspondance parfaite** : Textes MD ↔ calendriers Google existants
+- **Horaires habituels** : Messes dominicales, semaine, adoration, vêpres
+- **Structure TypeScript** : Interface ParoisseContent avec types stricts
+
+**🏛️ PAGES INDIVIDUELLES RÉVOLUTIONNÉES**
+- **Section Histoire** : Texte complet du MD avec particularités
+- **Section Horaires fixes** : Données structurées du MD
+- **Section "Prochaines célébrations"** : Google Calendar live intégré
+- **Navigation enrichie** : Breadcrumb + liens vers autres lieux du secteur
+- **Design cohérent** : Nouvelle charte graphique appliquée
+
+**🗺️ PAGE INDEX PAROISSES ENRICHIE**
+- **Cartes avec extraits** : 30 premiers mots de l'histoire
+- **Informations enrichies** : Patron, date de construction, horaires dominicaux
+- **Design amélioré** : Couleurs par secteur, badges informatifs
+- **Navigation intelligente** : Liens directs vers pages détaillées
+
+**🔗 ARCHITECTURE HYBRIDE PARFAITE**
+- **Données statiques** (histoire, horaires) + **données live** (Google Calendar)
+- **Système de fallback** : Horaires fixes si Google Calendar indisponible
+- **35 pages générées** avec contenu riche et SEO optimisé
+- **Meta descriptions** enrichies avec extraits historiques
+
+## 🚀 État actuel du projet (23 septembre 2025 - 10h00)
 
 ### ✅ Réalisations complétées
 - **Structure Next.js 15** avec TypeScript et Tailwind CSS
 - **Pages principales** : Accueil, Actualités, Événements, Paroisses, Pastorale, Contact
 - **Composants réutilisables** : Header, Footer, EventCard, QuickAccessCard
-- **Base de données Prisma** avec schéma complet (désactivé temporairement)
-- **Authentification NextAuth** (configuration partielle)
-- **Dashboard admin** avec statistiques et vue d'ensemble
+- **Système multi-calendriers Google** : 20+ calendriers pour tous les lieux de culte
+- **Pages dynamiques** : Chaque paroisse/chapelle a sa propre page avec ses horaires
+- **Détection YouTube Live** : Indicateur automatique pour les messes en direct
+- **Base de données contenus** : Textes historiques et horaires pour 20+ lieux
+- **Intégration MD complète** : Histoire + Google Calendar sur chaque page individuelle
 - **Déploiement Vercel** fonctionnel
 - **Site live** : https://paroisses-nendaz.vercel.app
 
-### 🎨 Identité visuelle
-- **Logo** : Logo multicolore avec croix puzzle représentant les paroisses
-- **Palette officielle - Couleurs liturgiques** :
-  - Rouge communion (#DC143C) - Passion, amour
-  - Bleu ciel (#4169E1) - Spiritualité, ciel
-  - Jaune lumière (#FFD700) - Lumière divine  
-  - Vert espérance (#228B22) - Espérance, nature
-  - Orange chaleur (#FF8C00) - Chaleur communautaire
-  - Violet mystique (#8B008B) - Mystère, transcendance
-- **Couleurs neutres** :
-  - Charcoal (#2C3E50) - Texte principal
-  - Gris doux (#7F8C8D) - Texte secondaire
-  - Blanc pur (#FFFFFF) - Fond principal
-  - Beige parchemin (#FBF8F3) - Fond alternatif
+### 🎨 Identité visuelle - CHARTE GRAPHIQUE OFFICIELLE
+- **Logo** : Logo multicolore avec 9 carrés puzzle représentant l'unité des paroisses
+
+#### **Palette officielle validée (23.09.2025) :**
+
+**Couleurs principales du logo :**
+- **Violet mystique** : `#8B4789` - Spiritualité, transcendance
+- **Bleu roi** : `#2E5EAA` - Ciel divin, foi
+- **Jaune lumière** : `#FFC107` - Lumière divine, joie
+- **Turquoise** : `#5DADE2` - Eau baptismale, renouveau
+- **Bleu marine** : `#1E3A5F` - Profondeur spirituelle
+- **Bleu ciel** : `#87CEEB` - Paix céleste, sérénité
+- **Vert espérance** : `#4CAF50` - Vie, espérance, nature
+- **Bleu communauté** : `#4A90E2` - Unité paroissiale
+- **Rouge passion** : `#E74C3C` - Amour du Christ, passion
+
+**Couleurs neutres :**
+- **Gris anthracite** : `#3E3E3E` - Fond sombre, contraste
+- **Blanc pur** : `#FFFFFF` - Fond principal, pureté
+- **Gris clair** : `#F5F5F5` - Fonds secondaires
+
 - **Typographie** : Playfair Display (titres), Crimson Text (accents), Inter (corps)
-- **Couleur Enoria** : #2A8B8C - Vert spécifique pour l'intégration
+- **Couleur Enoria** : `#2A8B8C` - Intégration plateforme Enoria
 
-### 🔧 Configuration temporaire
-- **Pas de base de données** : Données hardcodées pour la démo
-- **Auth simplifiée** : Comptes de démo sans Prisma
-- **Variables d'environnement manquantes** sur Vercel (NEXTAUTH_SECRET)
+### 🔧 Architecture actuelle
+- **Pas de base de données nécessaire** : Google Calendar sert de source de données pour les horaires
+- **Gestion par OSOM** : Maintenance et mises à jour du contenu par l'équipe OSOM
+- **Données statiques** : Contenus fixes directement dans le code
+- **API Google Calendar** : Source dynamique pour tous les horaires de messes
 
-### 🔐 Accès actuels
+### 🔐 Stratégie de gestion
 - **Site public** : https://paroisses-nendaz.vercel.app
-- **Dashboard admin** (accès direct) : https://paroisses-nendaz.vercel.app/admin/dashboard
-- **Login admin** : https://paroisses-nendaz.vercel.app/admin/login
-  - Email : admin@paroisses-nendaz.ch
-  - Password : admin123
+- **Gestion des horaires** : Via Google Calendar (accessible par la paroisse)
+- **Mises à jour contenu** : Par OSOM via modification du code
+- **Maintenance** : Déploiement automatique via Vercel
 
-## 💡 Pourquoi une base de données ?
+## 📝 TODO List - Priorités ACTUELLES
 
-Une base de données est **essentielle** pour :
-1. **Gestion dynamique du contenu** : Permettre aux administrateurs de modifier actualités, événements et horaires sans toucher au code
-2. **Authentification sécurisée** : Gérer les comptes administrateurs de manière sécurisée
-3. **Historique et archivage** : Conserver l'historique des événements et actualités
-4. **Recherche et filtrage** : Permettre aux utilisateurs de rechercher dans le contenu
-5. **Multi-utilisateurs** : Plusieurs personnes peuvent gérer le site simultanément
-6. **Intégrations futures** : Newsletter, inscriptions événements, réservations salles
+### 🎯 Phase 1 : Amélioration du contenu
+- [ ] **Page Paroisses**
+  - Enrichir le contenu avec informations pratiques
+  - Ajouter photos des églises/chapelles
+  - Détailler les services par paroisse
+- [ ] **Page Pastorale**
+  - Compléter informations sacrements
+  - Ajouter section catéchèse détaillée
+  - Informations sur les groupes paroissiaux
+- [ ] **Page Actualités**
+  - Ajouter plus d'articles pertinents
+  - Intégrer photos et médias
 
-Sans base de données, tout changement nécessite une modification du code et un redéploiement, ce qui n'est pas viable pour une paroisse.
+### 🚀 Phase 2 : Optimisations fonctionnelles
+- [ ] **Améliorer l'affichage mobile**
+  - Tester et corriger responsive design
+  - Optimiser la navigation mobile
+- [ ] **Performance**
+  - Optimiser les images
+  - Améliorer temps de chargement
+- [ ] **SEO**
+  - Ajouter meta descriptions
+  - Optimiser les titres de pages
 
-## 📝 TODO List - Priorités
+### ⛪ Phase 3 : Intégration Google Calendar - ARCHITECTURE MULTI-CALENDRIERS ✅ COMPLÈTE
+- [x] **Phase 3.1 : Installation et configuration**
+  - [x] Installation librairie `googleapis`
+  - [x] Configuration OAuth Google Cloud (Client ID/Secret)
+  - [x] Création clé API simple pour calendriers publics
+  - [x] Structure de données TypeScript pour événements
+- [x] **Phase 3.2 : API Backend multi-calendriers**
+  - [x] Créer API route `/api/horaires` pour 20+ calendriers
+  - [x] Parser et formater les événements avec typologie complète
+  - [x] Système de fallback en cas d'erreur API
+  - [x] **IMPLÉMENTÉ** : Récupération parallèle de tous les calendriers
+  - [x] **Filtrage** : Par secteur, par calendrier, par type d'événement
+- [x] **Phase 3.3 : Composant React avancé**
+  - [x] Composant `HorairesMesse` avec sélecteurs dynamiques
+  - [x] Design responsive avec couleurs par lieu
+  - [x] **IMPLÉMENTÉ** : Filtrage par secteur et calendrier spécifique
+- [x] **Phase 3.4 : Architecture complète multi-lieux**
+  - [x] **Configuration des 20+ calendriers** :
+    - **NENDAZ** : Basse-Nendaz, Haute-Nendaz + 9 chapelles
+    - **VEYSONNAZ** : Église Veysonnaz + 3 chapelles
+    - **AUTRES** : Aproz, Fey, EMS, Oratoires
+    - **TRANSVERSAL** : Équipe pastorale
+  - [x] **API parallèle** : Récupération simultanée tous calendriers
+  - [x] **Pages dynamiques** : Route `/paroisses/[slug]` pour chaque lieu
+  - [x] **Navigation intelligente** : Index par secteurs avec filtrage
 
-### 🎯 Phase 1 : Configuration Production (Urgent)
-- [ ] **Configurer Supabase PostgreSQL**
-  - Créer compte Supabase
-  - Créer base de données
-  - Récupérer DATABASE_URL
-- [ ] **Réactiver Prisma**
-  - Décommenter imports dans `lib/auth.ts`
-  - Décommenter code dans `app/admin/dashboard/page.tsx`
-  - Migrer schéma : `npx prisma db push`
-  - Seed data : `npm run db:seed`
-- [ ] **Configurer variables Vercel**
-  - NEXTAUTH_SECRET (générer avec `openssl rand -base64 32`)
-  - NEXTAUTH_URL = https://paroisses-nendaz.vercel.app
-  - DATABASE_URL (depuis Supabase)
+### 🏗️ **ARCHITECTURE DÉCOUVERTE - Liste complète des calendriers :**
+**📍 SECTEUR NENDAZ :**
+- Église de Basse-Nendaz
+- Église de Haute-Nendaz
+- Chapelle de Beuson, Brignon, Saclentse, Bleusy, Planchouet
+- Chapelles St-Michel (Haute-Nendaz), St-Sébastien, des Condémines, des Rairettes
 
-### 🚀 Phase 2 : CMS Fonctionnel
-- [ ] **API Routes CRUD**
-  - `/api/events` - Créer, lire, modifier, supprimer événements
-  - `/api/articles` - Gestion des actualités
-  - `/api/documents` - Upload et gestion PDF
-- [ ] **Interface Admin complète**
-  - Page gestion événements (`/admin/events`)
-  - Éditeur articles (`/admin/articles`)
-  - Upload documents (`/admin/documents`)
-- [ ] **Connexion données dynamiques**
-  - Page accueil avec vrais événements depuis DB
-  - Page actualités avec articles depuis DB
+**📍 SECTEUR VEYSONNAZ :**
+- Église de Veysonnaz
+- Chapelle de Clèbes (Veysonnaz)
+- Chapelle St-Barthélémy (Clèbes)
 
-### 📦 Phase 3 : Fonctionnalités avancées
-- [ ] **Intégration YouTube Live**
-  - Embed player sur page accueil
-  - Détection live/offline automatique
-- [ ] **Système Upload PDF**
-  - Intégrer Supabase Storage ou Vercel Blob
-  - Page publique `/documents` pour téléchargements
-- [ ] **Newsletter Brevo**
-  - API d'inscription
-  - Gestion des listes
-- [ ] **Intégration Enoria**
-  - SSO ou iframe
-  - Authentification unifiée
+**📍 AUTRES SECTEURS :**
+- Église d'Aproz, de Fey
+- EMS Les Vergers, Foyer Ma Vallée
+- Oratoire du Chardonney
 
-### 🎨 Phase 4 : Finalisation
-- [ ] **Pages manquantes**
-  - Compléter page Paroisses avec vrais contenus
-  - Finaliser page Pastorale (sacrements, catéchèse)
-  - Page réservation salle
-- [ ] **Optimisations**
-  - Tests mobile responsive
-  - Performance audit Lighthouse
-  - SEO méta tags
-  - Accessibilité WCAG
+**📍 TRANSVERSAL :**
+- Z - Équipe pastorale (événements, réunions, formations)
+
+**✅ OBJECTIF ATTEINT : Chaque paroisse/chapelle affiche SES propres horaires depuis SON calendrier Google**
+
+### 🎉 FONCTIONNALITÉS IMPLÉMENTÉES CETTE SÉANCE :
+
+**🔗 URLs disponibles :**
+- **Page d'accueil** : `/` - Horaires globaux avec sélecteurs
+- **Index paroisses** : `/paroisses` - Navigation par secteurs
+- **Pages individuelles** : `/paroisses/basse-nendaz`, `/paroisses/haute-nendaz`, etc.
+- **API multi-calendriers** : `/api/horaires?sector=nendaz&calendarId=basse-nendaz`
+
+**📊 Capacités de l'API :**
+- **Récupération parallèle** : 20+ calendriers simultanément
+- **Filtrage flexible** : `?sector=nendaz` ou `?calendarId=basse-nendaz`
+- **Fallback robuste** : Données de démonstration si Google Calendar indisponible
+- **Cache intelligent** : Mise à jour toutes les heures
+- **Types d'événements** : 11 types colorés (messe, adoration, etc.)
+
+**🎨 Interface utilisateur :**
+- **Sélecteurs intuitifs** : Dropdown secteurs et lieux
+- **Design cohérent** : Couleurs uniques par lieu
+- **Responsive** : Mobile, tablet, desktop
+- **Accessible** : Navigation claire et logique
+
+### 📦 Phase 3 : Fonctionnalités futures (optionnel)
+- [ ] **Page documents**
+  - Section téléchargements PDF
+  - Organisation par catégories
+- [ ] **Page réservation salles**
+  - Formulaire de demande
+  - Calendrier de disponibilité
+- [ ] **Newsletter**
+  - Formulaire d'inscription simple
+  - Intégration avec service email
 - [ ] **Multilingue**
-  - Français/Allemand avec next-i18n
+  - Support français/allemand si nécessaire
 
-## 🐛 Problèmes connus à corriger
+## 🐛 Points d'attention
 
-1. **NextAuth configuration**
-   - Erreur : "Configuration" sur `/admin/error`
-   - Solution : Ajouter NEXTAUTH_SECRET sur Vercel
+1. **TypeScript warnings**
+   - Quelques unused variables à nettoyer
+   - À corriger avec ESLint si nécessaire
 
-2. **Base de données**
-   - Erreur : "PrismaClientInitializationError" sur Vercel
-   - Solution : Utiliser PostgreSQL (Supabase) au lieu de SQLite
-
-3. **TypeScript warnings**
-   - Unused variables dans certains fichiers
-   - À nettoyer avec ESLint
+2. **Optimisation images**
+   - Certaines images pourraient être optimisées
+   - Utiliser format WebP quand possible
 
 ## 📚 Documentation importante
 
 ### Stack technique
 - **Frontend** : Next.js 15, React 19, TypeScript, Tailwind CSS
-- **Backend** : Next.js API Routes, Prisma ORM
-- **Auth** : NextAuth.js
-- **DB** : PostgreSQL (Supabase recommandé)
-- **Hosting** : Vercel
-- **À intégrer** : Brevo (newsletter), YouTube API, Enoria
+- **Backend** : Next.js API Routes
+- **Données dynamiques** : Google Calendar API (horaires)
+- **Hosting** : Vercel avec déploiement automatique
+- **Intégrations actuelles** : YouTube Live (détection), Enoria (liens), Google Calendar (20+ calendriers)
 
 ### Structure du projet
 ```
@@ -199,56 +303,48 @@ site-web/
 # Développement
 npm run dev              # Serveur dev localhost:3000
 
-# Base de données
-npm run db:generate      # Générer client Prisma
-npm run db:push         # Pousser schéma vers DB
-npm run db:seed         # Insérer données de test
-
 # Production
 npm run build           # Build production
 npm run start          # Serveur production
+
+# Déploiement
+git push origin main     # Déploiement automatique via Vercel
 ```
 
 ## 💡 Notes pour la suite
 
-### Après la présentation client
-1. Définir priorités exactes avec le client
-2. Confirmer intégrations tierces (Enoria, Theodia, Brevo)
-3. Obtenir accès aux comptes/APIs nécessaires
-4. Planifier migration du contenu existant
+### Stratégie de maintenance
+1. **Gestion des horaires** : La paroisse modifie directement dans Google Calendar
+2. **Mises à jour contenu** : OSOM modifie le code et déploie via Git
+3. **Monitoring** : Vérification régulière du bon fonctionnement
+4. **Support** : OSOM assure la maintenance technique
 
-### Architecture recommandée
-- **CMS headless** pour gestion contenu (déjà en place avec Next.js)
-- **CDN Cloudflare** pour assets et cache
-- **Monitoring Sentry** pour tracking erreurs
-- **Analytics Plausible** (privacy-friendly)
-
-### Points d'attention SEO
-- Redirections 301 depuis anciennes URLs
-- Sitemap XML dynamique
-- Robots.txt optimisé
-- Meta tags et Open Graph
+### Points d'optimisation futurs
+- **Performance** : Optimisation images et lazy loading
+- **SEO** : Meta tags, sitemap XML, Open Graph
+- **Accessibilité** : Tests WCAG et améliorations
+- **Analytics** : Ajout tracking privacy-friendly si besoin
 
 ## 🎯 Objectif final
-Site moderne, performant et facile à maintenir pour les paroisses de Nendaz, avec CMS intuitif pour non-techniciens et toutes les intégrations nécessaires pour la vie paroissiale digitale.
+Site moderne et performant pour les paroisses de Nendaz, avec gestion simplifiée des horaires via Google Calendar et maintenance assurée par OSOM. Architecture légère sans base de données, adaptée aux besoins réels de la paroisse.
 
 ---
-*Dernière mise à jour : 9 septembre 2025, 17h15*
+*Dernière mise à jour : 23 septembre 2025*
 *Par : Claude Assistant & Camilo Rivera*
 
-## 🎯 PROCHAINES ÉTAPES RECOMMANDÉES
+## 🎯 PROCHAINES ÉTAPES IMMÉDIATES
 
-### Phase 1 : Configuration production (priorité haute)
-- Configuration base de données PostgreSQL (Supabase)
-- Variables d'environnement Vercel
-- Réactivation Prisma et données dynamiques
+### Priorité 1 : Amélioration du contenu
+- Enrichir page Paroisses avec informations pratiques
+- Compléter page Pastorale (sacrements, catéchèse)
+- Ajouter contenu pertinent sur page Actualités
 
-### Phase 2 : Contenu et fonctionnalités 
-- Remplacement contenu temporaire par contenu réel
-- Intégration API YouTube pour détection live automatique
-- Pages manquantes (réservation salle, documents)
+### Priorité 2 : Optimisations
+- Tests et corrections responsive mobile
+- Optimisation des images et performances
+- Amélioration SEO avec meta tags
 
-### Phase 3 : Optimisations finales
-- Tests responsiveness mobile/tablet
-- Optimisations SEO et performance
-- Tests utilisateurs avec les paroissiens
+### Priorité 3 : Fonctionnalités optionnelles
+- Page documents PDF si nécessaire
+- Formulaire réservation salles si demandé
+- Support multilingue si requis

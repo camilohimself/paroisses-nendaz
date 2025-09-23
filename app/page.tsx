@@ -1,35 +1,63 @@
 import EventCard from '@/components/EventCard'
 import QuickAccessCard from '@/components/QuickAccessCard'
 import YouTubeLiveIndicator from '@/components/YouTubeLiveIndicator'
+import HorairesMesse from '@/components/HorairesMesse'
 
 // Données temporaires - seront remplacées par la base de données
 const upcomingEvents = [
   {
     id: '1',
-    title: 'Messe en famille',
+    title: 'Messe dominicale',
     date: '2025-01-19',
     time: '10h00',
-    location: 'Haute-Nendaz',
+    location: 'Basse-Nendaz',
     type: 'MASS' as const,
-    description: 'Messe dominicale adaptée aux familles avec enfants'
+    description: 'Messe dominicale avec diffusion YouTube Live'
   },
   {
-    id: '2', 
-    title: 'Parcours confirmation',
+    id: '2',
+    title: 'Adoration eucharistique',
+    date: '2025-01-21',
+    time: '18h00',
+    location: 'Haute-Nendaz',
+    type: 'CELEBRATION' as const,
+    description: 'Temps de prière et d\'adoration du Saint-Sacrement'
+  },
+  {
+    id: '3',
+    title: 'Catéchisme - Parcours confirmation',
     date: '2025-01-25',
     time: '13h30',
-    location: 'Basse-Nendaz',
+    location: 'Salle paroissiale',
     type: 'MEETING' as const,
     description: 'Rencontre pour les jeunes en parcours de confirmation'
   },
   {
-    id: '3',
-    title: 'Messe des familles',
+    id: '4',
+    title: 'Messe de la Chandeleur',
     date: '2025-02-02',
-    time: '10h00', 
+    time: '10h00',
     location: 'Veysonnaz',
     type: 'CELEBRATION' as const,
-    description: 'Célébration de la Chandeleur'
+    description: 'Célébration de la Présentation du Seigneur avec bénédiction des cierges'
+  },
+  {
+    id: '5',
+    title: 'Soirée de l\'Amitié',
+    date: '2025-02-08',
+    time: '19h00',
+    location: 'Salle paroissiale Basse-Nendaz',
+    type: 'MEETING' as const,
+    description: 'Rencontre conviviale avec repas partagé et animation'
+  },
+  {
+    id: '6',
+    title: 'Messe des Cendres',
+    date: '2025-03-05',
+    time: '18h30',
+    location: 'Haute-Nendaz',
+    type: 'MASS' as const,
+    description: 'Entrée en Carême avec imposition des Cendres'
   }
 ]
 
@@ -37,17 +65,17 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-[var(--beige-parchemin)] to-white py-20 vitrail-glow">
+      <section className="bg-gradient-to-b from-neutral-grisClaire to-white py-20 vitrail-glow">
         <div className="container mx-auto px-4 text-center relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-[var(--foreground)] mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-neutral-anthracite mb-6">
             Paroisses de Nendaz
           </h1>
-          <p className="text-xl text-accent text-[var(--gris-doux)] mb-8">
+          <p className="text-xl text-paroisse-bleuRoi mb-8">
             Nendaz • Veysonnaz
           </p>
-          <div className="bg-lumiere/20 border-l-4 border-lumiere p-4 mb-8 mx-auto max-w-2xl backdrop-blur-sm">
-            <p className="text-[var(--foreground)] flex items-center justify-center gap-2">
-              <span className="w-3 h-3 bg-communion rounded-full animate-pulse"></span>
+          <div className="bg-paroisse-jaune/20 border-l-4 border-paroisse-jaune p-4 mb-8 mx-auto max-w-2xl backdrop-blur-sm">
+            <p className="text-neutral-anthracite flex items-center justify-center gap-2">
+              <span className="w-3 h-3 bg-paroisse-rouge rounded-full animate-pulse"></span>
               <strong>Messe en direct</strong> • Dimanche 10h00 sur YouTube
             </p>
           </div>
@@ -57,7 +85,7 @@ export default function Home() {
       {/* Quick Access */}
       <section className="py-16 bg-white relative">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8 text-[var(--foreground)]">
+          <h2 className="text-3xl font-bold text-center mb-8 text-neutral-anthracite">
             Accès rapides
           </h2>
           <div className="grid md:grid-cols-4 gap-6">
@@ -113,13 +141,13 @@ export default function Home() {
       </section>
 
       {/* Events Section */}
-      <section className="py-16 bg-parchemin">
+      <section className="py-16 bg-neutral-grisClaire">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl font-bold text-[var(--foreground)]">Prochains événements</h2>
-            <a 
-              href="/evenements" 
-              className="text-ciel hover:text-communion font-medium text-sm flex items-center transition-parish"
+            <h2 className="text-3xl font-bold text-neutral-anthracite">Prochains événements</h2>
+            <a
+              href="/evenements"
+              className="text-paroisse-bleuRoi hover:text-paroisse-rouge font-medium text-sm flex items-center transition-colors"
             >
               Voir tous les événements
               <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,48 +156,57 @@ export default function Home() {
             </a>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
-            {upcomingEvents.map((event) => (
+            {upcomingEvents.slice(0, 3).map((event) => (
               <EventCard key={event.id} event={event} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Mass Schedule */}
+      {/* Mass Schedule - Dynamic from Google Calendar */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-[var(--foreground)]">Horaires des messes</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-neutral-anthracite">Prochaines célébrations</h2>
           <div className="max-w-4xl mx-auto">
+            <HorairesMesse
+              showCalendarSelector={true}
+              maxEvents={8}
+            />
+          </div>
+
+          {/* Fallback horaires fixes si Google Calendar ne fonctionne pas */}
+          <div className="max-w-4xl mx-auto mt-12 pt-8 border-t border-gray-200">
+            <h3 className="text-lg font-semibold mb-6 text-center text-gray-600">Horaires habituels</h3>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-communion">Week-end</h3>
+                <h4 className="text-lg font-semibold mb-4 text-paroisse-rouge">Week-end</h4>
                 <div className="space-y-2">
-                  <div className="flex justify-between py-2 border-b">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Samedi 18h00</span>
                     <span className="text-gray-600">Haute-Nendaz</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Dimanche 10h00</span>
                     <span className="text-gray-600">Basse-Nendaz</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Dimanche 11h00</span>
                     <span className="text-gray-600">Veysonnaz (été)</span>
                   </div>
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4 text-ciel">Semaine</h3>
+                <h4 className="text-lg font-semibold mb-4 text-paroisse-bleuRoi">Semaine</h4>
                 <div className="space-y-2">
-                  <div className="flex justify-between py-2 border-b">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Mardi 8h30</span>
                     <span className="text-gray-600">Basse-Nendaz</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Jeudi 18h30</span>
                     <span className="text-gray-600">Haute-Nendaz</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b">
+                  <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Vendredi 8h30</span>
                     <span className="text-gray-600">Veysonnaz</span>
                   </div>
@@ -181,10 +218,10 @@ export default function Home() {
       </section>
 
       {/* YouTube Live Section */}
-      <section className="py-16 bg-gradient-to-br from-[var(--beige-parchemin)] to-white">
+      <section className="py-16 bg-gradient-to-br from-neutral-grisClaire to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-[var(--foreground)] mb-8 text-center">
+            <h2 className="text-3xl font-bold text-neutral-anthracite mb-8 text-center">
               Messe en direct
             </h2>
             <YouTubeLiveIndicator />
