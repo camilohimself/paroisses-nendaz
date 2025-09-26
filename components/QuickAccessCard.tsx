@@ -10,9 +10,10 @@ interface QuickAccessCardProps {
   subItems?: string[]
 }
 
-// NOTE: Classes écrites explicitement pour que Tailwind les détecte
+// NOTE: Classes écrites explicitement pour que Tailwind les détecte - FORCE VERCEL DEPLOY
 // bg-paroisse-rouge bg-paroisse-bleuRoi bg-paroisse-vert bg-paroisse-violet bg-paroisse-jaune bg-enoria
 // hover:bg-paroisse-rouge/90 hover:bg-paroisse-bleuRoi/90 hover:bg-paroisse-vert/90 hover:bg-paroisse-violet/90 hover:bg-paroisse-jaune/90 hover:bg-enoria/90
+// text-white text-neutral-anthracite shadow-lg hover:shadow-xl
 
 const colorClasses = {
   red: 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 shadow-lg hover:shadow-xl text-white',
