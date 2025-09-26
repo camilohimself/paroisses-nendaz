@@ -12,12 +12,32 @@ export const metadata: Metadata = {
 };
 
 export default function ParoissesIndexPage() {
-  // Grouper les calendriers par secteur
-  const secteurs = {
-    nendaz: getCalendarsBySector('nendaz'),
-    veysonnaz: getCalendarsBySector('veysonnaz'),
-    autres: getCalendarsBySector('autres'),
-    transversal: getCalendarsBySector('transversal')
+  // Regrouper TOUS les bâtiments sauf Veysonnaz dans "NENDAZ"
+  const allCalendars = CALENDARS_CONFIG;
+  const veysonnazBuildings = allCalendars.filter(c =>
+    c.name === 'Église de Veysonnaz' ||
+    c.name === 'Chapelle de Clèbes (Veysonnaz)' ||
+    c.name === 'Chapelle St-Barthélémy (Clèbes)'
+  );
+  const nendazBuildings = allCalendars.filter(c =>
+    !veysonnazBuildings.includes(c) &&
+    c.sector !== 'transversal'
+  );
+
+  // Données des 2 secteurs principaux
+  const mainSectors = {
+    nendaz: {
+      buildings: nendazBuildings,
+      count: nendazBuildings.length,
+      color: 'from-paroisse-bleuRoi to-paroisse-bleuMarine',
+      emoji: '⛰️'
+    },
+    veysonnaz: {
+      buildings: veysonnazBuildings,
+      count: veysonnazBuildings.length,
+      color: 'from-paroisse-violet to-paroisse-rouge',
+      emoji: '🏔️'
+    }
   };
 
   // Icône selon le type
@@ -88,164 +108,73 @@ export default function ParoissesIndexPage() {
           </div>
         </div>
 
-        {/* Statistiques avec nouvelle charte */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-paroisse-bleuRoi">
-            <div className="text-3xl font-bold text-paroisse-bleuRoi mb-2">
-              {CALENDARS_CONFIG.filter(c => c.type === 'eglise').length}
-            </div>
-            <div className="text-neutral-gris text-sm font-medium">Églises</div>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-paroisse-violet">
-            <div className="text-3xl font-bold text-paroisse-violet mb-2">
-              {CALENDARS_CONFIG.filter(c => c.type === 'chapelle').length}
-            </div>
-            <div className="text-neutral-gris text-sm font-medium">Chapelles</div>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-paroisse-vert">
-            <div className="text-3xl font-bold text-paroisse-vert mb-2">
-              {CALENDARS_CONFIG.filter(c => c.type === 'ems').length}
-            </div>
-            <div className="text-neutral-gris text-sm font-medium">EMS & Oratoires</div>
-          </div>
-          <div className="bg-white rounded-xl shadow-lg p-6 text-center border-t-4 border-paroisse-rouge">
-            <div className="text-3xl font-bold text-paroisse-rouge mb-2">
-              {CALENDARS_CONFIG.length}
-            </div>
-            <div className="text-neutral-gris text-sm font-medium">Total lieux</div>
-          </div>
-        </div>
-
-        {/* Secteurs */}
-        <div className="space-y-16">
-          {Object.entries(secteurs).map(([sector, calendars]) => (
-            <div key={sector} className="max-w-6xl mx-auto">
-              {/* Header du secteur */}
-              <div className="text-center mb-8">
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${getSectorColor(sector)} text-white shadow-lg mb-4`}
-                >
-                  <span className="text-2xl">
-                    {sector === 'nendaz' && '⛰️'}
-                    {sector === 'veysonnaz' && '🏔️'}
-                    {sector === 'autres' && '🌄'}
-                    {sector === 'transversal' && '👥'}
-                  </span>
+        {/* 2 Cartes principales - Nendaz et Veysonnaz */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16 max-w-4xl mx-auto">
+          {/* Carte NENDAZ */}
+          <a
+            href="/paroisses/nendaz"
+            className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-paroisse-bleuRoi/50 transform hover:scale-105"
+          >
+            <div className={`h-4 bg-gradient-to-r ${mainSectors.nendaz.color}`} />
+            <div className="p-8 text-center">
+              <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br ${mainSectors.nendaz.color} text-white shadow-lg mb-6 text-3xl group-hover:scale-110 transition-transform`}>
+                {mainSectors.nendaz.emoji}
+              </div>
+              <h2 className="text-3xl font-bold text-neutral-anthracite mb-4 group-hover:text-paroisse-bleuRoi transition">
+                Nendaz
+              </h2>
+              <div className="mb-6">
+                <div className="text-4xl font-bold text-paroisse-bleuRoi mb-2">
+                  {mainSectors.nendaz.count}
                 </div>
-                <h2 className="text-3xl font-bold text-neutral-anthracite mb-2">
-                  {getSectorTitle(sector)}
-                </h2>
-                <p className="text-neutral-gris max-w-2xl mx-auto">
-                  {getSectorDescription(sector)}
-                </p>
+                <div className="text-neutral-gris">églises et chapelles</div>
               </div>
-
-              {/* Grid des lieux enrichi avec extraits */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {calendars.map((calendar) => {
-                  const content = getParoisseContent(calendar.id);
-                  return (
-                    <a
-                      key={calendar.id}
-                      href={`/paroisses/${calendar.id}`}
-                      className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-paroisse-bleuRoi/30"
-                    >
-                      {/* Header coloré */}
-                      <div
-                        className="h-3"
-                        style={{ backgroundColor: calendar.color }}
-                      />
-
-                      <div className="p-6">
-                        {/* Icône et nom */}
-                        <div className="flex items-start gap-4 mb-4">
-                          <div className="flex-shrink-0">
-                            <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center group-hover:bg-gray-100 transition">
-                              <span className="text-2xl">
-                                {getTypeIcon(calendar.type)}
-                              </span>
-                            </div>
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-lg font-semibold text-neutral-anthracite group-hover:text-paroisse-bleuRoi transition">
-                              {calendar.name}
-                            </h3>
-                            <div className="flex items-center gap-2 mt-1">
-                              <p className="text-sm text-neutral-gris capitalize">
-                                {calendar.type}
-                              </p>
-                              {content?.dateConstruction && (
-                                <span className="text-xs px-2 py-1 bg-paroisse-jaune/10 text-paroisse-jaune rounded-full">
-                                  {content.dateConstruction.length > 15
-                                    ? content.dateConstruction.substring(0, 15) + '...'
-                                    : content.dateConstruction
-                                  }
-                                </span>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Patron */}
-                        {content?.patron && (
-                          <div className="mb-3">
-                            <span className="text-sm font-medium text-paroisse-bleuRoi">
-                              {content.patron}
-                            </span>
-                          </div>
-                        )}
-
-                        {/* Extrait historique */}
-                        {content && (
-                          <div className="mb-4">
-                            <p className="text-sm text-neutral-gris leading-relaxed">
-                              {getParoisseExtract(content)}
-                            </p>
-                          </div>
-                        )}
-
-                        {/* Localisation */}
-                        {calendar.defaultLocation && (
-                          <div className="flex items-center gap-2 text-sm text-neutral-gris mb-4">
-                            <span className="text-neutral-gris">📍</span>
-                            <span className="truncate">{calendar.defaultLocation}</span>
-                          </div>
-                        )}
-
-                        {/* Horaires principaux */}
-                        {content?.horaires.dominicale && (
-                          <div className="mb-4 p-3 bg-neutral-grisClaire rounded-lg">
-                            <div className="flex items-center gap-2 text-sm">
-                              <span className="text-paroisse-rouge">⛪</span>
-                              <span className="font-medium text-neutral-anthracite">Messe dominicale:</span>
-                            </div>
-                            <p className="text-xs text-neutral-gris mt-1">{content.horaires.dominicale}</p>
-                          </div>
-                        )}
-
-                        {/* Footer avec secteur et lien */}
-                        <div className="flex items-center justify-between pt-2 border-t border-gray-100">
-                          <span
-                            className="px-3 py-1 rounded-full text-xs font-medium text-white"
-                            style={{ backgroundColor: calendar.color }}
-                          >
-                            {getSectorTitle(calendar.sector).replace('Secteur de ', '').replace('Secteur ', '')}
-                          </span>
-                          <div className="flex items-center gap-1 text-xs text-paroisse-bleuRoi group-hover:text-paroisse-rouge transition">
-                            <span>Découvrir</span>
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  );
-                })}
+              <p className="text-neutral-gris leading-relaxed mb-6">
+                Découvrez toutes les églises et chapelles du secteur de Nendaz,
+                de Basse-Nendaz à Haute-Nendaz et leurs chapelles environnantes.
+              </p>
+              <div className="flex items-center justify-center gap-2 text-paroisse-bleuRoi group-hover:text-paroisse-rouge transition font-medium">
+                <span>Explorer Nendaz</span>
+                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
               </div>
             </div>
-          ))}
+          </a>
+
+          {/* Carte VEYSONNAZ */}
+          <a
+            href="/paroisses/veysonnaz"
+            className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-paroisse-violet/50 transform hover:scale-105"
+          >
+            <div className={`h-4 bg-gradient-to-r ${mainSectors.veysonnaz.color}`} />
+            <div className="p-8 text-center">
+              <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br ${mainSectors.veysonnaz.color} text-white shadow-lg mb-6 text-3xl group-hover:scale-110 transition-transform`}>
+                {mainSectors.veysonnaz.emoji}
+              </div>
+              <h2 className="text-3xl font-bold text-neutral-anthracite mb-4 group-hover:text-paroisse-violet transition">
+                Veysonnaz
+              </h2>
+              <div className="mb-6">
+                <div className="text-4xl font-bold text-paroisse-violet mb-2">
+                  {mainSectors.veysonnaz.count}
+                </div>
+                <div className="text-neutral-gris">lieux de culte</div>
+              </div>
+              <p className="text-neutral-gris leading-relaxed mb-6">
+                Explorez l'église de Veysonnaz et ses chapelles de montagne,
+                lieux de spiritualité dans un cadre alpin exceptionnel.
+              </p>
+              <div className="flex items-center justify-center gap-2 text-paroisse-violet group-hover:text-paroisse-rouge transition font-medium">
+                <span>Explorer Veysonnaz</span>
+                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </a>
         </div>
+
 
         {/* Section informative enrichie */}
         <div className="max-w-5xl mx-auto mt-20">
