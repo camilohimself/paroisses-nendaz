@@ -127,7 +127,7 @@ export default function ParoissesIndexPage() {
                 <div className="text-4xl font-bold text-paroisse-bleuRoi mb-2">
                   {mainSectors.nendaz.count}
                 </div>
-                <div className="text-neutral-gris">églises et chapelles</div>
+                <div className="text-neutral-gris uppercase font-medium">ÉGLISES ET CHAPELLES</div>
               </div>
               <p className="text-neutral-gris leading-relaxed mb-6">
                 Découvrez toutes les églises et chapelles du secteur de Nendaz,
@@ -159,7 +159,7 @@ export default function ParoissesIndexPage() {
                 <div className="text-4xl font-bold text-paroisse-violet mb-2">
                   {mainSectors.veysonnaz.count}
                 </div>
-                <div className="text-neutral-gris">lieux de culte</div>
+                <div className="text-neutral-gris uppercase font-medium">LIEUX DE CULTE</div>
               </div>
               <p className="text-neutral-gris leading-relaxed mb-6">
                 Explorez l'église de Veysonnaz et ses chapelles de montagne,
