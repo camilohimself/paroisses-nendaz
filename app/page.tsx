@@ -1,84 +1,37 @@
-import EventCard from '@/components/EventCard'
 import QuickAccessCard from '@/components/QuickAccessCard'
-import YouTubeLiveIndicator from '@/components/YouTubeLiveIndicator'
-import HorairesMesse from '@/components/HorairesMesse'
+import dynamic from 'next/dynamic'
 
-// Données temporaires - seront remplacées par la base de données
-const upcomingEvents = [
-  {
-    id: '1',
-    title: 'Messe dominicale',
-    date: '2025-01-19',
-    time: '10h00',
-    location: 'Basse-Nendaz',
-    type: 'MASS' as const,
-    description: 'Messe dominicale avec diffusion YouTube Live'
-  },
-  {
-    id: '2',
-    title: 'Adoration eucharistique',
-    date: '2025-01-21',
-    time: '18h00',
-    location: 'Haute-Nendaz',
-    type: 'CELEBRATION' as const,
-    description: 'Temps de prière et d\'adoration du Saint-Sacrement'
-  },
-  {
-    id: '3',
-    title: 'Catéchisme - Parcours confirmation',
-    date: '2025-01-25',
-    time: '13h30',
-    location: 'Salle paroissiale',
-    type: 'MEETING' as const,
-    description: 'Rencontre pour les jeunes en parcours de confirmation'
-  },
-  {
-    id: '4',
-    title: 'Messe de la Chandeleur',
-    date: '2025-02-02',
-    time: '10h00',
-    location: 'Veysonnaz',
-    type: 'CELEBRATION' as const,
-    description: 'Célébration de la Présentation du Seigneur avec bénédiction des cierges'
-  },
-  {
-    id: '5',
-    title: 'Soirée de l\'Amitié',
-    date: '2025-02-08',
-    time: '19h00',
-    location: 'Salle paroissiale Basse-Nendaz',
-    type: 'MEETING' as const,
-    description: 'Rencontre conviviale avec repas partagé et animation'
-  },
-  {
-    id: '6',
-    title: 'Messe des Cendres',
-    date: '2025-03-05',
-    time: '18h30',
-    location: 'Haute-Nendaz',
-    type: 'MASS' as const,
-    description: 'Entrée en Carême avec imposition des Cendres'
-  }
-]
+// Lazy load non-critical components
+const HorairesMesse = dynamic(() => import('@/components/HorairesMesse'), {
+  loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-32" />
+})
+const YouTubeLiveIndicator = dynamic(() => import('@/components/YouTubeLiveIndicator'), {
+  loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-32" />
+})
+
 
 export default function Home() {
   return (
     <div>
-      {/* Hero Section */}
+      {/* Hero Section - KPI: Messe en direct Dimanche 10h00 */}
       <section className="bg-gradient-to-b from-neutral-grisClaire to-white py-20 vitrail-glow">
-        <div className="container mx-auto px-4 text-center relative z-10">
+        <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-neutral-anthracite mb-6">
             Paroisses de Nendaz
           </h1>
-          <p className="text-xl text-paroisse-bleuRoi mb-8">
-            Nendaz • Veysonnaz
-          </p>
-          <div className="bg-paroisse-jaune/20 border-l-4 border-paroisse-jaune p-4 mb-8 mx-auto max-w-2xl backdrop-blur-sm">
-            <p className="text-neutral-anthracite flex items-center justify-center gap-2">
-              <span className="w-3 h-3 bg-paroisse-rouge rounded-full animate-pulse"></span>
-              <strong>Messe en direct</strong> • Dimanche 10h00 sur YouTube
-            </p>
-          </div>
+          <p className="text-xl text-paroisse-bleuRoi mb-8">Nendaz • Veysonnaz</p>
+          <a
+            href="https://www.youtube.com/@paroissesnendazetveysonnaz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-paroisse-jaune/20 border-l-4 border-paroisse-jaune p-4 mx-auto max-w-2xl backdrop-blur-sm hover:bg-paroisse-jaune/30 transition-all rounded-r-lg group"
+          >
+            <span className="w-3 h-3 bg-paroisse-rouge rounded-full animate-pulse"></span>
+            <strong className="text-neutral-anthracite">Messe en direct • Dimanche 10h00</strong>
+            <svg className="w-4 h-4 ml-2 text-paroisse-rouge group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
         </div>
       </section>
 
@@ -88,17 +41,34 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8 text-neutral-anthracite">
             Accès rapides
           </h2>
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <QuickAccessCard
-              title="Messe en direct"
-              description="YouTube Live - Dimanche 10h"
-              href="https://www.youtube.com/@paroissesnendazetveysonnaz"
-              color="red"
-              external
+              title="Service Liturgique"
+              description="Inscriptions informations"
+              href="/service-liturgique"
+              color="purple"
               icon={
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="3"/>
-                  <circle cx="12" cy="12" r="1"/>
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+              }
+              subItems={[
+                "Jeunes lecteurs",
+                "Lecteurs",
+                "Servants de Messe",
+                "Technique",
+                "Chorale",
+                "Chœurs"
+              ]}
+            />
+            <QuickAccessCard
+              title="Sacrements"
+              description="Baptême, communion, mariage..."
+              href="/sacrements"
+              color="blue"
+              icon={
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               }
             />
@@ -115,33 +85,27 @@ export default function Home() {
               }
             />
             <QuickAccessCard
-              title="Réservation salle"
-              description="Salle paroissiale"
-              href="/reservation"
-              color="green"
+              title="Intentions & Annonces"
+              description="Demandes et feuilles"
+              href="/intentions-annonces"
+              color="yellow"
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
               }
-            />
-            <QuickAccessCard
-              title="Feuilles d&apos;annonces"
-              description="Documents PDF"
-              href="/documents"
-              color="purple"
-              icon={
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-              }
+              subItems={[
+                "Demander une intention",
+                "Feuilles d'annonces"
+              ]}
             />
           </div>
         </div>
       </section>
 
-      {/* Events Section */}
-      <section className="py-16 bg-neutral-grisClaire">
+
+      {/* Mass Schedule - Dynamic from Google Calendar */}
+      <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-12">
             <h2 className="text-3xl font-bold text-neutral-anthracite">Prochains événements</h2>
@@ -155,22 +119,10 @@ export default function Home() {
               </svg>
             </a>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {upcomingEvents.slice(0, 3).map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mass Schedule - Dynamic from Google Calendar */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-neutral-anthracite">Prochaines célébrations</h2>
           <div className="max-w-4xl mx-auto">
             <HorairesMesse
               showCalendarSelector={true}
-              maxEvents={8}
+              maxEvents={6}
             />
           </div>
 

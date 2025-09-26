@@ -7,7 +7,12 @@ interface QuickAccessCardProps {
   color: 'red' | 'blue' | 'green' | 'purple' | 'yellow' | 'orange' | 'enoria'
   external?: boolean
   icon?: React.ReactNode
+  subItems?: string[]
 }
+
+// NOTE: Classes écrites explicitement pour que Tailwind les détecte
+// bg-paroisse-rouge bg-paroisse-bleuRoi bg-paroisse-vert bg-paroisse-violet bg-paroisse-jaune bg-enoria
+// hover:bg-paroisse-rouge/90 hover:bg-paroisse-bleuRoi/90 hover:bg-paroisse-vert/90 hover:bg-paroisse-violet/90 hover:bg-paroisse-jaune/90 hover:bg-enoria/90
 
 const colorClasses = {
   red: 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 shadow-lg hover:shadow-xl text-white',
@@ -25,9 +30,10 @@ export default function QuickAccessCard({
   href,
   color,
   external = false,
-  icon
+  icon,
+  subItems
 }: QuickAccessCardProps) {
-  const baseClasses = `${colorClasses[color]} p-6 rounded-lg transition-parish block group transform hover:scale-105`
+  const baseClasses = `${colorClasses[color]} p-6 rounded-lg transition-all duration-300 block group transform hover:scale-105 min-h-full`
 
   const content = (
     <>
@@ -39,6 +45,16 @@ export default function QuickAccessCard({
           <p className="text-sm opacity-95 font-medium">
             {description}
           </p>
+          {subItems && subItems.length > 0 && (
+            <ul className="mt-3 space-y-1">
+              {subItems.map((item, index) => (
+                <li key={index} className="text-xs opacity-90 flex items-center">
+                  <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60 mr-2" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         {icon && (
           <div className="ml-3 flex-shrink-0 opacity-90">
