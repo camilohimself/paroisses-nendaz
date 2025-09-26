@@ -126,7 +126,7 @@ export default function PastoralePage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-neutral-anthracite mb-4">Catéchèse et Formation</h2>
+            <h2 className="text-3xl font-bold text-neutral-anthracite mb-4">Catéchèse</h2>
             <p className="text-lg text-neutral-gris max-w-3xl mx-auto">
               Accompagnement dans la découverte et l&apos;approfondissement de la foi chrétienne,
               adapté à chaque âge et chaque étape de la vie.
@@ -148,7 +148,7 @@ export default function PastoralePage() {
 
             <div className="bg-white p-8 rounded-xl shadow-lg text-center border-l-4 border-paroisse-bleuRoi hover:shadow-xl transition-shadow">
               <div className="text-4xl mb-4">🎓</div>
-              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Catéchisme</h3>
+              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Grain de Soleil</h3>
               <p className="text-paroisse-bleuRoi font-semibold mb-4">7-15 ans</p>
               <ul className="text-sm text-left space-y-2 text-neutral-gris">
                 <li>• Rencontres hebdomadaires</li>
@@ -160,7 +160,7 @@ export default function PastoralePage() {
 
             <div className="bg-white p-8 rounded-xl shadow-lg text-center border-l-4 border-paroisse-vert hover:shadow-xl transition-shadow">
               <div className="text-4xl mb-4">👥</div>
-              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Parcours adultes</h3>
+              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Activités catéchétiques</h3>
               <p className="text-paroisse-vert font-semibold mb-4">Adultes</p>
               <ul className="text-sm text-left space-y-2 text-neutral-gris">
                 <li>• Formation à la demande</li>
