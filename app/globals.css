@@ -1,4 +1,11 @@
 @import "tailwindcss";
+
+@source inline("
+  bg-paroisse-rouge bg-paroisse-bleuRoi bg-paroisse-vert bg-paroisse-violet bg-paroisse-jaune bg-enoria
+  hover:bg-paroisse-rouge/90 hover:bg-paroisse-bleuRoi/90 hover:bg-paroisse-vert/90 hover:bg-paroisse-violet/90 hover:bg-paroisse-jaune/90 hover:bg-enoria/90
+  text-white text-neutral-anthracite shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-full
+");
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
