@@ -34,10 +34,10 @@ export default function Header() {
             </Link>
             <Link
               href="/actualites"
-              className="text-neutral-anthracite hover:text-paroisse-jaune font-medium transition-colors relative group"
+              className="text-neutral-anthracite hover:text-paroisse-bleuRoi font-medium transition-colors relative group"
             >
               <span>Actualités</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-jaune transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-bleuRoi transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="/pastorale"
@@ -126,7 +126,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/actualites"
-                className="text-neutral-anthracite hover:text-paroisse-jaune transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-jaune pl-4"
+                className="text-neutral-anthracite hover:text-paroisse-bleuRoi transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-bleuRoi pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Actualités

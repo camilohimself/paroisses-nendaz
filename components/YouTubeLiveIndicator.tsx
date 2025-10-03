@@ -69,7 +69,7 @@ export default function YouTubeLiveIndicator({
     <div className={`${className}`}>
       <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
         {/* Header avec statut */}
-        <div className={`p-4 ${isLive ? 'bg-paroisse-rouge' : 'bg-paroisse-bleuCiel'} text-white`}>
+        <div className={`p-4 ${isLive ? 'bg-paroisse-rouge' : 'bg-paroisse-bleuCommunaute'} text-white`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className={`w-3 h-3 rounded-full ${isLive ? 'bg-white animate-pulse' : 'bg-white/60'}`}></div>
@@ -126,11 +126,11 @@ export default function YouTubeLiveIndicator({
                   <p className="text-sm">Hors ligne</p>
                 </div>
               </div>
-              <a 
+              <a
                 href={`https://youtube.com/${channelHandle}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-paroisse-bleuCiel hover:bg-paroisse-bleuCiel/90 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-parish"
+                className="w-full bg-paroisse-bleuCommunaute hover:bg-paroisse-bleuCommunaute/90 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-parish"
               >
                 <span>Visiter la chaîne YouTube</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

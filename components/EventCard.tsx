@@ -9,12 +9,12 @@ interface Event {
 }
 
 const eventTypeColors = {
-  MASS: 'bg-paroisse-bleuCiel/20 text-paroisse-bleuCiel',
-  BAPTISM: 'bg-paroisse-vert/20 text-paroisse-vert',
-  WEDDING: 'bg-paroisse-rouge/20 text-paroisse-rouge',
+  MASS: 'bg-paroisse-bleuCommunaute/20 text-paroisse-bleuCommunaute',
+  BAPTISM: 'bg-paroisse-vertFonce/20 text-paroisse-vertFonce',
+  WEDDING: 'bg-paroisse-rougeFonce/20 text-paroisse-rougeFonce',
   FUNERAL: 'bg-neutral-gris/20 text-neutral-anthracite',
-  CONFESSION: 'bg-paroisse-violet/20 text-paroisse-violet',
-  MEETING: 'bg-paroisse-jaune/20 text-paroisse-jaune',
+  CONFESSION: 'bg-paroisse-violetFonce/20 text-paroisse-violetFonce',
+  MEETING: 'bg-paroisse-jaune/20 text-neutral-anthracite',
   CELEBRATION: 'bg-paroisse-jaune/20 text-neutral-anthracite',
   OTHER: 'bg-neutral-gris/20 text-neutral-anthracite'
 }
@@ -48,7 +48,7 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
 
   return (
     <div className={`bg-neutral-grisClaire p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border border-neutral-gris/10 ${className}`}>
-      <div className="text-sm text-paroisse-bleuCiel font-medium mb-2">
+      <div className="text-sm text-paroisse-bleuCielFonce font-medium mb-2">
         {formatDate(event.date)}
       </div>
       
