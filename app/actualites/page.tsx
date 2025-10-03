@@ -122,7 +122,7 @@ export default function ActualitesPage() {
                 placeholder="Votre adresse email"
                 className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+              <button className="bg-paroisse-bleuRoi text-white px-6 py-2 rounded-lg hover:bg-paroisse-bleuRoi/90 transition-colors font-semibold">
                 S&apos;abonner
               </button>
             </div>

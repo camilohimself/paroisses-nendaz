@@ -89,7 +89,7 @@ export default function CommunionPage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             {/* Contact */}
-            <div className="bg-gradient-to-br from-paroisse-jaune to-paroisse-rouge text-white rounded-xl shadow-lg p-6 mb-6">
+            <div className="bg-gradient-to-br from-paroisse-rougeFonce to-paroisse-rouge text-white rounded-xl shadow-lg p-6 mb-6">
               <h3 className="text-xl font-bold mb-4">Inscrire votre enfant</h3>
               <p className="mb-6 text-white/90">
                 Prenez contact avec nous pour inscrire votre enfant au parcours de préparation.

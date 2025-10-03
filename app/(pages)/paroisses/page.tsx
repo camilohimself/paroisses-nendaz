@@ -57,7 +57,7 @@ export default function ParoissesIndexPage() {
     switch (sector) {
       case 'nendaz': return 'from-paroisse-bleuRoi to-paroisse-bleuMarine';
       case 'veysonnaz': return 'from-paroisse-violet to-paroisse-rouge';
-      case 'autres': return 'from-paroisse-vert to-paroisse-turquoise';
+      case 'autres': return 'from-paroisse-vertFonce to-paroisse-turquoiseFonce';
       case 'transversal': return 'from-paroisse-jaune to-paroisse-rouge';
       default: return 'from-neutral-gris to-neutral-anthracite';
     }
@@ -230,7 +230,7 @@ export default function ParoissesIndexPage() {
               </a>
               <a
                 href="/pastorale"
-                className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-paroisse-vert to-paroisse-turquoise text-white rounded-lg hover:shadow-md transition font-medium"
+                className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-paroisse-vertFonce to-paroisse-bleuMarine text-white rounded-lg hover:shadow-md transition font-medium"
               >
                 <span className="mr-2">⛪</span>
                 Services pastoraux

@@ -97,7 +97,7 @@ export default function PastoralePage() {
                 <li>• Contact urgence disponible</li>
                 <li>• 24h/24 • 7j/7</li>
               </ul>
-              <Link href="/sacrements/onction-malades" className="block w-full bg-paroisse-turquoise text-white py-2 px-4 rounded-lg hover:bg-paroisse-turquoise/90 transition font-medium text-center">
+              <Link href="/sacrements/onction-malades" className="block w-full bg-paroisse-turquoiseFonce text-white py-2 px-4 rounded-lg hover:bg-paroisse-turquoiseFonce/90 transition font-medium text-center">
                 En savoir plus
               </Link>
             </div>
@@ -302,7 +302,7 @@ export default function PastoralePage() {
                 </Link>
                 <Link
                   href="/paroisses"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-paroisse-vert to-paroisse-turquoise text-white rounded-lg hover:shadow-md transition font-medium"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-paroisse-vertFonce to-paroisse-bleuMarine text-white rounded-lg hover:shadow-md transition font-medium"
                 >
                   <span className="mr-2">📍</span>
                   Nos paroisses

@@ -31,7 +31,7 @@ export default function QuickAccessCard({
   } else if (color === 'purple') {
     colorClasses = 'bg-paroisse-violet hover:bg-paroisse-violet/90 text-white'
   } else if (color === 'yellow') {
-    colorClasses = 'bg-paroisse-jaune hover:bg-paroisse-jaune/90 text-neutral-anthracite'
+    colorClasses = 'bg-paroisse-jauneFonce hover:bg-paroisse-jauneFonce/90 text-white'
   } else if (color === 'orange') {
     colorClasses = 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 text-white'
   } else if (color === 'enoria') {

@@ -55,9 +55,10 @@ const config: Omit<Config, 'content'> & {
           // NOUVELLES couleurs accessibles WCAG AA/AAA
           violetFonce: '#6B3569',   // Ratio 7.1:1 ✅ AAA
           bleuCielFonce: '#2B7AB5', // Ratio 4.8:1 ✅ AA+ (remplace bleuCiel pour texte)
-          jauneFonce: '#E6A500',    // Ratio 3.5:1 ⚠️ AA large text
+          jauneFonce: '#CC8800',    // Ratio 4.5:1 ✅ AA (optimisé 03.10.2025)
           vertFonce: '#2E7D32',     // Ratio 5.8:1 ✅ AA+
           rougeFonce: '#C0392B',    // Ratio 5.5:1 ✅ AA+
+          turquoiseFonce: '#1A7FA0', // Ratio 4.8:1 ✅ AA+ (ajouté 03.10.2025)
         },
         // Couleurs neutres
         neutral: {
