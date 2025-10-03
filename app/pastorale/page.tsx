@@ -29,9 +29,9 @@ export default function PastoralePage() {
                 <li>• Documents requis</li>
                 <li>• Contact secrétariat</li>
               </ul>
-              <button className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
-                Demander un baptême
-              </button>
+              <Link href="/sacrements/bapteme" className="block w-full bg-paroisse-bleuRoi text-white py-2 px-4 rounded-lg hover:bg-paroisse-bleuRoi/90 transition font-medium text-center">
+                En savoir plus
+              </Link>
             </div>
 
             {/* Première Communion */}
@@ -46,9 +46,9 @@ export default function PastoralePage() {
                 <li>• Inscription: Juin précédent</li>
                 <li>• Responsable: Catéchiste</li>
               </ul>
-              <button className="w-full bg-yellow-600 text-white py-2 px-4 rounded hover:bg-yellow-700 transition">
-                Inscription catéchisme
-              </button>
+              <Link href="/sacrements/communion" className="block w-full bg-gradient-to-r from-paroisse-jaune to-paroisse-rouge text-white py-2 px-4 rounded-lg hover:opacity-90 transition font-medium text-center">
+                En savoir plus
+              </Link>
             </div>
 
             {/* Confirmation */}
@@ -63,9 +63,9 @@ export default function PastoralePage() {
                 <li>• Retraite obligatoire</li>
                 <li>• Évêque présent</li>
               </ul>
-              <button className="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition">
-                Parcours confirmation
-              </button>
+              <Link href="/sacrements/confirmation" className="block w-full bg-paroisse-violet text-white py-2 px-4 rounded-lg hover:bg-paroisse-violet/90 transition font-medium text-center">
+                En savoir plus
+              </Link>
             </div>
 
             {/* Mariage */}
@@ -80,9 +80,9 @@ export default function PastoralePage() {
                 <li>• Documents requis</li>
                 <li>• Cours préparation obligatoire</li>
               </ul>
-              <button className="w-full bg-pink-600 text-white py-2 px-4 rounded hover:bg-pink-700 transition">
-                Demander un mariage
-              </button>
+              <Link href="/sacrements/mariage" className="block w-full bg-paroisse-rougeFonce text-white py-2 px-4 rounded-lg hover:bg-paroisse-rougeFonce/90 transition font-medium text-center">
+                En savoir plus
+              </Link>
             </div>
 
             {/* Onction des malades */}
@@ -97,9 +97,9 @@ export default function PastoralePage() {
                 <li>• Contact urgence disponible</li>
                 <li>• 24h/24 • 7j/7</li>
               </ul>
-              <button className="w-full bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition">
-                Appel urgence
-              </button>
+              <Link href="/sacrements/onction-malades" className="block w-full bg-paroisse-turquoise text-white py-2 px-4 rounded-lg hover:bg-paroisse-turquoise/90 transition font-medium text-center">
+                En savoir plus
+              </Link>
             </div>
 
             {/* Réconciliation */}
@@ -114,9 +114,9 @@ export default function PastoralePage() {
                 <li>• Temps forts liturgiques</li>
                 <li>• Confession individuelle</li>
               </ul>
-              <button className="w-full bg-paroisse-turquoise text-white py-2 px-4 rounded-lg hover:bg-paroisse-turquoise/90 transition font-medium">
-                Prendre rendez-vous
-              </button>
+              <Link href="/sacrements/pardon" className="block w-full bg-paroisse-vertFonce text-white py-2 px-4 rounded-lg hover:bg-paroisse-vertFonce/90 transition font-medium text-center">
+                En savoir plus
+              </Link>
             </div>
           </div>
         </div>
