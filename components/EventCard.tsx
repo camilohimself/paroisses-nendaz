@@ -1,4 +1,5 @@
 import parse from 'html-react-parser'
+import { sanitizeHtml } from '@/lib/sanitize'
 
 interface Event {
   id: string
@@ -76,7 +77,7 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
 
       {event.description && (
         <div className="text-neutral-gris text-sm mb-4 prose prose-sm max-w-none">
-          {parse(event.description)}
+          {parse(sanitizeHtml(event.description))}
         </div>
       )}
       

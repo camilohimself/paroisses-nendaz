@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
+import { sanitizeHtml } from '@/lib/sanitize';
 import { CalendarEvent, EventType, EVENT_TYPES } from '@/lib/calendars-config';
 
 interface HorairesMesseProps {
@@ -241,7 +242,7 @@ export default function HorairesMesse({
                     <h4 className="font-semibold text-gray-900">{event.title}</h4>
                     {event.description && (
                       <div className="text-sm text-gray-600 mt-1 prose prose-sm max-w-none">
-                        {parse(event.description)}
+                        {parse(sanitizeHtml(event.description))}
                       </div>
                     )}
                     {event.location && (
