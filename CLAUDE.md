@@ -5,7 +5,74 @@
 - **Logo officiel** : Intégré dans `/public/logo-paroisses.png`
 - **Palette de couleurs** : Basée sur le site actuel et le logo multicolore
 
-## 🚀 État actuel du projet (26 septembre 2025 - 8h45)
+## 🚀 État actuel du projet (3 octobre 2025 - 14h30)
+
+## 🔥 SÉANCE DU 3 OCTOBRE 2025 - FIX CRITIQUE TAILWIND PURGE ✅
+
+### 🚨 PROBLÈME MAJEUR RÉSOLU - QuickAccessCard invisibles en production
+
+**⚠️ SYMPTÔME PERSISTANT (plusieurs jours/semaines):**
+- Les 4 cartes d'accès rapide complètement invisibles en production
+- Fonctionnement correct en développement (localhost)
+- Problème uniquement sur Vercel (https://paroisses-nendaz.vercel.app)
+
+**🔍 CAUSE RACINE IDENTIFIÉE:**
+- **Tailwind CSS purge** supprime les classes CSS dynamiques en production
+- Classes définies dans objet JavaScript `colorClasses[color]` non détectables
+- Scanner Tailwind ne peut pas analyser les propriétés d'objet
+- Résultat: Classes `bg-paroisse-rouge`, `bg-paroisse-bleuRoi` etc. purgées du bundle final
+
+**🛠️ DOUBLE SOLUTION IMPLÉMENTÉE:**
+
+1. **components/QuickAccessCard.tsx - Refactorisation complète:**
+   ```typescript
+   // ❌ ANCIEN (ne fonctionne PAS):
+   const colorClasses = {
+     red: 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 text-white',
+     blue: 'bg-paroisse-bleuRoi ...'
+   }
+   const baseClasses = `${colorClasses[color]} ...`
+
+   // ✅ NOUVEAU (fonctionne):
+   let colorClasses = ''
+   if (color === 'red') {
+     colorClasses = 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 text-white'
+   } else if (color === 'blue') {
+     colorClasses = 'bg-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/90 text-white'
+   }
+   // ... explicite pour chaque couleur
+   ```
+
+2. **tailwind.config.ts - Safelist de protection:**
+   ```typescript
+   safelist: [
+     // PROTECTION: Classes dynamiques QuickAccessCard & composants
+     'bg-paroisse-rouge',
+     'bg-paroisse-bleuRoi',
+     'bg-paroisse-jaune',
+     'bg-paroisse-vert',
+     'bg-paroisse-violet',
+     'bg-paroisse-turquoise',
+     'bg-enoria',
+     'hover:bg-paroisse-rouge/90',
+     'hover:bg-paroisse-bleuRoi/90',
+     // ... toutes les variantes
+   ]
+   ```
+
+**✅ RÉSULTAT:**
+- Build production: 42 pages générées avec succès
+- Commit: `8123667` - FIX CRITIQUE QuickAccessCard invisibles
+- Déploiement Vercel: En cours
+- **IMPORTANT**: Vider cache navigateur (Ctrl+F5) pour voir le fix
+
+**📚 LEÇON TECHNIQUE:**
+- ⚠️ **NE JAMAIS** utiliser objets pour classes Tailwind dynamiques
+- ✅ **TOUJOURS** utiliser conditions explicites (if/else/switch)
+- ✅ **AJOUTER** safelist pour classes critiques générées dynamiquement
+- 🔧 **TESTER** en production (Vercel) pas seulement en dev
+
+---
 
 ## 🎉 SÉANCE DU 26 SEPTEMBRE 2025 - RÉSOLUTION FINALE API GOOGLE CALENDAR ✅
 
