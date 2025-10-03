@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import parse from 'html-react-parser';
 import { CalendarEvent, EventType, EVENT_TYPES } from '@/lib/calendars-config';
 
 interface HorairesMesseProps {
@@ -239,7 +240,9 @@ export default function HorairesMesse({
                     </div>
                     <h4 className="font-semibold text-gray-900">{event.title}</h4>
                     {event.description && (
-                      <p className="text-sm text-gray-600 mt-1">{event.description}</p>
+                      <div className="text-sm text-gray-600 mt-1 prose prose-sm max-w-none">
+                        {parse(event.description)}
+                      </div>
                     )}
                     {event.location && (
                       <p className="text-sm text-gray-500 mt-1">📍 {event.location}</p>

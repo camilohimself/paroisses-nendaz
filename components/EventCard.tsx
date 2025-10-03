@@ -1,3 +1,5 @@
+import parse from 'html-react-parser'
+
 interface Event {
   id: string
   title: string
@@ -73,9 +75,9 @@ export default function EventCard({ event, className = '' }: EventCardProps) {
       </div>
 
       {event.description && (
-        <p className="text-neutral-gris text-sm mb-4">
-          {event.description}
-        </p>
+        <div className="text-neutral-gris text-sm mb-4 prose prose-sm max-w-none">
+          {parse(event.description)}
+        </div>
       )}
       
       <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${eventTypeColors[event.type]}`}>
