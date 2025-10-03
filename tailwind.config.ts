@@ -20,6 +20,10 @@ const config: Omit<Config, 'content'> & {
     'bg-paroisse-bleuCiel',
     'bg-paroisse-bleuMarine',
     'bg-paroisse-bleuCommunaute',
+    'bg-paroisse-rougeFonce',
+    'bg-paroisse-turquoiseFonce',
+    'bg-paroisse-vertFonce',
+    'bg-paroisse-violetFonce',
     'bg-enoria',
     'hover:bg-paroisse-rouge/90',
     'hover:bg-paroisse-bleuRoi/90',
@@ -32,6 +36,19 @@ const config: Omit<Config, 'content'> & {
     'text-neutral-anthracite',
     'shadow-lg',
     'hover:shadow-xl',
+    // PROTECTION: Classes lettrine VERSION 4
+    'border-paroisse-bleuRoi/20',
+    'border-paroisse-rouge/20',
+    'border-paroisse-violet/20',
+    'border-paroisse-rougeFonce/20',
+    'border-paroisse-turquoiseFonce/20',
+    'border-paroisse-vertFonce/20',
+    // PROTECTION: Bordures QuickAccessCard V2
+    'border-paroisse-turquoise/60',
+    'border-paroisse-vert/60',
+    'border-paroisse-rouge/60',
+    'border-paroisse-jaune/60',
+    'border-enoria/60',
   ],
   theme: {
     extend: {

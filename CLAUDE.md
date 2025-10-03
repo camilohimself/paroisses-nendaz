@@ -3,9 +3,45 @@
 ## 🔗 Références importantes
 - **Site actuel de référence** : https://paroisses-nendaz.ch/
 - **Logo officiel** : Intégré dans `/public/logo-paroisses.png`
-- **Palette de couleurs** : Basée sur le site actuel et le logo multicolore
 
-## 🚀 État actuel du projet (3 octobre 2025 - 14h30)
+## 🎨 PALETTE OFFICIELLE - VITRAIL (Validée le 03.10.2025)
+
+### **Palette principale pour composants UI**
+Couleurs Tailwind standards inspirées des vitraux d'église - douces, lumineuses et spirituelles :
+
+- 🔵 **sky-500** (#0EA5E9) - Bleu céleste → **Service Liturgique**
+- 🟢 **emerald-500** (#10B981) - Vert émeraude → **Sacrements**
+- 🟢 **#2A8B8C** - Vert Enoria officiel → **Base Enoria** (TOUJOURS cette couleur exacte)
+- 🟡 **amber-500** (#F59E0B) - Or lumineux → **Intentions & Annonces**
+
+### **Avantages de cette palette**
+- ✅ Couleurs Tailwind natives = **pas de safelist complexe**
+- ✅ Ambiance chaleureuse et spirituelle
+- ✅ Bon contraste avec texte blanc
+- ✅ Compatible production sans Tailwind purge
+
+### **Utilisation**
+```tsx
+// Service Liturgique
+<a className="bg-sky-500 hover:bg-sky-600 p-8 rounded-lg">
+
+// Sacrements
+<a className="bg-emerald-500 hover:bg-emerald-600 p-8 rounded-lg">
+
+// Base Enoria (inline style pour couleur exacte)
+<a style={{backgroundColor: '#2A8B8C'}} className="p-8 rounded-lg">
+
+// Intentions
+<a className="bg-amber-500 hover:bg-amber-600 p-8 rounded-lg">
+```
+
+### **Palettes alternatives disponibles** (si besoin futur)
+- **Méditerranée** : indigo-500, rose-500, #2A8B8C, orange-500
+- **Nature** : blue-500, lime-600, #2A8B8C, yellow-500
+
+---
+
+## 🚀 État actuel du projet (3 octobre 2025 - 20h00)
 
 ## 🔥 SÉANCE DU 3 OCTOBRE 2025 - FIX CRITIQUE TAILWIND PURGE ✅
 
