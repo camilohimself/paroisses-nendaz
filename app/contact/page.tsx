@@ -1,11 +1,17 @@
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <section className="bg-gray-800 text-white py-20">
+      {/* Header VERSION 2 - Grandes lettres épurées */}
+      <section className="bg-white py-24 border-b-4 border-sky-500">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact</h1>
-          <p className="text-xl opacity-90">Nous sommes à votre écoute</p>
+          <h1 className="text-7xl md:text-9xl font-black mb-8 leading-none tracking-tight">
+            <span className="text-neutral-anthracite">CONTACT</span>
+            <br />
+            <span className="text-sky-500 text-4xl md:text-6xl font-normal tracking-wide">& INFORMATIONS</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-neutral-gris max-w-2xl mx-auto">
+            Votre paroisse à l'écoute
+          </p>
         </div>
       </section>
 
