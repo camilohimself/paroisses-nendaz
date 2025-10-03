@@ -37,6 +37,7 @@
   --font-accent: 'Crimson Text', serif;
 }
 
+/* MODE SOMBRE DÉSACTIVÉ - Site paroissial toujours en mode clair
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1a1a1a;
@@ -44,6 +45,7 @@
     --beige-parchemin: #2a2a2a;
   }
 }
+*/
 
 body {
   background: var(--background);
