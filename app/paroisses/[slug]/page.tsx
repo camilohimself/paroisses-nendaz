@@ -53,201 +53,257 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
     notFound();
   }
 
-  // Icône selon le type
-  const getTypeIcon = (type: string) => {
+  // Couleur selon le type pour VERSION 2
+  const getTypeColor = (type: string) => {
     switch (type) {
-      case 'eglise': return '⛪';
-      case 'chapelle': return '🏛️';
-      case 'ems': return '🏠';
-      case 'oratoire': return '🕯️';
-      case 'equipe': return '👥';
-      default: return '📍';
+      case 'eglise': return 'sky-500';
+      case 'chapelle': return 'emerald-500';
+      case 'ems': return 'amber-500';
+      case 'oratoire': return 'rose-500';
+      case 'equipe': return 'indigo-500';
+      default: return 'neutral-gris';
     }
   };
 
-  // Couleur d'accent selon le secteur avec nouvelle charte
-  const getSectorAccent = (sector: string) => {
+  const getTypeLabel = (type: string) => {
+    switch (type) {
+      case 'eglise': return 'Église';
+      case 'chapelle': return 'Chapelle';
+      case 'ems': return 'EMS';
+      case 'oratoire': return 'Oratoire';
+      case 'equipe': return 'Équipe';
+      default: return type;
+    }
+  };
+
+  const getSectorLabel = (sector: string) => {
     switch (sector) {
-      case 'nendaz': return 'text-paroisse-bleuRoi border-paroisse-bleuRoi/20 bg-paroisse-bleuRoi/10';
-      case 'veysonnaz': return 'text-paroisse-violet border-paroisse-violet/20 bg-paroisse-violet/10';
-      case 'autres': return 'text-paroisse-vert border-paroisse-vert/20 bg-paroisse-vert/10';
-      case 'transversal': return 'text-paroisse-jaune border-paroisse-jaune/20 bg-paroisse-jaune/10';
-      default: return 'text-neutral-gris border-neutral-gris/20 bg-neutral-grisClaire';
+      case 'nendaz': return 'Nendaz';
+      case 'veysonnaz': return 'Veysonnaz';
+      case 'autres': return 'Autres secteurs';
+      case 'transversal': return 'Transversal';
+      default: return sector;
     }
   };
 
   // Fonction pour formater les horaires
   const formatHoraires = (horaires: any) => {
     const items = [];
-    if (horaires.dominicale) items.push({ label: 'Messe dominicale', value: horaires.dominicale, icon: '⛪' });
-    if (horaires.semaine) items.push({ label: 'Messe en semaine', value: horaires.semaine, icon: '🗓️' });
-    if (horaires.adoration) items.push({ label: 'Adoration', value: horaires.adoration, icon: '🙏' });
-    if (horaires.vepres) items.push({ label: 'Vêpres', value: horaires.vepres, icon: '🌅' });
-    if (horaires.special) items.push({ label: 'Célébration spéciale', value: horaires.special, icon: '✨' });
+    if (horaires.dominicale) items.push({ label: 'Messe dominicale', value: horaires.dominicale });
+    if (horaires.semaine) items.push({ label: 'Messe en semaine', value: horaires.semaine });
+    if (horaires.adoration) items.push({ label: 'Adoration', value: horaires.adoration });
+    if (horaires.vepres) items.push({ label: 'Vêpres', value: horaires.vepres });
+    if (horaires.special) items.push({ label: 'Célébration spéciale', value: horaires.special });
     return items;
   };
 
+  const typeColor = getTypeColor(calendar.type);
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-neutral-grisClaire/30 via-white to-paroisse-bleuCommunaute/20">
-      <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb */}
-        <nav className="mb-6">
-          <div className="flex items-center space-x-2 text-sm text-neutral-gris">
-            <Link href="/" className="hover:text-paroisse-bleuRoi">Accueil</Link>
+    <div className="min-h-screen bg-white">
+      {/* Breadcrumb */}
+      <div className="py-4 border-b bg-neutral-grisClaire/30">
+        <div className="container mx-auto px-4">
+          <nav className="flex items-center space-x-2 text-sm text-neutral-gris">
+            <Link href="/" className="hover:text-sky-600 transition">Accueil</Link>
             <span>›</span>
-            <Link href="/paroisses" className="hover:text-paroisse-bleuRoi">Paroisses</Link>
+            <Link href="/paroisses" className="hover:text-sky-600 transition">Paroisses</Link>
             <span>›</span>
             <span className="text-neutral-anthracite font-medium">{calendar.name}</span>
-          </div>
-        </nav>
+          </nav>
+        </div>
+      </div>
 
-        {/* Header enrichi */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white shadow-lg mb-6" style={{ borderTop: `4px solid ${calendar.color}` }}>
-            <span className="text-4xl">{getTypeIcon(calendar.type)}</span>
-          </div>
-          <h1 className="text-5xl font-bold text-neutral-anthracite mb-4">
+      {/* Header VERSION 2 */}
+      <div className="py-12 bg-white border-b">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
             {calendar.name}
           </h1>
+          <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
+
           {content?.patron && (
-            <p className="text-xl text-paroisse-bleuRoi font-medium mb-4">
+            <p className="text-xl text-neutral-gris italic mb-6">
               {content.patron}
             </p>
           )}
-          <div className="flex items-center justify-center gap-4 text-sm mb-4 flex-wrap">
-            <span className={`px-4 py-2 rounded-full border font-medium ${getSectorAccent(calendar.sector)}`}>
-              Secteur {calendar.sector.charAt(0).toUpperCase() + calendar.sector.slice(1)}
+
+          <div className="flex items-center justify-center gap-4 flex-wrap">
+            <span className={`px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide text-${typeColor.replace('500', '600')} bg-${typeColor}/10 border border-${typeColor}/20`}>
+              {getTypeLabel(calendar.type)}
             </span>
-            <span className="px-4 py-2 rounded-full border border-neutral-gris/20 bg-neutral-grisClaire text-neutral-anthracite font-medium">
-              {calendar.type.charAt(0).toUpperCase() + calendar.type.slice(1)}
+            <span className="px-4 py-2 rounded-full text-sm font-semibold text-neutral-anthracite bg-neutral-grisClaire">
+              {getSectorLabel(calendar.sector)}
             </span>
             {content?.dateConstruction && (
-              <span className="px-4 py-2 rounded-full border border-paroisse-jaune/20 bg-paroisse-jaune/10 text-paroisse-jaune font-medium">
+              <span className="px-4 py-2 rounded-full text-sm font-semibold text-amber-600 bg-amber-500/10 border border-amber-500/20">
                 {content.dateConstruction}
               </span>
             )}
           </div>
+
           {calendar.defaultLocation && (
-            <p className="text-neutral-gris mt-2 flex items-center justify-center gap-2">
-              <span>📍</span> {calendar.defaultLocation}
+            <p className="text-neutral-gris mt-6">
+              {calendar.defaultLocation}
             </p>
           )}
         </div>
+      </div>
 
-        {/* Contenu principal enrichi */}
-        <div className="max-w-6xl mx-auto">
-          {content && (
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              {/* Histoire et informations */}
-              <div className="lg:col-span-2">
-                <div className="bg-white rounded-xl shadow-lg p-8 border-l-4" style={{ borderLeftColor: calendar.color }}>
-                  <h2 className="text-2xl font-bold text-neutral-anthracite mb-6 flex items-center gap-3">
-                    <span>📜</span> Histoire et patrimoine
+      {/* Contenu principal */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+
+            {/* Histoire */}
+            {content && (
+              <div className="mb-20">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Histoire & Patrimoine
                   </h2>
-                  <div className="prose prose-lg max-w-none">
-                    <p className="text-neutral-gris leading-relaxed mb-6">{content.history}</p>
-
-                    {content.particularites && content.particularites.length > 0 && (
-                      <div className="mt-6">
-                        <h3 className="text-lg font-semibold text-neutral-anthracite mb-3">✨ Particularités</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                          {content.particularites.map((item, index) => (
-                            <div key={index} className="flex items-center gap-2 text-sm text-neutral-gris bg-neutral-grisClaire p-2 rounded-lg">
-                              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: calendar.color }}></span>
-                              {item}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  <div className={`w-24 h-0.5 bg-${typeColor} mx-auto`}></div>
                 </div>
-              </div>
 
-              {/* Horaires fixes */}
-              <div>
-                <div className="bg-white rounded-xl shadow-lg p-6">
-                  <h2 className="text-xl font-bold text-neutral-anthracite mb-6 flex items-center gap-2">
-                    <span>⏰</span> Horaires habituels
-                  </h2>
-                  {content.horaires && Object.keys(content.horaires).length > 0 ? (
-                    <div className="space-y-4">
-                      {formatHoraires(content.horaires).map((item, index) => (
-                        <div key={index} className="border-l-4 pl-4 py-2" style={{ borderLeftColor: calendar.color }}>
-                          <div className="flex items-center gap-2 mb-1">
-                            <span>{item.icon}</span>
-                            <span className="font-semibold text-neutral-anthracite text-sm">{item.label}</span>
+                <div className="bg-white rounded-lg shadow-lg p-10 border-l-4" style={{ borderLeftColor: calendar.color }}>
+                  <p className="text-neutral-gris leading-relaxed text-lg mb-8">
+                    {content.history}
+                  </p>
+
+                  {content.particularites && content.particularites.length > 0 && (
+                    <div className="mt-8 pt-8 border-t border-neutral-grisClaire">
+                      <h3 className="text-2xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                        Particularités
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {content.particularites.map((item, index) => (
+                          <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-neutral-grisClaire/50 transition">
+                            <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: calendar.color }}></div>
+                            <span className="text-neutral-gris">{item}</span>
                           </div>
-                          <p className="text-neutral-gris text-sm">{item.value}</p>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  ) : (
-                    <p className="text-neutral-gris italic">Consulter les « Prochaines célébrations » ci-dessous pour les horaires actuels.</p>
                   )}
                 </div>
               </div>
-            </div>
-          )}
+            )}
 
-          {/* Section Prochaines célébrations - INTÉGRATION GOOGLE CALENDAR */}
-          <div className="bg-gradient-to-br from-paroisse-bleuRoi/5 to-paroisse-turquoise/5 rounded-xl p-8 border border-paroisse-bleuRoi/10">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-neutral-anthracite mb-4 flex items-center justify-center gap-3">
-                <span>🗓️</span> Prochaines célébrations
-              </h2>
-              <p className="text-lg text-neutral-gris">
-                Calendrier en temps réel de {calendar.name}
+            {/* Horaires habituels */}
+            {content?.horaires && Object.keys(content.horaires).length > 0 && (
+              <div className="mb-20">
+                <div className="text-center mb-12">
+                  <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Horaires habituels
+                  </h2>
+                  <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
+                  <p className="text-neutral-gris italic">
+                    Horaires réguliers de {calendar.name}
+                  </p>
+                </div>
+
+                <div className="max-w-3xl mx-auto space-y-0">
+                  {formatHoraires(content.horaires).map((item, index) => {
+                    const isLast = index === formatHoraires(content.horaires).length - 1;
+                    return (
+                      <div key={index} className={`group relative ${!isLast ? 'border-b-2 border-neutral-grisClaire' : ''}`}>
+                        <div className={`block py-8 px-8 hover:bg-neutral-grisClaire/50 transition-all duration-300 border-l-4 border-transparent hover:border-${typeColor}`}>
+                          <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                              <h3 className={`text-xl font-bold text-neutral-anthracite group-hover:text-${typeColor.replace('500', '600')} transition-colors mb-2`} style={{ fontFamily: 'Playfair Display, serif' }}>
+                                {item.label}
+                              </h3>
+                              <p className="text-neutral-gris leading-relaxed">
+                                {item.value}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Prochaines célébrations - CALENDRIER FILTRÉ */}
+            <div className="mb-20">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Prochaines célébrations
+                </h2>
+                <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
+                <p className="text-neutral-gris italic">
+                  Calendrier en temps réel • Synchronisé avec Google Calendar
+                </p>
+              </div>
+
+              <div className="bg-white rounded-lg shadow-lg p-8">
+                <HorairesMesse
+                  calendarId={calendar.id}
+                  showCalendarSelector={false}
+                  maxEvents={10}
+                />
+              </div>
+            </div>
+
+            {/* Navigation vers autres lieux */}
+            <div className="mb-20">
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  Autres lieux du secteur
+                </h2>
+                <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
+                <p className="text-neutral-gris italic">
+                  Découvrez les autres paroisses et chapelles de {getSectorLabel(calendar.sector)}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                {CALENDARS_CONFIG
+                  .filter(cal => cal.sector === calendar.sector && cal.id !== calendar.id)
+                  .slice(0, 8)
+                  .map(cal => {
+                    const calColor = getTypeColor(cal.type);
+                    return (
+                      <Link
+                        key={cal.id}
+                        href={`/paroisses/${cal.id}`}
+                        className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-${calColor}/10 border border-${calColor}/20 text-${calColor.replace('500', '600')} hover:bg-${calColor}/20 transition-all font-medium`}
+                      >
+                        <span className="text-xs">{cal.name.replace('Église de ', '').replace('Chapelle de ', '').replace('Chapelle des ', '').replace('Chapelle ', '')}</span>
+                      </Link>
+                    );
+                  })
+                }
+              </div>
+
+              <div className="text-center">
+                <Link
+                  href="/paroisses"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-all font-semibold shadow-lg hover:shadow-xl"
+                >
+                  Voir toutes les paroisses
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
+            {/* Citation finale */}
+            <div className="relative py-12">
+              <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-${typeColor} to-transparent`}></div>
+              <p className="text-neutral-anthracite text-2xl leading-relaxed max-w-2xl mx-auto text-center" style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+                « Venez à moi, vous tous qui peinez et ployez sous le fardeau, et moi je vous soulagerai. »
               </p>
+              <p className="text-neutral-gris text-center mt-4">— Matthieu 11,28</p>
+              <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-${typeColor} to-transparent`}></div>
             </div>
 
-            <HorairesMesse
-              calendarId={calendar.id}
-              showCalendarSelector={false}
-              maxEvents={10}
-            />
           </div>
         </div>
-
-        {/* Navigation vers autres lieux */}
-        <div className="max-w-6xl mx-auto mt-12">
-          <div className="bg-white rounded-xl shadow-lg p-6">
-            <h3 className="text-xl font-bold text-neutral-anthracite mb-4 text-center">
-              Autres lieux du secteur {calendar.sector.charAt(0).toUpperCase() + calendar.sector.slice(1)}
-            </h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {CALENDARS_CONFIG
-                .filter(cal => cal.sector === calendar.sector && cal.id !== calendar.id)
-                .slice(0, 6)
-                .map(cal => (
-                  <Link
-                    key={cal.id}
-                    href={`/paroisses/${cal.id}`}
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border hover:shadow-md transition-all"
-                    style={{
-                      borderColor: cal.color + '40',
-                      backgroundColor: cal.color + '10',
-                      color: cal.color
-                    }}
-                  >
-                    <span>{getTypeIcon(cal.type)}</span>
-                    <span className="text-sm font-medium">{cal.name.replace('Église de ', '').replace('Chapelle de ', '').replace('Chapelle des ', '').replace('Chapelle ', '')}</span>
-                  </Link>
-                ))
-              }
-            </div>
-            <div className="text-center mt-4">
-              <Link
-                href="/paroisses"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-paroisse-bleuRoi to-paroisse-violet text-white rounded-lg hover:shadow-md transition font-medium"
-              >
-                <span>🗺️</span>
-                Voir toutes les paroisses
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+      </section>
+    </div>
   );
 }
