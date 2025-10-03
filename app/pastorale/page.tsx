@@ -3,11 +3,14 @@ import Link from 'next/link'
 export default function PastoralePage() {
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <section className="bg-green-600 text-white py-20">
+      {/* Hero Section - Vatican sobre */}
+      <section className="bg-gradient-to-br from-emerald-500 to-sky-500 text-white py-24">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Pastorale</h1>
-          <p className="text-xl opacity-90">Sacrements • Catéchèse • Communauté</p>
+          <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">Vie Pastorale</h1>
+          <p className="text-xl md:text-2xl opacity-95 mb-4">Sacrements • Catéchèse • Communauté</p>
+          <p className="text-lg opacity-90 max-w-3xl mx-auto leading-relaxed">
+            Cheminer ensemble dans la foi, grandir dans l'amour du Christ et servir nos frères et sœurs.
+          </p>
         </div>
       </section>
 
@@ -122,115 +125,283 @@ export default function PastoralePage() {
         </div>
       </section>
 
-      {/* Catéchèse */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-neutral-anthracite mb-4">Catéchèse</h2>
-            <p className="text-lg text-neutral-gris max-w-3xl mx-auto">
-              Accompagnement dans la découverte et l&apos;approfondissement de la foi chrétienne,
-              adapté à chaque âge et chaque étape de la vie.
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center border-l-4 border-paroisse-jaune hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">👶</div>
-              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Éveil à la foi</h3>
-              <p className="text-paroisse-jaune font-semibold mb-4">3-6 ans</p>
-              <ul className="text-sm text-left space-y-2 text-neutral-gris">
-                <li>• 1 fois par mois (samedi matin)</li>
-                <li>• Approche parents-enfants</li>
-                <li>• Activités ludiques et créatives</li>
-                <li>• Découverte joyeuse de Jésus</li>
-              </ul>
+      {/* Catéchèse - VARIANTE A Palette Vitrail */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        {/* Fonds décoratifs doux */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>
+
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-6xl mx-auto">
+
+            {/* Titre section avec bandes colorées Vitrail */}
+            <div className="mb-20">
+              <div className="flex items-stretch mb-8">
+                <div className="w-2 bg-amber-500"></div>
+                <div className="w-2 bg-sky-500 ml-1"></div>
+                <div className="w-2 bg-emerald-500 ml-1"></div>
+                <div className="flex-1 pl-8">
+                  <h2 className="text-6xl md:text-7xl font-bold text-neutral-anthracite mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    Catéchèse
+                  </h2>
+                  <p className="text-xl text-neutral-gris leading-relaxed max-w-2xl">
+                    Un parcours de foi coloré et vivant,
+                    <br />
+                    <span className="text-2xl font-semibold text-sky-600">pour tous les âges de la vie</span>
+                  </p>
+                </div>
+              </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center border-l-4 border-paroisse-bleuRoi hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">🎓</div>
-              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Grain de Soleil</h3>
-              <p className="text-paroisse-bleuRoi font-semibold mb-4">7-15 ans</p>
-              <ul className="text-sm text-left space-y-2 text-neutral-gris">
-                <li>• Rencontres hebdomadaires</li>
-                <li>• Groupes par classe d&apos;âge</li>
-                <li>• Pédagogie moderne et interactive</li>
-                <li>• Préparation aux sacrements</li>
-              </ul>
+            {/* Grille asymétrique */}
+            <div className="space-y-8">
+
+              {/* Éveil à la foi - AMBER-500 */}
+              <div className="grid md:grid-cols-12 gap-8 items-center group">
+                <div className="md:col-span-7 order-2 md:order-1">
+                  <div className="bg-gradient-to-br from-amber-50 to-white p-10 rounded-3xl border-l-8 border-amber-500 shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="flex-shrink-0 w-16 h-16 bg-amber-500 rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
+                        <span className="text-3xl font-serif text-white">É</span>
+                      </div>
+                      <div>
+                        <h3 className="text-4xl font-bold text-amber-600 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                          Éveil à la foi
+                        </h3>
+                        <div className="inline-block px-4 py-1.5 bg-amber-500 text-white rounded-full">
+                          <p className="text-sm font-bold uppercase tracking-wider">
+                            3-6 ans
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-lg text-neutral-anthracite mb-6 leading-relaxed">
+                      Premiers pas dans la découverte <strong className="text-amber-600">joyeuse et ludique</strong> de Jésus et de son message d'amour.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="bg-white p-4 rounded-xl border-2 border-amber-200">
+                        <p className="text-xs text-amber-600 font-semibold uppercase mb-1">Fréquence</p>
+                        <p className="text-sm text-neutral-anthracite font-bold">1x / mois</p>
+                        <p className="text-xs text-neutral-gris">Samedi matin</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-xl border-2 border-amber-200">
+                        <p className="text-xs text-amber-600 font-semibold uppercase mb-1">Format</p>
+                        <p className="text-sm text-neutral-anthracite font-bold">Parents-enfants</p>
+                        <p className="text-xs text-neutral-gris">Activités créatives</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-sm text-amber-700 font-semibold">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      Inscription via secrétariat
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-5 order-1 md:order-2">
+                  <div className="text-9xl md:text-[12rem] font-bold text-amber-500/10 leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    01
+                  </div>
+                </div>
+              </div>
+
+              {/* Grain de Soleil - SKY-500 */}
+              <div className="grid md:grid-cols-12 gap-8 items-center group">
+                <div className="md:col-span-5">
+                  <div className="text-9xl md:text-[12rem] font-bold text-sky-500/10 leading-none text-right" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    02
+                  </div>
+                </div>
+
+                <div className="md:col-span-7">
+                  <div className="bg-gradient-to-br from-sky-50 to-white p-10 rounded-3xl border-r-8 border-sky-500 shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="flex-shrink-0 w-16 h-16 bg-sky-500 rounded-2xl flex items-center justify-center transform rotate-6 group-hover:rotate-0 transition-transform duration-500">
+                        <span className="text-3xl font-serif text-white">G</span>
+                      </div>
+                      <div>
+                        <h3 className="text-4xl font-bold text-sky-600 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                          Grain de Soleil
+                        </h3>
+                        <div className="inline-block px-4 py-1.5 bg-sky-500 text-white rounded-full">
+                          <p className="text-sm font-bold uppercase tracking-wider">
+                            7-15 ans
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-lg text-neutral-anthracite mb-6 leading-relaxed">
+                      Parcours de <strong className="text-sky-600">croissance et d'approfondissement</strong> vers les sacrements de la communion et de la confirmation.
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-4 mb-6">
+                      <div className="bg-white p-4 rounded-xl border-2 border-sky-200">
+                        <p className="text-xs text-sky-600 font-semibold uppercase mb-1">Rencontres</p>
+                        <p className="text-sm text-neutral-anthracite font-bold">Hebdomadaires</p>
+                        <p className="text-xs text-neutral-gris">Par classe d'âge</p>
+                      </div>
+                      <div className="bg-white p-4 rounded-xl border-2 border-sky-200">
+                        <p className="text-xs text-sky-600 font-semibold uppercase mb-1">Pédagogie</p>
+                        <p className="text-sm text-neutral-anthracite font-bold">Interactive</p>
+                        <p className="text-xs text-neutral-gris">Ludique et vivante</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-sm text-sky-700 font-semibold">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      Préparation aux sacrements
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Parcours Adultes - EMERALD-500 */}
+              <div className="group relative">
+                <div className="absolute -inset-2 bg-gradient-to-r from-emerald-500/20 via-transparent to-emerald-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative bg-gradient-to-r from-emerald-50 via-white to-emerald-50 p-10 rounded-3xl border-t-8 border-emerald-500 shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
+                    <div className="flex-shrink-0">
+                      <div className="w-24 h-24 bg-emerald-500 rounded-3xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-500">
+                        <span className="text-5xl font-serif text-white">P</span>
+                      </div>
+                    </div>
+
+                    <div className="flex-1">
+                      <div className="mb-4">
+                        <h3 className="text-5xl font-bold text-emerald-600 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                          Parcours Adultes
+                        </h3>
+                        <div className="inline-block px-4 py-1.5 bg-emerald-500 text-white rounded-full">
+                          <p className="text-sm font-bold uppercase tracking-wider">
+                            Formation continue
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-lg text-neutral-anthracite mb-6 leading-relaxed max-w-3xl">
+                        Approfondir sa foi, se préparer aux sacrements ou <strong className="text-emerald-600">cheminer spirituellement à tout âge</strong> à travers des formations, conférences et accompagnements personnalisés.
+                      </p>
+
+                      <div className="grid md:grid-cols-3 gap-4">
+                        <div className="bg-white p-4 rounded-xl border-2 border-emerald-200">
+                          <p className="text-xs text-emerald-600 font-semibold uppercase mb-1">Formation</p>
+                          <p className="text-sm text-neutral-anthracite font-bold">À la demande</p>
+                        </div>
+                        <div className="bg-white p-4 rounded-xl border-2 border-emerald-200">
+                          <p className="text-xs text-emerald-600 font-semibold uppercase mb-1">Baptême</p>
+                          <p className="text-sm text-neutral-anthracite font-bold">Adultes</p>
+                        </div>
+                        <div className="bg-white p-4 rounded-xl border-2 border-emerald-200">
+                          <p className="text-xs text-emerald-600 font-semibold uppercase mb-1">Suivi</p>
+                          <p className="text-sm text-neutral-anthracite font-bold">Personnalisé</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex-shrink-0 text-9xl font-bold text-emerald-500/10 leading-none hidden lg:block" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      03
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg text-center border-l-4 border-paroisse-vert hover:shadow-xl transition-shadow">
-              <div className="text-4xl mb-4">👥</div>
-              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Activités catéchétiques</h3>
-              <p className="text-paroisse-vert font-semibold mb-4">Adultes</p>
-              <ul className="text-sm text-left space-y-2 text-neutral-gris">
-                <li>• Formation à la demande</li>
-                <li>• Préparation baptême adultes</li>
-                <li>• Approfondissement de la foi</li>
-                <li>• Conférences et rencontres</li>
-              </ul>
+            {/* Citation avec bandes colorées Vitrail */}
+            <div className="mt-24">
+              <div className="flex items-stretch">
+                <div className="flex flex-col gap-2">
+                  <div className="w-3 h-full bg-amber-500 rounded-l-lg"></div>
+                  <div className="w-3 h-full bg-sky-500 rounded-l-lg"></div>
+                  <div className="w-3 h-full bg-emerald-500 rounded-l-lg"></div>
+                </div>
+                <div className="flex-1 bg-gradient-to-r from-neutral-grisClaire/30 to-transparent p-12 rounded-r-3xl">
+                  <p className="text-3xl md:text-4xl text-neutral-anthracite leading-relaxed mb-6" style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+                    « Laissez les enfants venir à moi,
+                    <br />
+                    <span className="text-sky-600 font-semibold">car le royaume de Dieu est à ceux qui leur ressemblent. »</span>
+                  </p>
+                  <p className="text-sm text-neutral-gris uppercase tracking-widest font-bold">
+                    — Marc 10:14
+                  </p>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* Groupes et activités */}
-      <section className="py-16 bg-gradient-to-b from-neutral-grisClaire/30 to-white">
+      {/* Groupes et activités - Style Vatican sobre */}
+      <section className="py-20 bg-gradient-to-b from-neutral-grisClaire/30 to-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-neutral-anthracite mb-4">Vie Communautaire</h2>
-            <p className="text-lg text-neutral-gris max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif font-bold text-neutral-anthracite mb-4">Vie Communautaire</h2>
+            <p className="text-lg text-neutral-gris max-w-3xl mx-auto leading-relaxed">
               Rejoignez nos groupes de prière et de service pour vivre votre foi en communauté
               et contribuer à la mission paroissiale.
             </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Groupes de prière */}
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-neutral-anthracite">Groupes de prière</h3>
-              <div className="space-y-6">
-                <div className="bg-white rounded-lg p-4 border-l-4 border-paroisse-bleuRoi shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-2">Chapelet</h4>
-                  <p className="text-neutral-gris text-sm mb-1">Mardi 18h00 • Basse-Nendaz</p>
-                  <p className="text-neutral-gris text-sm">Mai et octobre: quotidien</p>
-                  <span className="inline-block mt-2 px-2 py-1 bg-paroisse-bleuRoi/10 text-paroisse-bleuRoi text-xs rounded-full">
+              <h3 className="text-2xl font-serif font-bold mb-6 text-neutral-anthracite">Groupes de prière</h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-6 border-l-4 border-sky-500 shadow-md">
+                  <h4 className="font-semibold text-neutral-anthracite mb-3">Chapelet</h4>
+                  <p className="text-neutral-gris text-sm mb-2">Mardi 18h00 • Basse-Nendaz</p>
+                  <p className="text-neutral-gris text-sm mb-3">Mai et octobre: quotidien</p>
+                  <span className="inline-block px-3 py-1 bg-sky-500/10 text-sky-500 text-xs rounded font-medium">
                     Prière mariale
                   </span>
                 </div>
-                <div className="bg-white rounded-lg p-4 border-l-4 border-paroisse-vert shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-2">Adoration eucharistique</h4>
-                  <p className="text-neutral-gris text-sm mb-1">Jeudi 19h00-20h00 • Haute-Nendaz</p>
-                  <p className="text-neutral-gris text-sm">Premier vendredi: 9h00-10h00</p>
-                  <span className="inline-block mt-2 px-2 py-1 bg-paroisse-vert/10 text-paroisse-vert text-xs rounded-full">
+
+                <div className="bg-white rounded-lg p-6 border-l-4 border-emerald-500 shadow-md">
+                  <h4 className="font-semibold text-neutral-anthracite mb-3">Adoration eucharistique</h4>
+                  <p className="text-neutral-gris text-sm mb-2">Jeudi 19h00-20h00 • Haute-Nendaz</p>
+                  <p className="text-neutral-gris text-sm mb-3">Premier vendredi: 9h00-10h00</p>
+                  <span className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-500 text-xs rounded font-medium">
                     Temps de silence
                   </span>
                 </div>
               </div>
             </div>
 
+            {/* Services paroissiaux */}
             <div>
-              <h3 className="text-2xl font-semibold mb-6 text-neutral-anthracite">Services paroissiaux</h3>
-              <div className="space-y-6">
-                <div className="bg-white rounded-lg p-4 border-l-4 border-paroisse-violet shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-2">Visiteurs de malades</h4>
-                  <p className="text-neutral-gris text-sm mb-1">Groupe de bénévoles</p>
-                  <p className="text-neutral-gris text-sm">Visites domicile et EMS</p>
-                  <span className="inline-block mt-2 px-2 py-1 bg-paroisse-violet/10 text-paroisse-violet text-xs rounded-full">
+              <h3 className="text-2xl font-serif font-bold mb-6 text-neutral-anthracite">Services paroissiaux</h3>
+              <div className="space-y-4">
+                <div className="bg-white rounded-lg p-6 border-l-4 border-amber-500 shadow-md">
+                  <h4 className="font-semibold text-neutral-anthracite mb-3">Visiteurs de malades</h4>
+                  <p className="text-neutral-gris text-sm mb-2">Groupe de bénévoles</p>
+                  <p className="text-neutral-gris text-sm mb-3">Visites domicile et EMS</p>
+                  <span className="inline-block px-3 py-1 bg-amber-500/10 text-amber-500 text-xs rounded font-medium">
                     Solidarité
                   </span>
                 </div>
-                <div className="bg-white rounded-lg p-4 border-l-4 border-paroisse-jaune shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-2">Servants de messe</h4>
-                  <p className="text-neutral-gris text-sm mb-1">Formation pour les jeunes</p>
-                  <p className="text-neutral-gris text-sm">Service liturgique</p>
-                  <span className="inline-block mt-2 px-2 py-1 bg-paroisse-jaune/10 text-paroisse-jaune text-xs rounded-full">
+
+                <div className="bg-white rounded-lg p-6 border-l-4 border-sky-500 shadow-md">
+                  <h4 className="font-semibold text-neutral-anthracite mb-3">Servants de messe</h4>
+                  <p className="text-neutral-gris text-sm mb-2">Formation pour les jeunes</p>
+                  <p className="text-neutral-gris text-sm mb-3">Service liturgique</p>
+                  <span className="inline-block px-3 py-1 bg-sky-500/10 text-sky-500 text-xs rounded font-medium">
                     Jeunes
                   </span>
                 </div>
-                <div className="bg-white rounded-lg p-4 border-l-4 border-paroisse-rouge shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-2">Chorale paroissiale</h4>
-                  <p className="text-neutral-gris text-sm mb-1">Répétitions hebdomadaires</p>
-                  <p className="text-neutral-gris text-sm">Animation des messes solennelles</p>
-                  <span className="inline-block mt-2 px-2 py-1 bg-paroisse-rouge/10 text-paroisse-rouge text-xs rounded-full">
+
+                <div className="bg-white rounded-lg p-6 border-l-4 border-emerald-500 shadow-md">
+                  <h4 className="font-semibold text-neutral-anthracite mb-3">Chorale paroissiale</h4>
+                  <p className="text-neutral-gris text-sm mb-2">Répétitions hebdomadaires</p>
+                  <p className="text-neutral-gris text-sm mb-3">Animation des messes solennelles</p>
+                  <span className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-500 text-xs rounded font-medium">
                     Musique sacrée
                   </span>
                 </div>
@@ -240,83 +411,79 @@ export default function PastoralePage() {
         </div>
       </section>
 
-      {/* Section contact et informations pratiques */}
-      <section className="py-16 bg-white">
+      {/* Section Contact - Style Vatican sobre */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-neutral-anthracite mb-4">Contact et Informations</h2>
-              <p className="text-lg text-neutral-gris">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-serif font-bold text-neutral-anthracite mb-4">Contact et Informations</h2>
+              <p className="text-lg text-neutral-gris leading-relaxed">
                 Pour toute demande de sacrement ou information sur la vie pastorale
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Contact principal */}
-              <div className="bg-gradient-to-br from-paroisse-bleuRoi/10 to-paroisse-turquoise/10 p-6 rounded-xl border border-paroisse-bleuRoi/20">
-                <h3 className="text-xl font-semibold text-neutral-anthracite mb-4 flex items-center">
-                  <span className="mr-2">📞</span> Secrétariat paroissial
-                </h3>
-                <div className="space-y-3 text-neutral-gris">
-                  <p><strong>Caroline Karlen</strong></p>
-                  <p>📧 paroisse.nendaz@gmail.com</p>
-                  <p>📱 027 288 27 58</p>
-                  <div className="mt-4 p-3 bg-paroisse-jaune/10 rounded-lg">
-                    <p className="text-sm font-medium text-neutral-anthracite">Horaires bureau:</p>
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {/* Secrétariat */}
+              <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+                <h3 className="text-2xl font-serif font-bold text-neutral-anthracite mb-6">Secrétariat paroissial</h3>
+                <div className="space-y-4 text-neutral-gris">
+                  <p className="text-lg font-semibold text-neutral-anthracite">Caroline Karlen</p>
+                  <div className="space-y-2 text-sm">
+                    <p>paroisse.nendaz@gmail.com</p>
+                    <p>027 288 27 58</p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-gray-200">
+                    <p className="font-semibold text-neutral-anthracite mb-1">Horaires bureau</p>
                     <p className="text-sm">Lundi-Vendredi: 8h30-11h30</p>
                   </div>
                 </div>
               </div>
 
               {/* Équipe pastorale */}
-              <div className="bg-gradient-to-br from-paroisse-vert/10 to-paroisse-jaune/10 p-6 rounded-xl border border-paroisse-vert/20">
-                <h3 className="text-xl font-semibold text-neutral-anthracite mb-4 flex items-center">
-                  <span className="mr-2">⛪</span> Équipe pastorale
-                </h3>
-                <div className="space-y-3 text-neutral-gris text-sm">
+              <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
+                <h3 className="text-2xl font-serif font-bold text-neutral-anthracite mb-6">Équipe pastorale</h3>
+                <div className="space-y-4 text-neutral-gris">
                   <div>
-                    <p><strong>Abbé Jean-Michel Girard</strong> - Administrateur</p>
-                    <p>📱 079 419 52 19</p>
+                    <p className="font-semibold text-neutral-anthracite">Abbé Jean-Michel Girard</p>
+                    <p className="text-sm text-neutral-gris mb-1">Administrateur</p>
+                    <p className="text-sm">079 419 52 19</p>
                   </div>
-                  <div>
-                    <p><strong>Abbé François-Xavier Amherdt</strong> - Modérateur</p>
-                    <p>📱 027 322 40 20</p>
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="font-semibold text-neutral-anthracite">Abbé François-Xavier Amherdt</p>
+                    <p className="text-sm text-neutral-gris mb-1">Modérateur</p>
+                    <p className="text-sm">027 322 40 20</p>
                   </div>
-                  <div className="mt-4 p-3 bg-paroisse-rouge/10 rounded-lg">
-                    <p className="text-xs font-medium text-neutral-anthracite">Urgences 24h/24</p>
-                    <p className="text-xs">Numéro d&apos;urgence disponible</p>
+                  <div className="mt-6 pt-4 border-t border-gray-200">
+                    <p className="font-semibold text-neutral-anthracite mb-1">Urgences</p>
+                    <p className="text-sm">Disponible 24h/24</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Liens utiles */}
-            <div className="mt-12 text-center">
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-paroisse-bleuRoi to-paroisse-violet text-white rounded-lg hover:shadow-md transition font-medium"
-                >
-                  <span className="mr-2">📝</span>
-                  Formulaire de contact
-                </Link>
-                <Link
-                  href="/paroisses"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-paroisse-vertFonce to-paroisse-bleuMarine text-white rounded-lg hover:shadow-md transition font-medium"
-                >
-                  <span className="mr-2">📍</span>
-                  Nos paroisses
-                </Link>
-                <a
-                  href="https://web.enoria.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-enoria to-enoria/80 text-white rounded-lg hover:shadow-md transition font-medium"
-                >
-                  <span className="mr-2">🔗</span>
-                  Plateforme Enoria
-                </a>
-              </div>
+            {/* Liens utiles - Style sobre */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-8 py-3 bg-sky-500 hover:bg-sky-600 text-white rounded-lg transition-colors font-semibold"
+              >
+                Formulaire de contact
+              </Link>
+              <Link
+                href="/paroisses"
+                className="inline-flex items-center justify-center px-8 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg transition-colors font-semibold"
+              >
+                Nos paroisses
+              </Link>
+              <a
+                href="https://web.enoria.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-3 text-white rounded-lg transition-colors font-semibold"
+                style={{backgroundColor: '#2A8B8C'}}
+              >
+                Plateforme Enoria
+              </a>
             </div>
           </div>
         </div>
