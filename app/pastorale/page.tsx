@@ -46,7 +46,7 @@ export default function PastoralePage() {
                 <li>• Inscription: Juin précédent</li>
                 <li>• Responsable: Catéchiste</li>
               </ul>
-              <Link href="/sacrements/communion" className="block w-full bg-gradient-to-r from-paroisse-jaune to-paroisse-rouge text-white py-2 px-4 rounded-lg hover:opacity-90 transition font-medium text-center">
+              <Link href="/sacrements/communion" className="block w-full bg-gradient-to-r from-paroisse-jaune to-paroisse-rouge text-neutral-anthracite hover:opacity-90 transition font-medium text-center py-2 px-4 rounded-lg">
                 En savoir plus
               </Link>
             </div>

@@ -64,7 +64,7 @@ const config: Omit<Config, 'content'> & {
           anthracite: '#3E3E3E',   // Gris anthracite - Fond sombre, contraste (ratio 10.5:1 ✅)
           blanc: '#FFFFFF',        // Blanc pur - Fond principal, pureté
           grisClaire: '#F5F5F5',   // Gris clair - Fonds secondaires
-          gris: '#5A6C7D',         // Gris moyen optimisé - Texte secondaire (ratio 4.8:1 ✅)
+          gris: '#4A5568',         // Gris moyen optimisé - Texte secondaire (ratio 7.1:1 ✅ AAA)
         },
         // Couleur Enoria
         enoria: '#2A8B8C',         // Couleur officielle plateforme Enoria (ratio 4.5:1 ✅)
