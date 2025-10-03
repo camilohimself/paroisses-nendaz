@@ -2,7 +2,82 @@
 
 ## 🔗 Références importantes
 - **Site actuel de référence** : https://paroisses-nendaz.ch/
+- **Site live production** : https://paroisses-nendaz.vercel.app
 - **Logo officiel** : Intégré dans `/public/logo-paroisses.png`
+
+## 🎉 SÉANCE DU 3 OCTOBRE 2025 (SOIR) - REFONTE PAROISSES + SÉCURITÉ ✅
+
+### ✨ RÉALISATIONS MAJEURES
+
+**1. 🐛 FIX CRITIQUE - Bug Google Calendar HTML**
+- **Problème**: Balises HTML `<span>`, `<b>`, `</b>` affichées comme texte brut
+- **Cause**: Descriptions Google Calendar non parsées correctement
+- **Solution**: Installation `html-react-parser` + parsing sécurisé
+- **Fichiers**: `EventCard.tsx`, `HorairesMesse.tsx`
+- **Résultat**: Descriptions formatées correctement ✅
+
+**2. 🏛️ REFONTE PAGE /paroisses - VERSION 2**
+- **Style**: Liste manuscrite épurée (cohérent avec /contact)
+- **Structure**:
+  - Secteur Nendaz (15 lieux de culte)
+  - Secteur Veysonnaz (3 lieux de culte)
+  - Autres secteurs (2+ lieux)
+- **Design**: Séparateurs clairs, hover subtil, bordures colorées
+- **Palette Vitrail**: sky-500 (église), emerald-500 (chapelle), amber-500 (EMS)
+- **Citation**: Matthieu 18,20
+
+**3. 📄 PAGES INDIVIDUELLES /paroisses/[slug] - VERSION 2**
+- **21 pages statiques** générées via `generateStaticParams`
+- **Structure complète**:
+  1. Header élégant avec badges (type, secteur, date)
+  2. Histoire & Patrimoine (textes MD)
+  3. Horaires habituels (liste VERSION 2)
+  4. **Prochaines célébrations** (calendrier Google filtré) ⭐
+  5. Navigation vers autres lieux du secteur
+  6. Citation biblique finale
+- **Calendrier filtré**: Chaque paroisse affiche UNIQUEMENT ses événements
+- **Intégration**: `<HorairesMesse calendarId={calendar.id} />`
+
+**4. 🔐 SÉCURISATION HTML - DOMPurify**
+- **Installation**: `isomorphic-dompurify`
+- **Création**: `/lib/sanitize.ts` avec 3 fonctions
+  - `sanitizeHtml()` - Contenu riche (whitelist balises safe)
+  - `stripHtml()` - Texte brut (supprime tout HTML)
+  - `sanitizeForEmail()` - Email/SMS (minimal)
+- **Application**: `parse(sanitizeHtml(event.description))`
+- **Protection**: XSS impossible via Google Calendar
+- **Flux sécurisé**: Google → API → sanitize → parse → DOM
+
+### 📊 STATISTIQUES FINALES
+- **46 pages générées** avec succès (Next.js build)
+- **0 erreur TypeScript**
+- **4 commits** poussés sur GitHub
+- **Déploiement Vercel** automatique
+
+### 🎯 COMMITS DE LA SÉANCE
+1. `26c0be8` - FIX GOOGLE CALENDAR HTML + REFONTE PAGE PAROISSES VERSION 2
+2. `c9eb56a` - REFONTE PAGES INDIVIDUELLES PAROISSES - VERSION 2
+3. `b9f1761` - SÉCURISATION HTML - DOMPurify Protection XSS
+
+### ✅ FONCTIONNALITÉS OPÉRATIONNELLES
+- ✅ 20+ lieux de culte listés en VERSION 2
+- ✅ Chaque lieu a sa page dédiée avec histoire
+- ✅ Calendrier Google filtré par paroisse
+- ✅ Descriptions HTML formatées correctement
+- ✅ Protection XSS complète
+- ✅ Build production réussi
+- ✅ SEO optimisé (metadata)
+- ✅ Responsive 100%
+- ✅ ZÉRO emoji
+
+### 🚀 URLs DISPONIBLES
+- `/paroisses` - Index toutes paroisses
+- `/paroisses/basse-nendaz` - Église Basse-Nendaz + calendrier filtré
+- `/paroisses/haute-nendaz` - Église Haute-Nendaz + calendrier filtré
+- `/paroisses/veysonnaz` - Église Veysonnaz + calendrier filtré
+- ... + 18 autres lieux
+
+---
 
 ## 🎨 PALETTE OFFICIELLE - VITRAIL (Validée le 03.10.2025)
 
@@ -41,7 +116,57 @@ Couleurs Tailwind standards inspirées des vitraux d'église - douces, lumineuse
 
 ---
 
-## 🚀 État actuel du projet (3 octobre 2025 - 20h00)
+## ❓ QUESTIONS STRATÉGIQUES POUR RENDEZ-VOUS CURÉ (4 octobre 2025)
+
+### 🎯 SECTION SACREMENTS - Approche pastorale à définir
+
+**📋 CONTEXTE** : 4 maquettes créées avec palette Vitrail - toutes très réussies visuellement
+
+**🤔 QUESTION CLEF POUR LE CURÉ :**
+
+**"Comment souhaitez-vous que les paroissiens approchent la question des sacrements sur le site web ?"**
+
+**Option A - Information complète en ligne :**
+- ✅ Toutes les informations détaillées disponibles sur le site
+- ✅ Formulaires d'inscription en ligne
+- ✅ Documents téléchargeables (PDF)
+- ✅ Parcours détaillé pour chaque sacrement
+- ⚠️ Risque : Moins de contact humain personnel
+
+**Option B - Invitation au contact personnel :**
+- ✅ Informations de base sur le site
+- ✅ Fort accent sur "Contactez-nous pour en savoir plus"
+- ✅ Accompagnement personnalisé privilégié
+- ✅ Relation humaine et pastorale au centre
+- ⚠️ Risque : Moins d'autonomie pour les paroissiens
+
+**Option C - Hybride :**
+- ✅ Informations pratiques en ligne (âges, dates, durée)
+- ✅ + Invitation forte au contact pour l'accompagnement
+- ✅ Équilibre entre autonomie et relation personnelle
+
+**💡 IMPACT SUR LE DESIGN :**
+- **Option A** → VERSION 1 ou 2 (détaillées, informatives)
+- **Option B** → VERSION 3 (minimaliste, focus contact)
+- **Option C** → VERSION 2 ou 4 (équilibre information/invitation)
+
+**📌 MAQUETTES DISPONIBLES :**
+- VERSION 1 : Grille 2 colonnes (moderne, complet)
+- VERSION 2 : Liste manuscrite (élégant, détaillé)
+- VERSION 3 : Minimaliste épuré (sobre, invitation contact)
+- VERSION 4 : Lettrine enluminée (spirituel, traditionnel)
+
+**🔗 URLs de test :**
+- http://localhost:3000/sacrements-v1
+- http://localhost:3000/sacrements-v2
+- http://localhost:3000/sacrements-v3
+- http://localhost:3000/sacrements-v4
+
+**⏸️ STATUT : En attente décision curé avant intégration finale**
+
+---
+
+## 🚀 État actuel du projet (3 octobre 2025 - 20h30)
 
 ## 🔥 SÉANCE DU 3 OCTOBRE 2025 - FIX CRITIQUE TAILWIND PURGE ✅
 
