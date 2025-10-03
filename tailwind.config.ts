@@ -1,10 +1,37 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config: Omit<Config, 'content'> & {
+  content: Config['content'];
+  safelist?: string[];
+} = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: [
+    // PROTECTION: Classes dynamiques QuickAccessCard & composants
+    'bg-paroisse-rouge',
+    'bg-paroisse-bleuRoi',
+    'bg-paroisse-jaune',
+    'bg-paroisse-vert',
+    'bg-paroisse-violet',
+    'bg-paroisse-turquoise',
+    'bg-paroisse-bleuCiel',
+    'bg-paroisse-bleuMarine',
+    'bg-paroisse-bleuCommunaute',
+    'bg-enoria',
+    'hover:bg-paroisse-rouge/90',
+    'hover:bg-paroisse-bleuRoi/90',
+    'hover:bg-paroisse-jaune/90',
+    'hover:bg-paroisse-vert/90',
+    'hover:bg-paroisse-violet/90',
+    'hover:bg-paroisse-turquoise/90',
+    'hover:bg-enoria/90',
+    'text-white',
+    'text-neutral-anthracite',
+    'shadow-lg',
+    'hover:shadow-xl',
   ],
   theme: {
     extend: {

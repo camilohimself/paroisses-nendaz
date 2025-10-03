@@ -10,21 +10,6 @@ interface QuickAccessCardProps {
   subItems?: string[]
 }
 
-// NOTE: Classes écrites explicitement pour que Tailwind les détecte - FORCE VERCEL DEPLOY
-// bg-paroisse-rouge bg-paroisse-bleuRoi bg-paroisse-vert bg-paroisse-violet bg-paroisse-jaune bg-enoria
-// hover:bg-paroisse-rouge/90 hover:bg-paroisse-bleuRoi/90 hover:bg-paroisse-vert/90 hover:bg-paroisse-violet/90 hover:bg-paroisse-jaune/90 hover:bg-enoria/90
-// text-white text-neutral-anthracite shadow-lg hover:shadow-xl
-
-const colorClasses = {
-  red: 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 shadow-lg hover:shadow-xl text-white',
-  blue: 'bg-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/90 shadow-lg hover:shadow-xl text-white',
-  green: 'bg-paroisse-vert hover:bg-paroisse-vert/90 shadow-lg hover:shadow-xl text-white',
-  purple: 'bg-paroisse-violet hover:bg-paroisse-violet/90 shadow-lg hover:shadow-xl text-white',
-  yellow: 'bg-paroisse-jaune hover:bg-paroisse-jaune/90 shadow-lg hover:shadow-xl text-neutral-anthracite',
-  orange: 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 shadow-lg hover:shadow-xl text-white',
-  enoria: 'bg-enoria hover:bg-enoria/90 shadow-lg hover:shadow-xl text-white'
-}
-
 export default function QuickAccessCard({
   title,
   description,
@@ -34,7 +19,26 @@ export default function QuickAccessCard({
   icon,
   subItems
 }: QuickAccessCardProps) {
-  const baseClasses = `${colorClasses[color]} p-6 rounded-lg transition-all duration-300 block group transform hover:scale-105 min-h-full`
+  // SOLUTION: Classes conditionnelles EXPLICITES pour Tailwind purge
+  let colorClasses = ''
+
+  if (color === 'red') {
+    colorClasses = 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 text-white'
+  } else if (color === 'blue') {
+    colorClasses = 'bg-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/90 text-white'
+  } else if (color === 'green') {
+    colorClasses = 'bg-paroisse-vert hover:bg-paroisse-vert/90 text-white'
+  } else if (color === 'purple') {
+    colorClasses = 'bg-paroisse-violet hover:bg-paroisse-violet/90 text-white'
+  } else if (color === 'yellow') {
+    colorClasses = 'bg-paroisse-jaune hover:bg-paroisse-jaune/90 text-neutral-anthracite'
+  } else if (color === 'orange') {
+    colorClasses = 'bg-paroisse-rouge hover:bg-paroisse-rouge/90 text-white'
+  } else if (color === 'enoria') {
+    colorClasses = 'bg-enoria hover:bg-enoria/90 text-white'
+  }
+
+  const baseClasses = `${colorClasses} p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 block group transform hover:scale-105 min-h-full`
 
   const content = (
     <>
