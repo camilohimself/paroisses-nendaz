@@ -46,11 +46,11 @@ export default function ParoissesIndexPage() {
       <div className="py-12 bg-white border-b">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Nos paroisses & chapelles
+            Paroisses de Nendaz et Veysonnaz
           </h1>
           <div className="w-24 h-0.5 bg-sky-500 mx-auto mb-6"></div>
           <p className="text-neutral-gris italic max-w-2xl mx-auto text-lg">
-            20+ lieux de culte vous accueillent dans les vallées de Nendaz et Veysonnaz
+            20+ lieux de culte vous accueillent dans nos vallées
           </p>
         </div>
       </div>
