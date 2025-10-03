@@ -20,7 +20,7 @@ export default function Header() {
               alt="Paroisses de Nendaz"
               width={180}
               height={60}
-              className="h-14 w-auto md:h-16"
+              className="h-10 w-auto sm:h-12 md:h-14 lg:h-16"
               priority
             />
           </Link>
@@ -105,13 +105,13 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Quick Access Buttons */}
-          <div className="hidden lg:flex space-x-2">
+          {/* Quick Access Buttons - Visible dès md: */}
+          <div className="hidden md:flex space-x-2">
             <a
               href="https://www.youtube.com/@paroissesnendazetveysonnaz"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-paroisse-rouge text-white px-4 py-2 rounded-lg text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2 shadow-lg"
+              className="bg-paroisse-rouge text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2 shadow-lg"
             >
               <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
               Live
@@ -120,7 +120,7 @@ export default function Header() {
               href="https://web.enoria.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-enoria text-white px-4 py-2 rounded-lg text-sm hover:bg-enoria/90 transition-colors font-semibold shadow-lg"
+              className="bg-enoria text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-enoria/90 transition-colors font-semibold shadow-lg"
             >
               Enoria
             </a>

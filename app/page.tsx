@@ -14,12 +14,12 @@ export default function Home() {
   return (
     <div>
       {/* Hero Section - KPI: Messe en direct Dimanche 10h00 */}
-      <section className="bg-gradient-to-b from-neutral-grisClaire to-white py-20 vitrail-glow">
+      <section className="bg-gradient-to-b from-neutral-grisClaire to-white py-12 md:py-16 lg:py-20 vitrail-glow">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-neutral-anthracite mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-anthracite mb-4 md:mb-6">
             Paroisses de Nendaz
           </h1>
-          <p className="text-xl text-paroisse-bleuRoi mb-8">Nendaz • Veysonnaz</p>
+          <p className="text-lg md:text-xl text-paroisse-bleuRoi mb-6 md:mb-8">Nendaz • Veysonnaz</p>
           <a
             href="https://www.youtube.com/@paroissesnendazetveysonnaz"
             target="_blank"
@@ -36,9 +36,9 @@ export default function Home() {
       </section>
 
       {/* Quick Access - Palette Vitrail */}
-      <section className="py-16 bg-white relative">
+      <section className="py-12 md:py-16 bg-white relative">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-serif text-center mb-12 text-gray-800">
+          <h2 className="text-2xl md:text-3xl font-serif text-center mb-8 md:mb-12 text-gray-800">
             Accès rapides
           </h2>
 
@@ -148,10 +148,10 @@ export default function Home() {
 
 
       {/* Mass Schedule - Dynamic from Google Calendar */}
-      <section className="py-16 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl font-bold text-neutral-anthracite">Prochains événements</h2>
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-anthracite">Prochains événements</h2>
             <a
               href="/evenements"
               className="text-paroisse-bleuRoi hover:text-paroisse-rouge font-medium text-sm flex items-center transition-colors"
@@ -170,11 +170,11 @@ export default function Home() {
           </div>
 
           {/* Fallback horaires fixes si Google Calendar ne fonctionne pas */}
-          <div className="max-w-4xl mx-auto mt-12 pt-8 border-t border-gray-200">
-            <h3 className="text-lg font-semibold mb-6 text-center text-gray-600">Horaires habituels</h3>
-            <div className="grid md:grid-cols-2 gap-8">
+          <div className="max-w-4xl mx-auto mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-200">
+            <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 text-center text-gray-600">Horaires habituels</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               <div>
-                <h4 className="text-lg font-semibold mb-4 text-paroisse-rouge">Week-end</h4>
+                <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-paroisse-rouge">Week-end</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Samedi 18h00</span>
@@ -191,7 +191,7 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h4 className="text-lg font-semibold mb-4 text-paroisse-bleuRoi">Semaine</h4>
+                <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-paroisse-bleuRoi">Semaine</h4>
                 <div className="space-y-2">
                   <div className="flex justify-between py-2 border-b border-gray-100">
                     <span>Mardi 8h30</span>
@@ -213,10 +213,10 @@ export default function Home() {
       </section>
 
       {/* YouTube Live Section */}
-      <section className="py-16 bg-gradient-to-br from-neutral-grisClaire to-white">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-neutral-grisClaire to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-neutral-anthracite mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-anthracite mb-6 md:mb-8 text-center">
               Messe en direct
             </h2>
             <YouTubeLiveIndicator />

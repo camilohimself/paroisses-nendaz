@@ -3,32 +3,32 @@ import Link from 'next/link'
 export default function GroupesParoissiaux() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-neutral-gris/10">
-      <div className="container mx-auto px-6 py-24">
+      <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-24">
 
         {/* En-tête élégant */}
-        <div className="max-w-5xl mx-auto mb-28 text-center">
-          <div className="flex items-center justify-center gap-8 mb-8">
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-paroisse-jaune to-paroisse-jaune"></div>
-            <div className="w-3 h-3 bg-paroisse-jaune transform rotate-45"></div>
-            <div className="w-32 h-px bg-gradient-to-l from-transparent via-paroisse-jaune to-paroisse-jaune"></div>
+        <div className="max-w-5xl mx-auto mb-12 md:mb-20 lg:mb-28 text-center">
+          <div className="flex items-center justify-center gap-4 md:gap-4 md:gap-8 mb-6 md:mb-8">
+            <div className="w-16 md:w-32 h-px bg-gradient-to-r from-transparent via-paroisse-jaune to-paroisse-jaune"></div>
+            <div className="w-2 h-2 md:w-3 md:h-3 bg-paroisse-jaune transform rotate-45"></div>
+            <div className="w-16 md:w-32 h-px bg-gradient-to-l from-transparent via-paroisse-jaune to-paroisse-jaune"></div>
           </div>
 
-          <h1 className="text-8xl font-bold text-neutral-anthracite mb-10 tracking-tight leading-tight"
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-neutral-anthracite mb-6 md:mb-10 tracking-tight leading-tight"
               style={{ fontFamily: 'Playfair Display, serif' }}>
             Groupes paroissiaux
           </h1>
 
-          <p className="text-2xl text-neutral-gris leading-relaxed max-w-3xl mx-auto font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-neutral-gris leading-relaxed max-w-3xl mx-auto font-light">
             Nos paroisses proposent de multiples groupes et mouvements pour vivre la foi ensemble, servir et grandir dans la charité fraternelle.
           </p>
         </div>
 
         {/* Liste verticale élégante avec numérotation */}
-        <div className="max-w-5xl mx-auto space-y-12 mb-28">
+        <div className="max-w-5xl mx-auto space-y-8 md:space-y-12 mb-16 md:mb-28">
 
           {/* 1. SERVANTS & LECTEURS */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-bleuCiel/20 group-hover:text-paroisse-bleuCiel/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -58,7 +58,7 @@ export default function GroupesParoissiaux() {
 
           {/* 2. RENOUVEAU CHARISMATIQUE */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-vert/20 group-hover:text-paroisse-vert/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -99,7 +99,7 @@ export default function GroupesParoissiaux() {
 
           {/* 3. VIE MONTANTE */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-jaune/20 group-hover:text-paroisse-jaune/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -140,7 +140,7 @@ export default function GroupesParoissiaux() {
 
           {/* 4. VEILLÉES DE PRIÈRE */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-bleuRoi/20 group-hover:text-paroisse-bleuRoi/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -181,7 +181,7 @@ export default function GroupesParoissiaux() {
 
           {/* 5. MÈRE PÈLERINE */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-vert/20 group-hover:text-paroisse-vert/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -211,7 +211,7 @@ export default function GroupesParoissiaux() {
 
           {/* 6. CHŒURS */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-jaune/20 group-hover:text-paroisse-jaune/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -241,7 +241,7 @@ export default function GroupesParoissiaux() {
 
           {/* 7. VISITEURS DE MALADES */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-bleuCiel/20 group-hover:text-paroisse-bleuCiel/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -271,7 +271,7 @@ export default function GroupesParoissiaux() {
 
           {/* 8. HOSPITALIERS DE LOURDES */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-vert/20 group-hover:text-paroisse-vert/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -301,7 +301,7 @@ export default function GroupesParoissiaux() {
 
           {/* 9. EQUIPES NOTRE-DAME */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-jaune/20 group-hover:text-paroisse-jaune/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -342,7 +342,7 @@ export default function GroupesParoissiaux() {
 
           {/* 10. PRIÈRE DES MÈRES */}
           <div className="group relative">
-            <div className="flex items-start gap-8">
+            <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-24 text-right">
                 <span className="text-6xl font-bold text-paroisse-bleuRoi/20 group-hover:text-paroisse-bleuRoi/40 transition-colors duration-300"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
