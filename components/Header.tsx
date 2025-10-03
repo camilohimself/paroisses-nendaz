@@ -6,6 +6,8 @@ import { useState } from 'react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isPastoraleOpen, setIsPastoraleOpen] = useState(false)
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
 
   return (
     <header className="bg-white shadow-md border-b-2 border-paroisse-bleuRoi">
@@ -39,13 +41,54 @@ export default function Header() {
               <span>Actualités</span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-bleuRoi transition-all duration-300 group-hover:w-full"></span>
             </Link>
-            <Link
-              href="/pastorale"
-              className="text-neutral-anthracite hover:text-paroisse-vert font-medium transition-colors relative group"
+            {/* Pastorale avec sous-menu */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                if (timeoutId) clearTimeout(timeoutId)
+                setIsPastoraleOpen(true)
+              }}
+              onMouseLeave={() => {
+                const id = setTimeout(() => setIsPastoraleOpen(false), 300)
+                setTimeoutId(id)
+              }}
             >
-              <span>Pastorale</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-vert transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+              <Link
+                href="/pastorale"
+                className="text-neutral-anthracite hover:text-paroisse-vert font-medium transition-colors relative group flex items-center gap-1"
+              >
+                <span>Pastorale</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-paroisse-vert transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+
+              {/* Sous-menu dropdown */}
+              {isPastoraleOpen && (
+                <div className="absolute left-0 top-full mt-2 w-56 bg-white shadow-xl border-2 border-paroisse-vert/20 rounded-lg py-2 z-50">
+                  <Link
+                    href="/pastorale"
+                    className="block px-4 py-2 text-neutral-anthracite hover:bg-paroisse-vert/10 hover:text-paroisse-vert transition-colors"
+                  >
+                    Vue d&apos;ensemble
+                  </Link>
+                  <div className="border-t border-neutral-gris/20 my-1"></div>
+                  <Link
+                    href="/pastorale/groupes-proches"
+                    className="block px-4 py-2 text-neutral-anthracite hover:bg-paroisse-vert/10 hover:text-paroisse-vert transition-colors"
+                  >
+                    Groupes proches
+                  </Link>
+                  <Link
+                    href="/pastorale/groupes-paroissiaux"
+                    className="block px-4 py-2 text-neutral-anthracite hover:bg-paroisse-vert/10 hover:text-paroisse-vert transition-colors"
+                  >
+                    Groupes paroissiaux
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link
               href="/paroisses"
               className="text-neutral-anthracite hover:text-paroisse-bleuRoi font-medium transition-colors relative group"
@@ -131,13 +174,48 @@ export default function Header() {
               >
                 Actualités
               </Link>
-              <Link
-                href="/pastorale"
-                className="text-neutral-anthracite hover:text-paroisse-vert transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-vert pl-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pastorale
-              </Link>
+              {/* Pastorale mobile avec sous-menu */}
+              <div>
+                <button
+                  onClick={() => setIsPastoraleOpen(!isPastoraleOpen)}
+                  className="w-full text-left text-neutral-anthracite hover:text-paroisse-vert transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-vert pl-4 flex items-center justify-between"
+                >
+                  <span>Pastorale</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform ${isPastoraleOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isPastoraleOpen && (
+                  <div className="ml-8 mt-2 space-y-2">
+                    <Link
+                      href="/pastorale"
+                      className="block text-neutral-anthracite hover:text-paroisse-vert transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
+                    >
+                      Vue d&apos;ensemble
+                    </Link>
+                    <Link
+                      href="/pastorale/groupes-proches"
+                      className="block text-neutral-anthracite hover:text-paroisse-vert transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
+                    >
+                      Groupes proches
+                    </Link>
+                    <Link
+                      href="/pastorale/groupes-paroissiaux"
+                      className="block text-neutral-anthracite hover:text-paroisse-vert transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
+                    >
+                      Groupes paroissiaux
+                    </Link>
+                  </div>
+                )}
+              </div>
               <Link
                 href="/paroisses"
                 className="text-neutral-anthracite hover:text-paroisse-bleuRoi transition-colors font-medium py-2 border-l-4 border-transparent hover:border-paroisse-bleuRoi pl-4"

@@ -339,74 +339,139 @@ export default function PastoralePage() {
         </div>
       </section>
 
-      {/* Groupes et activités - Style Vatican sobre */}
+      {/* Groupes - Orientation vers 2 sous-sections */}
       <section className="py-20 bg-gradient-to-b from-neutral-grisClaire/30 to-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-serif font-bold text-neutral-anthracite mb-4">Vie Communautaire</h2>
+            <h2 className="text-4xl font-serif font-bold text-neutral-anthracite mb-4">Groupes et Mouvements</h2>
             <p className="text-lg text-neutral-gris max-w-3xl mx-auto leading-relaxed">
-              Rejoignez nos groupes de prière et de service pour vivre votre foi en communauté
-              et contribuer à la mission paroissiale.
+              Nos paroisses proposent différentes formes d&apos;engagement communautaire et de vie spirituelle.
+              Découvrez nos groupes selon vos aspirations.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Groupes de prière */}
-            <div>
-              <h3 className="text-2xl font-serif font-bold mb-6 text-neutral-anthracite">Groupes de prière</h3>
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-6 border-l-4 border-sky-500 shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-3">Chapelet</h4>
-                  <p className="text-neutral-gris text-sm mb-2">Mardi 18h00 • Basse-Nendaz</p>
-                  <p className="text-neutral-gris text-sm mb-3">Mai et octobre: quotidien</p>
-                  <span className="inline-block px-3 py-1 bg-sky-500/10 text-sky-500 text-xs rounded font-medium">
-                    Prière mariale
-                  </span>
+          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+
+            {/* Card 1: Groupes proches */}
+            <Link href="/pastorale/groupes-proches" className="group">
+              <div className="bg-white p-10 rounded-2xl shadow-xl border-2 border-neutral-gris/20 hover:border-paroisse-vert hover:shadow-2xl transition-all duration-500 h-full">
+                {/* En-tête avec ligne colorée */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-2 h-20 bg-gradient-to-b from-paroisse-vert to-paroisse-bleuCiel rounded-full"></div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-neutral-anthracite mb-2 group-hover:text-paroisse-vert transition-colors duration-300"
+                        style={{ fontFamily: 'Playfair Display, serif' }}>
+                      Groupes proches
+                    </h3>
+                    <p className="text-sm uppercase tracking-widest text-paroisse-vert font-semibold">
+                      Prière et service
+                    </p>
+                  </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-6 border-l-4 border-emerald-500 shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-3">Adoration eucharistique</h4>
-                  <p className="text-neutral-gris text-sm mb-2">Jeudi 19h00-20h00 • Haute-Nendaz</p>
-                  <p className="text-neutral-gris text-sm mb-3">Premier vendredi: 9h00-10h00</p>
-                  <span className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-500 text-xs rounded font-medium">
-                    Temps de silence
-                  </span>
+                {/* Description */}
+                <p className="text-lg text-neutral-gris leading-relaxed mb-6">
+                  Groupes de prière et de service qui favorisent une vie spirituelle profonde au cœur de la communauté paroissiale.
+                </p>
+
+                {/* Liste des groupes */}
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-bleuCiel rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Chapelet</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-vert rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Adoration eucharistique</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-jaune rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Visiteurs de malades</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-bleuRoi rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Servants de messe</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-vert rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Chorale</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-jaune rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Conseil pastoral</span>
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="flex items-center justify-between pt-6 border-t-2 border-neutral-gris/10">
+                  <span className="text-paroisse-vert font-semibold group-hover:underline">Découvrir ces groupes</span>
+                  <svg className="w-6 h-6 text-paroisse-vert transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </div>
               </div>
-            </div>
+            </Link>
 
-            {/* Services paroissiaux */}
-            <div>
-              <h3 className="text-2xl font-serif font-bold mb-6 text-neutral-anthracite">Services paroissiaux</h3>
-              <div className="space-y-4">
-                <div className="bg-white rounded-lg p-6 border-l-4 border-amber-500 shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-3">Visiteurs de malades</h4>
-                  <p className="text-neutral-gris text-sm mb-2">Groupe de bénévoles</p>
-                  <p className="text-neutral-gris text-sm mb-3">Visites domicile et EMS</p>
-                  <span className="inline-block px-3 py-1 bg-amber-500/10 text-amber-500 text-xs rounded font-medium">
-                    Solidarité
-                  </span>
+            {/* Card 2: Groupes paroissiaux */}
+            <Link href="/pastorale/groupes-paroissiaux" className="group">
+              <div className="bg-white p-10 rounded-2xl shadow-xl border-2 border-neutral-gris/20 hover:border-paroisse-jaune hover:shadow-2xl transition-all duration-500 h-full">
+                {/* En-tête avec ligne colorée */}
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-2 h-20 bg-gradient-to-b from-paroisse-jaune to-paroisse-rouge rounded-full"></div>
+                  <div>
+                    <h3 className="text-3xl font-bold text-neutral-anthracite mb-2 group-hover:text-paroisse-jaune transition-colors duration-300"
+                        style={{ fontFamily: 'Playfair Display, serif' }}>
+                      Groupes paroissiaux
+                    </h3>
+                    <p className="text-sm uppercase tracking-widest text-paroisse-jaune font-semibold">
+                      Mouvements et engagements
+                    </p>
+                  </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-6 border-l-4 border-sky-500 shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-3">Servants de messe</h4>
-                  <p className="text-neutral-gris text-sm mb-2">Formation pour les jeunes</p>
-                  <p className="text-neutral-gris text-sm mb-3">Service liturgique</p>
-                  <span className="inline-block px-3 py-1 bg-sky-500/10 text-sky-500 text-xs rounded font-medium">
-                    Jeunes
-                  </span>
+                {/* Description */}
+                <p className="text-lg text-neutral-gris leading-relaxed mb-6">
+                  Mouvements et groupes divers pour vivre la foi ensemble, servir et grandir dans la charité fraternelle.
+                </p>
+
+                {/* Liste des groupes (sélection) */}
+                <div className="space-y-3 mb-8">
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-vert rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Renouveau Charismatique</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-jaune rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Vie Montante (retraités)</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-bleuCiel rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Veillées de Prière</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-vert rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Hospitaliers de Lourdes</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-jaune rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">Équipes Notre-Dame</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="w-2 h-2 bg-paroisse-bleuRoi rounded-full"></div>
+                    <span className="text-neutral-anthracite font-medium">+ 5 autres groupes</span>
+                  </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-6 border-l-4 border-emerald-500 shadow-md">
-                  <h4 className="font-semibold text-neutral-anthracite mb-3">Chorale paroissiale</h4>
-                  <p className="text-neutral-gris text-sm mb-2">Répétitions hebdomadaires</p>
-                  <p className="text-neutral-gris text-sm mb-3">Animation des messes solennelles</p>
-                  <span className="inline-block px-3 py-1 bg-emerald-500/10 text-emerald-500 text-xs rounded font-medium">
-                    Musique sacrée
-                  </span>
+                {/* CTA */}
+                <div className="flex items-center justify-between pt-6 border-t-2 border-neutral-gris/10">
+                  <span className="text-paroisse-jaune font-semibold group-hover:underline">Découvrir tous les groupes</span>
+                  <svg className="w-6 h-6 text-paroisse-jaune transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </div>
               </div>
-            </div>
+            </Link>
+
           </div>
         </div>
       </section>
