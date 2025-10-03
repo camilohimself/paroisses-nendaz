@@ -89,7 +89,7 @@ export default function ParoissesIndexPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-neutral-grisClaire/30 via-white to-paroisse-bleuCiel/20">
+    <main className="min-h-screen bg-gradient-to-b from-neutral-grisClaire/30 via-white to-paroisse-bleuCommunaute/20">
       <div className="container mx-auto px-4 py-12">
         {/* Header */}
         <div className="text-center mb-16">
@@ -192,7 +192,7 @@ export default function ParoissesIndexPage() {
 
             {/* Informations pratiques */}
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-paroisse-bleuCiel/10 p-6 rounded-xl">
+              <div className="bg-paroisse-bleuCommunaute/10 p-6 rounded-xl">
                 <h4 className="text-lg font-semibold text-paroisse-bleuRoi mb-3 flex items-center">
                   <span className="mr-2">⏰</span> Horaires des messes
                 </h4>

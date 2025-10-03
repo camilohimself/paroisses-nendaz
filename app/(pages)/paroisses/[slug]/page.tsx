@@ -88,7 +88,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
   };
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-neutral-grisClaire/30 via-white to-paroisse-bleuCiel/20">
+    <main className="min-h-screen bg-gradient-to-b from-neutral-grisClaire/30 via-white to-paroisse-bleuCommunaute/20">
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <nav className="mb-6">
