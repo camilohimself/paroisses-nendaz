@@ -194,7 +194,7 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Blandine Bornet</h3>
-                <p className="text-purple-600 font-medium mb-3">Membre de l'équipe</p>
+                <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.288.51.59</p>
                   <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
@@ -210,7 +210,7 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Jean-Philippe Glassey</h3>
-                <p className="text-green-600 font-medium mb-3">Membre de l'équipe</p>
+                <p className="text-green-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.207.13.18</p>
                   <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
@@ -226,7 +226,7 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Martin Fendrych</h3>
-                <p className="text-orange-600 font-medium mb-3">Membre de l'équipe</p>
+                <p className="text-orange-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.346.00.03</p>
                   <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
@@ -242,7 +242,7 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Nadia Fendrych</h3>
-                <p className="text-purple-600 font-medium mb-3">Membre de l'équipe</p>
+                <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.346.00.03</p>
                   <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
@@ -258,7 +258,7 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Camilo Rivera</h3>
-                <p className="text-blue-600 font-medium mb-3">Membre de l'équipe</p>
+                <p className="text-blue-600 font-medium mb-3">Agent pastoral</p>
               </div>
             </div>
           </div>
@@ -286,47 +286,88 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Conseil de gestion de la Paroisse */}
+      {/* Conseils de gestion des Paroisses */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Conseil de gestion de la Paroisse de Nendaz</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Conseils de gestion des Paroisses</h2>
 
-          <div className="max-w-3xl mx-auto">
-            <div className="bg-blue-50 p-8 rounded-lg">
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                  <span className="font-semibold text-blue-900">Félicien Roux</span>
-                  <span className="text-blue-700">Curé de la Paroisse</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                  <span className="font-semibold text-blue-900">Gilles Broccard</span>
-                  <span className="text-blue-700">Président</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                  <span className="font-semibold text-blue-900">Serge Darioli</span>
-                  <span className="text-blue-700">Caissier</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                  <span className="font-semibold text-blue-900">Solange Bressoud</span>
-                  <span className="text-blue-700">Secrétaire</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                  <span className="font-semibold text-blue-900">Fernand Baeriswyl</span>
-                  <span className="text-blue-700">Membre</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                  <span className="font-semibold text-blue-900">Gilles Briguet</span>
-                  <span className="text-blue-700">Membre</span>
-                </div>
-                <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                  <span className="font-semibold text-blue-900">Valérie Moral</span>
-                  <span className="text-blue-700">Membre</span>
-                </div>
-                <div className="flex justify-between items-center py-2">
-                  <span className="font-semibold text-blue-900">Charles-Henri Fournier</span>
-                  <span className="text-blue-700">Délégué de la commune de Nendaz</span>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+
+              {/* Conseil de Nendaz */}
+              <div>
+                <h3 className="text-xl font-bold text-center mb-6 text-blue-800">Paroisse de Nendaz</h3>
+                <div className="bg-blue-50 p-6 rounded-lg">
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
+                      <span className="font-semibold text-blue-900">Félicien Roux</span>
+                      <span className="text-blue-700 text-xs">Curé</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
+                      <span className="font-semibold text-blue-900">Gilles Broccard</span>
+                      <span className="text-blue-700 text-xs">Président</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
+                      <span className="font-semibold text-blue-900">Serge Darioli</span>
+                      <span className="text-blue-700 text-xs">Caissier</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
+                      <span className="font-semibold text-blue-900">Solange Bressoud</span>
+                      <span className="text-blue-700 text-xs">Secrétaire</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
+                      <span className="font-semibold text-blue-900">Fernand Baeriswyl</span>
+                      <span className="text-blue-700 text-xs">Membre</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
+                      <span className="font-semibold text-blue-900">Gilles Briguet</span>
+                      <span className="text-blue-700 text-xs">Membre</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
+                      <span className="font-semibold text-blue-900">Valérie Moral</span>
+                      <span className="text-blue-700 text-xs">Membre</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2">
+                      <span className="font-semibold text-blue-900">Charles-Henri Fournier</span>
+                      <span className="text-blue-700 text-xs">Délégué commune</span>
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              {/* Conseil de Veysonnaz */}
+              <div>
+                <h3 className="text-xl font-bold text-center mb-6 text-green-800">Paroisse de Veysonnaz</h3>
+                <div className="bg-green-50 p-6 rounded-lg">
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between items-center py-2 border-b border-green-200">
+                      <span className="font-semibold text-green-900">Félicien Roux</span>
+                      <span className="text-green-700 text-xs">Curé</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-green-200">
+                      <span className="font-semibold text-green-900">Christian Charbonnet</span>
+                      <span className="text-green-700 text-xs">Président</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-green-200">
+                      <span className="font-semibold text-green-900">Pierre-Alain Lathion</span>
+                      <span className="text-green-700 text-xs">Caissier</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-green-200">
+                      <span className="font-semibold text-green-900">Michel Glassey</span>
+                      <span className="text-green-700 text-xs">Membre</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-green-200">
+                      <span className="font-semibold text-green-900">Laurence Fournier</span>
+                      <span className="text-green-700 text-xs">Déléguée commune Veysonnaz</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2">
+                      <span className="font-semibold text-green-900">Charles-Henri Fournier</span>
+                      <span className="text-green-700 text-xs">Délégué commune Nendaz</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
