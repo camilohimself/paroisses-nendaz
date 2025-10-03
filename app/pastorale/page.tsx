@@ -487,7 +487,7 @@ export default function PastoralePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="max-w-2xl mx-auto mb-12">
               {/* Secrétariat */}
               <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
                 <h3 className="text-2xl font-serif font-bold text-neutral-anthracite mb-6">Secrétariat paroissial</h3>
@@ -498,29 +498,8 @@ export default function PastoralePage() {
                     <p>027 288 27 58</p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-gray-200">
-                    <p className="font-semibold text-neutral-anthracite mb-1">Horaires bureau</p>
+                    <p className="font-semibold text-neutral-anthracite mb-1">Horaires</p>
                     <p className="text-sm">Lundi-Vendredi: 8h30-11h30</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Équipe pastorale */}
-              <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-md">
-                <h3 className="text-2xl font-serif font-bold text-neutral-anthracite mb-6">Équipe pastorale</h3>
-                <div className="space-y-4 text-neutral-gris">
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Abbé Jean-Michel Girard</p>
-                    <p className="text-sm text-neutral-gris mb-1">Administrateur</p>
-                    <p className="text-sm">079 419 52 19</p>
-                  </div>
-                  <div className="border-t border-gray-200 pt-4">
-                    <p className="font-semibold text-neutral-anthracite">Abbé François-Xavier Amherdt</p>
-                    <p className="text-sm text-neutral-gris mb-1">Modérateur</p>
-                    <p className="text-sm">027 322 40 20</p>
-                  </div>
-                  <div className="mt-6 pt-4 border-t border-gray-200">
-                    <p className="font-semibold text-neutral-anthracite mb-1">Urgences</p>
-                    <p className="text-sm">Disponible 24h/24</p>
                   </div>
                 </div>
               </div>
