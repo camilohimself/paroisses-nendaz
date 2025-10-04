@@ -75,16 +75,22 @@ export default function Header() {
                   </Link>
                   <div className="border-t border-neutral-gris/20 my-1"></div>
                   <Link
-                    href="/pastorale/groupes-proches"
-                    className="block px-4 py-2 text-neutral-anthracite hover:bg-paroisse-vert/10 hover:text-paroisse-vert transition-colors"
+                    href="/pastorale/priere"
+                    className="block px-4 py-2 text-neutral-anthracite hover:bg-sky-500/10 hover:text-sky-600 transition-colors"
                   >
-                    Groupes proches
+                    Prière
                   </Link>
                   <Link
-                    href="/pastorale/groupes-paroissiaux"
-                    className="block px-4 py-2 text-neutral-anthracite hover:bg-paroisse-vert/10 hover:text-paroisse-vert transition-colors"
+                    href="/pastorale/liturgie"
+                    className="block px-4 py-2 text-neutral-anthracite hover:bg-emerald-500/10 hover:text-emerald-600 transition-colors"
                   >
-                    Groupes paroissiaux
+                    Liturgie
+                  </Link>
+                  <Link
+                    href="/pastorale/diaconie"
+                    className="block px-4 py-2 text-neutral-anthracite hover:bg-amber-500/10 hover:text-amber-600 transition-colors"
+                  >
+                    Diaconie
                   </Link>
                 </div>
               )}
@@ -198,18 +204,25 @@ export default function Header() {
                       Vue d&apos;ensemble
                     </Link>
                     <Link
-                      href="/pastorale/groupes-proches"
-                      className="block text-neutral-anthracite hover:text-paroisse-vert transition-colors py-1 text-sm"
+                      href="/pastorale/priere"
+                      className="block text-neutral-anthracite hover:text-sky-600 transition-colors py-1 text-sm"
                       onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
                     >
-                      Groupes proches
+                      Prière
                     </Link>
                     <Link
-                      href="/pastorale/groupes-paroissiaux"
-                      className="block text-neutral-anthracite hover:text-paroisse-vert transition-colors py-1 text-sm"
+                      href="/pastorale/liturgie"
+                      className="block text-neutral-anthracite hover:text-emerald-600 transition-colors py-1 text-sm"
                       onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
                     >
-                      Groupes paroissiaux
+                      Liturgie
+                    </Link>
+                    <Link
+                      href="/pastorale/diaconie"
+                      className="block text-neutral-anthracite hover:text-amber-600 transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
+                    >
+                      Diaconie
                     </Link>
                   </div>
                 )}
