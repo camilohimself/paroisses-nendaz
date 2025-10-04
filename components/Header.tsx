@@ -109,9 +109,9 @@ export default function Header() {
           <div className="hidden md:flex space-x-2">
             <a
               href="/#messe-direct"
-              className="bg-paroisse-rouge text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2 shadow-lg"
+              className="bg-white text-neutral-anthracite border-2 border-paroisse-rouge px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-paroisse-rouge hover:text-white transition-colors font-semibold flex items-center gap-2 shadow-lg"
             >
-              <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+              <span className="w-2 h-2 bg-paroisse-rouge rounded-full animate-pulse"></span>
               Messe & YouTube
             </a>
             <a
@@ -231,10 +231,10 @@ export default function Header() {
               <div className="flex space-x-2 pt-4 border-t border-gray-200">
                 <a
                   href="/#messe-direct"
-                  className="bg-paroisse-rouge text-white px-3 py-2 rounded-lg text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2"
+                  className="bg-white text-neutral-anthracite border-2 border-paroisse-rouge px-3 py-2 rounded-lg text-sm hover:bg-paroisse-rouge hover:text-white transition-colors font-semibold flex items-center gap-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                  <span className="w-2 h-2 bg-paroisse-rouge rounded-full animate-pulse"></span>
                   Messe & YouTube
                 </a>
                 <a
