@@ -46,7 +46,7 @@ export default function Home() {
 
             {/* Card 1 - Service Liturgique */}
             <a
-              href="/pastorale"
+              href="/pastorale#catechese"
               className="group bg-sky-500 hover:bg-sky-600 p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <div className="flex items-start mb-3">
@@ -71,7 +71,7 @@ export default function Home() {
 
             {/* Card 2 - Sacrements */}
             <a
-              href="/pastorale"
+              href="/pastorale#sacrements"
               className="group bg-emerald-500 hover:bg-emerald-600 p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <div className="flex items-start mb-3">
