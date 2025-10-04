@@ -31,7 +31,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-1">Adresse</h3>
                     <p className="text-gray-600">
-                      Route de la Cure 1<br />
+                      Route de Nendaz 355<br />
                       1996 Basse-Nendaz<br />
                       Suisse
                     </p>
@@ -43,7 +43,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Téléphone</h3>
-                    <p className="text-gray-600">027 288 23 43</p>
+                    <p className="text-gray-600">027 / 288 22 50</p>
                   </div>
                 </div>
 
@@ -52,7 +52,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <p className="text-gray-600">paroisse.nendaz@netplus.ch</p>
+                    <p className="text-gray-600">paroisse_nendaz@bluemail.ch</p>
                   </div>
                 </div>
 
@@ -186,8 +186,8 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold mb-2">Abbé Félicien Roux</h3>
                 <p className="text-blue-600 font-medium mb-3">Prêtre</p>
                 <div className="text-sm text-gray-600 space-y-1">
-                  <p className="font-medium">027.288.22.50</p>
-                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                  <p className="font-medium">027 / 288 22 50</p>
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
                 </div>
@@ -203,7 +203,7 @@ export default function ContactPage() {
                 <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.288.51.59</p>
-                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
                 </div>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                 <p className="text-green-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.207.13.18</p>
-                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
                 </div>
@@ -235,7 +235,7 @@ export default function ContactPage() {
                 <p className="text-orange-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.346.00.03</p>
-                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
                 </div>
@@ -251,7 +251,7 @@ export default function ContactPage() {
                 <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
                   <p className="font-medium">027.346.00.03</p>
-                  <a href="mailto:contact@paroisses-nendaz.ch" className="text-blue-500 hover:underline">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
                 </div>

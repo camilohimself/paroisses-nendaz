@@ -14,113 +14,143 @@ export default function PastoralePage() {
         </div>
       </section>
 
-      {/* Sacrements */}
-      <section className="py-16">
+      {/* Sacrements - VERSION 3 : Minimaliste Épuré */}
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Sacrements</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Baptême */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-blue-600 text-xl">💧</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Baptême</h3>
-              <ul className="text-sm text-gray-700 space-y-2 mb-4">
-                <li>• Âge: 0-7 ans ou adultes</li>
-                <li>• Préparation: 2 rencontres</li>
-                <li>• Documents requis</li>
-                <li>• Contact secrétariat</li>
-              </ul>
-              <Link href="/sacrements/bapteme" className="block w-full bg-paroisse-bleuRoi text-white py-2 px-4 rounded-lg hover:bg-paroisse-bleuRoi/90 transition font-medium text-center">
-                En savoir plus
-              </Link>
+          <div className="max-w-5xl mx-auto">
+
+            {/* Titre section */}
+            <div className="text-center mb-20">
+              <h2 className="text-4xl font-bold text-neutral-anthracite mb-4">Les Sacrements</h2>
+              <p className="text-neutral-gris italic">Signes de la grâce divine</p>
             </div>
 
-            {/* Première Communion */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-yellow-600 text-xl">🍞</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Première Communion</h3>
-              <ul className="text-sm text-gray-700 space-y-2 mb-4">
-                <li>• Âge: 8-9 ans (3H-4H)</li>
-                <li>• Parcours: Septembre à mai</li>
-                <li>• Inscription: Juin précédent</li>
-                <li>• Responsable: Catéchiste</li>
-              </ul>
-              <Link href="/sacrements/communion" className="block w-full bg-gradient-to-r from-paroisse-jaune to-paroisse-rouge text-neutral-anthracite hover:opacity-90 transition font-medium text-center py-2 px-4 rounded-lg">
-                En savoir plus
+            {/* Liste ultra-minimaliste */}
+            <div className="space-y-8">
+
+              {/* Baptême */}
+              <Link href="/sacrements/bapteme" className="group block p-6 hover:bg-sky-50 transition-all duration-300 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-sky-600 transition-colors mb-2">
+                      Baptême
+                    </h3>
+                    <p className="text-neutral-gris text-sm">
+                      Premier sacrement de la vie chrétienne • 0-7 ans ou adultes
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center group-hover:bg-sky-500 transition-all">
+                    <svg className="w-5 h-5 text-sky-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
               </Link>
+
+              {/* Première Communion */}
+              <Link href="/sacrements/communion" className="group block p-6 hover:bg-emerald-50 transition-all duration-300 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-emerald-600 transition-colors mb-2">
+                      Première Communion
+                    </h3>
+                    <p className="text-neutral-gris text-sm">
+                      Recevoir Jésus Pain de Vie • 8-9 ans (3H-4H)
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-500 transition-all">
+                    <svg className="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Confirmation */}
+              <Link href="/sacrements/confirmation" className="group block p-6 hover:bg-amber-50 transition-all duration-300 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-amber-600 transition-colors mb-2">
+                      Confirmation
+                    </h3>
+                    <p className="text-neutral-gris text-sm">
+                      Don de l&apos;Esprit Saint • 14-15 ans (10CO-11CO)
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center group-hover:bg-amber-500 transition-all">
+                    <svg className="w-5 h-5 text-amber-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Mariage */}
+              <Link href="/sacrements/mariage" className="group block p-6 hover:bg-rose-50 transition-all duration-300 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-rose-600 transition-colors mb-2">
+                      Mariage
+                    </h3>
+                    <p className="text-neutral-gris text-sm">
+                      Alliance sacrée • Préparation 6 mois
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center group-hover:bg-rose-500 transition-all">
+                    <svg className="w-5 h-5 text-rose-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Onction des malades */}
+              <Link href="/sacrements/onction-malades" className="group block p-6 hover:bg-indigo-50 transition-all duration-300 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-indigo-600 transition-colors mb-2">
+                      Onction des malades
+                    </h3>
+                    <p className="text-neutral-gris text-sm">
+                      Grâce du Seigneur • Sur demande 24h/24
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center group-hover:bg-indigo-500 transition-all">
+                    <svg className="w-5 h-5 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Réconciliation */}
+              <Link href="/sacrements/pardon" className="group block p-6 hover:bg-lime-50 transition-all duration-300 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-lime-700 transition-colors mb-2">
+                      Réconciliation
+                    </h3>
+                    <p className="text-neutral-gris text-sm">
+                      Pardon et Paix • Samedi 17h00-17h45
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-lime-100 flex items-center justify-center group-hover:bg-lime-600 transition-all">
+                    <svg className="w-5 h-5 text-lime-700 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
             </div>
 
-            {/* Confirmation */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-red-600 text-xl">🕊️</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Confirmation</h3>
-              <ul className="text-sm text-gray-700 space-y-2 mb-4">
-                <li>• Âge: 14-15 ans (10CO-11CO)</li>
-                <li>• Parcours: 2 ans</li>
-                <li>• Retraite obligatoire</li>
-                <li>• Évêque présent</li>
-              </ul>
-              <Link href="/sacrements/confirmation" className="block w-full bg-paroisse-violet text-white py-2 px-4 rounded-lg hover:bg-paroisse-violet/90 transition font-medium text-center">
-                En savoir plus
-              </Link>
+            {/* Citation finale */}
+            <div className="mt-20 text-center">
+              <p className="text-neutral-gris italic text-lg max-w-2xl mx-auto">
+                « Les sacrements sont les signes efficaces de la grâce, institués par le Christ et confiés à l&apos;Église »
+              </p>
             </div>
 
-            {/* Mariage */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-pink-600 text-xl">💒</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Mariage</h3>
-              <ul className="text-sm text-gray-700 space-y-2 mb-4">
-                <li>• Préparation: 6 mois minimum</li>
-                <li>• Sessions: 4 rencontres</li>
-                <li>• Documents requis</li>
-                <li>• Cours préparation obligatoire</li>
-              </ul>
-              <Link href="/sacrements/mariage" className="block w-full bg-paroisse-rougeFonce text-white py-2 px-4 rounded-lg hover:bg-paroisse-rougeFonce/90 transition font-medium text-center">
-                En savoir plus
-              </Link>
-            </div>
-
-            {/* Onction des malades */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-purple-600 text-xl">🙏</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Onction des malades</h3>
-              <ul className="text-sm text-gray-700 space-y-2 mb-4">
-                <li>• Sur demande</li>
-                <li>• À domicile ou EMS</li>
-                <li>• Contact urgence disponible</li>
-                <li>• 24h/24 • 7j/7</li>
-              </ul>
-              <Link href="/sacrements/onction-malades" className="block w-full bg-paroisse-turquoiseFonce text-white py-2 px-4 rounded-lg hover:bg-paroisse-turquoiseFonce/90 transition font-medium text-center">
-                En savoir plus
-              </Link>
-            </div>
-
-            {/* Réconciliation */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border-t-4 border-paroisse-turquoise hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-paroisse-turquoise/20 rounded-full flex items-center justify-center mb-4">
-                <span className="text-paroisse-turquoise text-xl">✝️</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-neutral-anthracite">Réconciliation</h3>
-              <ul className="text-sm text-neutral-gris space-y-2 mb-4">
-                <li>• Samedi: 17h00-17h45</li>
-                <li>• Sur rendez-vous</li>
-                <li>• Temps forts liturgiques</li>
-                <li>• Confession individuelle</li>
-              </ul>
-              <Link href="/sacrements/pardon" className="block w-full bg-paroisse-vertFonce text-white py-2 px-4 rounded-lg hover:bg-paroisse-vertFonce/90 transition font-medium text-center">
-                En savoir plus
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -494,8 +524,9 @@ export default function PastoralePage() {
                 <div className="space-y-4 text-neutral-gris">
                   <p className="text-lg font-semibold text-neutral-anthracite">Caroline Karlen</p>
                   <div className="space-y-2 text-sm">
-                    <p>paroisse.nendaz@gmail.com</p>
-                    <p>027 288 27 58</p>
+                    <p>Route de Nendaz 355, 1996 Basse-Nendaz</p>
+                    <p>paroisse_nendaz@bluemail.ch</p>
+                    <p>027 / 288 22 50</p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-gray-200">
                     <p className="font-semibold text-neutral-anthracite mb-1">Horaires</p>
