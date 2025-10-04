@@ -88,23 +88,24 @@ export default function YouTubeLiveIndicator({
           {isLive ? (
             <>
               <h3 className="text-xl font-bold text-[var(--foreground)] mb-4">
-                Messe en cours
+                Messe en direct - Dimanche 10h00
               </h3>
-              <div className="aspect-video bg-gray-900 rounded-lg mb-4 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <svg className="w-16 h-16 mx-auto mb-2 opacity-75" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                  <p className="text-sm">Streaming en direct...</p>
-                </div>
+              <div className="aspect-video bg-gray-900 rounded-lg mb-4 overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/live_stream?channel=UCeh02km__1I_7wjpSQ0IqPg&autoplay=1"
+                  title="Messe en direct - Paroisses Nendaz"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
-              <a 
+              <a
                 href={`https://youtube.com/${channelHandle}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-paroisse-rouge hover:bg-paroisse-rouge/90 text-white py-3 px-4 rounded-lg font-semibold flex items-center justify-center gap-2 transition-parish"
               >
-                <span>Rejoindre la messe</span>
+                <span>Voir sur YouTube</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
@@ -118,13 +119,14 @@ export default function YouTubeLiveIndicator({
               <p className="text-paroisse-vert mb-4 font-medium">
                 {nextMassTime}
               </p>
-              <div className="aspect-video bg-gray-100 rounded-lg mb-4 flex items-center justify-center border-2 border-dashed border-gray-300">
-                <div className="text-center text-gray-500">
-                  <svg className="w-16 h-16 mx-auto mb-2 opacity-50" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                  </svg>
-                  <p className="text-sm">Hors ligne</p>
-                </div>
+              <div className="aspect-video bg-gray-900 rounded-lg mb-4 overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/8AaGadHv55E"
+                  title="Vidéo paroissiale - Paroisses Nendaz"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
               <a
                 href={`https://youtube.com/${channelHandle}`}

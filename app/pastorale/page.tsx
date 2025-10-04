@@ -15,7 +15,7 @@ export default function PastoralePage() {
       </section>
 
       {/* Sacrements - VERSION 3 : Minimaliste Épuré */}
-      <section className="py-20">
+      <section id="sacrements" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
 
@@ -156,7 +156,7 @@ export default function PastoralePage() {
       </section>
 
       {/* Catéchèse - VARIANTE A Palette Vitrail */}
-      <section className="py-20 bg-white relative overflow-hidden">
+      <section id="catechese" className="py-20 bg-white relative overflow-hidden">
         {/* Fonds décoratifs doux */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl"></div>

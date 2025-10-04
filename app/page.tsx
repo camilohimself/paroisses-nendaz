@@ -46,7 +46,7 @@ export default function Home() {
 
             {/* Card 1 - Service Liturgique */}
             <a
-              href="/service-liturgique"
+              href="/pastorale"
               className="group bg-sky-500 hover:bg-sky-600 p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <div className="flex items-start mb-3">
@@ -71,7 +71,7 @@ export default function Home() {
 
             {/* Card 2 - Sacrements */}
             <a
-              href="/sacrements"
+              href="/pastorale"
               className="group bg-emerald-500 hover:bg-emerald-600 p-8 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
             >
               <div className="flex items-start mb-3">
@@ -213,11 +213,11 @@ export default function Home() {
       </section>
 
       {/* YouTube Live Section */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-neutral-grisClaire to-white">
+      <section id="messe-direct" className="py-12 md:py-16 bg-gradient-to-br from-neutral-grisClaire to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-2xl md:text-3xl font-bold text-neutral-anthracite mb-6 md:mb-8 text-center">
-              Messe en direct
+              Messe en direct & YouTube de la Paroisse
             </h2>
             <YouTubeLiveIndicator />
           </div>

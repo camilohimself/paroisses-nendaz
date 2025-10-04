@@ -108,13 +108,11 @@ export default function Header() {
           {/* Quick Access Buttons - Visible dès md: */}
           <div className="hidden md:flex space-x-2">
             <a
-              href="https://www.youtube.com/@paroissesnendazetveysonnaz"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/#messe-direct"
               className="bg-paroisse-rouge text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2 shadow-lg"
             >
               <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-              Live
+              Messe & YouTube
             </a>
             <a
               href="https://web.enoria.app/"
@@ -232,13 +230,12 @@ export default function Header() {
               </Link>
               <div className="flex space-x-2 pt-4 border-t border-gray-200">
                 <a
-                  href="https://www.youtube.com/@paroissesnendazetveysonnaz"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/#messe-direct"
                   className="bg-paroisse-rouge text-white px-3 py-2 rounded-lg text-sm hover:bg-paroisse-rouge/90 transition-colors font-semibold flex items-center gap-2"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-                  Live
+                  Messe & YouTube
                 </a>
                 <a
                   href="https://web.enoria.app/"
