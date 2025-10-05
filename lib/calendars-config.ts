@@ -42,7 +42,7 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
     name: 'Chapelle de Brignon',
     sector: 'nendaz',
     type: 'chapelle',
-    googleCalendarId: '9d1s3t1s2q3b9hlfhuoqd63hq0@group.calendar.google.com',
+    googleCalendarId: 'm4l948g6898iuh87ivrdpcshi4@group.calendar.google.com',
     color: '#228B22',
     defaultLocation: 'Chapelle de Brignon'
   },
