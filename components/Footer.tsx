@@ -22,12 +22,9 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-neutral-anthracite">Heures de présence</h3>
             <div className="text-neutral-gris space-y-2">
-              <p className="font-medium">Mardi</p>
-              <p>8h30 - 11h30</p>
-              <p>14h00 - 16h30</p>
-              <p className="font-medium pt-2">Vendredi</p>
-              <p>8h30 - 11h30</p>
-              <p>14h00 - 16h30</p>
+              <p className="font-medium">Mardi et Vendredi</p>
+              <p>8h - 11h30</p>
+              <p>14h - 16h30</p>
             </div>
           </div>
 

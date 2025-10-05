@@ -566,7 +566,9 @@ export default function PastoralePage() {
                   </div>
                   <div className="mt-6 pt-4 border-t border-gray-200">
                     <p className="font-semibold text-neutral-anthracite mb-1">Horaires</p>
-                    <p className="text-sm">Lundi-Vendredi: 8h30-11h30</p>
+                    <p className="text-sm">Mardi et Vendredi</p>
+                    <p className="text-sm">8h-11h30</p>
+                    <p className="text-sm">14h-16h30</p>
                   </div>
                 </div>
               </div>

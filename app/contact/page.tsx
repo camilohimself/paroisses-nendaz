@@ -62,8 +62,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-1">Horaires</h3>
                     <p className="text-gray-600">
-                      Lundi - Vendredi<br />
-                      8h30 - 11h30
+                      Mardi et Vendredi<br />
+                      8h - 11h30<br />
+                      14h - 16h30
                     </p>
                   </div>
                 </div>
@@ -284,7 +285,8 @@ export default function ContactPage() {
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6">
                 <p className="text-blue-700">
                   <strong>Horaires du secrétariat :</strong><br/>
-                  Lundi - Vendredi : 8h30 - 11h30
+                  Mardi et Vendredi : 8h - 11h30<br/>
+                  14h - 16h30
                 </p>
               </div>
             </div>
@@ -359,7 +361,7 @@ export default function ContactPage() {
                       <span className="text-green-700 text-xs">Caissier</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-green-200">
-                      <span className="font-semibold text-green-900">Michel Glassey</span>
+                      <span className="font-semibold text-green-900">Benjamin Revaz</span>
                       <span className="text-green-700 text-xs">Membre</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-green-200">
