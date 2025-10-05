@@ -183,7 +183,7 @@ export default function PrierePage() {
                 <div className="bg-sky-50 border-l-4 border-sky-500 p-4 mb-4">
                   <p className="text-sm font-semibold text-neutral-anthracite mb-1">Responsable</p>
                   <p className="text-base text-neutral-anthracite">Chantal Fournier</p>
-                  <p className="text-sm text-sky-700">079 273 13 32</p>
+                  <p className="text-sm text-sky-700">+41 79 273 13 32</p>
                 </div>
 
                 <p className="text-base text-neutral-gris leading-relaxed">
@@ -230,7 +230,7 @@ export default function PrierePage() {
                 <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 mb-4">
                   <p className="text-sm font-semibold text-neutral-anthracite mb-1">Responsable</p>
                   <p className="text-base text-neutral-anthracite">Bénédicte Devènes</p>
-                  <p className="text-sm text-emerald-700">077 413 61 60</p>
+                  <p className="text-sm text-emerald-700">+41 77 413 61 60</p>
                 </div>
 
                 <p className="text-base text-neutral-gris leading-relaxed">

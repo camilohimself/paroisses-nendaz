@@ -26,16 +26,17 @@ export default function YouTubeLiveIndicator({
   }, [])
   
   const checkLiveStatus = async () => {
-    // Logique temporaire - détecte si c'est dimanche entre 9h45 et 11h30
+    // Logique temporaire - détecte si c'est dimanche entre 9h45 et 11h00
     const now = new Date()
     const day = now.getDay() // 0 = dimanche
     const hour = now.getHours()
     const minute = now.getMinutes()
-    
+
     const isDimanche = day === 0
-    const isTimeRange = (hour === 9 && minute >= 45) || (hour === 10) || (hour === 11 && minute <= 30)
-    
-    setIsLive(isDimanche && isTimeRange)
+    const isTimeRange = (hour === 9 && minute >= 45) || (hour === 10 && minute < 60) // Jusqu'à 11h00 max
+
+    // TEMPORAIRE: Forcer mode HORS LIGNE pour démo
+    setIsLive(false)
   }
   
   const getNextMassTime = () => {

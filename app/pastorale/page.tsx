@@ -562,7 +562,7 @@ export default function PastoralePage() {
                   <div className="space-y-2 text-sm">
                     <p>Route de Nendaz 355, 1996 Basse-Nendaz</p>
                     <p>paroisse_nendaz@bluemail.ch</p>
-                    <p>027 / 288 22 50</p>
+                    <p>+41 27 288 22 50</p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-gray-200">
                     <p className="font-semibold text-neutral-anthracite mb-1">Horaires</p>

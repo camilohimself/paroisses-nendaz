@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="text-neutral-gris space-y-2">
               <p>Route de Nendaz 355</p>
               <p>1996 Basse-Nendaz</p>
-              <p>Tél: 027 / 288 22 50</p>
+              <p>Tél: +41 27 288 22 50</p>
               <p>paroisse_nendaz@bluemail.ch</p>
             </div>
           </div>

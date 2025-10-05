@@ -43,7 +43,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Téléphone</h3>
-                    <p className="text-gray-600">027 / 288 22 50</p>
+                    <p className="text-gray-600">+41 27 288 22 50</p>
                   </div>
                 </div>
 
@@ -186,7 +186,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold mb-2">Abbé Félicien Roux</h3>
                 <p className="text-blue-600 font-medium mb-3">Prêtre</p>
                 <div className="text-sm text-gray-600 space-y-1">
-                  <p className="font-medium">027 / 288 22 50</p>
+                  <p className="font-medium">+41 27 288 22 50</p>
                   <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
