@@ -44,7 +44,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     history: `En 1943, la population de Haute-Nendaz lassé de se rendre tous les dimanches et jours de fête à Basse-Nendaz pour la messe, décide de construire leur propre église. Il ne leur faudra pas moins de dix années pour mener à bien leur projet. Tous les habitants du village participent à la construction pendant leurs temps libres et parfois même le dimanche. Les premières messes sont dites dans un bâtiment sans toit ni fenêtres, hiver comme été. De nombreux problèmes retardèrent l'avancement des travaux comme la mobilisation ou les travaux de construction des barrages.`,
     horaires: {
       dominicale: 'tous les samedis à 17h30',
-      semaine: 'les 1er, 3e, 5e mardis à 19h00',
+      semaine: 'le 4e mardi du mois à 19h00',
       adoration: 'les 1er, 3e, 5e mardis de 18h15 à 19h00'
     },
     particularites: ['Construction communautaire', 'Messes dans bâtiment sans toit', 'Défi des barrages']
@@ -58,7 +58,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     history: `Avant 1953, les habitants du village se recueillaient dans une petite chapelle pouvant accueillir une trentaine de personnes mais, le dimanche, ils se rendaient à Basse-Nendaz pour la messe dominicale. On peut encore voir, dans le cimetière, le clocher de l'ancienne chapelle qui se rappelle au souvenir des villageois.`,
     horaires: {
       dominicale: 'tous les 2e samedis à 19h00',
-      semaine: 'les 2e et 4e mardis à 19h',
+      semaine: 'le 3e mardi du mois à 19h00',
       adoration: 'les 1er, 3e, 5e jeudis de 18h15 à 19h00'
     },
     particularites: ['Ancienne chapelle 30 places', 'Clocher conservé au cimetière']
@@ -136,7 +136,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1967',
     history: `La chapelle dédiée à Notre Dame du Perpétuel Secours a été bénite en 1967. Elle est l'œuvre d'Emile Crettenand et de sa famille. Ils la firent bâtir en souvenir d'un membre de la famille décédé accidentellement.`,
     horaires: {
-      semaine: 'le 2e jeudi du mois à 19h00'
+      semaine: 'le 2e jeudi du mois à 19h00 (sauf l\'hiver)'
     },
     particularites: ['Famille Crettenand', 'Mémorial familial']
   },
@@ -200,7 +200,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     history: `Terre de l'Evêché de Sion, Veysonnaz faisait d'abord partie de Nendaz. Une chapelle est mentionnée en 1425, qui fut reconstruite en 1721. En 1908 l'église actuelle est construite et en 1912 Veysonnaz, quittant l'église paroissiale de Basse-Nendaz, accède au titre de paroisse avec Clèbes et Verrey, qui sont restées liées à la commune de Nendaz. Rénovation entre 1962 et 1968. Église néogothique.`,
     horaires: {
       dominicale: 'les 1er, 3e samedis du mois à 19h00',
-      semaine: 'tous les 1er, 3e, et 5e mardis du mois à 19h00',
+      semaine: 'les 1er et 5e mardis du mois à 19h00',
       adoration: 'tous les mardis sauf le 1er du mois de 18h à 18h45 et tous les vendredis de 14h à 15h'
     },
     particularites: ['Évêché de Sion', 'Paroisse autonome 1912', 'Style néogothique', 'Rénovation 1962-1968']
@@ -240,7 +240,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     type: 'ems',
     history: `Établissement médico-social accueillant les résidents pour les célébrations liturgiques.`,
     horaires: {
-      semaine: 'les 1er, 3e, 5e mercredis du mois à 10h15'
+      semaine: 'les 1er, 3e et 5e mercredis du mois à 10h15'
     },
     particularites: ['Établissement médico-social']
   },
@@ -251,7 +251,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     type: 'ems',
     history: `Établissement médico-social accueillant les résidents pour les célébrations liturgiques.`,
     horaires: {
-      semaine: 'les 1er, 3ème et 5ème jeudis du mois à 10h15'
+      semaine: 'les 1er et 3e jeudis du mois à 10h15'
     },
     particularites: ['Établissement médico-social']
   }

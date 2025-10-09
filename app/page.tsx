@@ -172,38 +172,29 @@ export default function Home() {
           {/* Fallback horaires fixes si Google Calendar ne fonctionne pas */}
           <div className="max-w-4xl mx-auto mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-200">
             <h3 className="text-base md:text-lg font-semibold mb-4 md:mb-6 text-center text-gray-600">Horaires habituels</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="space-y-6 md:space-y-8">
               <div>
-                <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-paroisse-rouge">Week-end</h4>
+                <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-paroisse-rouge">Messes dominicales du secteur : horaire normal</h4>
                 <div className="space-y-2">
-                  <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span>Samedi 18h00</span>
-                    <span className="text-gray-600">Haute-Nendaz</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <span className="font-medium">Haute-Nendaz</span>
+                    <span className="text-gray-600">Tous les samedis 17h30</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span>Dimanche 10h00</span>
-                    <span className="text-gray-600">Basse-Nendaz</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <span className="font-medium">Aproz/Veysonnaz</span>
+                    <span className="text-gray-600">1er et 3e samedis du mois 19h00</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span>Dimanche 11h00</span>
-                    <span className="text-gray-600">Veysonnaz (été)</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <span className="font-medium">Fey</span>
+                    <span className="text-gray-600">
+                      <a href="/paroisses/fey" className="text-paroisse-bleuRoi hover:underline">
+                        cf. site internet paroisses-nendaz.ch
+                      </a>
+                    </span>
                   </div>
-                </div>
-              </div>
-              <div>
-                <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-paroisse-bleuRoi">Semaine</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span>Mardi 8h30</span>
-                    <span className="text-gray-600">Basse-Nendaz</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span>Jeudi 18h30</span>
-                    <span className="text-gray-600">Haute-Nendaz</span>
-                  </div>
-                  <div className="flex justify-between py-2 border-b border-gray-100">
-                    <span>Vendredi 8h30</span>
-                    <span className="text-gray-600">Veysonnaz</span>
+                  <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-gray-100">
+                    <span className="font-medium">Basse-Nendaz</span>
+                    <span className="text-gray-600">Tous les dimanches 10h00</span>
                   </div>
                 </div>
               </div>
