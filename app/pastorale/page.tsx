@@ -47,6 +47,25 @@ export default function PastoralePage() {
                 </div>
               </Link>
 
+              {/* Réconciliation - Premier Pardon */}
+              <Link href="/sacrements/pardon" className="group block p-6 hover:bg-lime-50 transition-all duration-300 rounded-lg">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-lime-700 transition-colors mb-2">
+                      Réconciliation
+                    </h3>
+                    <p className="text-neutral-gris text-sm">
+                      Premier Pardon 4H • Confession sur rdv, vendredi & dimanche avant messe à Basse-Nendaz
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-lime-100 flex items-center justify-center group-hover:bg-lime-600 transition-all">
+                    <svg className="w-5 h-5 text-lime-700 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
               {/* Première Communion */}
               <Link href="/sacrements/communion" className="group block p-6 hover:bg-emerald-50 transition-all duration-300 rounded-lg">
                 <div className="flex items-center justify-between">
@@ -55,7 +74,7 @@ export default function PastoralePage() {
                       Première Communion
                     </h3>
                     <p className="text-neutral-gris text-sm">
-                      Recevoir Jésus Pain de Vie • 8-9 ans (3H-4H)
+                      Recevoir Jésus Pain de Vie • 5H
                     </p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center group-hover:bg-emerald-500 transition-all">
@@ -74,30 +93,11 @@ export default function PastoralePage() {
                       Confirmation
                     </h3>
                     <p className="text-neutral-gris text-sm">
-                      Don de l&apos;Esprit Saint • 14-15 ans (10CO-11CO)
+                      Don de l&apos;Esprit Saint • 7H-8H
                     </p>
                   </div>
                   <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center group-hover:bg-amber-500 transition-all">
                     <svg className="w-5 h-5 text-amber-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Mariage */}
-              <Link href="/sacrements/mariage" className="group block p-6 hover:bg-rose-50 transition-all duration-300 rounded-lg">
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-rose-600 transition-colors mb-2">
-                      Mariage
-                    </h3>
-                    <p className="text-neutral-gris text-sm">
-                      Alliance sacrée • Préparation 6 mois
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center group-hover:bg-rose-500 transition-all">
-                    <svg className="w-5 h-5 text-rose-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
@@ -123,19 +123,19 @@ export default function PastoralePage() {
                 </div>
               </Link>
 
-              {/* Réconciliation */}
-              <Link href="/sacrements/pardon" className="group block p-6 hover:bg-lime-50 transition-all duration-300 rounded-lg">
+              {/* Mariage */}
+              <Link href="/sacrements/mariage" className="group block p-6 hover:bg-rose-50 transition-all duration-300 rounded-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-lime-700 transition-colors mb-2">
-                      Réconciliation
+                    <h3 className="text-2xl font-semibold text-neutral-anthracite group-hover:text-rose-600 transition-colors mb-2">
+                      Mariage
                     </h3>
                     <p className="text-neutral-gris text-sm">
-                      Pardon et Paix • Samedi 17h00-17h45
+                      Alliance sacrée • Préparation 6 mois
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-lime-100 flex items-center justify-center group-hover:bg-lime-600 transition-all">
-                    <svg className="w-5 h-5 text-lime-700 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center group-hover:bg-rose-500 transition-all">
+                    <svg className="w-5 h-5 text-rose-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
