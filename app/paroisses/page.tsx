@@ -46,7 +46,7 @@ export default function ParoissesIndexPage() {
       <div className="py-12 bg-white border-b">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-            Paroisses de Nendaz et Veysonnaz
+            Secteur de Nendaz et Veysonnaz
           </h1>
           <div className="w-24 h-0.5 bg-sky-500 mx-auto mb-6"></div>
           <p className="text-neutral-gris italic max-w-2xl mx-auto text-lg">
@@ -63,7 +63,7 @@ export default function ParoissesIndexPage() {
             {/* Titre Section Nendaz */}
             <div className="text-center mb-20">
               <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Secteur de Nendaz
+                Paroisses de Nendaz
               </h2>
               <div className="w-24 h-0.5 bg-sky-500 mx-auto mb-6"></div>
               <p className="text-neutral-gris max-w-2xl mx-auto">
@@ -121,7 +121,7 @@ export default function ParoissesIndexPage() {
             {/* Titre Section Veysonnaz */}
             <div className="text-center mb-20">
               <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Secteur de Veysonnaz
+                Paroisses de Veysonnaz
               </h2>
               <div className="w-24 h-0.5 bg-emerald-500 mx-auto mb-6"></div>
               <p className="text-neutral-gris max-w-2xl mx-auto">
