@@ -200,7 +200,7 @@ export default function PastoralePage() {
                         </h3>
                         <div className="inline-block px-4 py-1.5 bg-amber-500 text-white rounded-full">
                           <p className="text-sm font-bold uppercase tracking-wider">
-                            3-6 ans
+                            0 à 10 ans
                           </p>
                         </div>
                       </div>
@@ -210,17 +210,38 @@ export default function PastoralePage() {
                       Premiers pas dans la découverte <strong className="text-amber-600">joyeuse et ludique</strong> de Jésus et de son message d'amour.
                     </p>
 
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-white p-4 rounded-xl border-2 border-amber-200">
-                        <p className="text-xs text-amber-600 font-semibold uppercase mb-1">Fréquence</p>
-                        <p className="text-sm text-neutral-anthracite font-bold">1x / mois</p>
-                        <p className="text-xs text-neutral-gris">Samedi matin</p>
+                    <div className="bg-white p-6 rounded-xl border-2 border-amber-200 mb-6">
+                      <p className="text-xs text-amber-600 font-semibold uppercase mb-3">Prochaines rencontres 2025-2026</p>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Samedi 20 décembre 2025 • 9h30</p>
+                            <p className="text-neutral-gris">Église de Basse-Nendaz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Vendredi 3 avril 2026 • 15h</p>
+                            <p className="text-neutral-gris">Église de Basse-Nendaz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Dimanche 5 avril 2026 • 10h</p>
+                            <p className="text-neutral-gris">Église de Basse-Nendaz • Atelier de la Parole</p>
+                          </div>
+                        </div>
                       </div>
-                      <div className="bg-white p-4 rounded-xl border-2 border-amber-200">
-                        <p className="text-xs text-amber-600 font-semibold uppercase mb-1">Format</p>
-                        <p className="text-sm text-neutral-anthracite font-bold">Parents-enfants</p>
-                        <p className="text-xs text-neutral-gris">Activités créatives</p>
-                      </div>
+                      <p className="text-xs text-amber-600 font-semibold mt-4">3 rencontres par année</p>
                     </div>
 
                     <div className="flex items-center gap-2 text-sm text-amber-700 font-semibold">
@@ -269,16 +290,24 @@ export default function PastoralePage() {
                       Parcours de <strong className="text-sky-600">croissance et d'approfondissement</strong> vers les sacrements de la communion et de la confirmation.
                     </p>
 
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <div className="bg-white p-4 rounded-xl border-2 border-sky-200">
-                        <p className="text-xs text-sky-600 font-semibold uppercase mb-1">Rencontres</p>
-                        <p className="text-sm text-neutral-anthracite font-bold">Hebdomadaires</p>
-                        <p className="text-xs text-neutral-gris">Par classe d'âge</p>
-                      </div>
-                      <div className="bg-white p-4 rounded-xl border-2 border-sky-200">
-                        <p className="text-xs text-sky-600 font-semibold uppercase mb-1">Pédagogie</p>
-                        <p className="text-sm text-neutral-anthracite font-bold">Interactive</p>
-                        <p className="text-xs text-neutral-gris">Ludique et vivante</p>
+                    <div className="bg-white p-6 rounded-xl border-2 border-sky-200 mb-6">
+                      <p className="text-xs text-sky-600 font-semibold uppercase mb-3">Messes Grain de Soleil</p>
+                      <div className="space-y-4">
+                        <div>
+                          <p className="font-bold text-neutral-anthracite mb-2">À Veysonnaz</p>
+                          <div className="space-y-1 text-sm text-neutral-gris">
+                            <p>• 10h à la Toussaint</p>
+                            <p>• 10h à Noël</p>
+                            <p>• 9h le jour de Pâques</p>
+                          </div>
+                        </div>
+                        <div>
+                          <p className="font-bold text-neutral-anthracite mb-2">À Basse-Nendaz</p>
+                          <div className="space-y-1 text-sm text-neutral-gris">
+                            <p>• 10h à la fête paroissiale (1er dimanche d'octobre)</p>
+                            <p>• 10h à Pâques</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
@@ -338,6 +367,97 @@ export default function PastoralePage() {
                     <div className="flex-shrink-0 text-9xl font-bold text-emerald-500/10 leading-none hidden lg:block" style={{ fontFamily: 'Playfair Display, serif' }}>
                       03
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Messes des activités catéchétiques et des familles - ROSE/INDIGO */}
+              <div className="grid md:grid-cols-12 gap-8 items-center group mt-8">
+                <div className="md:col-span-7 order-2 md:order-1">
+                  <div className="bg-gradient-to-br from-rose-50 via-indigo-50 to-white p-10 rounded-3xl border-l-8 border-rose-500 shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-rose-500 to-indigo-500 rounded-2xl flex items-center justify-center transform -rotate-3 group-hover:rotate-0 transition-transform duration-500">
+                        <span className="text-3xl font-serif text-white">M</span>
+                      </div>
+                      <div>
+                        <h3 className="text-4xl font-bold text-rose-600 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                          Messes des activités catéchétiques
+                        </h3>
+                        <div className="inline-block px-4 py-1.5 bg-gradient-to-r from-rose-500 to-indigo-500 text-white rounded-full">
+                          <p className="text-sm font-bold uppercase tracking-wider">
+                            Messes des familles
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-lg text-neutral-anthracite mb-6 leading-relaxed">
+                      Des moments privilégiés pour <strong className="text-rose-600">célébrer en famille</strong> et vivre la foi ensemble avec toute la communauté paroissiale.
+                    </p>
+
+                    <div className="bg-white p-6 rounded-xl border-2 border-rose-200 mb-6">
+                      <p className="text-xs text-rose-600 font-semibold uppercase mb-4">Programme 2025-2026</p>
+                      <div className="space-y-3 text-sm">
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Samedi 15 novembre 2025 • 17h</p>
+                            <p className="text-neutral-gris">Haute-Nendaz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Dimanche 15 décembre 2025 • 10h</p>
+                            <p className="text-neutral-gris">Basse-Nendaz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Dimanche 4 janvier 2026 • 10h</p>
+                            <p className="text-neutral-gris">Basse-Nendaz • Messe des familles</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Samedi 7 février 2026 • 19h</p>
+                            <p className="text-neutral-gris">Aproz</p>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <svg className="w-4 h-4 text-rose-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                          <div>
+                            <p className="font-bold text-neutral-anthracite">Samedi 21 mars 2026 • 19h</p>
+                            <p className="text-neutral-gris">Veysonnaz</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-sm text-rose-700 font-semibold">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                      Toutes les familles sont les bienvenues
+                    </div>
+                  </div>
+                </div>
+
+                <div className="md:col-span-5 order-1 md:order-2">
+                  <div className="text-9xl md:text-[12rem] font-bold text-rose-500/10 leading-none" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    04
                   </div>
                 </div>
               </div>
