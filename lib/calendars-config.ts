@@ -122,28 +122,27 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
   },
   {
     id: 'clebes',
-    name: 'Chapelle de Clèbes (Veysonnaz)',
+    name: 'Chapelle de Clèbes',
     sector: 'veysonnaz',
     type: 'chapelle',
     googleCalendarId: 'la3jtnie396g4goigdb3iqir4o@group.calendar.google.com',
     color: '#2F4F4F',
-    defaultLocation: 'Chapelle de Clèbes, Veysonnaz'
+    defaultLocation: 'Chapelle de Clèbes'
   },
   {
     id: 'st-barthelemy',
     name: 'Chapelle St-Barthélémy (Clèbes)',
-    sector: 'veysonnaz',
+    sector: 'nendaz',
     type: 'chapelle',
     googleCalendarId: 'vkauurg0o7r2u83fcp29urgdag@group.calendar.google.com',
     color: '#708090',
     defaultLocation: 'Chapelle Saint-Barthélémy, Clèbes'
   },
 
-  // AUTRES SECTEURS
   {
     id: 'aproz',
     name: 'Église d\'Aproz',
-    sector: 'autres',
+    sector: 'nendaz',
     type: 'eglise',
     googleCalendarId: '02cme4ksjjjnbukvvvao6dl0t0@group.calendar.google.com',
     color: '#800000',
@@ -152,16 +151,17 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
   {
     id: 'fey',
     name: 'Église de Fey',
-    sector: 'autres',
+    sector: 'nendaz',
     type: 'eglise',
     googleCalendarId: 'sketnk4dqjip6fj29298hhjpfg@group.calendar.google.com',
     color: '#008B8B',
     defaultLocation: 'Église de Fey'
   },
+
   {
     id: 'ems-vergers',
     name: 'EMS Les Vergers',
-    sector: 'autres',
+    sector: 'nendaz',
     type: 'ems',
     googleCalendarId: 'i8v8vq053mi7f10d5toi2oq9do@group.calendar.google.com',
     color: '#B22222',
@@ -170,20 +170,11 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
   {
     id: 'foyer-ma-vallee',
     name: 'Foyer Ma Vallée',
-    sector: 'autres',
+    sector: 'nendaz',
     type: 'ems',
     googleCalendarId: 'jkcnv0mvaq2vkfb55dconfs4t8@group.calendar.google.com',
     color: '#556B2F',
     defaultLocation: 'Foyer Ma Vallée'
-  },
-  {
-    id: 'oratoire-chardonney',
-    name: 'Oratoire du Chardonney',
-    sector: 'autres',
-    type: 'oratoire',
-    googleCalendarId: '2mplknn5qs32ds8avlr7vcgd3k@group.calendar.google.com',
-    color: '#8B4513',
-    defaultLocation: 'Oratoire du Chardonney'
   },
 
   // TRANSVERSAL
