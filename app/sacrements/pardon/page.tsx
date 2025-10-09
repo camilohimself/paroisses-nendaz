@@ -128,10 +128,11 @@ export default function PardonPage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">⛪</span>
+                  <span className="text-2xl">📅</span>
                   <div>
-                    <p className="font-semibold text-neutral-anthracite">Disponibilité</p>
-                    <p className="text-neutral-gris">Sur demande auprès d'un prêtre</p>
+                    <p className="font-semibold text-neutral-anthracite">Horaire des confessions</p>
+                    <p className="text-neutral-gris mb-2">Le vendredi 18h-18h45 et le dimanche 9h-9h45 à Basse-Nendaz</p>
+                    <p className="text-neutral-gris">Sur demande en appelant au secrétariat du secteur.</p>
                   </div>
                 </div>
               </div>
