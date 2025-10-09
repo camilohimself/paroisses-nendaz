@@ -49,9 +49,9 @@ export default function Home() {
             <div className="max-w-2xl mx-auto mb-10">
               <div className="h-px w-20 bg-amber-300 mx-auto mb-5"></div>
               <p className="text-lg md:text-xl text-stone-600 leading-relaxed italic" style={{ fontFamily: 'Crimson Text, serif' }}>
-                « Voici que je suis avec vous tous les jours »
+                « Voici que<br />je suis avec vous tous les jours »
               </p>
-              <p className="text-xs text-stone-400 mt-2 tracking-widest uppercase">Matthieu 28:20</p>
+              <p className="text-xs text-stone-400 mt-2 tracking-widest uppercase">Matthieu 18, 20</p>
               <div className="h-px w-20 bg-amber-300 mx-auto mt-5"></div>
             </div>
 

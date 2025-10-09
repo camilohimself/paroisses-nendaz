@@ -51,15 +51,9 @@ export default function DiaconiePage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4">
-                  <div>
-                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Horaire général</p>
-                    <p className="text-base md:text-lg text-stone-800 font-semibold">Veille des obsèques • 20h00</p>
-                  </div>
-                  <div>
-                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Aproz</p>
-                    <p className="text-base md:text-lg text-stone-800 font-semibold">19h30</p>
-                  </div>
+                <div className="mb-4">
+                  <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Horaire</p>
+                  <p className="text-base md:text-lg text-stone-800 font-semibold">Veille des obsèques • 19h30</p>
                 </div>
 
                 <p className="text-base text-stone-600 leading-relaxed">
@@ -178,6 +172,12 @@ export default function DiaconiePage() {
                     <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Public</p>
                     <p className="text-base md:text-lg text-stone-800 font-semibold">Personnes isolées, malades, EMS</p>
                   </div>
+                </div>
+
+                <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mb-4 rounded">
+                  <p className="text-sm font-semibold text-stone-800 mb-1">Responsable</p>
+                  <p className="text-base text-stone-800">Marie-Noëlle Délèze</p>
+                  <p className="text-sm text-amber-700">+41 79 542 49 55</p>
                 </div>
 
                 <p className="text-base text-stone-600 leading-relaxed">

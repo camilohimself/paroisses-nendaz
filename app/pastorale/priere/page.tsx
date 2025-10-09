@@ -152,6 +152,17 @@ export default function PrierePage() {
                   </div>
                 </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4">
+                  <div>
+                    <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Horaire</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">1ers vendredis du mois • 18h30</p>
+                  </div>
+                  <div>
+                    <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Lieu</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">Basse-Nendaz</p>
+                  </div>
+                </div>
+
                 <p className="text-base text-stone-600 leading-relaxed">
                   Office du soir de la liturgie des heures, prière de l'Église qui rythme la journée chrétienne.
                 </p>

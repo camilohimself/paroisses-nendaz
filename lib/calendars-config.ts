@@ -131,7 +131,7 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
   },
   {
     id: 'st-barthelemy',
-    name: 'Chapelle St-Barthélémy (Clèbes)',
+    name: 'Chapelle St-Barthélémy',
     sector: 'nendaz',
     type: 'chapelle',
     googleCalendarId: 'vkauurg0o7r2u83fcp29urgdag@group.calendar.google.com',
