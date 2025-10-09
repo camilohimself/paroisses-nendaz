@@ -203,7 +203,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold mb-2">Blandine Bornet</h3>
                 <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
-                  <p className="font-medium">027.288.51.59</p>
+                  <p className="font-medium">+41 27 288 51 59</p>
                   <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold mb-2">Jean-Philippe Glassey</h3>
                 <p className="text-green-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
-                  <p className="font-medium">027.207.13.18</p>
+                  <p className="font-medium">+41 27 207 13 18</p>
                   <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
@@ -235,7 +235,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold mb-2">Martin Fendrych</h3>
                 <p className="text-orange-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
-                  <p className="font-medium">027.346.00.03</p>
+                  <p className="font-medium">+41 27 346 00 03</p>
                   <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
@@ -251,7 +251,7 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold mb-2">Nadia Fendrych</h3>
                 <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
                 <div className="text-sm text-gray-600 space-y-1">
-                  <p className="font-medium">027.346.00.03</p>
+                  <p className="font-medium">+41 27 346 00 03</p>
                   <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline">
                     Email
                   </a>
