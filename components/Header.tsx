@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
 
 export default function Header() {
@@ -13,16 +12,11 @@ export default function Header() {
     <header className="bg-white shadow-sm border-b-2 border-amber-300">
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* Logo temporairement supprimé - en attente nouveau logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <Image
-              src="/logo-paroisses.png"
-              alt="Paroisses de Nendaz"
-              width={180}
-              height={60}
-              className="h-10 w-auto sm:h-12 md:h-14 lg:h-16"
-              priority
-            />
+            <span className="text-xl md:text-2xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Paroisses de Nendaz
+            </span>
           </Link>
 
           {/* Desktop Navigation - Pierre et Lumière */}
