@@ -2,23 +2,25 @@ import Link from 'next/link'
 
 export default function DiaconiePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-neutral-gris/10">
+    <div className="min-h-screen bg-gradient-to-b from-stone-50 to-amber-50/30">
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-24">
 
-        {/* En-tête élégant */}
+        {/* En-tête Pierre et Lumière */}
         <div className="max-w-5xl mx-auto mb-12 md:mb-20 lg:mb-28 text-center">
-          <div className="flex items-center justify-center gap-4 md:gap-8 mb-6 md:mb-8">
-            <div className="w-16 md:w-32 h-px bg-gradient-to-r from-transparent via-amber-500 to-amber-500"></div>
-            <div className="w-2 h-2 md:w-3 md:h-3 bg-amber-500 transform rotate-45"></div>
-            <div className="w-16 md:w-32 h-px bg-gradient-to-l from-transparent via-amber-500 to-amber-500"></div>
+          {/* Petite croix minimaliste */}
+          <div className="flex justify-center mb-8">
+            <div className="relative w-10 h-14">
+              <div className="absolute left-1/2 top-0 w-0.5 h-full bg-stone-400 transform -translate-x-1/2"></div>
+              <div className="absolute left-0 top-3 w-full h-0.5 bg-stone-400"></div>
+            </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-neutral-anthracite mb-6 md:mb-10 tracking-tight leading-tight"
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-stone-800 mb-6 md:mb-10 tracking-tight leading-tight"
               style={{ fontFamily: 'Playfair Display, serif' }}>
             Diaconie
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-neutral-gris leading-relaxed max-w-3xl mx-auto font-light">
+          <p className="text-lg sm:text-xl md:text-2xl text-stone-600 leading-relaxed max-w-3xl mx-auto font-light">
             Services de charité fraternelle et d'accompagnement pour vivre concrètement l'amour du prochain.
           </p>
         </div>
@@ -38,12 +40,12 @@ export default function DiaconiePage() {
 
               <div className="flex-1 border-l-2 border-amber-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-anthracite mb-2"
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
                     Dames des veillées de prières
                   </h3>
-                  <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30">
-                    <p className="text-xs uppercase tracking-widest text-amber-600 font-semibold">
+                  <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30 rounded">
+                    <p className="text-xs uppercase tracking-widest text-amber-700 font-semibold">
                       Accompagnement des défunts
                     </p>
                   </div>
@@ -51,16 +53,16 @@ export default function DiaconiePage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4">
                   <div>
-                    <p className="text-xs md:text-sm text-neutral-gris uppercase tracking-wider mb-1">Horaire général</p>
-                    <p className="text-base md:text-lg text-neutral-anthracite font-semibold">Veille des obsèques • 20h00</p>
+                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Horaire général</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">Veille des obsèques • 20h00</p>
                   </div>
                   <div>
-                    <p className="text-xs md:text-sm text-neutral-gris uppercase tracking-wider mb-1">Aproz</p>
-                    <p className="text-base md:text-lg text-neutral-anthracite font-semibold">19h30</p>
+                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Aproz</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">19h30</p>
                   </div>
                 </div>
 
-                <p className="text-base text-neutral-gris leading-relaxed">
+                <p className="text-base text-stone-600 leading-relaxed">
                   Organisation et animation des veillées de prière la veille des funérailles, pour accompagner le défunt et soutenir sa famille dans la prière et le recueillement.
                 </p>
               </div>
@@ -79,22 +81,22 @@ export default function DiaconiePage() {
 
               <div className="flex-1 border-l-2 border-sky-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-anthracite mb-2"
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
                     Hospitaliers de Lourdes
                   </h3>
-                  <div className="inline-block px-4 py-1 bg-sky-500/10 border border-sky-500/30">
-                    <p className="text-xs uppercase tracking-widest text-sky-600 font-semibold">
+                  <div className="inline-block px-4 py-1 bg-sky-500/10 border border-sky-500/30 rounded">
+                    <p className="text-xs uppercase tracking-widest text-sky-700 font-semibold">
                       Service des pèlerinages
                     </p>
                   </div>
                 </div>
 
-                <p className="text-base text-neutral-gris leading-relaxed mb-4">
+                <p className="text-base text-stone-600 leading-relaxed mb-4">
                   Accompagnement et assistance bénévole des personnes malades, handicapées ou âgées lors des pèlerinages diocésains, notamment à Lourdes. Service de présence, d'écoute et d'aide pratique durant tout le pèlerinage.
                 </p>
 
-                <div className="bg-sky-50 border-l-4 border-sky-500 p-4">
+                <div className="bg-sky-50 border-l-4 border-sky-500 p-4 rounded">
                   <p className="text-sm text-sky-800">
                     <strong>À noter :</strong> Pendant le mois de mai, les hospitaliers animent le chapelet dans les différentes chapelles de la paroisse.
                   </p>
@@ -115,12 +117,12 @@ export default function DiaconiePage() {
 
               <div className="flex-1 border-l-2 border-emerald-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-anthracite mb-2"
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
                     Mouvement Chrétien des Retraités
                   </h3>
-                  <div className="inline-block px-4 py-1 bg-emerald-500/10 border border-emerald-500/30">
-                    <p className="text-xs uppercase tracking-widest text-emerald-600 font-semibold">
+                  <div className="inline-block px-4 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded">
+                    <p className="text-xs uppercase tracking-widest text-emerald-700 font-semibold">
                       MCR - Vie montante
                     </p>
                   </div>
@@ -128,16 +130,16 @@ export default function DiaconiePage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4">
                   <div>
-                    <p className="text-xs md:text-sm text-neutral-gris uppercase tracking-wider mb-1">Public</p>
-                    <p className="text-base md:text-lg text-neutral-anthracite font-semibold">Personnes retraitées</p>
+                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Public</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">Personnes retraitées</p>
                   </div>
                   <div>
-                    <p className="text-xs md:text-sm text-neutral-gris uppercase tracking-wider mb-1">Activités</p>
-                    <p className="text-base md:text-lg text-neutral-anthracite font-semibold">Rencontres, partages, sorties</p>
+                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Activités</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">Rencontres, partages, sorties</p>
                   </div>
                 </div>
 
-                <p className="text-base text-neutral-gris leading-relaxed">
+                <p className="text-base text-stone-600 leading-relaxed">
                   Mouvement pour les personnes retraitées qui favorise la réflexion chrétienne, le partage fraternel et les questionnements sur le sens de la vie, des engagements et du vieillissement dans la foi.
                 </p>
               </div>
@@ -156,12 +158,12 @@ export default function DiaconiePage() {
 
               <div className="flex-1 border-l-2 border-amber-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-neutral-anthracite mb-2"
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
                       style={{ fontFamily: 'Playfair Display, serif' }}>
                     Visiteuses et visiteurs des malades
                   </h3>
-                  <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30">
-                    <p className="text-xs uppercase tracking-widest text-amber-600 font-semibold">
+                  <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30 rounded">
+                    <p className="text-xs uppercase tracking-widest text-amber-700 font-semibold">
                       Présence et réconfort
                     </p>
                   </div>
@@ -169,16 +171,16 @@ export default function DiaconiePage() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 mb-4">
                   <div>
-                    <p className="text-xs md:text-sm text-neutral-gris uppercase tracking-wider mb-1">Service</p>
-                    <p className="text-base md:text-lg text-neutral-anthracite font-semibold">Visites régulières</p>
+                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Service</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">Visites régulières</p>
                   </div>
                   <div>
-                    <p className="text-xs md:text-sm text-neutral-gris uppercase tracking-wider mb-1">Public</p>
-                    <p className="text-base md:text-lg text-neutral-anthracite font-semibold">Personnes isolées, malades, EMS</p>
+                    <p className="text-xs md:text-sm text-stone-600 uppercase tracking-wider mb-1">Public</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">Personnes isolées, malades, EMS</p>
                   </div>
                 </div>
 
-                <p className="text-base text-neutral-gris leading-relaxed">
+                <p className="text-base text-stone-600 leading-relaxed">
                   Service bénévole de visite régulière auprès des personnes isolées, malades ou en établissement médico-social. Présence, écoute, réconfort et lien avec la communauté paroissiale.
                 </p>
               </div>
@@ -187,21 +189,21 @@ export default function DiaconiePage() {
 
         </div>
 
-        {/* Citation biblique */}
+        {/* Citation biblique Pierre et Lumière */}
         <div className="max-w-4xl mx-auto mb-20">
-          <div className="relative py-16 px-12 bg-white border-2 border-neutral-gris/20">
-            <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-amber-500"></div>
-            <div className="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-amber-500"></div>
-            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-4 border-l-4 border-amber-500"></div>
-            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-amber-500"></div>
+          <div className="relative py-16 px-12 bg-gradient-to-br from-white to-stone-50 border-2 border-stone-200 rounded-2xl shadow-lg">
+            <div className="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-amber-400 rounded-tl-2xl"></div>
+            <div className="absolute top-0 right-0 w-12 h-12 border-t-4 border-r-4 border-amber-400 rounded-tr-2xl"></div>
+            <div className="absolute bottom-0 left-0 w-12 h-12 border-b-4 border-l-4 border-amber-400 rounded-bl-2xl"></div>
+            <div className="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-amber-400 rounded-br-2xl"></div>
 
             <div className="text-center">
-              <p className="text-4xl font-bold text-neutral-anthracite mb-6 leading-relaxed"
+              <p className="text-4xl font-bold text-stone-800 mb-6 leading-relaxed"
                  style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
                 « Ce que vous avez fait au plus petit d'entre les miens,<br />c'est à moi que vous l'avez fait. »
               </p>
               <div className="w-16 h-px bg-amber-500 mx-auto mb-4"></div>
-              <p className="text-sm text-neutral-gris uppercase tracking-widest font-semibold">
+              <p className="text-sm text-stone-500 uppercase tracking-widest font-semibold">
                 Évangile selon Saint Matthieu 25, 40
               </p>
             </div>
@@ -210,12 +212,12 @@ export default function DiaconiePage() {
 
         {/* Appel sobre */}
         <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xl text-neutral-gris mb-8 leading-relaxed">
+          <p className="text-xl text-stone-600 mb-8 leading-relaxed">
             Pour rejoindre l'un de ces services ou obtenir davantage d'informations,<br />nous vous invitons à prendre contact avec le secrétariat paroissial.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 border-2 border-neutral-anthracite text-neutral-anthracite font-semibold uppercase tracking-widest hover:bg-neutral-anthracite hover:text-white transition-all duration-300"
+            className="inline-block px-10 py-4 border-2 border-stone-700 text-stone-700 font-semibold uppercase tracking-widest hover:bg-stone-700 hover:text-white transition-all duration-300 rounded"
           >
             Nous contacter
           </Link>
