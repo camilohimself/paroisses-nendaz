@@ -136,7 +136,7 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
     type: 'chapelle',
     googleCalendarId: 'vkauurg0o7r2u83fcp29urgdag@group.calendar.google.com',
     color: '#708090',
-    defaultLocation: 'Chapelle Saint-Barthélémy, Clèbes'
+    defaultLocation: 'Chapelle Saint-Barthélémy'
   },
 
   {
