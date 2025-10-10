@@ -257,18 +257,15 @@ export default function HorairesMesse({
       )}
 
       {/* Footer */}
-      <div className="mt-4 pt-4 border-t border-gray-200">
-        <div className="flex items-center justify-between">
-          <p className="text-xs text-gray-500">
-            Synchronisé avec Google Calendar
-          </p>
-          {lastSync && (
+      {lastSync && (
+        <div className="mt-4 pt-4 border-t border-gray-200">
+          <div className="flex items-center justify-end">
             <span className="text-xs text-gray-400">
               Dernière mise à jour: {new Date(lastSync).toLocaleTimeString('fr-CH')}
             </span>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

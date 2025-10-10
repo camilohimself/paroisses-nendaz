@@ -233,9 +233,6 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
                   Prochaines célébrations
                 </h2>
                 <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
-                <p className="text-neutral-gris italic">
-                  Calendrier en temps réel • Synchronisé avec Google Calendar
-                </p>
               </div>
 
               <div className="bg-white rounded-lg shadow-lg p-8">
