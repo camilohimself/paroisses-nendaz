@@ -52,54 +52,52 @@ export default function GrilleAdoration() {
     return adorationData.filter(a => a.dayIndex === dayIndex);
   };
 
+  // Filtrer pour n'afficher que les jours avec adorations
+  const joursAvecAdoration = joursComplet
+    .map((jour, idx) => ({
+      jour,
+      index: idx + 1,
+      adorations: getAdorationsForDay(idx + 1)
+    }))
+    .filter(day => day.adorations.length > 0);
+
   return (
     <div>
-      {/* VERSION DESKTOP : Grille 7 colonnes */}
-      <div className="hidden lg:grid lg:grid-cols-7 gap-3 mb-6">
-        {jours.map((jour, idx) => {
-          const adorations = getAdorationsForDay(idx + 1);
-          const hasAdoration = adorations.length > 0;
-
-          return (
-            <div
-              key={jour}
-              className={`border-2 rounded-lg p-4 min-h-[200px] transition-all ${
-                hasAdoration
-                  ? 'bg-stone-50 border-stone-200 shadow-sm'
-                  : 'bg-gray-50/50 border-gray-100'
-              }`}
-            >
-              <div className="text-center mb-4 pb-3 border-b border-stone-200">
-                <div className="text-sm font-bold uppercase text-stone-700 tracking-wide">
-                  {jour}
-                </div>
+      {/* VERSION DESKTOP : Grille adaptative (seulement jours avec adorations) */}
+      <div className="hidden lg:grid lg:grid-cols-3 gap-4 mb-6">
+        {joursAvecAdoration.map((day) => (
+          <div
+            key={day.jour}
+            className="border-2 border-stone-200 bg-stone-50 rounded-lg p-4 shadow-sm hover:shadow-md transition-all"
+          >
+            <div className="text-center mb-4 pb-3 border-b-2 border-stone-300">
+              <div className="text-base font-bold uppercase text-stone-800 tracking-wide">
+                {day.jour}
               </div>
+            </div>
 
-              {adorations.map((adoration, i) => (
+            <div className="space-y-3">
+              {day.adorations.map((adoration, i) => (
                 <div
                   key={i}
-                  className={`mb-3 p-3 rounded-lg bg-${adoration.color}-100 border border-${adoration.color}-200 hover:shadow-md transition-all`}
+                  className={`p-3 rounded-lg bg-${adoration.color}-100 border-2 border-${adoration.color}-300 hover:border-${adoration.color}-400 transition-all`}
                 >
-                  <div className={`text-sm font-bold text-${adoration.color}-700 mb-2`}>
+                  <div className={`text-base font-bold text-${adoration.color}-800 mb-2`}>
                     {adoration.time}
                   </div>
                   <div className="text-sm text-stone-800 font-semibold mb-1">
-                    {adoration.lieu}
+                    📍 {adoration.lieu}
                   </div>
                   {adoration.frequency !== 'all' && (
-                    <div className="text-xs text-stone-500 mt-1 bg-white/50 px-2 py-1 rounded inline-block">
-                      {adoration.frequency === '1st-5th' ? '1er/5e' : '4e'}
+                    <div className="text-xs text-stone-600 mt-2 bg-white/70 px-2 py-1 rounded inline-block font-medium">
+                      {adoration.frequency === '1st-5th' ? '1er et 5ème du mois' : '4ème du mois'}
                     </div>
                   )}
                 </div>
               ))}
-
-              {!hasAdoration && (
-                <div className="text-center text-gray-300 text-2xl mt-12">—</div>
-              )}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
       {/* VERSION MOBILE : Liste compacte "Less is More" */}
