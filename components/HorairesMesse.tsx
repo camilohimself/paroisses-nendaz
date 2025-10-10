@@ -233,11 +233,6 @@ export default function HorairesMesse({
                           {event.calendar.name}
                         </span>
                       )}
-                      {event.isRecurring && (
-                        <span className="inline-block px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
-                          Récurrent
-                        </span>
-                      )}
                     </div>
                     <h4 className="font-semibold text-gray-900">{event.title}</h4>
                     {event.description && (

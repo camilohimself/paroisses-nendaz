@@ -295,9 +295,9 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             <div className="relative py-12">
               <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-${typeColor} to-transparent`}></div>
               <p className="text-neutral-anthracite text-2xl leading-relaxed max-w-2xl mx-auto text-center" style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
-                « Venez à moi, vous tous qui peinez et ployez sous le fardeau, et moi je vous soulagerai. »
+                « Venez à moi, vous tous qui peinez et ployez sous le fardeau,<br />et moi je vous soulagerai. »
               </p>
-              <p className="text-neutral-gris text-center mt-4">— Matthieu 11,28</p>
+              <p className="text-neutral-gris text-center mt-4">— Matthieu 11, 28</p>
               <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-${typeColor} to-transparent`}></div>
             </div>
 

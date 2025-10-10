@@ -31,7 +31,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       dominicale: 'tous les dimanches à 10h00, 09h30 en été',
       semaine: 'tous les vendredis à 19h00',
       adoration: 'tous les vendredis de 18h00 à 18h45',
-      vepres: 'le 1er vendredi du mois avant la messe'
+      vepres: 'le 1er vendredi du mois avant la messe',
+      special: 'Confession : tous les vendredis de 18h à 18h45, tous les dimanches de 9h à 9h45'
     },
     particularites: ['Crypte du IXème siècle', 'Rénovation 1964-1967', 'Patron Saint-Léger']
   },
@@ -45,7 +46,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       dominicale: 'tous les samedis à 17h30',
       semaine: 'le 4e mardi du mois à 19h00',
-      adoration: 'les 1er, 3e, 5e mardis de 18h15 à 19h00'
+      adoration: 'les lundis et jeudis de 6h à 7h - Responsable : Eugène Fournier, les 4èmes mardis du mois de 18h15 à 18h45'
     },
     particularites: ['Construction communautaire', 'Messes dans bâtiment sans toit', 'Défi des barrages']
   },
@@ -57,11 +58,24 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1953',
     history: `Avant 1953, les habitants du village se recueillaient dans une petite chapelle pouvant accueillir une trentaine de personnes mais, le dimanche, ils se rendaient à Basse-Nendaz pour la messe dominicale. On peut encore voir, dans le cimetière, le clocher de l'ancienne chapelle qui se rappelle au souvenir des villageois.`,
     horaires: {
-      dominicale: 'tous les 2e samedis à 19h00',
-      semaine: 'le 3e mardi du mois à 19h00',
-      adoration: 'les 1er, 3e, 5e jeudis de 18h15 à 19h00'
+      dominicale: 'les 1er et 3è samedis du mois, à 19h',
+      semaine: 'le 3ème mardi du mois, à 19h',
+      adoration: 'les 4èmes mardis du mois de 18h30 à 19h',
+      special: 'Messes annuelles : Fête patronale (Christ-Roi) samedi 19h, Toussaint 15h, Noël 18h, Pâques 10h30, Messe à la Moudonne le 2ème samedi de juin'
     },
     particularites: ['Ancienne chapelle 30 places', 'Clocher conservé au cimetière']
+  },
+  {
+    id: 'aproz',
+    name: 'Église d\'Aproz',
+    sector: 'nendaz',
+    type: 'eglise',
+    history: `Église du village d'Aproz, accueillant la communauté pour les célébrations liturgiques.`,
+    horaires: {
+      dominicale: 'les 1er et 3è samedis du mois, à 19h',
+      adoration: 'les 4èmes mardis du mois de 18h30 à 19h'
+    },
+    particularites: ['Communauté paroissiale active']
   },
   {
     id: 'baar',
@@ -97,7 +111,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1930-1931',
     history: `La chapelle de Planchouet, dédiée au Sacré-Cœur est l'œuvre des villageois de la rive droite de la Printse. En mai 1930, le travail commença par l'abattage des arbres nécessaires à la construction. Les fondations posèrent des problèmes puisqu'il fallut miner la roche, mais de dimanche en dimanche, le bâtiment prit forme et le 9 août 1931, le doyen Bourban bénit la chapelle. Après quelques travaux de finition, l'abbé Joseph Fournier qui fut l'instigateur du projet, put boucler les comptes; la construction a coûté CHF 7045.-. A l'intérieur on trouve les statues de la Vierge Marie, de St-Antoine, de St-Maurice et de St-Nicolas.`,
     horaires: {
-      dominicale: 'en été à 11h00 (du dernier dimanche de juin au 1er de septembre)'
+      dominicale: 'en été à 11h (du 1er dimanche de juillet jusqu\'au dernier dimanche d\'août)'
     },
     particularites: ['Coût CHF 7045.-', 'Minage de la roche', 'Statues multiples', 'Abbé Joseph Fournier']
   },
@@ -110,7 +124,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1930',
     history: `C'est une des trois chapelles des mayens avec celle du Bleusy et celle de Planchouet. A partir des années 1920, certains habitants de Sion cherchant la tranquillité et la fraîcheur, construisirent les premiers chalets dans la région des Rairettes. Avec quelques nendards propriétaires de mayens ils décidèrent de construire une chapelle afin d'éviter les déplacements jusqu'à Basse-Nendaz pour la messe du dimanche. La chapelle dédiée à la Bienheureuse Vierge Marie fut consacrée le 15 août 1930. Le chemin de croix peint sur des ardoises ajoute une touche originale.`,
     horaires: {
-      dominicale: 'en été à 11h00 (du dernier dimanche de juin au 1er de septembre)'
+      dominicale: 'en été à 11h (du 1er dimanche de juillet jusqu\'au dernier dimanche d\'août)'
     },
     particularites: ['Chapelle des mayens', 'Habitants de Sion', 'Chemin de croix sur ardoises', 'Consacrée 15 août 1930']
   },
@@ -149,7 +163,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1922',
     history: `Le curé Joseph Fournier est l'instigateur du projet de construction. La bénédiction eu lieu en 1922 et la chapelle est dédiée à Saint-Joseph. Une cloche qui avait été installée au clocher de Basse-Nendaz avant 1794 ornera le clocher de Saclentse.`,
     horaires: {
-      semaine: 'le 4e mercredi du mois à 19h00'
+      semaine: 'le 4e mercredi du mois à 19h00',
+      special: 'Chapelet : les dimanches à 19h30'
     },
     particularites: ['Curé Joseph Fournier', 'Cloche historique de Basse-Nendaz (avant 1794)']
   },
@@ -185,7 +200,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: 'avant 1555',
     history: `Située à la sortie du village de Basse-Nendaz en direction de Fey sur un promontoire rocheux dominant la vallée du Rhône. Il n'existe pas de documents historiques permettant de dater précisément la construction de l'édifice. Cependant, un acte de mars 1555 fait état d'une donation de trois florins et de deux nappes d'autel pour la restauration de certains édifices religieux de la région, dont la chapelle Saint-Sébastien. Un autre fait historique dramatique avait pour décors les alentours du lieu saint : en effet sous les rochers soutenant la chapelle, se trouvait le gibet de la majorie de Nendaz où les criminels étaient conduits pour être pendus.`,
     horaires: {
-      special: 'chaque année le 20 janvier à 19h00'
+      special: 'Messe : tous les 20 janvier'
     },
     particularites: ['Promontoire rocheux', 'Vue vallée du Rhône', 'Ancien gibet', 'Donation 1555']
   },
@@ -201,7 +216,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       dominicale: 'les 1er, 3e samedis du mois à 19h00',
       semaine: 'les 1er et 5e mardis du mois à 19h00',
-      adoration: 'tous les mardis sauf le 1er du mois de 18h à 18h45 et tous les vendredis de 14h à 15h'
+      adoration: 'tous les mardis sauf le 2è du mois de 18h à 18h45 et tous les vendredis de 14h à 15h'
     },
     particularites: ['Évêché de Sion', 'Paroisse autonome 1912', 'Style néogothique', 'Rénovation 1962-1968']
   },
@@ -214,7 +229,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1707 (reconstruite après 1904)',
     history: `La chapelle date de 1707 et est dédiée à Notre-Dame de la Visitation. Elle brûlera en 1904 et sera reconstruite.`,
     horaires: {
-      semaine: 'le 2e mardi du mois à 19h00'
+      semaine: 'les 2è mardis du mois à 19h00'
     },
     particularites: ['Incendie 1904', 'Reconstruction']
   },
@@ -227,7 +242,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: 'avant 1447 (actuelle 1951)',
     history: `Au bord du lac de Cleuson, à près de 2200m d'altitude, la chapelle est la plus haute de la commune. Elle domine le val de Nendaz et le panorama s'étend jusqu'à la chaîne des alpes bernoises. Il s'agit de la plus ancienne chapelle de Nendaz. On ignore la date exacte de sa construction, mais un document de 1447, signé par l'évêque de Sion mentionne que 40 jours d'indulgence seraient accordés à toute personne qui ferait une aumône en faveur de la chapelle. Ce qui laisse supposer que l'édifice est antérieur à cette date. Avant la construction du barrage, elle était située dans le vallon de Cleuson, sur la rive droite, légèrement en amont. Construite en bois, elle a été rénovée à plusieurs reprises, la dernière fois en 1888. En 1951, les ouvriers du barrage ont construit une nouvelle chapelle en pierre, à l'emplacement actuel.`,
     horaires: {
-      special: 'chaque année le 24 août à 11h00'
+      special: 'Messe : tous les 24 août'
     },
     particularites: ['2200m d\'altitude', 'Plus haute de la commune', 'Plus ancienne (avant 1447)', 'Reconstruite par ouvriers barrage 1951', 'Lac de Cleuson']
   },
@@ -251,7 +266,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     type: 'ems',
     history: `Établissement médico-social accueillant les résidents pour les célébrations liturgiques.`,
     horaires: {
-      semaine: 'les 1er et 3e jeudis du mois à 10h15'
+      semaine: 'les 1er, 3è et 5è jeudis du mois, 10h15'
     },
     particularites: ['Établissement médico-social']
   }

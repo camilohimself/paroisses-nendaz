@@ -200,11 +200,11 @@ export default function DiaconiePage() {
             <div className="text-center">
               <p className="text-4xl font-bold text-stone-800 mb-6 leading-relaxed"
                  style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
-                « Ce que vous avez fait au plus petit d'entre les miens,<br />c'est à moi que vous l'avez fait. »
+                « Ce que vous avez fait<br />au plus petit d'entre les miens,<br />c'est à moi que vous l'avez fait. »
               </p>
               <div className="w-16 h-px bg-amber-500 mx-auto mb-4"></div>
               <p className="text-sm text-stone-500 uppercase tracking-widest font-semibold">
-                Évangile selon Saint Matthieu 25, 40
+                Matthieu 25, 40
               </p>
             </div>
           </div>

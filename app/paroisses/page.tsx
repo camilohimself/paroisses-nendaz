@@ -238,9 +238,9 @@ export default function ParoissesIndexPage() {
             <div className="relative py-12">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
               <p className="text-neutral-anthracite text-2xl leading-relaxed max-w-2xl mx-auto text-center" style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
-                « Là où deux ou trois sont réunis en mon nom, je suis au milieu d'eux. »
+                « Là où deux ou trois sont réunis en mon nom,<br />je suis au milieu d'eux. »
               </p>
-              <p className="text-neutral-gris text-center mt-4">— Matthieu 18,20</p>
+              <p className="text-neutral-gris text-center mt-4">— Matthieu 18, 20</p>
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
             </div>
           </div>

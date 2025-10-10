@@ -275,7 +275,7 @@ export default function ContactPage() {
             <h3 className="text-2xl font-bold mb-6 text-center">Secrétariat</h3>
             <div className="text-gray-600 space-y-4">
               <p className="text-center">
-                Vous pouvez prendre contact avec notre secrétaire <strong>Caroline Karlen</strong> durant les heures de présence:
+                Vous pouvez prendre contact avec notre secrétaire<br /><strong>Caroline Karlen</strong><br />durant les heures de présence:
               </p>
               <ul className="space-y-2 list-disc list-inside">
                 <li>Pour annoncer vos manifestations à paraître dans le Bulletin paroissial (un mois à l'avance), ou sur le site.</li>

@@ -295,7 +295,7 @@ export default function LiturgiePage() {
             <div className="text-center">
               <p className="text-4xl font-bold text-stone-800 mb-6 leading-relaxed"
                  style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
-                « Que tout se fasse décemment et avec ordre<br />pour l'édification de tous. »
+                « Que tout se fasse<br />décemment et avec ordre<br />pour l'édification de tous. »
               </p>
               <div className="w-16 h-px bg-amber-500 mx-auto mb-4"></div>
               <p className="text-sm text-stone-500 uppercase tracking-widest font-semibold">
