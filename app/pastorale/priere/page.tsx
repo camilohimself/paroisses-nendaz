@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import GrilleAdoration from '@/components/GrilleAdoration'
 
 export default function PrierePage() {
   return (
@@ -51,39 +52,12 @@ export default function PrierePage() {
                   </div>
                 </div>
 
-                <div className="space-y-3 mb-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Lundis</p>
-                      <p className="text-base md:text-lg text-stone-800 font-semibold">19h00-19h30 • Brignon</p>
-                    </div>
-                    <div>
-                      <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">1er et 5ème mardis</p>
-                      <p className="text-base md:text-lg text-stone-800 font-semibold">18h00-18h45 • Veysonnaz</p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">4ème mardi</p>
-                      <p className="text-base md:text-lg text-stone-800 font-semibold">18h15-18h45 • Haute-Nendaz</p>
-                    </div>
-                    <div>
-                      <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">4ème mardi</p>
-                      <p className="text-base md:text-lg text-stone-800 font-semibold">18h30-19h00 • Aproz</p>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Vendredis</p>
-                    <p className="text-base md:text-lg text-stone-800 font-semibold">18h00-18h45 • Basse-Nendaz</p>
-                  </div>
-                </div>
-
-                <p className="text-base text-stone-600 leading-relaxed mb-2">
+                <p className="text-base text-stone-600 leading-relaxed mb-6">
                   Temps de prière silencieuse en présence du Saint-Sacrement, source et sommet de la vie chrétienne.
                 </p>
-                <p className="text-sm text-amber-700 italic">
-                  Veuillez consulter notre feuille d'annonce mise à jour régulièrement, en raison des funérailles qui peuvent avoir lieu dans notre secteur.
-                </p>
+
+                {/* Grille responsive des horaires */}
+                <GrilleAdoration />
               </div>
             </div>
           </div>
