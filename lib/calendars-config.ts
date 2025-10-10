@@ -131,12 +131,12 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
   },
   {
     id: 'st-barthelemy',
-    name: 'Chapelle St-Barthélémy',
+    name: 'Chapelle St-Barthélemy',
     sector: 'nendaz',
     type: 'chapelle',
     googleCalendarId: 'vkauurg0o7r2u83fcp29urgdag@group.calendar.google.com',
     color: '#708090',
-    defaultLocation: 'Chapelle Saint-Barthélémy'
+    defaultLocation: 'Chapelle Saint-Barthélemy'
   },
 
   {
