@@ -177,7 +177,7 @@ export default function Home() {
 
             {/* Card 3 - Base Enoria */}
             <a
-              href="https://web.enoria.app/"
+              href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-[#2A8B8C] hover:shadow-xl transition-all duration-500"
