@@ -15,7 +15,7 @@ export default function Header() {
           {/* Logo temporairement supprimé - en attente nouveau logo */}
           <Link href="/" className="flex items-center space-x-3">
             <span className="text-xl md:text-2xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Paroisses de Nendaz
+              Secteur de Nendaz
             </span>
           </Link>
 

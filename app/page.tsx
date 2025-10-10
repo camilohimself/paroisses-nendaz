@@ -38,7 +38,7 @@ export default function Home() {
             {/* Titre principal */}
             <h1 className="mb-5" style={{ fontFamily: 'Playfair Display, serif' }}>
               <span className="block text-5xl md:text-7xl font-light text-stone-700 mb-3 tracking-wide">
-                Paroisses de Nendaz
+                Paroisses
               </span>
               <span className="block text-2xl md:text-3xl font-light text-amber-600 tracking-widest uppercase">
                 Nendaz • Veysonnaz
