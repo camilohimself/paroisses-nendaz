@@ -251,7 +251,7 @@ export default function Home() {
             <div>
               <div className="h-px w-12 bg-amber-300 mb-3"></div>
               <h2 className="text-3xl md:text-4xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Prochains événements
+                Liturgie
               </h2>
             </div>
             <a
