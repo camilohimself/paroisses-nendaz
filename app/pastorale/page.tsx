@@ -134,25 +134,6 @@ export default function PastoralePage() {
                 </div>
               </Link>
 
-              {/* Réconciliation */}
-              <Link href="/sacrements/pardon" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-                      Réconciliation
-                    </h3>
-                    <p className="text-stone-600 text-sm">
-                      Premier Pardon 4H • Confession sur rdv, vendredi & dimanche avant messe à Basse-Nendaz
-                    </p>
-                  </div>
-                  <div className="w-12 h-12 rounded-full border-2 border-stone-300 group-hover:border-amber-500 group-hover:bg-amber-50 flex items-center justify-center transition-all">
-                    <svg className="w-5 h-5 text-stone-500 group-hover:text-amber-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
               {/* Première Communion */}
               <Link href="/sacrements/communion" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
                 <div className="flex items-center justify-between">
@@ -200,6 +181,25 @@ export default function PastoralePage() {
                     </h3>
                     <p className="text-stone-600 text-sm">
                       Grâce du Seigneur • Sur demande 24h/24
+                    </p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full border-2 border-stone-300 group-hover:border-amber-500 group-hover:bg-amber-50 flex items-center justify-center transition-all">
+                    <svg className="w-5 h-5 text-stone-500 group-hover:text-amber-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Réconciliation */}
+              <Link href="/sacrements/pardon" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      Réconciliation
+                    </h3>
+                    <p className="text-stone-600 text-sm">
+                      Premier Pardon 4H • Confession sur rdv, vendredi & dimanche avant messe à Basse-Nendaz
                     </p>
                   </div>
                   <div className="w-12 h-12 rounded-full border-2 border-stone-300 group-hover:border-amber-500 group-hover:bg-amber-50 flex items-center justify-center transition-all">
