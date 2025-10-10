@@ -117,7 +117,7 @@ export default function Header() {
               Messe & YouTube
             </a>
             <a
-              href="https://web.enoria.app/"
+              href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#2A8B8C] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#2A8B8C]/90 transition-colors font-semibold shadow-sm"
@@ -250,7 +250,7 @@ export default function Header() {
                   Messe & YouTube
                 </a>
                 <a
-                  href="https://web.enoria.app/"
+                  href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#2A8B8C] text-white px-3 py-2 rounded-lg text-sm hover:bg-[#2A8B8C]/90 transition-colors font-semibold"
