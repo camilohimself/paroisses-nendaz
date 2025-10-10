@@ -290,14 +290,6 @@ export default function Home() {
                     <span className="text-stone-600">1er et 3e samedis du mois 19h00</span>
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-stone-200 hover:bg-stone-50 px-4 transition-colors">
-                    <span className="font-medium text-stone-800">Fey</span>
-                    <span className="text-stone-600">
-                      <a href="/paroisses/fey" className="text-amber-700 hover:text-amber-800 hover:underline">
-                        cf. site internet paroisses-nendaz.ch
-                      </a>
-                    </span>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-stone-200 hover:bg-stone-50 px-4 transition-colors">
                     <span className="font-medium text-stone-800">Basse-Nendaz</span>
                     <span className="text-stone-600">Tous les dimanches 10h00</span>
                   </div>
