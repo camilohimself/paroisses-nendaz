@@ -58,9 +58,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1953',
     history: `Avant 1953, les habitants du village se recueillaient dans une petite chapelle pouvant accueillir une trentaine de personnes mais, le dimanche, ils se rendaient à Basse-Nendaz pour la messe dominicale. On peut encore voir, dans le cimetière, le clocher de l'ancienne chapelle qui se rappelle au souvenir des villageois.`,
     horaires: {
-      dominicale: 'les 1er et 3è samedis du mois, à 19h',
       semaine: 'le 3ème mardi du mois, à 19h',
-      adoration: 'les 4èmes mardis du mois de 18h30 à 19h',
       special: 'Messes annuelles : Fête patronale (Christ-Roi) samedi 19h, Toussaint 15h, Noël 18h, Pâques 10h30, Messe à la Moudonne le 2ème samedi de juin'
     },
     particularites: ['Ancienne chapelle 30 places', 'Clocher conservé au cimetière']

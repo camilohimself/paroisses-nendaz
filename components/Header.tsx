@@ -59,34 +59,78 @@ export default function Header() {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
-              {/* Sous-menu dropdown - Pierre et Lumière */}
+              {/* Sous-menu dropdown - Version améliorée */}
               {isPastoraleOpen && (
-                <div className="absolute left-0 top-full mt-2 w-56 bg-white shadow-xl border-2 border-amber-300 rounded-lg py-2 z-50">
+                <div className="absolute left-0 top-full mt-2 w-72 bg-white shadow-2xl border-2 border-amber-300 rounded-xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <Link
                     href="/pastorale"
-                    className="block px-4 py-2 text-stone-700 hover:bg-amber-50 hover:text-amber-800 transition-colors font-medium"
+                    className="block px-5 py-3 text-stone-800 hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all font-semibold border-b border-stone-200"
                   >
-                    Vue d&apos;ensemble
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="text-base">Vue d&apos;ensemble</div>
+                        <div className="text-xs text-stone-500">Découvrir la pastorale</div>
+                      </div>
+                    </div>
                   </Link>
-                  <div className="border-t border-stone-200 my-1"></div>
-                  <Link
-                    href="/pastorale/priere"
-                    className="block px-4 py-2 text-stone-600 hover:bg-amber-50 hover:text-amber-700 transition-colors"
-                  >
-                    Prière
-                  </Link>
-                  <Link
-                    href="/pastorale/liturgie"
-                    className="block px-4 py-2 text-stone-600 hover:bg-stone-100 hover:text-stone-800 transition-colors"
-                  >
-                    Liturgie
-                  </Link>
-                  <Link
-                    href="/pastorale/diaconie"
-                    className="block px-4 py-2 text-stone-600 hover:bg-amber-50 hover:text-amber-700 transition-colors"
-                  >
-                    Diaconie
-                  </Link>
+
+                  <div className="py-1">
+                    <Link
+                      href="/pastorale/priere"
+                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-amber-100 group-hover:bg-amber-200 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Prière</div>
+                          <div className="text-xs text-stone-500">Vie spirituelle</div>
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/pastorale/liturgie"
+                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-stone-50 hover:to-stone-100 transition-all group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-stone-200 group-hover:bg-stone-300 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Liturgie</div>
+                          <div className="text-xs text-stone-500">Service liturgique</div>
+                        </div>
+                      </div>
+                    </Link>
+
+                    <Link
+                      href="/pastorale/diaconie"
+                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-amber-100 group-hover:bg-amber-200 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Diaconie</div>
+                          <div className="text-xs text-stone-500">Service fraternel</div>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>

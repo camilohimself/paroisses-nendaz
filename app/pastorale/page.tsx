@@ -407,59 +407,50 @@ export default function PastoralePage() {
               {/* Messes des familles - STYLE FESTIF ET FAMILIAL */}
               <div className="group bg-gradient-to-br from-pink-100 via-purple-50 to-blue-100 p-8 md:p-10 rounded-3xl shadow-xl border-4 border-pink-300">
                 <div className="flex items-start gap-6 mb-6">
-                  <div className="flex-shrink-0 w-20 h-20 bg-gradient-to-br from-pink-400 to-purple-400 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-lg">
-                    <span className="text-4xl">👨‍👩‍👧‍👦</span>
-                  </div>
                   <div>
                     <h3 className="text-4xl md:text-5xl font-bold text-purple-900 mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
                       Messes des activités catéchétiques
                     </h3>
                     <div className="inline-block px-5 py-2 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full shadow-md">
-                      <p className="text-base font-bold text-white">🎉 Messes des familles</p>
+                      <p className="text-base font-bold text-white">Messes des familles</p>
                     </div>
                   </div>
                 </div>
 
                 <p className="text-xl text-purple-900 mb-8 leading-relaxed">
-                  Des moments privilégiés pour <strong>célébrer en famille</strong> 💕 et vivre la foi ensemble avec toute la communauté paroissiale !
+                  Des moments privilégiés pour <strong>célébrer en famille</strong> et vivre la foi ensemble avec toute la communauté paroissiale.
                 </p>
 
                 <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-pink-300 shadow-lg mb-6">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-2xl">📅</span>
                     <p className="text-sm text-purple-700 font-bold uppercase tracking-wider">Programme 2025-2026</p>
                   </div>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded-xl border-l-4 border-pink-400">
-                      <span className="text-2xl">🎊</span>
                       <div>
                         <p className="font-bold text-purple-900">Samedi 15 novembre 2025 • 17h</p>
                         <p className="text-sm text-purple-700">📍 Haute-Nendaz</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 bg-gradient-to-r from-blue-50 to-pink-50 p-4 rounded-xl border-l-4 border-blue-400">
-                      <span className="text-2xl">🎄</span>
                       <div>
                         <p className="font-bold text-blue-900">Dimanche 15 décembre 2025 • 10h</p>
                         <p className="text-sm text-blue-700">📍 Basse-Nendaz</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 bg-gradient-to-r from-purple-50 to-blue-50 p-4 rounded-xl border-l-4 border-purple-400">
-                      <span className="text-2xl">✨</span>
                       <div>
                         <p className="font-bold text-purple-900">Dimanche 4 janvier 2026 • 10h</p>
                         <p className="text-sm text-purple-700">📍 Basse-Nendaz • Messe des familles</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded-xl border-l-4 border-pink-400">
-                      <span className="text-2xl">💝</span>
                       <div>
                         <p className="font-bold text-pink-900">Samedi 7 février 2026 • 19h</p>
                         <p className="text-sm text-pink-700">📍 Aproz</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl border-l-4 border-purple-400">
-                      <span className="text-2xl">🌸</span>
                       <div>
                         <p className="font-bold text-purple-900">Samedi 21 mars 2026 • 19h</p>
                         <p className="text-sm text-purple-700">📍 Veysonnaz</p>
