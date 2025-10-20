@@ -53,20 +53,20 @@ export default function ParoisseHero({ paroisseId, name, type, sector }: Paroiss
         />
       </picture>
 
-      {/* Vignette gradient uniquement sur zone texte (bas de l'image) */}
-      <div className={`absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t ${sectorColors[sector]} opacity-70`} />
 
-      {/* Contenu textuel */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-        <div className="text-center max-w-4xl relative z-10">
-          {/* Nom de la paroisse */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 drop-shadow-2xl">
-            {name}
-          </h1>
+      {/* Contenu textuel - TOUT EN BAS */}
+      <div className="absolute bottom-0 left-0 right-0 text-white px-4 pb-12 md:pb-16">
+        <div className="container mx-auto">
+          <div className="max-w-4xl mx-auto backdrop-blur-md bg-black/40 p-6 md:p-8 rounded-lg text-center">
+            {/* Nom de la paroisse */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-3">
+              {name}
+            </h1>
 
-          {/* Badge secteur */}
-          <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm md:text-base font-medium">
-            Secteur {sector === 'nendaz' ? 'Nendaz' : 'Veysonnaz'}
+            {/* Badge secteur */}
+            <div className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm md:text-base font-medium">
+              Secteur {sector === 'nendaz' ? 'Nendaz' : 'Veysonnaz'}
+            </div>
           </div>
         </div>
       </div>

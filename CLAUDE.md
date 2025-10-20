@@ -8,12 +8,12 @@
 
 ## ⚠️ RAPPELS IMPORTANTS
 
-### 🔐 Configuration Vercel en attente
-**NEXTAUTH_SECRET** : Secret sécurisé généré mais non configuré sur Vercel
+### ✅ Configuration Vercel opérationnelle
+**NEXTAUTH_SECRET** : ✅ Configuré avec succès sur Vercel
 - **Secret** : `5UsYTaIYaSV7wvDgNivJ6qkBHlsZ6j6HupzxKyNR/Fc=`
-- **Action requise** : Ajouter dans Vercel → Settings → Environment Variables
-- **Raison** : Problèmes de déploiement Vercel en cours (octobre 2025)
-- **Statut** : 4 commits en attente de déploiement sur Vercel
+- **Statut** : ✅ Variable ajoutée sur Vercel (20 octobre 2025)
+- **Déploiements** : ✅ Tous les commits ont été déployés correctement
+- **Production live** : https://paroisses-nendaz.vercel.app
 
 ---
 
