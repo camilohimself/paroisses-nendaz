@@ -115,10 +115,10 @@ export default function YouTubeLiveIndicator({
           ) : (
             <>
               <h3 className="text-xl font-bold text-[var(--foreground)] mb-2">
-                Prochaine messe en direct
+                Dernière messe
               </h3>
               <p className="text-paroisse-vert mb-4 font-medium">
-                {nextMassTime}
+                Dimanche 11 octobre 2025 - 10h00
               </p>
               <div className="aspect-video bg-gray-900 rounded-lg mb-4 overflow-hidden">
                 <iframe
@@ -150,7 +150,7 @@ export default function YouTubeLiveIndicator({
             <span>Messes dominicales</span>
             <span className="flex items-center gap-1">
               <span className="w-2 h-2 bg-paroisse-vert rounded-full"></span>
-              10h00 - Basse-Nendaz
+              10h00 - Basse Nendaz
             </span>
           </div>
         </div>
