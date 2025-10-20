@@ -92,7 +92,12 @@ export default function PrierePage() {
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Lieu</p>
-                    <p className="text-base md:text-lg text-stone-800 font-semibold">Saclentse</p>
+                    <Link href="/paroisses/saclentse" className="inline-flex items-center gap-1 text-base md:text-lg text-stone-800 font-semibold hover:text-emerald-700 transition-colors group">
+                      Saclentse
+                      <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
                 </div>
 
@@ -133,7 +138,12 @@ export default function PrierePage() {
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Lieu</p>
-                    <p className="text-base md:text-lg text-stone-800 font-semibold">Basse-Nendaz</p>
+                    <Link href="/paroisses/basse-nendaz" className="inline-flex items-center gap-1 text-base md:text-lg text-stone-800 font-semibold hover:text-amber-700 transition-colors group">
+                      Basse-Nendaz
+                      <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
                 </div>
 
@@ -210,7 +220,15 @@ export default function PrierePage() {
                   </div>
                   <div>
                     <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Lieu</p>
-                    <p className="text-base md:text-lg text-stone-800 font-semibold">Salle paroissiale Basse-Nendaz</p>
+                    <p className="text-base md:text-lg text-stone-800 font-semibold">
+                      Salle paroissiale{' '}
+                      <Link href="/paroisses/basse-nendaz" className="inline-flex items-center gap-1 hover:text-emerald-700 transition-colors group">
+                        Basse-Nendaz
+                        <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </Link>
+                    </p>
                   </div>
                 </div>
 

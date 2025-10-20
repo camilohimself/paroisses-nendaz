@@ -80,14 +80,6 @@ export default function PastoralePage() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-px h-12 bg-stone-300"></div>
-            <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-          </div>
-        </div>
-
       </section>
 
       {/* ========================================= */}
