@@ -9,11 +9,11 @@ const allEvents = [
     id: 'confirmation-2025-video',
     title: 'Célébration de la Confirmation 2025',
     excerpt: 'Revivez en images la magnifique célébration de la Confirmation de nos jeunes. Un moment fort de foi et de communion dans notre paroisse.',
-    date: '2025-10-19',
+    date: '2025-10-11',
     image: '/images/articles/confirmation-2025.jpg',
     hasImage: true, // Indique si l'événement a une image à afficher
     category: 'Événement',
-    lieu: 'Paroisses de Nendaz',
+    lieu: 'Église de Basse-Nendaz',
     featured: true,
     youtubeId: 'hAmnQ3YeMKo'
   },
