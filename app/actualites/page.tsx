@@ -16,35 +16,80 @@ const allEvents = [
   },
   {
     id: 'toussaint-2025',
-    title: 'Toussaint 2025',
-    excerpt: '⚠️ HORAIRES À COMPLÉTER - Célébration de la Toussaint dans nos paroisses. Venez honorer la mémoire de tous les saints.',
+    title: 'Fête de la Toussaint',
+    excerpt: 'Messes suivies d\'un temps de prière pour les défunts au cimetière. 10h : Aproz, Basse-Nendaz, Veysonnaz / 15h : Haute-Nendaz, Fey',
     date: '2025-11-01',
     image: '/images/articles/toussaint.jpg',
     category: 'Événement',
     lieu: 'Toutes paroisses'
   },
   {
+    id: 'defunts-2025',
+    title: 'Commémoration des fidèles défunts',
+    excerpt: 'Messe en mémoire de tous les fidèles défunts. Venez prier pour nos proches disparus.',
+    date: '2025-11-02',
+    image: '/images/articles/defunts.jpg',
+    category: 'Événement',
+    lieu: 'Basse-Nendaz - 10h'
+  },
+  {
+    id: 'messe-adoration-vepres',
+    title: 'Messe avec adoration et vêpres',
+    excerpt: 'Soirée de prière : adoration dès 18h, office des vêpres à 18h30, messe à 19h.',
+    date: '2025-11-07',
+    image: '/images/articles/adoration.jpg',
+    category: 'Liturgie',
+    lieu: 'Basse-Nendaz - 18h-19h'
+  },
+  {
     id: 'confirmation-2026',
     title: 'Présentation de la Confirmation 2026',
-    excerpt: 'Rencontre de présentation du parcours de confirmation pour l\'année 2026. Tous les parents et jeunes intéressés sont les bienvenus.',
+    excerpt: 'Présentation du parcours de confirmation et remise des bulletins d\'inscription après la messe de 10h. Rendez-vous à 10h55.',
     date: '2025-11-09',
     image: '/images/articles/confirmation.jpg',
     category: 'Formation',
-    lieu: 'Basse-Nendaz - Après la messe de 10h'
+    lieu: 'Basse-Nendaz - 10h55'
+  },
+  {
+    id: 'loto-st-michel',
+    title: 'Loto du Chœur St-Michel',
+    excerpt: 'Après-midi loto organisé par le Chœur St-Michel. Ambiance conviviale et nombreux lots à gagner !',
+    date: '2025-11-09',
+    image: '/images/articles/loto.jpg',
+    category: 'Événement',
+    lieu: 'Salle de la Biolette - 17h30'
+  },
+  {
+    id: 'messe-enfants-catechese',
+    title: 'Messe animée par les enfants',
+    excerpt: 'Messe animée par les enfants des activités catéchétiques. Les familles sont chaleureusement invitées.',
+    date: '2025-11-15',
+    image: '/images/articles/messe-enfants.jpg',
+    category: 'Liturgie',
+    lieu: 'Haute-Nendaz - 17h30'
+  },
+  {
+    id: 'concert-cecilia-fey',
+    title: 'Concert anniversaire Cécilia de Fey',
+    excerpt: 'Concert anniversaire des 80 ans de la Cécilia de Fey. Plus d\'informations auprès de la Cécilia.',
+    date: '2025-11-15',
+    image: '/images/articles/concert.jpg',
+    category: 'Culture',
+    lieu: 'Fey'
   },
   {
     id: 'communion-priere',
-    title: 'Demi-journée Première Communion - Prière',
-    excerpt: '⚠️ DATE À PRÉCISER - Atelier sur la prière pour les enfants du groupe de première communion. De 14h à 16h à l\'église de Basse-Nendaz.',
-    date: '2025-11-15',
+    title: 'Préparation 1ère Communion',
+    excerpt: 'Après-midi en secteur de préparation à la première des communions.',
+    date: '2025-11-19',
     image: '/images/articles/premiere-communion.jpg',
     category: 'Formation',
-    lieu: 'Église de Basse-Nendaz - 14h à 16h'
+    lieu: 'Basse-Nendaz - Après-midi'
   },
   {
     id: 'patronale-fey',
-    title: 'Patronale de Fey',
-    excerpt: 'Messe de la fête patronale de Fey. Célébration solennelle suivie d\'un moment de convivialité.',
+    title: 'Fête patronale du Christ-Roi',
+    excerpt: 'Fête patronale du Christ-Roi à l\'église de Fey. Célébration solennelle suivie d\'un moment de convivialité.',
     date: '2025-11-22',
     image: '/images/articles/patronale.jpg',
     category: 'Événement',
@@ -52,12 +97,12 @@ const allEvents = [
   },
   {
     id: 'couronnes-avent',
-    title: 'Journée des Couronnes de l\'Avent',
-    excerpt: '⚠️ INFORMATIONS À COMPLÉTER - Atelier de confection de couronnes de l\'Avent. Détails et horaires à venir.',
+    title: 'Journée intergénérationnelle des Couronnes de l\'Avent',
+    excerpt: 'Journée de fabrication des couronnes de l\'Avent pour tous les âges. Messe à 17h30 animée avec les enfants et familles du Pardon. Plus d\'infos sur paroisses-nendaz.ch',
     date: '2025-11-29',
     image: '/images/articles/couronnes-avent.jpg',
     category: 'Événement',
-    lieu: 'À préciser'
+    lieu: 'Messe 17h30'
   },
   {
     id: '2',
