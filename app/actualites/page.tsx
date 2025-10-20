@@ -15,6 +15,51 @@ const allEvents = [
     lieu: 'Basse-Nendaz'
   },
   {
+    id: 'toussaint-2025',
+    title: 'Toussaint 2025',
+    excerpt: '⚠️ HORAIRES À COMPLÉTER - Célébration de la Toussaint dans nos paroisses. Venez honorer la mémoire de tous les saints.',
+    date: '2025-11-01',
+    image: '/images/articles/toussaint.jpg',
+    category: 'Événement',
+    lieu: 'Toutes paroisses'
+  },
+  {
+    id: 'confirmation-2026',
+    title: 'Présentation de la Confirmation 2026',
+    excerpt: 'Rencontre de présentation du parcours de confirmation pour l\'année 2026. Tous les parents et jeunes intéressés sont les bienvenus.',
+    date: '2025-11-09',
+    image: '/images/articles/confirmation.jpg',
+    category: 'Formation',
+    lieu: 'Basse-Nendaz - Après la messe de 10h'
+  },
+  {
+    id: 'communion-priere',
+    title: 'Demi-journée Première Communion - Prière',
+    excerpt: '⚠️ DATE À PRÉCISER - Atelier sur la prière pour les enfants du groupe de première communion. De 14h à 16h à l\'église de Basse-Nendaz.',
+    date: '2025-11-15',
+    image: '/images/articles/premiere-communion.jpg',
+    category: 'Formation',
+    lieu: 'Église de Basse-Nendaz - 14h à 16h'
+  },
+  {
+    id: 'patronale-fey',
+    title: 'Patronale de Fey',
+    excerpt: 'Messe de la fête patronale de Fey. Célébration solennelle suivie d\'un moment de convivialité.',
+    date: '2025-11-22',
+    image: '/images/articles/patronale.jpg',
+    category: 'Événement',
+    lieu: 'Fey - 19h'
+  },
+  {
+    id: 'couronnes-avent',
+    title: 'Journée des Couronnes de l\'Avent',
+    excerpt: '⚠️ INFORMATIONS À COMPLÉTER - Atelier de confection de couronnes de l\'Avent. Détails et horaires à venir.',
+    date: '2025-11-29',
+    image: '/images/articles/couronnes-avent.jpg',
+    category: 'Événement',
+    lieu: 'À préciser'
+  },
+  {
     id: '2',
     title: 'Pèlerinage à Lourdes',
     excerpt: 'Inscriptions ouvertes pour le pèlerinage diocésain à Lourdes. Départ prévu en bus avec accompagnement spirituel.',

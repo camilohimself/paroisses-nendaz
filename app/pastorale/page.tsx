@@ -28,7 +28,7 @@ export default function PastoralePage() {
             {/* Titre principal */}
             <h1 className="mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
               <span className="block text-6xl md:text-8xl font-light text-stone-700 mb-4 tracking-wide">
-                Vie pastorale.
+                Vie pastorale
               </span>
               <span className="block text-3xl md:text-4xl font-light text-amber-600 tracking-widest uppercase">
                 Secteur de Nendaz-Veysonnaz
@@ -39,7 +39,7 @@ export default function PastoralePage() {
             <div className="max-w-3xl mx-auto mb-12">
               <div className="h-px w-24 bg-amber-300 mx-auto mb-6"></div>
               <p className="text-xl md:text-2xl text-stone-600 leading-relaxed italic" style={{ fontFamily: 'Crimson Text, serif' }}>
-                « Je suis le chemin, la vérité et la vie »
+                « Je suis le chemin, la vérité et la vie. »
               </p>
               <p className="text-sm text-stone-400 mt-3 tracking-widest uppercase">Jean 14, 6</p>
               <div className="h-px w-24 bg-amber-300 mx-auto mt-6"></div>
@@ -235,7 +235,7 @@ export default function PastoralePage() {
             <div className="mt-20 text-center">
               <div className="h-px w-24 bg-stone-300 mx-auto mb-6"></div>
               <p className="text-stone-600 italic text-lg max-w-2xl mx-auto" style={{ fontFamily: 'Crimson Text, serif' }}>
-                « Les sacrements sont les signes efficaces de la grâce,<br />institués par le Christ et confiés à l&apos;Église »
+                « Les sacrements sont les signes efficaces de la grâce,<br />institués par le Christ et confiés à l&apos;Église. »
               </p>
               <div className="h-px w-24 bg-stone-300 mx-auto mt-6"></div>
             </div>

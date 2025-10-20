@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation';
 import HorairesMesse from '@/components/HorairesMesse';
+import ParoisseHero from '@/components/ParoisseHero';
+import ImageGallery from '@/components/ImageGallery';
 import { CALENDARS_CONFIG, getCalendarById } from '@/lib/calendars-config';
 import { getParoisseContent } from '@/lib/paroisses-content';
 import { Metadata } from 'next';
@@ -101,6 +103,16 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Hero avec image immersive */}
+      {content && (
+        <ParoisseHero
+          paroisseId={calendar.id}
+          name={calendar.name}
+          type={calendar.type as 'eglise' | 'chapelle' | 'ems'}
+          sector={calendar.sector as 'nendaz' | 'veysonnaz'}
+        />
+      )}
+
       {/* Breadcrumb */}
       <div className="py-4 border-b bg-neutral-grisClaire/30">
         <div className="container mx-auto px-4">
@@ -111,42 +123,6 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             <span>›</span>
             <span className="text-neutral-anthracite font-medium">{calendar.name}</span>
           </nav>
-        </div>
-      </div>
-
-      {/* Header VERSION 2 */}
-      <div className="py-12 bg-white border-b">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
-            {calendar.name}
-          </h1>
-          <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
-
-          {content?.patron && (
-            <p className="text-xl text-neutral-gris italic mb-6">
-              {content.patron}
-            </p>
-          )}
-
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <span className={`px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wide text-${typeColor.replace('500', '600')} bg-${typeColor}/10 border border-${typeColor}/20`}>
-              {getTypeLabel(calendar.type)}
-            </span>
-            <span className="px-4 py-2 rounded-full text-sm font-semibold text-neutral-anthracite bg-neutral-grisClaire">
-              {getSectorLabel(calendar.sector)}
-            </span>
-            {content?.dateConstruction && (
-              <span className="px-4 py-2 rounded-full text-sm font-semibold text-amber-600 bg-amber-500/10 border border-amber-500/20">
-                {content.dateConstruction}
-              </span>
-            )}
-          </div>
-
-          {calendar.defaultLocation && (
-            <p className="text-neutral-gris mt-6">
-              {calendar.defaultLocation}
-            </p>
-          )}
         </div>
       </div>
 
@@ -186,6 +162,17 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
                     </div>
                   )}
                 </div>
+              </div>
+            )}
+
+            {/* Galerie d'images */}
+            {content && content.galleryCount > 0 && (
+              <div className="mb-20">
+                <ImageGallery
+                  paroisseId={calendar.id}
+                  paroisseName={calendar.name}
+                  galleryCount={content.galleryCount}
+                />
               </div>
             )}
 

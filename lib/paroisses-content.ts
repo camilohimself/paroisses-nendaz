@@ -15,6 +15,7 @@ export interface ParoisseContent {
   patron?: string;
   dateConstruction?: string;
   particularites?: string[];
+  galleryCount: number; // Nombre d'images dans la galerie (0 si aucune)
 }
 
 export const PAROISSES_CONTENT: ParoisseContent[] = [
@@ -34,7 +35,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       vepres: 'le 1er vendredi du mois avant la messe',
       special: 'Confession : tous les vendredis de 18h à 18h45, tous les dimanches de 9h à 9h45'
     },
-    particularites: ['Crypte du IXème siècle', 'Rénovation 1964-1967', 'Patron Saint-Léger']
+    particularites: ['Crypte du IXème siècle', 'Rénovation 1964-1967', 'Patron Saint-Léger'],
+    galleryCount: 4
   },
   {
     id: 'haute-nendaz',
@@ -48,7 +50,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       semaine: 'le 4e mardi du mois à 19h00',
       adoration: 'les lundis et jeudis de 6h à 7h - Responsable : Eugène Fournier, les 4èmes mardis du mois de 18h15 à 18h45'
     },
-    particularites: ['Construction communautaire', 'Messes dans bâtiment sans toit', 'Défi des barrages']
+    particularites: ['Construction communautaire', 'Messes dans bâtiment sans toit', 'Défi des barrages'],
+    galleryCount: 1
   },
   {
     id: 'fey',
@@ -61,7 +64,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       semaine: 'le 3ème mardi du mois, à 19h',
       special: 'Messes annuelles : Fête patronale (Christ-Roi) samedi 19h, Toussaint 15h, Noël 18h, Pâques 10h30, Messe à la Moudonne le 2ème samedi de juin'
     },
-    particularites: ['Ancienne chapelle 30 places', 'Clocher conservé au cimetière']
+    particularites: ['Ancienne chapelle 30 places', 'Clocher conservé au cimetière'],
+    galleryCount: 0
   },
   {
     id: 'aproz',
@@ -73,7 +77,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       dominicale: 'les 1er et 3è samedis du mois, à 19h',
       adoration: 'les 4èmes mardis du mois de 18h30 à 19h'
     },
-    particularites: ['Communauté paroissiale active']
+    particularites: ['Communauté paroissiale active'],
+    galleryCount: 4
   },
   {
     id: 'baar',
@@ -84,7 +89,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1977',
     history: `Bénédiction en 1977, dédiée à St-Jean-Baptiste.`,
     horaires: {},
-    particularites: ['Dédiée à Saint-Jean-Baptiste']
+    particularites: ['Dédiée à Saint-Jean-Baptiste'],
+    galleryCount: 0
   },
   {
     id: 'brignon',
@@ -98,7 +104,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       semaine: 'le 4e jeudi du mois à 19h00',
       adoration: 'tous les lundis de 19h00 à 19h30 (adoration animée)'
     },
-    particularites: ['Cassette-archive dans fondations', 'Bénédiction 23 octobre 1988']
+    particularites: ['Cassette-archive dans fondations', 'Bénédiction 23 octobre 1988'],
+    galleryCount: 0
   },
   {
     id: 'planchouet',
@@ -111,7 +118,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       dominicale: 'en été à 11h (du 1er dimanche de juillet jusqu\'au dernier dimanche d\'août)'
     },
-    particularites: ['Coût CHF 7045.-', 'Minage de la roche', 'Statues multiples', 'Abbé Joseph Fournier']
+    particularites: ['Coût CHF 7045.-', 'Minage de la roche', 'Statues multiples', 'Abbé Joseph Fournier'],
+    galleryCount: 0
   },
   {
     id: 'rairettes',
@@ -124,7 +132,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       dominicale: 'en été à 11h (du 1er dimanche de juillet jusqu\'au dernier dimanche d\'août)'
     },
-    particularites: ['Chapelle des mayens', 'Habitants de Sion', 'Chemin de croix sur ardoises', 'Consacrée 15 août 1930']
+    particularites: ['Chapelle des mayens', 'Habitants de Sion', 'Chemin de croix sur ardoises', 'Consacrée 15 août 1930'],
+    galleryCount: 0
   },
   {
     id: 'beuson',
@@ -137,7 +146,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       semaine: 'le 2e mercredi du mois à 19h00'
     },
-    particularites: ['Reconstruction 1783', 'Bénédiction fil et pain', 'Protection bétail']
+    particularites: ['Reconstruction 1783', 'Bénédiction fil et pain', 'Protection bétail'],
+    galleryCount: 2
   },
   {
     id: 'condemines',
@@ -150,7 +160,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       semaine: 'le 2e jeudi du mois à 19h00 (sauf l\'hiver)'
     },
-    particularites: ['Famille Crettenand', 'Mémorial familial']
+    particularites: ['Famille Crettenand', 'Mémorial familial'],
+    galleryCount: 0
   },
   {
     id: 'saclentse',
@@ -164,7 +175,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       semaine: 'le 4e mercredi du mois à 19h00',
       special: 'Chapelet : les dimanches à 19h30'
     },
-    particularites: ['Curé Joseph Fournier', 'Cloche historique de Basse-Nendaz (avant 1794)']
+    particularites: ['Curé Joseph Fournier', 'Cloche historique de Basse-Nendaz (avant 1794)'],
+    galleryCount: 0
   },
   {
     id: 'bleusy',
@@ -176,7 +188,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       special: 'le dernier dimanche d\'août à 11h00 (à la place de Planchouet)'
     },
-    particularites: ['Bisse du Milieu', 'Mayens du Bleusy', 'Pause randonnée']
+    particularites: ['Bisse du Milieu', 'Mayens du Bleusy', 'Pause randonnée'],
+    galleryCount: 0
   },
   {
     id: 'saint-michel',
@@ -187,7 +200,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     dateConstruction: '1499 (style baroque XVIIIe)',
     history: `Discrète, elle se niche au cœur du vieux village de Haute-Nendaz, au bord de ce qui était autrefois la rue principale. Maintenant rénovée et entretenue, elle connut des hauts et des bas au cours de son existence. Elle fut construite en 1499 comme l'atteste un panneau en bois gravé que l'on peut voir sur la gauche du cœur et qui a été découvert lors d'une rénovation. Plusieurs fois reconstruite et rénovée, elle faillit disparaître dans les années 60. Certains habitants voulaient simplement la démolir. Un voisin proposa de l'acheter pour en faire une porcherie. Grâce à l'intervention du service des Monuments Historiques du canton du Valais et au courage de certaines personnes, la chapelle fut sauvée. L'édifice dans son état actuel, de style baroque, daterait du 18ème siècle. La décoration intérieure est l'œuvre du peintre Charles Frédéric Brun, plus connu chez nous sous le nom du Déserteur.`,
     horaires: {},
-    particularites: ['Panneau 1499', 'Sauvée de la démolition', 'Peintures du Déserteur', 'Style baroque', 'Monuments Historiques']
+    particularites: ['Panneau 1499', 'Sauvée de la démolition', 'Peintures du Déserteur', 'Style baroque', 'Monuments Historiques'],
+    galleryCount: 0
   },
   {
     id: 'saint-sebastien',
@@ -200,7 +214,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       special: 'Messe : tous les 20 janvier'
     },
-    particularites: ['Promontoire rocheux', 'Vue vallée du Rhône', 'Ancien gibet', 'Donation 1555']
+    particularites: ['Promontoire rocheux', 'Vue vallée du Rhône', 'Ancien gibet', 'Donation 1555'],
+    galleryCount: 0
   },
 
   // SECTEUR VEYSONNAZ
@@ -216,7 +231,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       semaine: 'les 1er et 5e mardis du mois à 19h00',
       adoration: 'tous les mardis sauf le 2è du mois de 18h à 18h45 et tous les vendredis de 14h à 15h'
     },
-    particularites: ['Évêché de Sion', 'Paroisse autonome 1912', 'Style néogothique', 'Rénovation 1962-1968']
+    particularites: ['Évêché de Sion', 'Paroisse autonome 1912', 'Style néogothique', 'Rénovation 1962-1968'],
+    galleryCount: 0
   },
   {
     id: 'clebes',
@@ -229,7 +245,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       semaine: 'les 2è mardis du mois à 19h00'
     },
-    particularites: ['Incendie 1904', 'Reconstruction']
+    particularites: ['Incendie 1904', 'Reconstruction'],
+    galleryCount: 0
   },
   {
     id: 'saint-barthelemy',
@@ -242,7 +259,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       special: 'Messe : tous les 24 août'
     },
-    particularites: ['2200m d\'altitude', 'Plus haute de la commune', 'Plus ancienne (avant 1447)', 'Reconstruite par ouvriers barrage 1951', 'Lac de Cleuson']
+    particularites: ['2200m d\'altitude', 'Plus haute de la commune', 'Plus ancienne (avant 1447)', 'Reconstruite par ouvriers barrage 1951', 'Lac de Cleuson'],
+    galleryCount: 0
   },
 
   // EMS
@@ -255,7 +273,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       semaine: 'les 1er, 3e et 5e mercredis du mois à 10h15'
     },
-    particularites: ['Établissement médico-social']
+    particularites: ['Établissement médico-social'],
+    galleryCount: 0
   },
   {
     id: 'foyer-les-vergers',
@@ -266,7 +285,8 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       semaine: 'les 1er, 3è et 5è jeudis du mois, 10h15'
     },
-    particularites: ['Établissement médico-social']
+    particularites: ['Établissement médico-social'],
+    galleryCount: 0
   }
 ];
 

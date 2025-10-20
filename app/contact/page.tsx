@@ -337,7 +337,7 @@ export default function ContactPage() {
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="font-semibold text-blue-900">Charles-Henri Fournier</span>
-                      <span className="text-blue-700 text-xs">Délégué commune</span>
+                      <span className="text-blue-700 text-xs text-right">Délégué commune</span>
                     </div>
                   </div>
                 </div>
@@ -366,11 +366,11 @@ export default function ContactPage() {
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-green-200">
                       <span className="font-semibold text-green-900">Laurence Fournier</span>
-                      <span className="text-green-700 text-xs">Déléguée commune Veysonnaz</span>
+                      <span className="text-green-700 text-xs text-right">Déléguée commune Veysonnaz</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
                       <span className="font-semibold text-green-900">Charles-Henri Fournier</span>
-                      <span className="text-green-700 text-xs">Délégué commune Nendaz</span>
+                      <span className="text-green-700 text-xs text-right">Délégué commune Nendaz</span>
                     </div>
                   </div>
                 </div>
