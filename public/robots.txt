@@ -1,0 +1,12 @@
+# Paroisses de Nendaz - Robots.txt
+# Site officiel des paroisses de Nendaz et Veysonnaz
+
+User-agent: *
+Allow: /
+
+# Bloquer les dossiers admin
+Disallow: /admin/
+Disallow: /api/auth/
+
+# Sitemap
+Sitemap: https://paroisses-nendaz.vercel.app/sitemap.xml
