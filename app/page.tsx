@@ -101,13 +101,33 @@ export default function Home() {
                 Sacrements
               </h3>
               <p className="text-stone-600 text-sm mb-4">
-                Baptême, communion, mariage...
+                Inscriptions et informations
               </p>
-              <div className="flex items-center text-amber-700 font-semibold text-sm pt-4 border-t border-stone-300">
-                En savoir plus
-                <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
+              <div className="space-y-1 text-xs text-stone-500">
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Baptême</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Pardon</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Communion</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Confirmation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Mariage</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Onction des malades</span>
+                </div>
               </div>
             </a>
 

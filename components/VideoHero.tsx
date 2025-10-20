@@ -46,39 +46,38 @@ export default function VideoHero() {
       </video>
 
 
-      {/* Contenu textuel - TOUT EN BAS */}
-      <div className="absolute bottom-0 left-0 right-0 text-white px-4 pb-16 lg:pb-20">
-        <div className="container mx-auto">
-          <div className="max-w-5xl mx-auto backdrop-blur-md bg-black/40 p-6 md:p-8 rounded-lg">
-            {/* Titre principal */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 text-center leading-tight">
-              Paroisses de Nendaz et Veysonnaz
-            </h1>
+      {/* Contenu textuel - CENTRÉ SANS BOX */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
+        <div className="text-center max-w-4xl">
+          {/* Titre principal */}
+          <h1 className="text-6xl md:text-7xl lg:text-9xl font-serif font-bold mb-6 leading-tight">
+            Paroisses de Nendaz<br />et Veysonnaz
+          </h1>
 
-            {/* Citation biblique */}
-            <p className="text-lg md:text-xl lg:text-2xl mb-3 text-center italic" style={{ fontFamily: 'Crimson Text, serif' }}>
-              « Là où deux ou trois sont réunis en mon nom, je suis au milieu d&apos;eux. »
-            </p>
+          {/* Citation biblique */}
+          <p className="text-2xl md:text-3xl lg:text-4xl mb-8 italic" style={{ fontFamily: 'Crimson Text, serif' }}>
+            « Là où deux ou trois sont réunis en mon nom,<br />
+            je suis au milieu d&apos;eux. »
+          </p>
 
-            <p className="text-sm md:text-base mb-6 text-center opacity-90">
-              — Matthieu 18, 20
-            </p>
+          <p className="text-xl md:text-2xl mb-8">
+            — Matthieu 18, 20
+          </p>
 
-            {/* Boutons d'action */}
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
-                href="/actualites"
-                className="inline-block px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
-              >
-                Actualités
-              </a>
-              <a
-                href="/paroisses"
-                className="inline-block px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
-              >
-                Nos paroisses
-              </a>
-            </div>
+          {/* Boutons d'action */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/actualites"
+              className="inline-block px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              Actualités
+            </a>
+            <a
+              href="/paroisses"
+              className="inline-block px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            >
+              Paroisses
+            </a>
           </div>
         </div>
       </div>
