@@ -166,7 +166,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             )}
 
             {/* Galerie d'images */}
-            {content && content.galleryCount > 0 && (
+            {content && calendar.type !== 'ems' && (
               <div className="mb-20">
                 <ImageGallery
                   paroisseId={calendar.id}

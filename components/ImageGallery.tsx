@@ -20,11 +20,6 @@ export default function ImageGallery({ paroisseId, paroisseName, galleryCount }:
   const [open, setOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  // Si pas d'images, ne rien afficher
-  if (galleryCount === 0) {
-    return null;
-  }
-
   // Chemins des images
   const basePath = `/images/paroisses/${paroisseId}`;
 

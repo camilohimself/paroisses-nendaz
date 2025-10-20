@@ -53,12 +53,12 @@ export default function ParoisseHero({ paroisseId, name, type, sector }: Paroiss
         />
       </picture>
 
-      {/* Overlay gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-b ${sectorColors[sector]} opacity-60`} />
+      {/* Vignette gradient uniquement sur zone texte (bas de l'image) */}
+      <div className={`absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t ${sectorColors[sector]} opacity-70`} />
 
       {/* Contenu textuel */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
-        <div className="text-center max-w-4xl">
+        <div className="text-center max-w-4xl relative z-10">
           {/* Nom de la paroisse */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 drop-shadow-2xl">
             {name}
@@ -70,12 +70,6 @@ export default function ParoisseHero({ paroisseId, name, type, sector }: Paroiss
           </div>
         </div>
       </div>
-
-      {/* Effet vignette subtil */}
-      <div className="absolute inset-0 shadow-inner pointer-events-none"
-           style={{
-             boxShadow: 'inset 0 0 100px rgba(0,0,0,0.3)'
-           }} />
     </div>
   );
 }
