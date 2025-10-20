@@ -123,7 +123,7 @@ export default function YouTubeLiveIndicator({
               <div className="aspect-video bg-gray-900 rounded-lg mb-4 overflow-hidden">
                 <iframe
                   className="w-full h-full"
-                  src="https://www.youtube.com/embed/8AaGadHv55E"
+                  src="https://www.youtube.com/embed/3iEHzZ2IlUM"
                   title="Vidéo paroissiale - Paroisses Nendaz"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
