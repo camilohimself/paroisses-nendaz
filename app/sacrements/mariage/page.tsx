@@ -90,14 +90,14 @@ export default function MariagePage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             {/* Contact */}
-            <div className="bg-paroisse-rougeFonce text-white rounded-xl shadow-lg p-6 mb-6">
-              <h3 className="text-xl font-bold mb-4">Organiser votre mariage</h3>
-              <p className="mb-6 text-white/90">
+            <div className="bg-gradient-to-br from-stone-600 to-amber-700 text-white rounded-xl shadow-lg p-6 mb-6">
+              <h3 className="text-xl font-bold mb-4 text-white">Organiser votre mariage</h3>
+              <p className="mb-6 text-white">
                 Contactez-nous 6 mois à 1 an avant la date souhaitée.
               </p>
               <Link
                 href="/contact?sujet=Mariage"
-                className="block w-full bg-white text-paroisse-rougeFonce hover:bg-white/90 font-semibold py-3 px-4 rounded-lg text-center transition-colors"
+                className="block w-full bg-white text-amber-800 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
               >
                 Prendre contact
               </Link>

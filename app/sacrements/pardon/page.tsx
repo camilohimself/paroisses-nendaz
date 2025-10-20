@@ -96,14 +96,14 @@ export default function PardonPage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             {/* Contact */}
-            <div className="bg-paroisse-vertFonce text-white rounded-xl shadow-lg p-6 mb-6">
-              <h3 className="text-xl font-bold mb-4">Demander le sacrement</h3>
-              <p className="mb-6 text-white/90">
+            <div className="bg-gradient-to-br from-emerald-700 to-teal-700 text-white rounded-xl shadow-lg p-6 mb-6">
+              <h3 className="text-xl font-bold mb-4 text-white">Demander le sacrement</h3>
+              <p className="mb-6 text-white">
                 Contactez un prêtre pour recevoir le sacrement du pardon.
               </p>
               <Link
                 href="/contact?sujet=Pardon"
-                className="block w-full bg-white text-paroisse-vertFonce hover:bg-white/90 font-semibold py-3 px-4 rounded-lg text-center transition-colors"
+                className="block w-full bg-white text-emerald-800 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
               >
                 Prendre contact
               </Link>

@@ -131,14 +131,14 @@ export default function ConfirmationPage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             {/* Contact */}
-            <div className="bg-gradient-to-br from-purple-600 to-violet-600 text-white rounded-xl shadow-lg p-6 mb-6">
+            <div className="bg-gradient-to-br from-slate-600 to-slate-700 text-white rounded-xl shadow-lg p-6 mb-6">
               <h3 className="text-xl font-bold mb-4 text-white">Vous souhaitez vous inscrire ?</h3>
               <p className="mb-6 text-white">
                 Prenez contact avec nous pour commencer votre parcours de confirmation.
               </p>
               <Link
                 href="/contact?sujet=Confirmation"
-                className="block w-full bg-white text-purple-700 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
+                className="block w-full bg-white text-slate-700 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
               >
                 Prendre contact
               </Link>

@@ -100,8 +100,8 @@ export default function OnctionMaladesPage() {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             {/* Contact urgence */}
-            <div className="bg-gradient-to-br from-paroisse-rouge to-paroisse-bleuRoi text-white rounded-xl shadow-lg p-6 mb-6">
-              <h3 className="text-xl font-bold mb-4">Contacter un prêtre</h3>
+            <div className="bg-gradient-to-br from-slate-700 to-blue-800 text-white rounded-xl shadow-lg p-6 mb-6">
+              <h3 className="text-xl font-bold mb-4 text-white">Contacter un prêtre</h3>
               <p className="mb-4 text-white/90 text-sm">
                 N'hésitez pas à appeler directement :
               </p>
