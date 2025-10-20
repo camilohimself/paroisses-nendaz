@@ -1,7 +1,7 @@
 /**
  * Composant Hero pour les pages individuelles de paroisses
  * Affiche une bannière immersive avec image optimisée responsive
- * Support WebP + JPEG fallback, desktop/mobile
+ * Optimisé avec Next.js Image pour performance mobile maximale
  */
 
 import Image from 'next/image';
@@ -17,41 +17,33 @@ export default function ParoisseHero({ paroisseId, name, type, sector }: Paroiss
   // Chemins des images optimisées
   const basePath = `/images/paroisses/${paroisseId}`;
 
-  // Couleurs selon secteur (cohérent avec charte graphique)
-  const sectorColors = {
-    nendaz: 'from-emerald-600/90 to-emerald-800/90',
-    veysonnaz: 'from-sky-600/90 to-sky-800/90'
-  };
-
   return (
-    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
-      {/* Image Hero - Desktop */}
-      <picture className="hidden md:block">
-        <source
-          srcSet={`${basePath}/hero-desktop.webp`}
-          type="image/webp"
-        />
-        <img
+    <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden bg-neutral-grisClaire">
+      {/* Image Hero - Desktop (masquée sur mobile) */}
+      <div className="hidden md:block absolute inset-0">
+        <Image
           src={`${basePath}/hero-desktop.jpg`}
           alt={name}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover"
         />
-      </picture>
+      </div>
 
-      {/* Image Hero - Mobile */}
-      <picture className="block md:hidden">
-        <source
-          srcSet={`${basePath}/hero-mobile.webp`}
-          type="image/webp"
-        />
-        <img
+      {/* Image Hero - Mobile (masquée sur desktop) */}
+      <div className="block md:hidden absolute inset-0">
+        <Image
           src={`${basePath}/hero-mobile.jpg`}
           alt={name}
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
+          fill
+          priority
+          quality={85}
+          sizes="100vw"
+          className="object-cover"
         />
-      </picture>
+      </div>
 
 
       {/* Contenu textuel - CENTRÉ SANS BOX */}

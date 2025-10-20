@@ -3,10 +3,11 @@
 /**
  * Composant Galerie d'images pour les pages paroisses
  * Affiche une grille d'images miniatures avec lightbox cliquable
- * Support WebP + JPEG fallback, responsive, lazy loading
+ * Optimisé avec Next.js Image pour performance mobile maximale
  */
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 
@@ -53,18 +54,13 @@ export default function ImageGallery({ paroisseId, paroisseName, galleryCount }:
           }}
           className="group relative overflow-hidden rounded-lg aspect-[3/2] bg-gray-100 hover:shadow-xl transition-all duration-300"
         >
-          <picture>
-            <source
-              srcSet={`${basePath}/hero-desktop.webp`}
-              type="image/webp"
-            />
-            <img
-              src={`${basePath}/hero-desktop.jpg`}
-              alt={`${paroisseName} - Vue principale`}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-              loading="lazy"
-            />
-          </picture>
+          <Image
+            src={`${basePath}/hero-desktop.jpg`}
+            alt={`${paroisseName} - Vue principale`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-110"
+          />
 
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
             <svg
@@ -93,18 +89,13 @@ export default function ImageGallery({ paroisseId, paroisseName, galleryCount }:
             }}
             className="group relative overflow-hidden rounded-lg aspect-[3/2] bg-gray-100 hover:shadow-xl transition-all duration-300"
           >
-            <picture>
-              <source
-                srcSet={`${basePath}/gallery-${i + 1}.webp`}
-                type="image/webp"
-              />
-              <img
-                src={`${basePath}/gallery-${i + 1}.jpg`}
-                alt={`${paroisseName} - Photo ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                loading="lazy"
-              />
-            </picture>
+            <Image
+              src={`${basePath}/gallery-${i + 1}.jpg`}
+              alt={`${paroisseName} - Photo ${i + 1}`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-110"
+            />
 
             <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
               <svg
