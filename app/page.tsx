@@ -1,4 +1,5 @@
 import QuickAccessCard from '@/components/QuickAccessCard'
+import VideoHero from '@/components/VideoHero'
 import dynamic from 'next/dynamic'
 
 // Lazy load non-critical components
@@ -15,74 +16,9 @@ export default function Home() {
     <div className="min-h-screen bg-stone-50">
 
       {/* ========================================= */}
-      {/* HERO - PIERRE ET LUMIÈRE                */}
+      {/* HERO VIDEO - DRONE PAROISSES            */}
       {/* ========================================= */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-stone-100 via-stone-50 to-amber-50">
-
-        {/* Texture pierre subtile */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8ZGVmcz4KICAgIDxwYXR0ZXJuIGlkPSJzdG9uZSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjIwMCIgaGVpZ2h0PSIyMDAiPgogICAgICA8cGF0aCBkPSJNMCwwIEwyMDAsMjAwIE0yMDAsMCBMMCwyMDAiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSIwLjUiIG9wYWNpdHk9IjAuMSIvPgogICAgPC9wYXR0ZXJuPgogIDwvZGVmcz4KICA8cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3N0b25lKSIvPgo8L3N2Zz4=')] bg-repeat"></div>
-        </div>
-
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-
-            {/* Petite croix minimaliste */}
-            <div className="flex justify-center mb-6">
-              <div className="relative w-10 h-14">
-                <div className="absolute left-1/2 top-0 w-0.5 h-full bg-stone-400 transform -translate-x-1/2"></div>
-                <div className="absolute left-0 top-3 w-full h-0.5 bg-stone-400"></div>
-              </div>
-            </div>
-
-            {/* Titre principal */}
-            <h1 className="mb-5" style={{ fontFamily: 'Playfair Display, serif' }}>
-              <span className="block text-5xl md:text-7xl font-light text-stone-700 mb-3 tracking-wide">
-                Paroisses
-              </span>
-              <span className="block text-2xl md:text-3xl font-light text-amber-600 tracking-widest uppercase">
-                Nendaz • Veysonnaz
-              </span>
-            </h1>
-
-            {/* Citation biblique */}
-            <div className="max-w-2xl mx-auto mb-10">
-              <div className="h-px w-20 bg-amber-300 mx-auto mb-5"></div>
-              <p className="text-lg md:text-xl text-stone-600 leading-relaxed italic" style={{ fontFamily: 'Crimson Text, serif' }}>
-                « Voici que je suis<br />avec vous tous les jours. »
-              </p>
-              <p className="text-xs text-stone-400 mt-2 tracking-widest uppercase">Matthieu 18, 20</p>
-              <div className="h-px w-20 bg-amber-300 mx-auto mt-5"></div>
-            </div>
-
-            {/* Messe en direct - Badge élégant */}
-            <a
-              href="https://www.youtube.com/@paroissesnendazetveysonnaz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white/60 backdrop-blur-sm border-2 border-amber-400 px-6 py-4 rounded-full hover:bg-white/80 transition-all shadow-lg hover:shadow-xl group"
-            >
-              <span className="w-2.5 h-2.5 bg-amber-600 rounded-full animate-pulse"></span>
-              <strong className="text-stone-800">Messe en direct</strong>
-              <span className="text-stone-600">•</span>
-              <span className="text-stone-700">Dimanche 10h00</span>
-              <svg className="w-4 h-4 text-amber-600 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="flex flex-col items-center gap-2">
-            <div className="w-px h-10 bg-stone-300"></div>
-            <div className="w-2 h-2 rounded-full bg-amber-400"></div>
-          </div>
-        </div>
-
-      </section>
+      <VideoHero />
 
       {/* ========================================= */}
       {/* ACCÈS RAPIDES - PIERRE ET LUMIÈRE       */}

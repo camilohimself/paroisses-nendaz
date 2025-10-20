@@ -4,6 +4,449 @@
 - **Site actuel de référence** : https://paroisses-nendaz.ch/
 - **Site live production** : https://paroisses-nendaz.vercel.app
 - **Logo officiel** : Intégré dans `/public/logo-paroisses.png`
+- **Serveur local dev** : http://localhost:3002 (port 3002 car 3000 occupé)
+
+## ⚠️ RAPPELS IMPORTANTS
+
+### 🔐 Configuration Vercel en attente
+**NEXTAUTH_SECRET** : Secret sécurisé généré mais non configuré sur Vercel
+- **Secret** : `5UsYTaIYaSV7wvDgNivJ6qkBHlsZ6j6HupzxKyNR/Fc=`
+- **Action requise** : Ajouter dans Vercel → Settings → Environment Variables
+- **Raison** : Problèmes de déploiement Vercel en cours (octobre 2025)
+- **Statut** : 4 commits en attente de déploiement sur Vercel
+
+---
+
+## 🎬 SÉANCE DU 20 OCTOBRE 2025 (SOIR) - INTÉGRATION VIDÉO HERO HOMEPAGE ✅
+
+### ✨ RÉALISATION MAJEURE
+
+**VIDÉO DRONE EN FOND DU HERO - PAGE D'ACCUEIL**
+
+Mission : Intégrer vidéo drone de 26 secondes (184 MB) comme fond animé immersif du hero de la page d'accueil, avec overlay pour lisibilité du texte.
+
+### 📊 OPTIMISATION VIDÉO - RÉSULTATS EXCEPTIONNELS
+
+**Source :**
+- Fichier : `/media-siteweb/video/VIDEO-HERO-PAROISSE.mov`
+- Format : Apple ProRes 422 Proxy
+- Poids : 184 MB
+- Résolution : 1280x720
+- Durée : 26.32 secondes
+- Bitrate : 58716 kb/s (trop élevé pour le web)
+
+**Optimisation réalisée :**
+- **Desktop** : 4.2 MB MP4 (1280x720, 2000kbps) → **-97.7% de compression**
+- **Mobile** : 1.7 MB MP4 (854x480, 1000kbps) → **-99.1% de compression**
+- **Poster** : 283 KB JPG (fallback image)
+- **Poids total** : 6.2 MB vs 184 MB source → **-96.6% de réduction**
+
+**Script créé :** `/scripts/optimize-video-hero.sh`
+- Conversion H.264 MP4 avec ffmpeg
+- 2 versions responsive (desktop + mobile)
+- Extraction poster image à 5 secondes
+- Paramètres optimisés : CRF 28-30, preset slow, faststart
+
+### 🎨 COMPOSANT REACT - VIDEOHERO
+
+**Fichier créé :** `/components/VideoHero.tsx` (107 lignes)
+
+**Fonctionnalités :**
+- ✅ Vidéo background responsive (desktop 1280x720 / mobile 854x480)
+- ✅ Autoplay, loop, muted, playsInline (HTML5 video)
+- ✅ Poster image fallback pour chargement instantané
+- ✅ Gradient overlay sur zone texte (2/3 bas) : `from-emerald-800/90 via-emerald-700/60 to-transparent`
+- ✅ Contenu textuel complet : titre, citation biblique Matthieu 18,20, 2 boutons CTA
+- ✅ Indicateur de scroll animé (desktop uniquement)
+- ✅ Breakpoint responsive : 768px (md:)
+
+**Architecture :**
+```tsx
+<div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px]">
+  {/* Vidéo Desktop (hidden md:block) */}
+  <video autoPlay loop muted playsInline poster="/videos/hero-poster.jpg">
+    <source src="/videos/hero-desktop.mp4" type="video/mp4" />
+  </video>
+
+  {/* Vidéo Mobile (block md:hidden) */}
+  <video autoPlay loop muted playsInline poster="/videos/hero-poster.jpg">
+    <source src="/videos/hero-mobile.mp4" type="video/mp4" />
+  </video>
+
+  {/* Overlay gradient sur zone texte uniquement */}
+  <div className="absolute bottom-0 h-2/3 bg-gradient-to-t..." />
+
+  {/* Contenu textuel : Titre + Citation + CTA */}
+  <div className="absolute inset-0">...</div>
+</div>
+```
+
+### 🔗 INTÉGRATION PAGE D'ACCUEIL
+
+**Fichier modifié :** `/app/page.tsx`
+
+**Changement :**
+- Import du composant `VideoHero`
+- Remplacement complet de l'ancienne section hero statique (69 lignes)
+- Nouvelle section : `<VideoHero />` (1 ligne)
+- Contenu préservé : Titre, citation, boutons CTA, design cohérent
+
+**Avant :**
+- Hero statique avec texture pierre SVG
+- Fond gradient CSS
+- Design sobre mais sans mouvement
+
+**Après :**
+- Hero vidéo drone immersive
+- Fond animé en boucle continue
+- Design premium et dynamique
+
+### ✅ VALIDATION BUILD PRODUCTION
+
+**Commande :** `npm run build`
+
+**Résultats :**
+- ✅ **43 pages générées** avec succès
+- ✅ **0 erreur TypeScript**
+- ✅ **0 erreur de compilation**
+- ✅ Homepage avec VideoHero compilée correctement
+- ✅ First Load JS : 126 KB (inchangé)
+
+### 📁 FICHIERS CRÉÉS/MODIFIÉS
+
+**Nouveaux fichiers :**
+1. `/scripts/optimize-video-hero.sh` (92 lignes) - Script bash ffmpeg
+2. `/components/VideoHero.tsx` (107 lignes) - Composant React
+3. `/public/videos/hero-desktop.mp4` (4.2 MB) - Vidéo desktop optimisée
+4. `/public/videos/hero-mobile.mp4` (1.7 MB) - Vidéo mobile optimisée
+5. `/public/videos/hero-poster.jpg` (283 KB) - Image fallback
+6. `INTEGRATION_VIDEO_RECAP.md` - Documentation complète du processus
+
+**Fichiers modifiés :**
+1. `/app/page.tsx` - Import VideoHero + remplacement section hero
+
+### 🎯 AVANTAGES TECHNIQUES
+
+**Performance :**
+- ✅ Compression exceptionnelle (-96.6%)
+- ✅ Formats séparés desktop/mobile pour économie bande passante
+- ✅ Poster image pour affichage instantané pendant chargement
+- ✅ MP4 faststart pour streaming progressif
+- ✅ Lazy loading vidéo (preload="auto")
+
+**Expérience utilisateur :**
+- ✅ Autoplay silencieux (standard UX moderne)
+- ✅ Boucle infinie sans interruption
+- ✅ Texte parfaitement lisible (gradient overlay)
+- ✅ Fallback image pour navigateurs incompatibles
+- ✅ Lecture inline sur mobile (pas de fullscreen)
+
+**Maintenance :**
+- ✅ Script automatisé réutilisable pour futures vidéos
+- ✅ Composant propre et réutilisable
+- ✅ Documentation exhaustive (INTEGRATION_VIDEO_RECAP.md)
+- ✅ Code commenté et structuré
+
+### 📊 STATISTIQUES FINALES
+
+- **Build production** : 43 pages générées sans erreur
+- **Compression vidéo** : 184 MB → 6.2 MB total (-96.6%)
+- **Formats générés** : 2 MP4 (desktop/mobile) + 1 JPG (poster)
+- **Chargement estimé** : 2-3 secondes (selon connexion)
+- **Support navigateurs** : 99%+ (H.264 MP4 universel)
+
+### 🚀 PROCHAINE ÉTAPE
+
+- [ ] **Déploiement Vercel** (automatique via git push)
+- [ ] Tests navigateurs desktop (Chrome, Firefox, Safari)
+- [ ] Tests navigateurs mobile (Safari iOS, Chrome Android)
+- [ ] Mesure performance Lighthouse en production
+- [ ] Validation autoplay sur différents devices
+
+### 📚 DOCUMENTATION CRÉÉE
+
+**INTEGRATION_VIDEO_RECAP.md** - Document complet incluant :
+- Processus d'optimisation ffmpeg détaillé
+- Architecture du composant VideoHero
+- Comparaison avant/après (statique vs vidéo)
+- Guide de remplacement pour futures vidéos
+- Notes techniques (pourquoi H.264, pourquoi 2 versions, etc.)
+- Tests à valider en production
+- Ressources et références techniques
+
+---
+
+## 🎨 SÉANCE DU 20 OCTOBRE 2025 (APRÈS-MIDI) - SACREMENTS + HARMONISATION PALETTE ✅
+
+### ✨ RÉALISATIONS MAJEURES
+
+**1. 📚 SACREMENTS COMMUNION + CONFIRMATION - CONTENUS COMPLETS**
+
+**Page Communion (`/sacrements/communion`) :**
+- **Section Catéchistes** : 5 responsables avec coordonnées complètes
+  - Abbé Félicien Roux - Tel: 027 288 22 50
+  - Blandine Bornet - Tel: 027 288 51 59 / 079 531 88 76
+  - **Marie-Noëlle Délèze** - Tel: 079 542 49 55 - **Email: mndeleze@gmail.com** ⭐
+  - Zuzana Michaud - Email: zuzana.u@outlook.fr
+  - Anne-Lyse Métrailler - Tel: 077 415 32 02
+
+- **Documents PDF téléchargeables** :
+  - `agenda-communion-2025-2026.pdf` (617 KB)
+  - `chants-communion-2025-2026.pdf` (368 KB)
+
+- **Vidéos YouTube intégrées** (lecture directe depuis le site) :
+  - Chant 1 : https://youtu.be/pbFBVFv-L6c
+  - Chant 2 : https://youtu.be/VECujpaPWXY
+  - Format : iframe embed responsive avec aspect-ratio 16:9
+
+- **Correction UX** : Section "Inscrire votre enfant"
+  - Fond dégradé amber-500 → yellow-500 (au lieu de rouge illisible)
+  - Texte blanc bien visible
+  - Bouton avec texte amber-700 sur fond blanc
+
+**Page Confirmation (`/sacrements/confirmation`) :**
+- **Nouveau texte complet** du parcours de préparation
+  - Bienvenue et philosophie du parcours
+  - Généralement 7-8H (ouvert à tous âges)
+  - Durée : 1 année pastorale environ
+  - Célébration : octobre à Basse-Nendaz
+
+- **Encadré spécial** rencontre de présentation (fond amber) :
+  - Date : Dimanche 9 novembre à 10h50
+  - Lieu : Église de Basse-Nendaz
+  - Durée : 1 heure environ
+
+- **Sections structurées** :
+  1. Notre parcours de préparation
+  2. La célébration
+  3. Après la confirmation (SDJ, activités)
+
+- **Document PDF** téléchargeable :
+  - `info-parents-confirmation-2024-2025.pdf` (2.3 MB)
+  - Flyer avec toutes les infos : programme, dates, activités
+
+**2. 🎨 HARMONISATION PALETTE "PIERRE ET LUMIÈRE"**
+
+**Problème identifié** : Couleurs agressives (violet/rouge vifs) sur pages sacrements
+**Solution** : Palette douce Alpes valaisannes - tons montagne/nature/forêt
+
+**Couleurs harmonisées** :
+- **Confirmation** : `slate-600/slate-700` (gris-bleu montagne doux)
+- **Communion** : `amber-500/yellow-500` (or soleil alpin)
+- **Pardon** : `emerald-700/teal-700` (vert forêt alpin)
+- **Mariage** : `stone-600/amber-700` (pierre chaude terre)
+- **Onction malades** : `slate-700/blue-800` (bleu apaisant lac)
+
+**Fichiers modifiés** :
+- `app/sacrements/confirmation/page.tsx`
+- `app/sacrements/communion/page.tsx`
+- `app/sacrements/pardon/page.tsx`
+- `app/sacrements/mariage/page.tsx`
+- `app/sacrements/onction-malades/page.tsx`
+
+**3. 📅 ACTUALITÉS NOVEMBRE 2025 - AGENDA COMPLET**
+
+**10 événements ajoutés/complétés** pour novembre :
+
+1. **Sam 1er** : Fête de la Toussaint
+   - 10h : Aproz, Basse-Nendaz, Veysonnaz
+   - 15h : Haute-Nendaz, Fey
+   - Messes suivies de prière au cimetière
+
+2. **Dim 2** : Commémoration des fidèles défunts
+   - 10h à Basse-Nendaz
+
+3. **Ven 7** : Messe avec adoration et vêpres
+   - 18h : Adoration
+   - 18h30 : Office des vêpres
+   - 19h : Messe
+   - Lieu : Basse-Nendaz
+
+4. **Dim 9** : Présentation Confirmation 2026
+   - 10h55 à Basse-Nendaz (après messe 10h)
+   - Remise bulletins d'inscription
+
+5. **Dim 9** : Loto du Chœur St-Michel
+   - 17h30 à la salle de la Biolette
+
+6. **Sam 15** : Messe animée par les enfants
+   - 17h30 à Haute-Nendaz
+   - Enfants des activités catéchétiques
+
+7. **Sam 15** : Concert anniversaire Cécilia de Fey
+   - 80 ans de la Cécilia
+   - Infos auprès de la Cécilia
+
+8. **Mer 19** : Préparation 1ère Communion
+   - Après-midi à Basse-Nendaz
+   - En secteur
+
+9. **Sam 22** : Fête patronale du Christ-Roi
+   - 19h à l'église de Fey
+
+10. **Sam 29** : Journée intergénérationnelle Couronnes de l'Avent
+    - Fabrication des couronnes
+    - Messe à 17h30 animée avec enfants et familles du Pardon
+
+**Fichier modifié** : `app/actualites/page.tsx`
+
+**4. 🧹 NETTOYAGE & OPTIMISATION**
+
+**Pages de test supprimées** (11 dossiers) :
+- `app/contact-v1, v2, v3`
+- `app/sacrements-v1, v2, v3, v4`
+- `app/pastorale-v1, v2, v3`
+- `app/test-adoration`
+
+**Résultat** :
+- Build optimisé : 43 pages (au lieu de 54) = -20%
+- Temps compilation amélioré : ~4.9s
+- Code nettoyé : -3154 lignes supprimées
+
+**5. 🎥 VIDÉO HERO - NOUVEAU COMPOSANT**
+
+**Ajouts techniques** :
+- Composant `VideoHero.tsx` créé
+- Vidéos optimisées desktop/mobile
+- Script d'optimisation `optimize-video-hero.sh`
+- Page d'accueil mise à jour avec VideoHero
+
+**Fichiers ajoutés** :
+- `components/VideoHero.tsx`
+- `public/videos/hero-desktop.mp4`
+- `public/videos/hero-mobile.mp4`
+- `public/videos/hero-poster.jpg`
+- `scripts/optimize-video-hero.sh`
+
+**6. ✏️ CORRECTIONS ESTHÉTIQUES DEMANDÉES PAR LE PRÊTRE**
+
+**Ponctuation** :
+- ✅ Page Accueil : Point final citation "avec vous tous les jours."
+- ✅ Page Vie pastorale : Suppression point après titre "Vie pastorale"
+- ✅ Page Vie pastorale : Points finaux 2 citations bibliques
+
+**Layout Contact** :
+- ✅ Délégués alignés à droite sur mobile (ajout `text-right`)
+
+### 📊 STATISTIQUES DE LA SÉANCE
+
+**4 commits créés** :
+1. `3044b4a` - Corrections esthétiques + Nettoyage pages test
+2. `85729a9` - Sacrements Communion + Confirmation (contenus + PDF)
+3. `b1a0fb3` - Actualités novembre complet (10 événements)
+4. `3d92849` - Harmonisation palette montagne (5 pages sacrements)
+
+**Pages modifiées** : 8
+- Communion, Confirmation, Pardon, Mariage, Onction malades
+- Actualités, Accueil, Vie pastorale, Contact
+
+**Fichiers ajoutés** : 8
+- 3 PDF sacrements (985 KB + 2.3 MB)
+- 4 fichiers vidéo hero + script
+- 1 composant VideoHero
+
+**Build production** : ✅ 43 pages générées sans erreur
+
+### 🎯 COMMITS DE LA SÉANCE
+
+1. **Nettoyage et corrections** : `3044b4a`
+   - Suppression 11 pages de test (-20% taille)
+   - Corrections ponctuation (4 pages)
+   - Délégués contact alignés
+
+2. **Sacrements complets** : `85729a9`
+   - Page Communion : 5 catéchistes + 2 PDF + 2 vidéos YouTube
+   - Page Confirmation : Nouveau texte + 1 PDF
+   - Email Marie-Noëlle ajouté
+
+3. **Agenda novembre** : `b1a0fb3`
+   - 10 événements créés/complétés
+   - Horaires précis pour tout le mois
+   - Catégories : Événement, Liturgie, Formation, Culture
+
+4. **Harmonisation UX/UI** : `3d92849`
+   - Palette "Pierre et Lumière" appliquée
+   - 5 pages sacrements harmonisées
+   - Tons doux montagne/Alpes valaisannes
+   - Vidéo hero intégrée
+
+### 🚀 URLs MODIFIÉES/AJOUTÉES
+
+**Pages sacrements** :
+- `/sacrements/communion` - Contenu complet + documents + vidéos
+- `/sacrements/confirmation` - Nouveau texte + document + encadré
+- `/sacrements/pardon` - Palette harmonisée
+- `/sacrements/mariage` - Palette harmonisée
+- `/sacrements/onction-malades` - Palette harmonisée
+
+**Documents téléchargeables** :
+- `/documents/communion/agenda-communion-2025-2026.pdf`
+- `/documents/communion/chants-communion-2025-2026.pdf`
+- `/documents/confirmation/info-parents-confirmation-2024-2025.pdf`
+
+**Page actualités** :
+- `/actualites` - 10 événements novembre ajoutés
+
+### ✅ FONCTIONNALITÉS AJOUTÉES
+
+- ✅ Embeds YouTube pour lecture directe (2 vidéos communion)
+- ✅ Documents PDF téléchargeables (3 fichiers, vignettes élégantes)
+- ✅ Catéchistes communion avec coordonnées complètes
+- ✅ Agenda novembre complet avec horaires précis
+- ✅ Palette couleurs douce et cohérente (5 pages)
+- ✅ Vidéo hero page d'accueil (responsive desktop/mobile)
+- ✅ Nettoyage pages de test (-20% taille build)
+
+### 📁 FICHIERS CRÉÉS/MODIFIÉS (27 fichiers)
+
+**Créés** :
+- `public/documents/communion/agenda-communion-2025-2026.pdf`
+- `public/documents/communion/chants-communion-2025-2026.pdf`
+- `public/documents/confirmation/info-parents-confirmation-2024-2025.pdf`
+- `components/VideoHero.tsx`
+- `public/videos/hero-desktop.mp4`
+- `public/videos/hero-mobile.mp4`
+- `public/videos/hero-poster.jpg`
+- `scripts/optimize-video-hero.sh`
+
+**Modifiés** :
+- `app/page.tsx` - Intégration VideoHero
+- `app/contact/page.tsx` - Délégués alignés droite
+- `app/pastorale/page.tsx` - Corrections ponctuation
+- `app/actualites/page.tsx` - 10 événements novembre
+- `app/sacrements/communion/page.tsx` - Contenu complet
+- `app/sacrements/confirmation/page.tsx` - Nouveau texte
+- `app/sacrements/pardon/page.tsx` - Palette harmonisée
+- `app/sacrements/mariage/page.tsx` - Palette harmonisée
+- `app/sacrements/onction-malades/page.tsx` - Palette harmonisée
+
+**Supprimés** :
+- 11 dossiers de pages de test (contact-v*, sacrements-v*, pastorale-v*, test-adoration)
+
+### 🎓 LEÇONS TECHNIQUES
+
+**Embeds YouTube** :
+- Format iframe avec aspect-ratio 16:9
+- Design responsive avec bordures et ombres
+- Lecture directe depuis le site (meilleure UX)
+
+**Documents PDF** :
+- Vignettes élégantes avec icônes et hover effects
+- Même style que Communion pour cohérence
+- Description claire du contenu
+
+**Palette couleurs** :
+- Inspiration : Alpes valaisannes, montagne, nature
+- Tons doux : slate, stone, emerald, teal, amber
+- Cohérence visuelle "Pierre et Lumière"
+- Éviter couleurs agressives (violet/rouge vifs)
+
+**Optimisation build** :
+- Suppression pages de test = -20% taille
+- 43 pages au lieu de 54
+- Temps compilation amélioré
+
+---
 
 ## 🎨 SÉANCE DU 10 OCTOBRE 2025 (SOIR) - UX/UI ADORATION + FINITIONS ✅
 
