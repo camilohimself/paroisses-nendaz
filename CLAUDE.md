@@ -118,4 +118,45 @@ git push origin main     # Deploy
 - `app/pastorale/page.tsx` - 10+ emojis remplacés
 
 ---
-*Mise à jour : 31 octobre 2025 - Séance complète sacrements*
+
+## 🚀 SÉANCE DU 31 OCTOBRE 2025 (APRÈS-MIDI) - PAGE ACTUALITÉS ✅
+
+### ✨ AMÉLIORATIONS RÉALISÉES
+
+**1. 🎨 REMPLACEMENT SVG → ICÔNES LUCIDE**
+- **Calendar** : Toutes les dates (featured video + cards)
+- **MapPin** : Tous les lieux
+- **Star** : Placeholder pour événements sans image
+- **Cohérence** : Alignement design avec le reste du projet
+
+**2. 🧹 NETTOYAGE LIENS CASSÉS**
+- Suppression titres cliquables vers pages inexistantes
+- Suppression liens "En savoir plus"
+- Suppression arrow CTA dans liste agenda
+- Interface plus honnête et claire
+
+**3. 📸 SIMPLIFICATION IMAGES**
+- `hasImage: false` pour tous les événements actuels
+- Placeholder Star élégant pour highlights
+- Dossier `/images/articles/` créé (prêt pour futures images)
+- Pas d'images 404
+
+### 📊 STATISTIQUES
+- **1 commit** : `ad74e50`
+- **1 fichier modifié** : app/actualites/page.tsx
+- **67 lignes supprimées** (SVG + liens cassés)
+- **16 lignes ajoutées** (imports Lucide + simplification)
+- **Build** : 53 pages générées avec succès
+
+### 🎯 COMMIT
+`ad74e50` - ✨ ACTUALITÉS: Icônes Lucide + Nettoyage UX
+
+### ✅ RÉSULTAT
+- ✅ Design 100% cohérent avec le reste du site
+- ✅ ZERO emoji, 100% Lucide icons (règle respectée)
+- ✅ Pas de liens cassés
+- ✅ Build production sans erreur
+- ✅ Prêt pour ajout futur d'images réelles
+
+---
+*Mise à jour : 31 octobre 2025 - Pages sacrements + Actualités*
