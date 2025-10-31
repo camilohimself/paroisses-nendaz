@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Calendar, Church, Heart, Star, MapPin } from 'lucide-react'
+import { Calendar, Church, Heart, Star, MapPin, Sparkles, Sun, Target, Mail } from 'lucide-react'
 
 export default function PastoralePage() {
   return (
@@ -248,9 +248,9 @@ export default function PastoralePage() {
             <div className="text-center mb-16">
               <div className="inline-block mb-6">
                 <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full border-2 border-amber-300 shadow-lg">
-                  <span className="text-2xl">✨</span>
+                  <Sparkles className="w-6 h-6 text-amber-500" />
                   <p className="text-amber-700 font-bold uppercase tracking-wider text-sm">Grandir dans la foi</p>
-                  <span className="text-2xl">✨</span>
+                  <Sparkles className="w-6 h-6 text-amber-500" />
                 </div>
               </div>
               <h2 className="text-5xl md:text-6xl font-bold text-amber-900 mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -283,7 +283,7 @@ export default function PastoralePage() {
                 </div>
 
                 <p className="text-xl text-amber-900 mb-6 leading-relaxed">
-                  Les premiers pas <strong className="text-orange-600">joyeux et ludiques</strong> pour découvrir Jésus et son message d'amour ! 💛
+                  Les premiers pas <strong className="text-orange-600">joyeux et ludiques</strong> pour découvrir Jésus et son message d'amour !
                 </p>
 
                 <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-yellow-300 mb-6 shadow-lg">
@@ -314,12 +314,14 @@ export default function PastoralePage() {
                     </div>
                   </div>
                   <div className="mt-4 pt-4 border-t-2 border-yellow-200">
-                    <p className="text-sm text-amber-800 font-semibold">✨ 3 belles rencontres par année</p>
+                    <p className="text-sm text-amber-800 font-semibold flex items-center gap-2">
+                      <Sparkles className="w-4 h-4" /> 3 belles rencontres par année
+                    </p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2 text-amber-900 font-bold bg-yellow-200/50 px-4 py-3 rounded-xl">
-                  <span className="text-xl">💌</span>
+                  <Mail className="w-5 h-5" />
                   <p>Inscription via le secrétariat paroissial</p>
                 </div>
               </div>
@@ -328,7 +330,7 @@ export default function PastoralePage() {
               <div className="group bg-gradient-to-br from-orange-100 via-amber-50 to-yellow-100 p-8 md:p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-orange-300">
                 <div className="flex items-start gap-6 mb-6">
                   <div className="flex-shrink-0 w-20 h-20 bg-orange-400 rounded-2xl flex items-center justify-center transform group-hover:-rotate-6 transition-transform duration-500 shadow-lg">
-                    <span className="text-4xl">☀️</span>
+                    <Sun className="w-10 h-10 text-white" />
                   </div>
                   <div>
                     <h3 className="text-4xl md:text-5xl font-bold text-orange-900 mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
@@ -343,7 +345,7 @@ export default function PastoralePage() {
                 </div>
 
                 <p className="text-xl text-orange-900 mb-6 leading-relaxed">
-                  Grandir ensemble vers les <strong className="text-amber-700">sacrements de communion et confirmation</strong> ! Un chemin lumineux et joyeux. ☀️
+                  Grandir ensemble vers les <strong className="text-amber-700">sacrements de communion et confirmation</strong> ! Un chemin lumineux et joyeux.
                 </p>
 
                 <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-orange-300 mb-6 shadow-lg">
@@ -374,7 +376,7 @@ export default function PastoralePage() {
                 </div>
 
                 <div className="flex items-center gap-2 text-orange-900 font-bold bg-orange-200/50 px-4 py-3 rounded-xl">
-                  <span className="text-xl">🎯</span>
+                  <Target className="w-5 h-5" />
                   <p>Préparation joyeuse aux sacrements</p>
                 </div>
               </div>
@@ -453,7 +455,7 @@ export default function PastoralePage() {
                 </div>
 
                 <div className="flex items-center gap-3 text-purple-900 font-bold bg-gradient-to-r from-pink-200/50 to-purple-200/50 px-5 py-4 rounded-xl">
-                  <span className="text-2xl">❤️</span>
+                  <Heart className="w-6 h-6 text-purple-600" />
                   <p className="text-lg">Toutes les familles sont les bienvenues !</p>
                 </div>
               </div>
@@ -464,7 +466,7 @@ export default function PastoralePage() {
             <div className="mt-20 text-center">
               <div className="inline-flex items-center gap-4 mb-6">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-                <span className="text-3xl">✨</span>
+                <Sparkles className="w-8 h-8 text-amber-500" />
                 <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
               </div>
               <p className="text-amber-900 italic text-2xl max-w-3xl mx-auto leading-relaxed font-semibold" style={{ fontFamily: 'Crimson Text, serif' }}>
