@@ -221,7 +221,7 @@ export default function PrierePage() {
                   <div>
                     <p className="text-xs md:text-sm text-stone-500 uppercase tracking-wider mb-1">Lieu</p>
                     <p className="text-base md:text-lg text-stone-800 font-semibold">
-                      Salle paroissiale{' '}
+                      Crypte de l&apos;église de{' '}
                       <Link href="/paroisses/basse-nendaz" className="inline-flex items-center gap-1 hover:text-emerald-700 transition-colors group">
                         Basse-Nendaz
                         <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">

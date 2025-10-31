@@ -75,12 +75,12 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
   },
   {
     id: 'st-michel-hn',
-    name: 'Chapelle St-Michel (Haute-Nendaz)',
+    name: 'Chapelle St-Michel',
     sector: 'nendaz',
     type: 'chapelle',
     googleCalendarId: 'qg3bf7pr28q1q4va160in1dijs@group.calendar.google.com',
     color: '#FF69B4',
-    defaultLocation: 'Chapelle Saint-Michel, Haute-Nendaz'
+    defaultLocation: 'Chapelle Saint-Michel'
   },
   {
     id: 'st-sebastien',

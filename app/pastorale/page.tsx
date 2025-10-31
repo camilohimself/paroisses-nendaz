@@ -46,7 +46,7 @@ export default function PastoralePage() {
             </div>
 
             {/* Trois piliers - navigation directe */}
-            <div className="grid grid-cols-3 gap-8 md:gap-16 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 max-w-4xl mx-auto">
               <a href="#sacrements" className="group cursor-pointer">
                 <div className="mb-4 flex justify-center">
                   <div className="w-16 h-16 rounded-full bg-stone-200/50 group-hover:bg-amber-100 transition-all duration-500 flex items-center justify-center border border-stone-300/30">

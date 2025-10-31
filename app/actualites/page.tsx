@@ -73,8 +73,8 @@ const allEvents = [
   },
   {
     id: 'concert-cecilia-fey',
-    title: 'Concert anniversaire Cécilia de Fey',
-    excerpt: 'Concert anniversaire des 80 ans de la Cécilia de Fey. Plus d\'informations auprès de la Cécilia.',
+    title: 'Concert anniversaire Caecilia de Fey',
+    excerpt: 'Concert anniversaire des 80 ans de la Caecilia de Fey. Plus d\'informations auprès de la Caecilia.',
     date: '2025-11-15',
     hasImage: false,
     category: 'Culture',
@@ -116,15 +116,6 @@ const allEvents = [
     hasImage: false,
     category: 'Événement',
     lieu: 'Basse-Nendaz'
-  },
-  {
-    id: '2',
-    title: 'Pèlerinage à Lourdes',
-    excerpt: 'Inscriptions ouvertes pour le pèlerinage diocésain à Lourdes. Départ prévu en bus avec accompagnement spirituel.',
-    date: '2025-11-20',
-    hasImage: false,
-    category: 'Pèlerinage',
-    lieu: 'Lourdes, France'
   }
 ]
 

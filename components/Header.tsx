@@ -73,7 +73,7 @@ export default function Header() {
                         </svg>
                       </div>
                       <div>
-                        <div className="text-base">Vue d&apos;ensemble</div>
+                        <div className="text-base">Sacrements</div>
                         <div className="text-xs text-stone-500">Découvrir la pastorale</div>
                       </div>
                     </div>

@@ -58,7 +58,7 @@ const allEvents = [
     title: 'Assemblée paroissiale',
     date: '2025-02-20',
     time: '20h00',
-    location: 'Salle paroissiale',
+    location: 'Crypte de l\'église de Basse-Nendaz',
     type: 'MEETING' as const,
     description: 'Assemblée générale annuelle de la paroisse'
   }
