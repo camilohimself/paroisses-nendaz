@@ -23,17 +23,35 @@ export default function PardonPage() {
           </div>
         </nav>
 
-        {/* Header */}
+        {/* Header avec image - Option B rectangulaire */}
         <div className="mb-12 bg-white rounded-xl shadow-lg p-8">
-          <div className="inline-block bg-emerald-700/10 px-4 py-2 rounded-full mb-4">
-            <span className="text-emerald-800 font-semibold text-sm">Sacrement</span>
+          <div className="flex flex-col lg:flex-row items-start gap-8">
+            {/* Texte - 2/3 */}
+            <div className="lg:w-2/3">
+              <div className="inline-block bg-emerald-700/10 px-4 py-2 rounded-full mb-4">
+                <span className="text-emerald-800 font-semibold text-sm">Sacrement</span>
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-neutral-anthracite mb-4">
+                Pardon et Réconciliation
+              </h1>
+              <p className="text-xl text-neutral-gris">
+                Le sacrement du pardon, également connu sous les noms de sacrement de réconciliation, de pénitence ou de confession.
+              </p>
+            </div>
+
+            {/* Image rectangulaire - 1/3 */}
+            <div className="lg:w-1/3 w-full">
+              <div className="relative w-full h-80 rounded-2xl overflow-hidden shadow-xl border-4 border-emerald-200">
+                <Image
+                  src="/images/sacrements/pardon-hero.jpg"
+                  alt="Collage Pardon - Communauté paroissiale"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-neutral-anthracite mb-4">
-            Pardon et Réconciliation
-          </h1>
-          <p className="text-xl text-neutral-gris">
-            Le sacrement du pardon, également connu sous les noms de sacrement de réconciliation, de pénitence ou de confession.
-          </p>
         </div>
 
         {/* Navigation sacrements */}
@@ -270,6 +288,21 @@ export default function PardonPage() {
                     <p className="text-neutral-gris">Sur demande au secrétariat.</p>
                   </div>
                 </div>
+              </div>
+
+              {/* CTA Enoria */}
+              <div className="mt-6 pt-6 border-t border-neutral-grisClaire">
+                <a
+                  href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-3 px-4 rounded-lg font-semibold text-white transition-all shadow-md hover:shadow-lg"
+                  style={{backgroundColor: '#2A8B8C'}}
+                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#236f70'}
+                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#2A8B8C'}
+                >
+                  Enoria - Mon Foyer
+                </a>
               </div>
             </div>
           </div>
