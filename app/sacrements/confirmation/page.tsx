@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { Calendar, GraduationCap } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Confirmation - Sacrements - Paroisses de Nendaz',
@@ -88,7 +89,9 @@ export default function ConfirmationPage() {
                 </p>
 
                 <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-lg my-8">
-                  <p className="font-semibold text-amber-900 mb-2">📅 Prochaine rencontre de présentation</p>
+                  <p className="font-semibold text-amber-900 mb-2 flex items-center gap-2">
+                    <Calendar className="w-5 h-5" /> Prochaine rencontre de présentation
+                  </p>
                   <p className="text-amber-800">
                     Le dimanche 9 novembre à 10h50 à l'église de Basse-Nendaz.<br />
                     Durée : 1 heure environ.
@@ -149,14 +152,14 @@ export default function ConfirmationPage() {
               <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
               <div className="space-y-4 text-sm">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🎓</span>
+                  <GraduationCap className="w-6 h-6 text-slate-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Âge</p>
                     <p className="text-neutral-gris">7-8H généralement (ouvert à tous)</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📅</span>
+                  <Calendar className="w-6 h-6 text-slate-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Durée</p>
                     <p className="text-neutral-gris">Une année pastorale environ</p>

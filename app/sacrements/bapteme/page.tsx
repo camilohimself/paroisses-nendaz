@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { Calendar } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Baptême - Sacrements - Paroisses de Nendaz',
@@ -140,7 +141,7 @@ export default function BaptemePage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📅</span>
+                  <Calendar className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Quand ?</p>
                     <p className="text-neutral-gris">Dimanche ou samedi après la messe</p>

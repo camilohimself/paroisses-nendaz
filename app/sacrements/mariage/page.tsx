@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { Heart, Church } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Mariage - Sacrements - Paroisses de Nendaz',
@@ -115,14 +116,14 @@ export default function MariagePage() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🤝</span>
+                  <Heart className="w-6 h-6 text-stone-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Préparation</p>
                     <p className="text-neutral-gris">4 rencontres + soirée diocèse</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">⛪</span>
+                  <Church className="w-6 h-6 text-stone-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Lieux disponibles</p>
                     <p className="text-neutral-gris">Églises et chapelles de nos paroisses</p>

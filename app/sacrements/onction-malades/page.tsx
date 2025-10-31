@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
+import { HandHeart } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Onction des malades - Sacrements - Paroisses de Nendaz',
@@ -132,7 +133,7 @@ export default function OnctionMaladesPage() {
               <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
               <div className="space-y-4 text-sm">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🙏</span>
+                  <HandHeart className="w-6 h-6 text-slate-700 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Sacrement</p>
                     <p className="text-neutral-gris">Onction avec huile bénite</p>
