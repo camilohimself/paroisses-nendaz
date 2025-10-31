@@ -159,4 +159,126 @@ git push origin main     # Deploy
 - ✅ Prêt pour ajout futur d'images réelles
 
 ---
-*Mise à jour : 31 octobre 2025 - Pages sacrements + Actualités*
+
+## 🎨 SÉANCE DU 31 OCTOBRE 2025 (SOIR) - ÉVÉNEMENTS PHARES + LIGHTBOX ✅
+
+### ✨ RÉALISATIONS MAJEURES
+
+**1. 🔍 DIAGNOSTIC SECTION "ÉVÉNEMENTS PHARES" INVISIBLE**
+- **Problème identifié** : Section masquée car `highlightEvents.length === 0`
+- **Cause** : Tous les événements avaient `hasImage: false`
+- **Solution** : Ajout de 2 événements avec images réelles
+
+**2. 🎨 ÉVÉNEMENT 1 : COURONNES DE L'AVENT**
+- **Titre** : Journée intergénérationnelle des Couronnes de l'Avent
+- **Date** : 29 novembre 2025
+- **Lieu** : Messe 17h30 (Haute-Nendaz)
+- **Image** : Flyer A4 optimisé (420 KB → 141 KB, -66%)
+- **Source** : `/NEWS/NOVEMBRE/JOURNEEDESCOURONNES-v2 (1).jpg`
+- **Catégorie** : Événement (badge amber)
+
+**3. 📚 ÉVÉNEMENT 2 : BILLET DE PRIÈRE NOVEMBRE**
+- **Titre** : Billet de prière - Novembre 2025
+- **Date** : 1er novembre 2025
+- **Lieu** : Toutes paroisses
+- **Image** : Couverture optimisée PNG→JPG (357 KB → 158 KB, -56%)
+- **PDF** : `/documents/billets-priere/billet-priere-novembre-2025.pdf` (271 KB)
+- **Catégorie** : Pastorale (badge turquoise)
+- **Contexte** : Blandine fait chaque mois un billet prière + démarches spéciales (Avent/Carême)
+
+**4. 🖼️ LIGHTBOX INTELLIGENTE**
+- **Overlay fullscreen** : bg-black/95 avec click outside to close
+- **Bouton close** : X (Lucide) en haut à droite
+- **Responsive** : max-w-full max-h-full object-contain
+- **Click handler intelligent** :
+  - Si `pdfUrl` existe → ouvre PDF dans nouvel onglet
+  - Sinon → affiche image en lightbox
+- **Hover texte adaptatif** :
+  - "Cliquer pour télécharger" (PDF)
+  - "Cliquer pour agrandir" (Image)
+
+**5. 📝 CHANGEMENT TITRE SECTION**
+- **Avant** : "Événements phares"
+- **Après** : "Rencontres et partages"
+- Plus cohérent avec l'esprit communautaire paroissial
+
+**6. 🗂️ ORGANISATION FICHIERS**
+- **Images articles** : `/public/images/articles/`
+- **PDFs billets prière** : `/public/documents/billets-priere/`
+- **Structure mensuelle** : Prêt pour futurs billets (décembre, janvier...)
+
+### 📊 STATISTIQUES SESSION
+- **3 commits** poussés sur GitHub
+- **3 fichiers modifiés/créés** :
+  - `app/actualites/page.tsx` (ajout 2 événements + lightbox)
+  - `public/images/articles/couronnes-avent-2025.jpg` (141 KB)
+  - `public/images/articles/billet-priere-novembre-2025.jpg` (158 KB)
+  - `public/documents/billets-priere/billet-priere-novembre-2025.pdf` (271 KB)
+- **Build** : 53 pages générées avec succès
+- **0 erreur** TypeScript/ESLint
+
+### 🎯 COMMITS DE LA SÉANCE
+1. `ad74e50` - ✨ ACTUALITÉS: Icônes Lucide + Nettoyage UX
+2. `f0b8d7d` - 🎨 ACTUALITÉS: Événement phare Couronnes de l'Avent
+3. `be62ec4` - 📚 ACTUALITÉS: Billet de prière Novembre + Lightbox intelligente
+
+### ✅ FONCTIONNALITÉS AJOUTÉES
+- ✅ Section "Rencontres et partages" avec 2 événements côte à côte
+- ✅ Lightbox fullscreen avec fermeture (X + click outside)
+- ✅ Click intelligent selon type de contenu (PDF vs image)
+- ✅ Hover texte adaptatif selon action
+- ✅ Images optimisées (compression -56% à -66%)
+- ✅ Structure fichiers organisée pour contenu mensuel récurrent
+
+### 📁 FICHIERS CRÉÉS
+**Images optimisées :**
+- `public/images/articles/couronnes-avent-2025.jpg` (141 KB, 800px)
+- `public/images/articles/billet-priere-novembre-2025.jpg` (158 KB, 800px)
+
+**Documents :**
+- `public/documents/billets-priere/billet-priere-novembre-2025.pdf` (271 KB)
+
+### 🎨 DESIGN SYSTEM
+**Lightbox component :**
+```typescript
+{lightboxImage && (
+  <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+       onClick={() => setLightboxImage(null)}>
+    <button className="absolute top-4 right-4 text-white hover:text-neutral-grisClaire transition-colors z-10">
+      <X className="w-8 h-8" />
+    </button>
+    <img src={lightboxImage} className="max-w-full max-h-full object-contain"
+         onClick={(e) => e.stopPropagation()} />
+  </div>
+)}
+```
+
+**Click handler intelligent :**
+```typescript
+onClick={() => {
+  if ('pdfUrl' in event && event.pdfUrl) {
+    window.open(event.pdfUrl, '_blank')  // PDF
+  } else if ('image' in event && event.image) {
+    setLightboxImage(event.image)  // Image
+  }
+}}
+```
+
+### 💡 MÉTHODOLOGIE VALIDÉE
+**Approche itérative avec tests visuels :**
+1. Diagnostic de la section invisible
+2. Ajout événement 1 avec lightbox
+3. Test utilisateur + validation
+4. Changement titre section
+5. Ajout événement 2 avec PDF
+6. Test final + validation
+7. Commit et push
+
+**Avantages :**
+- Précision maximale des fonctionnalités
+- Feedback utilisateur immédiat
+- UX optimale (comportement intelligent selon contenu)
+- Code propre et maintenable
+
+---
+*Mise à jour : 31 octobre 2025 - Pages sacrements + Actualités (icônes + événements phares + lightbox)*
