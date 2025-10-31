@@ -18,7 +18,9 @@ import {
   FileText,
   Video,
   Clock,
-  Users
+  Users,
+  Phone,
+  Mail
 } from 'lucide-react'
 
 export default function CommunionPage() {
