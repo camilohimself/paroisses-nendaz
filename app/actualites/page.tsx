@@ -103,7 +103,8 @@ const allEvents = [
     title: 'Journée intergénérationnelle des Couronnes de l\'Avent',
     excerpt: 'Journée de fabrication des couronnes de l\'Avent pour tous les âges. Messe à 17h30 animée avec les enfants et familles du Pardon.',
     date: '2025-11-29',
-    hasImage: false,
+    image: '/images/articles/couronnes-avent-2025.jpg',
+    hasImage: true,
     category: 'Événement',
     lieu: 'Messe 17h30'
   },
@@ -249,9 +250,17 @@ export default function ActualitesPage() {
                     <article key={event.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                       {/* Image */}
                       <div className="relative h-64 bg-gradient-to-br from-neutral-gris/20 to-neutral-grisClaire overflow-hidden">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <Star className="w-24 h-24 text-neutral-gris/40" strokeWidth={1} />
-                        </div>
+                        {'image' in event && event.image ? (
+                          <img
+                            src={event.image}
+                            alt={event.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Star className="w-24 h-24 text-neutral-gris/40" strokeWidth={1} />
+                          </div>
+                        )}
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                       </div>
