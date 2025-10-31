@@ -537,7 +537,7 @@ export default function CommunionPage() {
                 {/* Blandine Bornet */}
                 <div className="border-l-4 border-paroisse-vert pl-4">
                   <h3 className="font-bold text-neutral-anthracite mb-2">Blandine Bornet</h3>
-                  <p className="text-sm text-neutral-gris mb-2">Coordinatrice secteur / Veysonnaz</p>
+                  <p className="text-sm text-neutral-gris mb-2">Coordinatrice secteur / Basse-Nendaz</p>
                   <a href="tel:0272885159" className="text-paroisse-bleuRoi text-sm hover:underline block">📞 027 288 51 59</a>
                   <a href="tel:0795318876" className="text-paroisse-bleuRoi text-sm hover:underline block">📞 079 531 88 76</a>
                 </div>
@@ -553,7 +553,7 @@ export default function CommunionPage() {
                 {/* Zuzana Michaud */}
                 <div className="border-l-4 border-paroisse-violet pl-4">
                   <h3 className="font-bold text-neutral-anthracite mb-2">Zuzana Michaud</h3>
-                  <p className="text-sm text-neutral-gris mb-2">Basse Nendaz / Vex</p>
+                  <p className="text-sm text-neutral-gris mb-2">Veysonnaz / Vex</p>
                   <a href="mailto:zuzana.u@outlook.fr" className="text-paroisse-bleuRoi text-sm hover:underline">✉️ zuzana.u@outlook.fr</a>
                 </div>
 
