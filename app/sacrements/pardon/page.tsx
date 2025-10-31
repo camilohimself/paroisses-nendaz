@@ -296,10 +296,7 @@ export default function PardonPage() {
                   href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 rounded-lg font-semibold text-white transition-all shadow-md hover:shadow-lg"
-                  style={{backgroundColor: '#2A8B8C'}}
-                  onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#236f70'}
-                  onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#2A8B8C'}
+                  className="block w-full text-center py-3 px-4 rounded-lg font-semibold text-white transition-all shadow-md hover:shadow-lg bg-enoria hover:opacity-90"
                 >
                   Enoria - Mon Foyer
                 </a>
