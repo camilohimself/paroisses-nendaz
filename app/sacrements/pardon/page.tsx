@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Metadata } from 'next'
-import { FileText, Users, Phone, Mail, MapPin } from 'lucide-react'
+import { FileText, Users, Phone, Mail, MapPin, BookOpen, UsersRound, Calendar } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Pardon et Réconciliation - Sacrements - Paroisses de Nendaz',
@@ -267,21 +267,21 @@ export default function PardonPage() {
               <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
               <div className="space-y-4 text-sm">
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">🙏</span>
+                  <BookOpen className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Autres noms</p>
                     <p className="text-neutral-gris">Réconciliation, Pénitence, Confession</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">👨‍👩‍👧‍👦</span>
+                  <UsersRound className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Pour les enfants</p>
                     <p className="text-neutral-gris">Préparation dès 4H</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-2xl">📅</span>
+                  <Calendar className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-neutral-anthracite">Horaire des confessions</p>
                     <p className="text-neutral-gris mb-2">Vendredis 18h-18h45 et dimanches 9h-9h45 à Basse-Nendaz</p>

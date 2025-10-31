@@ -531,37 +531,51 @@ export default function CommunionPage() {
                 <div className="border-l-4 border-paroisse-bleuRoi pl-4">
                   <h3 className="font-bold text-neutral-anthracite mb-2">Abbé Félicien Roux</h3>
                   <p className="text-sm text-neutral-gris mb-2">Coordinateur - Basse-Nendaz</p>
-                  <a href="tel:0272882250" className="text-paroisse-bleuRoi text-sm hover:underline">📞 027 288 22 50</a>
+                  <a href="tel:0272882250" className="text-paroisse-bleuRoi text-sm hover:underline flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> 027 288 22 50
+                  </a>
                 </div>
 
                 {/* Blandine Bornet */}
                 <div className="border-l-4 border-paroisse-vert pl-4">
                   <h3 className="font-bold text-neutral-anthracite mb-2">Blandine Bornet</h3>
                   <p className="text-sm text-neutral-gris mb-2">Coordinatrice secteur / Basse-Nendaz</p>
-                  <a href="tel:0272885159" className="text-paroisse-bleuRoi text-sm hover:underline block">📞 027 288 51 59</a>
-                  <a href="tel:0795318876" className="text-paroisse-bleuRoi text-sm hover:underline block">📞 079 531 88 76</a>
+                  <a href="tel:0272885159" className="text-paroisse-bleuRoi text-sm hover:underline flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> 027 288 51 59
+                  </a>
+                  <a href="tel:0795318876" className="text-paroisse-bleuRoi text-sm hover:underline flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> 079 531 88 76
+                  </a>
                 </div>
 
                 {/* Marie-Noëlle Délèze */}
                 <div className="border-l-4 border-paroisse-jaune pl-4">
                   <h3 className="font-bold text-neutral-anthracite mb-2">Marie-Noëlle Délèze</h3>
                   <p className="text-sm text-neutral-gris mb-2">Aproz</p>
-                  <a href="tel:0795424955" className="text-paroisse-bleuRoi text-sm hover:underline block">📞 079 542 49 55</a>
-                  <a href="mailto:mndeleze@gmail.com" className="text-paroisse-bleuRoi text-sm hover:underline block">✉️ mndeleze@gmail.com</a>
+                  <a href="tel:0795424955" className="text-paroisse-bleuRoi text-sm hover:underline flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> 079 542 49 55
+                  </a>
+                  <a href="mailto:mndeleze@gmail.com" className="text-paroisse-bleuRoi text-sm hover:underline flex items-center gap-2">
+                    <Mail className="w-4 h-4" /> mndeleze@gmail.com
+                  </a>
                 </div>
 
                 {/* Zuzana Michaud */}
                 <div className="border-l-4 border-paroisse-violet pl-4">
                   <h3 className="font-bold text-neutral-anthracite mb-2">Zuzana Michaud</h3>
                   <p className="text-sm text-neutral-gris mb-2">Veysonnaz / Vex</p>
-                  <a href="mailto:zuzana.u@outlook.fr" className="text-paroisse-bleuRoi text-sm hover:underline">✉️ zuzana.u@outlook.fr</a>
+                  <a href="mailto:zuzana.u@outlook.fr" className="text-paroisse-bleuRoi text-sm hover:underline flex items-center gap-2">
+                    <Mail className="w-4 h-4" /> zuzana.u@outlook.fr
+                  </a>
                 </div>
 
                 {/* Anne-Lyse Métrailler */}
                 <div className="border-l-4 border-paroisse-rouge pl-4">
                   <h3 className="font-bold text-neutral-anthracite mb-2">Anne-Lyse Métrailler</h3>
                   <p className="text-sm text-neutral-gris mb-2">Haute Nendaz / Sornard</p>
-                  <a href="tel:0774153202" className="text-paroisse-bleuRoi text-sm hover:underline">📞 077 415 32 02</a>
+                  <a href="tel:0774153202" className="text-paroisse-bleuRoi text-sm hover:underline flex items-center gap-2">
+                    <Phone className="w-4 h-4" /> 077 415 32 02
+                  </a>
                 </div>
 
               </div>

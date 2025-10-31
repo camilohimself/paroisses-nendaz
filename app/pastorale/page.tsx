@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Calendar, Church, Heart, Star, MapPin } from 'lucide-react'
 
 export default function PastoralePage() {
   return (
@@ -287,25 +288,25 @@ export default function PastoralePage() {
 
                 <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-yellow-300 mb-6 shadow-lg">
                   <p className="text-sm text-amber-800 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span>📅</span> Prochaines rencontres 2025-2026
+                    <Calendar className="w-5 h-5" /> Prochaines rencontres 2025-2026
                   </p>
                   <div className="space-y-3">
                     <div className="flex items-start gap-3 bg-yellow-50 p-3 rounded-xl">
-                      <span className="text-2xl">⭐</span>
+                      <Star className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-amber-900">Samedi 20 décembre 2025 • 9h30</p>
                         <p className="text-amber-700 text-sm">Église de Basse-Nendaz</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 bg-yellow-50 p-3 rounded-xl">
-                      <span className="text-2xl">⭐</span>
+                      <Star className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-amber-900">Vendredi 3 avril 2026 • 15h</p>
                         <p className="text-amber-700 text-sm">Église de Basse-Nendaz</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-3 bg-yellow-50 p-3 rounded-xl">
-                      <span className="text-2xl">⭐</span>
+                      <Star className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-bold text-amber-900">Dimanche 5 avril 2026 • 10h</p>
                         <p className="text-amber-700 text-sm">Église de Basse-Nendaz • Atelier de la Parole</p>
@@ -347,12 +348,12 @@ export default function PastoralePage() {
 
                 <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-orange-300 mb-6 shadow-lg">
                   <p className="text-sm text-orange-800 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span>⛪</span> Messes Grain de Soleil
+                    <Church className="w-5 h-5" /> Messes Grain de Soleil
                   </p>
                   <div className="space-y-4">
                     <div className="bg-orange-50 p-4 rounded-xl">
                       <p className="font-bold text-orange-900 mb-2 flex items-center gap-2">
-                        <span>📍</span> À Veysonnaz
+                        <MapPin className="w-5 h-5" /> À Veysonnaz
                       </p>
                       <div className="space-y-1 text-sm text-orange-800 pl-6">
                         <p>• 10h à la Toussaint</p>
@@ -362,7 +363,7 @@ export default function PastoralePage() {
                     </div>
                     <div className="bg-orange-50 p-4 rounded-xl">
                       <p className="font-bold text-orange-900 mb-2 flex items-center gap-2">
-                        <span>📍</span> À Basse-Nendaz
+                        <MapPin className="w-5 h-5" /> À Basse-Nendaz
                       </p>
                       <div className="space-y-1 text-sm text-orange-800 pl-6">
                         <p>• 10h à la fête paroissiale (1er dimanche d'octobre)</p>
