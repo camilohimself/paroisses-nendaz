@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next'
 import { useState, useEffect } from 'react'
-import { Calendar, MapPin, ChevronRight, Star } from 'lucide-react'
+import { Calendar, MapPin, ChevronRight, Star, X } from 'lucide-react'
 
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
@@ -16,6 +16,17 @@ const allEvents = [
     lieu: 'Église de Basse-Nendaz',
     featured: true,
     youtubeId: 'hAmnQ3YeMKo'
+  },
+  {
+    id: 'billet-priere-novembre',
+    title: 'Billet de prière - Novembre 2025',
+    excerpt: 'Intention de prière pour le mois de novembre. Téléchargez le billet pour accompagner votre prière quotidienne.',
+    date: '2025-11-01',
+    image: '/images/articles/billet-priere-novembre-2025.jpg',
+    hasImage: true,
+    category: 'Pastorale',
+    lieu: 'Toutes paroisses',
+    pdfUrl: '/documents/billets-priere/billet-priere-novembre-2025.pdf'
   },
   {
     id: 'toussaint-2025',
@@ -124,6 +135,7 @@ export default function ActualitesPage() {
   const [highlightEvents, setHighlightEvents] = useState<typeof allEvents>([])
   const [regularEvents, setRegularEvents] = useState<typeof allEvents>([])
   const [pastEvents, setPastEvents] = useState<typeof allEvents>([])
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
   useEffect(() => {
     const today = new Date()
@@ -242,14 +254,23 @@ export default function ActualitesPage() {
               <div className="mb-16">
                 <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
                   <span className="w-10 h-1 bg-paroisse-jaune"></span>
-                  Événements phares
+                  Rencontres et partages
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {highlightEvents.map(event => (
                     <article key={event.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                       {/* Image */}
-                      <div className="relative h-64 bg-gradient-to-br from-neutral-gris/20 to-neutral-grisClaire overflow-hidden">
+                      <div
+                        className="relative h-64 bg-gradient-to-br from-neutral-gris/20 to-neutral-grisClaire overflow-hidden cursor-pointer"
+                        onClick={() => {
+                          if ('pdfUrl' in event && event.pdfUrl) {
+                            window.open(event.pdfUrl, '_blank')
+                          } else if ('image' in event && event.image) {
+                            setLightboxImage(event.image)
+                          }
+                        }}
+                      >
                         {'image' in event && event.image ? (
                           <img
                             src={event.image}
@@ -261,8 +282,14 @@ export default function ActualitesPage() {
                             <Star className="w-24 h-24 text-neutral-gris/40" strokeWidth={1} />
                           </div>
                         )}
-                        {/* Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        {/* Overlay avec indication de clic */}
+                        {'image' in event && event.image && (
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <div className="bg-white/90 px-4 py-2 rounded-full text-neutral-anthracite font-semibold text-sm">
+                              {'pdfUrl' in event && event.pdfUrl ? 'Cliquer pour télécharger' : 'Cliquer pour agrandir'}
+                            </div>
+                          </div>
+                        )}
                       </div>
 
                       {/* Contenu */}
@@ -380,6 +407,28 @@ export default function ActualitesPage() {
 
         </div>
       </section>
+
+      {/* Lightbox */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+          onClick={() => setLightboxImage(null)}
+        >
+          <button
+            onClick={() => setLightboxImage(null)}
+            className="absolute top-4 right-4 text-white hover:text-neutral-grisClaire transition-colors z-10"
+            aria-label="Fermer"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <img
+            src={lightboxImage}
+            alt="Affiche événement"
+            className="max-w-full max-h-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </div>
   )
 }
