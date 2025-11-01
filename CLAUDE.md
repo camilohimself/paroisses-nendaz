@@ -42,6 +42,73 @@ npm run build           # 47 pages
 git push origin main     # Deploy
 ```
 
+---
+
+## ⏸️ SÉANCE DU 31 OCTOBRE 2025 (SOIR) - FEUILLE D'ANNONCES PDF ⏸️ EN COURS
+
+### 🎯 MISSION : Système génération PDF Feuille d'annonces
+
+**Objectif** : Remplacer dépendance Theodia par système autonome
+**Cahier charges** :
+- PDF téléchargeable page d'accueil
+- Contenu : Messes (Google Calendar) + Événements (Actualités) - 2 prochaines semaines
+- Logo couleur, design sobre N&B pour impression A4
+
+### ✅ IMPLÉMENTATION COMPLÉTÉE
+
+**1. Stack technique : @react-pdf/renderer**
+- ❌ Puppeteer abandonné (Chrome headless trop lourd)
+- ✅ @react-pdf/renderer installé (natif React, léger)
+
+**2. Composant PDF créé**
+- ✅ `/lib/feuille-annonces-pdf.tsx` (179 lignes)
+- Structure : En-tête coordonnées + Messes + Événements + Footer
+
+**3. API Route créée**
+- ✅ `/app/api/feuille-annonces/generate/route.tsx`
+- Récupère Google Calendar + Actualités
+- Filtre 2 prochaines semaines
+- Génère PDF via renderToStream()
+
+**4. Bouton téléchargement**
+- ✅ Page accueil : Carte "Feuille d'annonces" avec icône download
+- ✅ Lien : `/api/feuille-annonces/generate`
+
+**5. Build production**
+- ✅ 0 erreur TypeScript
+- ✅ 53 pages générées
+
+### 🚧 DIFFICULTÉS RÉSOLUES
+
+1. **Puppeteer incompatible** : HTML pur vs JSX React → Migration @react-pdf
+2. **TypeScript renderToStream** : Fonction vs JSX → `<Component />`
+3. **Fichier .ts vs .tsx** : JSX non supporté → Renommer .tsx
+4. **Type Stream** : Incompatibilité → Cast `as Uint8Array[]`
+
+### ⏸️ ÉTAT SUSPENDU - TESTS NON EFFECTUÉS
+
+**À tester prochaine session :**
+- [ ] Page accueil : Carte visible http://localhost:3002
+- [ ] Click carte → Téléchargement PDF se déclenche
+- [ ] Ouvrir PDF → Vérifier contenu complet
+- [ ] Validation design A4 imprimable
+
+**Fichiers clés :**
+- `/lib/feuille-annonces-pdf.tsx`
+- `/app/api/feuille-annonces/generate/route.tsx`
+- `/app/page.tsx` (ligne 164-196)
+
+**Documentation complète** : `SESSION_FEUILLE_ANNONCES.md`
+
+**Prompt reprise** :
+```
+Nous testons le système feuille d'annonces PDF créé avec @react-pdf/renderer.
+Build OK (0 erreur). Prochaine étape : tester téléchargement PDF.
+Visitez http://localhost:3002 et cliquez carte "Feuille d'annonces".
+```
+
+---
+
 ## 🚀 SÉANCE DU 31 OCTOBRE 2025 - PAGES SACREMENTS + DESIGN ICÔNES ✅
 
 ### ✨ RÉALISATIONS MAJEURES
