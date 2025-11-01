@@ -30,10 +30,27 @@
 - Vercel auto-deploy
 - NextAuth + DOMPurify
 
-## 📝 TODO Post-V1
-- [ ] Google Analytics 4
-- [ ] Google Search Console
+## 📝 FEUILLE DE ROUTE - Prochaines étapes
+
+### 🎯 Priorité 1 - Finalisation Feuille d'annonces
+- [ ] Améliorer logo feuille d'annonces PDF (design + qualité)
+- [ ] Maquillage mise en page PDF (espacements, typographie)
+- [ ] Validation finale design A4 imprimable
+
+### 📊 Priorité 2 - SEO & Analytics
+- [ ] Google Analytics 4 (tracking visiteurs)
+- [ ] Google Search Console (référencement)
 - [ ] Tests mobile Lighthouse >85
+
+### 🎨 Priorité 3 - Améliorations UX (optionnel)
+- [ ] Optimisation images paroisses
+- [ ] Tests performance mobile
+- [ ] Feedback utilisateurs équipe
+
+### 📅 Backlog
+- [ ] Système notification nouveaux événements
+- [ ] Export iCal événements
+- [ ] Mode sombre (optionnel)
 
 ## 📚 Commandes
 ```bash
@@ -44,7 +61,76 @@ git push origin main     # Deploy
 
 ---
 
-## ⏸️ SÉANCE DU 31 OCTOBRE 2025 (SOIR) - FEUILLE D'ANNONCES PDF ⏸️ EN COURS
+## ✅ SÉANCE DU 1ER NOVEMBRE 2025 - FINALISATION FEUILLE D'ANNONCES PDF
+
+### 🎯 OBJECTIF : Tester et finaliser système PDF
+
+**Contexte** : Reprise session 31 octobre avec système PDF complet mais non testé
+
+### ✅ RÉALISATIONS
+
+**1. 🐛 Correction cache Next.js corrompu**
+- Erreurs `MODULE_NOT_FOUND` détectées
+- Solution : `rm -rf .next` + redémarrage serveur
+- Résultat : Serveur propre sur http://localhost:3002
+
+**2. 🧪 Tests fonctionnels PDF**
+- ✅ Carte "Feuille d'annonces" visible page accueil
+- ✅ Click → Téléchargement PDF fonctionne
+- ✅ Génération : 22 messes + 4 événements
+- ❌ **Problème détecté** : Code HTML brut dans descriptions
+
+**3. 🔧 Fix HTML brut dans PDF**
+- **Problème** : `<span>`, `<b>`, `<br>` affichés tels quels
+- **Solution** : Fonction `stripHTML()` (ligne 149-172)
+- **Fonctionnalités** :
+  - Supprime toutes balises HTML
+  - Décode entités HTML (&nbsp;, &amp;, etc.)
+  - Nettoie espaces multiples
+  - **Automatique** à chaque génération (future-proof)
+
+**4. 📄 Application du fix**
+- Modification ligne 229 : `stripHTML(event.description)`
+- Test validé : Texte propre sans balises HTML
+- Résultat : "pour Joseph Bornet et Marie née Praz (de Brignon) (mf)"
+
+**5. 🚀 Déploiement**
+- Commit : `64c5ab3` - 📄 SYSTÈME: Feuille d'annonces PDF autonome
+- 8 fichiers modifiés/créés (1222 insertions)
+- Push GitHub : main → origin/main
+- Deploy Vercel automatique
+
+### 📊 STATISTIQUES SESSION
+- **Durée** : ~1h
+- **Fichiers modifiés** : 1 (`lib/feuille-annonces-pdf.tsx`)
+- **Lignes ajoutées** : 24 (fonction stripHTML)
+- **Tests** : 2 téléchargements PDF validés
+- **Status** : ✅ Production prête
+
+### 🎯 COMMIT FINAL
+```
+64c5ab3 - 📄 SYSTÈME: Feuille d'annonces PDF autonome
+- Stack: @react-pdf/renderer
+- Composant PDF + API Route
+- stripHTML automatique
+- 22 messes + 4 événements
+```
+
+### 📁 FICHIERS CLÉS
+- `/lib/feuille-annonces-pdf.tsx` (fonction stripHTML ligne 149)
+- `/app/api/feuille-annonces/generate/route.tsx`
+- `/app/page.tsx` (carte téléchargement)
+- `SESSION_FEUILLE_ANNONCES.md` (journal complet)
+
+### ✅ VALIDATION UTILISATEUR
+- Téléchargement PDF fonctionnel
+- Texte propre sans HTML
+- Prêt pour production
+- **Next** : Logo + maquillage (Priorité 1)
+
+---
+
+## ⏸️ SÉANCE DU 31 OCTOBRE 2025 (SOIR) - FEUILLE D'ANNONCES PDF ⏸️ COMPLÉTÉ
 
 ### 🎯 MISSION : Système génération PDF Feuille d'annonces
 
