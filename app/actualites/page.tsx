@@ -26,7 +26,8 @@ const allEvents = [
     hasImage: true,
     category: 'Pastorale',
     lieu: 'Toutes paroisses',
-    pdfUrl: '/documents/billets-priere/billet-priere-novembre-2025.pdf'
+    pdfUrl: '/documents/billets-priere/billet-priere-novembre-2025.pdf',
+    displayUntil: '2025-11-30' // Reste visible tout le mois de novembre
   },
   {
     id: 'toussaint-2025',
@@ -147,8 +148,19 @@ export default function ActualitesPage() {
 
     // Séparer les autres événements
     const otherEvents = allEvents.filter(e => !e.featured)
-    const upcoming = otherEvents.filter(event => new Date(event.date) >= today).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    const past = otherEvents.filter(event => new Date(event.date) < today).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+    // Fonction pour déterminer si un événement doit rester visible
+    const isStillVisible = (event: typeof allEvents[0]) => {
+      // Si l'événement a une date de fin d'affichage (displayUntil), on vérifie celle-ci
+      if ('displayUntil' in event && event.displayUntil) {
+        return new Date(event.displayUntil) >= today
+      }
+      // Sinon, on utilise la date de l'événement
+      return new Date(event.date) >= today
+    }
+
+    const upcoming = otherEvents.filter(event => isStillVisible(event)).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    const past = otherEvents.filter(event => !isStillVisible(event)).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
     // Séparer événements avec images (highlights) et sans images (réguliers)
     const withImages = upcoming.filter(e => e.hasImage)
