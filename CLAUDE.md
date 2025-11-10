@@ -38,11 +38,12 @@
 - [ ] Validation finale design A4 imprimable
 
 ### 📊 Priorité 2 - SEO & Analytics
-- [ ] Google Analytics 4 (tracking visiteurs)
-- [ ] Google Search Console (référencement)
+- [ ] **Google Analytics 4** (GA4) - Compte: nendazparoisse@gmail.com
+- [ ] **Google Search Console** (GSC) - Compte: nendazparoisse@gmail.com
 - [ ] Tests mobile Lighthouse >85
 
-### 🎨 Priorité 3 - Améliorations UX (optionnel)
+### 🎨 Priorité 3 - Améliorations UX
+- [ ] **Sticky bar** (menu fixe qui reste visible au scroll)
 - [ ] Optimisation images paroisses
 - [ ] Tests performance mobile
 - [ ] Feedback utilisateurs équipe
@@ -434,4 +435,61 @@ onClick={() => {
 - Code propre et maintenable
 
 ---
-*Mise à jour : 31 octobre 2025 - Pages sacrements + Actualités (icônes + événements phares + lightbox)*
+
+## 🚀 SÉANCE DU 10 NOVEMBRE 2025 - UX + FEUILLE ANNONCES + QR CODES ✅
+
+### ✨ RÉALISATIONS MAJEURES
+
+**1. 🎨 UX - Nettoyage section célébrations**
+- Titre unique : "Annonce des prochaines célébrations"
+- Suppression bouton "Voir tous les événements" (redondant)
+- Suppression sous-titre "Prochaines célébrations" (dupliqué)
+- Interface plus épurée et claire
+
+**2. 📱 LAYOUT MOBILE - Cards événements**
+- Date affichée en haut sur mobile (au lieu de côté)
+- Contenu utilise toute la largeur de la card
+- Fin des espaces vides à droite
+- Layout desktop conservé (date à droite)
+
+**3. 📄 FEUILLE D'ANNONCES PDF - Logique période liturgique**
+- **Nouvelle logique** : Du prochain samedi au dimanche suivant (9 jours)
+- 2 weekends complets (Samedi → Dimanche suivant)
+- Exemple : Samedi 16 nov → Dimanche 24 nov
+- Optimisé pour tenir sur 1 page A4
+- Remplace l'ancienne logique "14 prochains jours"
+
+**4. 🐛 FIX FEUILLE D'ANNONCES**
+- Correction fetch API : localhost:3002 → localhost:3000
+- Résolution erreur ECONNREFUSED
+- Les messes s'affichent maintenant dans le PDF ✅
+- PDF contient 15 messes + 4 événements
+
+**5. 📱 QR CODES AVENT**
+- Génération 5 QR codes JPEG pour mail Avent
+- Package `qrcode` installé
+- Fichiers dans `/qr-codes/` (500x500px, qualité 95%)
+- Script `generate-qr-codes.js` créé
+
+### 📊 STATISTIQUES SESSION
+- **2 commits** poussés sur GitHub
+- **3 fichiers modifiés** : page.tsx, HorairesMesse.tsx, feuille-annonces route
+- **5 QR codes créés** : 00-avent à 04-semaine4
+- **Build** : 53 pages générées avec succès
+
+### 🎯 COMMITS DE LA SÉANCE
+1. `f80d096` - 🎨 UX: Nettoyage section célébrations + Layout mobile
+2. `7aeb860` - 📄 FEUILLE ANNONCES: Logique période liturgique + Fix
+
+### ✅ RÉSULTATS
+- ✅ Section célébrations épurée et claire
+- ✅ Layout mobile optimisé (texte pleine largeur)
+- ✅ PDF avec 15 messes + 4 événements (période liturgique)
+- ✅ 5 QR codes prêts pour mail paroissial
+
+### 📁 FICHIERS CRÉÉS
+- `/qr-codes/*.jpg` - 5 QR codes JPEG (3.4-7.1 KB)
+- `generate-qr-codes.js` - Script génération QR codes
+
+---
+*Mise à jour : 10 novembre 2025 - UX célébrations + Feuille annonces PDF + QR codes Avent*
