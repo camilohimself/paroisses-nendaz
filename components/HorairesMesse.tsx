@@ -150,12 +150,8 @@ export default function HorairesMesse({
   return (
     <div className="space-y-4">
       {/* Header avec sélecteurs */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
-        <h3 className="text-xl font-semibold">
-          Prochaines célébrations
-        </h3>
-
-        {showCalendarSelector && calendars.length > 0 && (
+      {showCalendarSelector && calendars.length > 0 && (
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
           <div className="flex flex-wrap gap-2">
             <select
               value={selectedSector}
@@ -188,8 +184,8 @@ export default function HorairesMesse({
               </select>
             )}
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Message d'erreur */}
       {error && (
@@ -213,8 +209,16 @@ export default function HorairesMesse({
                 className="bg-white border rounded-lg p-4 hover:shadow-md transition"
                 style={{ borderColor: eventStyle.borderColor }}
               >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
+                  {/* Date - en haut sur mobile, à droite sur desktop */}
+                  <div className="md:order-2 md:text-right md:ml-4">
+                    <p className="text-sm font-medium text-gray-900">
+                      {formatDate(event.startDate)}
+                    </p>
+                  </div>
+
+                  {/* Contenu - prend toute la largeur sur mobile */}
+                  <div className="md:order-1 md:flex-1">
                     <div className="flex items-center flex-wrap gap-2 mb-2">
                       <span
                         className="inline-block px-2 py-1 rounded-full text-xs font-medium"
@@ -243,11 +247,6 @@ export default function HorairesMesse({
                     {event.location && (
                       <p className="text-sm text-gray-500 mt-1">📍 {event.location}</p>
                     )}
-                  </div>
-                  <div className="text-right ml-4">
-                    <p className="text-sm font-medium text-gray-900">
-                      {formatDate(event.startDate)}
-                    </p>
                   </div>
                 </div>
               </div>

@@ -207,22 +207,11 @@ export default function Home() {
         <div className="container mx-auto px-4">
 
           {/* Titre section */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10">
-            <div>
-              <div className="h-px w-12 bg-amber-300 mb-3"></div>
-              <h2 className="text-3xl md:text-4xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Liturgie
-              </h2>
-            </div>
-            <a
-              href="/evenements"
-              className="text-amber-700 hover:text-amber-800 font-semibold text-sm flex items-center transition-colors group"
-            >
-              Voir tous les événements
-              <svg className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
+          <div className="mb-10">
+            <div className="h-px w-12 bg-amber-300 mb-3"></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Annonce des prochaines célébrations
+            </h2>
           </div>
 
           <div className="max-w-5xl mx-auto">
