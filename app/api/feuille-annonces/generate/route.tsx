@@ -82,35 +82,45 @@ const allActualites = [
 
 export async function GET(request: Request) {
   try {
-    // Calculer les dates (2 prochaines semaines)
+    // Calculer les dates (du prochain samedi au dimanche suivant - 9 jours)
     const now = new Date()
-    const twoWeeksLater = new Date(now)
-    twoWeeksLater.setDate(twoWeeksLater.getDate() + 14)
+    const currentDay = now.getDay() // 0 = dimanche, 6 = samedi
+
+    // Trouver le prochain samedi (ou aujourd'hui si on est samedi)
+    const daysUntilSaturday = currentDay === 6 ? 0 : (6 - currentDay + 7) % 7
+    const nextSaturday = new Date(now)
+    nextSaturday.setDate(now.getDate() + daysUntilSaturday)
+    nextSaturday.setHours(0, 0, 0, 0) // Début de journée samedi
+
+    // Dimanche suivant (8 jours après le samedi = 9 jours au total)
+    const followingSunday = new Date(nextSaturday)
+    followingSunday.setDate(nextSaturday.getDate() + 8)
+    followingSunday.setHours(23, 59, 59, 999) // Fin de journée dimanche
 
     // Récupérer les événements Google Calendar
     let calendarEvents = []
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3002'
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
       const calendarResponse = await fetch(`${baseUrl}/api/horaires?months=1`, {
         cache: 'no-store'
       })
       const calendarData = await calendarResponse.json()
 
       if (calendarData.success && calendarData.data.events) {
-        // Filtrer les événements des 2 prochaines semaines
+        // Filtrer les événements du samedi au dimanche suivant (9 jours)
         calendarEvents = calendarData.data.events.filter((event: any) => {
           const eventDate = new Date(event.startDate)
-          return eventDate >= now && eventDate <= twoWeeksLater
+          return eventDate >= nextSaturday && eventDate <= followingSunday
         })
       }
     } catch (error) {
       console.error('Erreur récupération Google Calendar:', error)
     }
 
-    // Filtrer les actualités des 2 prochaines semaines
+    // Filtrer les actualités du samedi au dimanche suivant (9 jours)
     const actualitesEvents = allActualites.filter(event => {
       const eventDate = new Date(event.date)
-      return eventDate >= now && eventDate <= twoWeeksLater
+      return eventDate >= nextSaturday && eventDate <= followingSunday
     })
 
     console.log(`Génération PDF: ${calendarEvents.length} messes, ${actualitesEvents.length} événements`)
@@ -120,8 +130,8 @@ export async function GET(request: Request) {
       <FeuilleAnnoncesPDF
         calendarEvents={calendarEvents}
         actualitesEvents={actualitesEvents}
-        dateDebut={now.toISOString()}
-        dateFin={twoWeeksLater.toISOString()}
+        dateDebut={nextSaturday.toISOString()}
+        dateFin={followingSunday.toISOString()}
       />
     )
 
