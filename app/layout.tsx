@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Providers } from "./providers";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://paroisses-nendaz.vercel.app'),
+  metadataBase: new URL('https://www.paroisses-nendaz.ch'),
   title: {
     default: "Paroisses de Nendaz - Nendaz et Veysonnaz",
     template: "%s | Paroisses de Nendaz"
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_CH",
-    url: "https://paroisses-nendaz.vercel.app",
+    url: "https://www.paroisses-nendaz.ch",
     siteName: "Paroisses de Nendaz",
     title: "Paroisses de Nendaz - Nendaz et Veysonnaz",
     description: "Site officiel des paroisses de Nendaz et Veysonnaz. Horaires des messes, événements, sacrements et vie paroissiale.",
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     google: "votre-code-google-search-console", // À remplacer lors de la configuration GSC
   },
   alternates: {
-    canonical: "https://paroisses-nendaz.vercel.app",
+    canonical: "https://www.paroisses-nendaz.ch",
   },
   manifest: "/manifest.json",
 };
@@ -78,6 +79,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <GoogleAnalytics />
         <Providers>
           <div className="min-h-screen flex flex-col">
             <Header />
