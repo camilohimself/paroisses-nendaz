@@ -142,9 +142,14 @@ const formatDateShort = (dateStr: string): string => {
 
 const formatTime = (dateStr: string): string => {
   const date = new Date(dateStr)
-  const hours = date.getHours().toString().padStart(2, '0')
-  const minutes = date.getMinutes().toString().padStart(2, '0')
-  return `${hours}:${minutes}`
+  // Utiliser le timezone Europe/Zurich pour afficher l'heure correcte en Suisse
+  const timeString = date.toLocaleTimeString('fr-CH', {
+    timeZone: 'Europe/Zurich',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  })
+  return timeString
 }
 
 // Fonction pour nettoyer le HTML des descriptions (Google Calendar)
