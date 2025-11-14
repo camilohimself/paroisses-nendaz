@@ -100,8 +100,9 @@ export async function GET(request: Request) {
     // Récupérer les événements Google Calendar
     let calendarEvents = []
     try {
-      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-      const calendarResponse = await fetch(`${baseUrl}/api/horaires?months=1`, {
+      // Utiliser l'URL depuis la requête pour garantir le bon port
+      const { origin } = new URL(request.url)
+      const calendarResponse = await fetch(`${origin}/api/horaires?months=1`, {
         cache: 'no-store'
       })
       const calendarData = await calendarResponse.json()
