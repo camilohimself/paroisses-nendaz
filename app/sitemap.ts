@@ -1,30 +1,18 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://paroisses-nendaz.vercel.app'
+  const baseUrl = 'https://www.paroisses-nendaz.ch'
   const currentDate = new Date()
 
-  // Slugs de toutes les paroisses/chapelles
+  // UNIQUEMENT les 7 paroisses légitimes publiques (protection anti-piratage SEO)
   const paroisseSlugs = [
-    'basse-nendaz',
-    'haute-nendaz',
-    'fey',
     'aproz',
-    'baar',
+    'basse-nendaz',
     'brignon',
-    'planchouet',
-    'rairettes',
-    'beuson',
-    'condemines',
+    'fey',
+    'haute-nendaz',
     'saclentse',
-    'bleusy',
-    'saint-michel',
-    'saint-sebastien',
-    'veysonnaz',
-    'clebes',
-    'saint-barthelemy',
-    'foyer-ma-vallee',
-    'foyer-les-vergers'
+    'veysonnaz'
   ]
 
   // Pages statiques principales
