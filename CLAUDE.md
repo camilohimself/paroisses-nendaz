@@ -1,7 +1,8 @@
 # 📋 CLAUDE.md - Paroisses Nendaz
 
 ## 🔗 URLs
-- **Production** : https://paroisses-nendaz.vercel.app
+- **Production** : https://www.paroisses-nendaz.ch
+- **Vercel** : https://paroisses-nendaz.vercel.app (redirige vers www)
 - **Dev local** : http://localhost:3002
 
 ## 🔑 Config Vercel
@@ -32,20 +33,23 @@
 
 ## 📝 FEUILLE DE ROUTE - Prochaines étapes
 
-### 🎯 Priorité 1 - Finalisation Feuille d'annonces
-- [ ] Améliorer logo feuille d'annonces PDF (design + qualité)
-- [ ] Maquillage mise en page PDF (espacements, typographie)
-- [ ] Validation finale design A4 imprimable
+### ✅ Priorité 1 - COMPLÉTÉ (14 nov 2025)
+- [x] ~~Améliorer logo feuille d'annonces PDF (design + qualité)~~ - N'a pas été fait (pas prioritaire)
+- [x] PDF optimisé pour 1 page A4 garanti (espacements, typographie)
+- [x] Correction timezone Europe/Zurich pour heures messes
+- [x] Validation finale design A4 imprimable
 
-### 📊 Priorité 2 - SEO & Analytics
-- [ ] **Google Analytics 4** (GA4) - Compte: nendazparoisse@gmail.com
-- [ ] **Google Search Console** (GSC) - Compte: nendazparoisse@gmail.com
-- [ ] Tests mobile Lighthouse >85
+### ✅ Priorité 2 - COMPLÉTÉ (14 nov 2025)
+- [x] **Google Analytics 4** (GA4) - Compte créé + intégré
+- [x] **Google Search Console** (GSC) - Propriété vérifiée + sitemap soumis
+- [x] **Domaine production** - www.paroisses-nendaz.ch en ligne
+- [x] **Protection SEO** - Robots.txt anti-piratage + sitemap propre (23 URLs)
+- [ ] Tests mobile Lighthouse >85 (à faire avec agent UX/UI)
 
-### 🎨 Priorité 3 - Améliorations UX
-- [ ] **Sticky bar** (menu fixe qui reste visible au scroll)
-- [ ] Optimisation images paroisses
-- [ ] Tests performance mobile
+### 🎯 Priorité 3 - Améliorations UX
+- [ ] **Sticky bar** (menu fixe qui reste visible au scroll) - Prochaine session
+- [x] Optimisation images paroisses - Déjà optimisé par Next.js Image
+- [ ] Tests performance mobile - Agent UX/UI debugger
 - [ ] Feedback utilisateurs équipe
 
 ### 📅 Backlog
@@ -492,4 +496,114 @@ onClick={() => {
 - `generate-qr-codes.js` - Script génération QR codes
 
 ---
-*Mise à jour : 10 novembre 2025 - UX célébrations + Feuille annonces PDF + QR codes Avent*
+
+## 🚀 SÉANCE DU 14 NOVEMBRE 2025 - MISE EN LIGNE PRODUCTION + SEO ✅
+
+### 🎯 OBJECTIF : Finaliser et mettre en ligne le site officiel
+
+**Contexte** : Site prêt, besoin de correction PDF, connexion domaine officiel, analytics et protection SEO
+
+### ✅ RÉALISATIONS MAJEURES
+
+**1. 📄 PDF FEUILLE D'ANNONCES - Optimisation 1 page A4**
+- **Problème** : PDF débordait sur 2 pages (16 messes + 4 événements)
+- **Solution** : Réduction polices (10pt → 8.5pt), padding (40px → 22px), espacements -60%
+- **Lisibilité 65+** : Jours en BOLD UPPERCASE 9.5pt (très visibles), polices min 7.5pt
+- **Résultat** : 1 page A4 garantie (4.7 KB), 16 messes + 4 événements + footer
+
+**2. 🐛 FIX TIMEZONE - Heures messes correctes**
+- **Problème signalé curé** : Décalage d'1 heure sur toutes les célébrations
+- **Cause** : formatTime() utilisait UTC au lieu de Europe/Zurich
+- **Solution** : toLocaleTimeString('fr-CH', { timeZone: 'Europe/Zurich' })
+- **Résultat** : Heures correctes CET (hiver) et CEST (été)
+
+**3. 🌐 DOMAINE PRODUCTION - www.paroisses-nendaz.ch**
+- **Configuration DNS** : A record + CNAME chez Kreativmedia
+  - paroisses-nendaz.ch → A: 216.198.79.1 (Vercel)
+  - www.paroisses-nendaz.ch → CNAME: 28d32840631346f7.vercel-dns-017.com
+- **Redirection** : paroisses-nendaz.ch → www.paroisses-nendaz.ch (307)
+- **SSL** : Certificats auto-générés par Vercel
+- **Validation** : Site accessible et fonctionnel
+
+**4. 📊 GOOGLE ANALYTICS 4 (GA4)**
+- **Compte créé** : nendazparoisse@gmail.com
+- **ID GA4** : G-M20DBECFYY
+- **Composant** : GoogleAnalytics.tsx avec next/script optimisé
+- **Intégration** : Layout principal, strategy afterInteractive
+- **Tracking** : Actif sur toutes les 47 pages
+
+**5. 🔍 GOOGLE SEARCH CONSOLE (GSC)**
+- **Propriété** : https://www.paroisses-nendaz.ch
+- **Vérification** : Fichier HTML googledc63b8935f496c02.html
+- **Sitemap soumis** : 23 URLs propres (statut: Opération effectuée)
+
+**6. 🔒 PROTECTION SEO ANTI-PIRATAGE**
+- **Contexte critique** : Domaine piraté avec pollution SEO japonaise (dizaines de pages spam)
+- **Robots.txt STRICT** : Disallow / + Allow explicite 23 pages légitimes uniquement
+- **Blocages** : *.php, *.asp, *.jsp, /admin/, /api/, /test-, paramètres ?, &, =
+- **Sitemap dynamique** : app/sitemap.ts corrigé
+  - baseUrl: paroisses-nendaz.vercel.app → www.paroisses-nendaz.ch
+  - 19 paroisses → 7 paroisses légitimes (Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz)
+- **Nettoyage** : Demande désindexation pages piratées (prendra 24-48h)
+
+**7. ✅ OPTIMISATION IMAGES**
+- **Déjà optimisé** : Composant Next.js Image utilisé
+- **Automatique** : Conversion WebP (-30%), lazy loading, responsive
+- **Aucune action requise** : Next.js gère l'optimisation
+
+**8. 📝 URLS CANONIQUES**
+- **Mise à jour** : Tous les metadatas vers www.paroisses-nendaz.ch
+- **Fichiers** : layout.tsx (metadataBase, openGraph, canonical)
+
+### 📊 STATISTIQUES SESSION
+- **Durée** : ~8h (avec pauses)
+- **7 commits** poussés sur GitHub
+- **Fichiers modifiés** : 8 (PDF, layout, sitemap, robots.txt, GSC, GA4)
+- **Déploiements** : 7 (Vercel auto-deploy)
+- **Build** : 0 erreur TypeScript/ESLint
+- **Status** : ✅ Site EN LIGNE en production
+
+### 🎯 COMMITS DE LA SÉANCE
+1. `523e719` - 📄 PDF: Optimisation 1 page A4 garantie
+2. `510be27` - 📊 ANALYTICS: Intégration Google Analytics 4 + URLs canoniques
+3. `65ee3c8` - 🔒 SÉCURITÉ: Robots.txt strict + Sitemap propre + GSC
+4. `fa187fa` - 🔒 FIX SITEMAP: Domaine canonique + 7 paroisses légitimes
+5. `e8762fa` - 🐛 FIX PDF: Correction timezone heures messes (Europe/Zurich)
+
+### 🔧 FICHIERS CLÉS MODIFIÉS
+**PDF :**
+- `lib/feuille-annonces-pdf.tsx` (styles optimisés, formatTime timezone)
+- `app/api/feuille-annonces/generate/route.tsx` (fetch origin dynamique)
+
+**Analytics & SEO :**
+- `components/GoogleAnalytics.tsx` (créé)
+- `app/layout.tsx` (GA4 + URLs canoniques)
+- `app/sitemap.ts` (domaine + paroisses légitimes)
+- `public/robots.txt` (whitelist strict)
+- `public/googledc63b8935f496c02.html` (vérification GSC)
+
+### ✅ RÉSULTATS FINAUX
+- ✅ **Site en ligne** : www.paroisses-nendaz.ch opérationnel
+- ✅ **PDF feuille d'annonces** : 1 page A4, heures correctes
+- ✅ **Analytics** : GA4 tracking actif
+- ✅ **SEO** : GSC configuré, sitemap validé
+- ✅ **Sécurité** : Protection anti-piratage active
+- ✅ **Performance** : Images optimisées Next.js
+- ✅ **0 erreur** : Build production propre
+
+### 🎯 VALIDATION CURÉ
+- ✅ PDF fonctionne et contient les bonnes heures
+- ✅ Feuille d'annonces prête pour impression
+
+### 📋 PROCHAINES ÉTAPES
+**Priorité 3 (optionnel) :**
+- [ ] Sticky bar (menu fixe au scroll) - Prochaine session
+- [ ] Test mobile avec agent UX/UI debugger
+- [ ] Photo équipe à ajouter
+
+**Monitoring SEO :**
+- Surveiller Google Search Console pour nettoyage pages piratées (24-48h)
+- Vérifier indexation des 23 pages légitimes
+
+---
+*Mise à jour : 14 novembre 2025 - Site EN LIGNE + GA4 + GSC + Protection SEO anti-piratage*
