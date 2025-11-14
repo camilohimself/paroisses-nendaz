@@ -1,12 +1,48 @@
 # Paroisses de Nendaz - Robots.txt
 # Site officiel des paroisses de Nendaz et Veysonnaz
+# SÉCURISÉ CONTRE POLLUTION SEO
 
 User-agent: *
-Allow: /
 
-# Bloquer les dossiers admin
+# BLOQUER TOUT PAR DÉFAUT (sécurité maximale)
+Disallow: /
+
+# AUTORISER UNIQUEMENT LES PAGES LÉGITIMES
+Allow: /$
+Allow: /actualites$
+Allow: /contact$
+Allow: /evenements$
+Allow: /paroisses$
+Allow: /paroisses/aproz$
+Allow: /paroisses/basse-nendaz$
+Allow: /paroisses/brignon$
+Allow: /paroisses/fey$
+Allow: /paroisses/haute-nendaz$
+Allow: /paroisses/saclentse$
+Allow: /paroisses/veysonnaz$
+Allow: /pastorale$
+Allow: /pastorale/diaconie$
+Allow: /pastorale/liturgie$
+Allow: /pastorale/priere$
+Allow: /sacrements/bapteme$
+Allow: /sacrements/communion$
+Allow: /sacrements/confirmation$
+Allow: /sacrements/pardon$
+Allow: /sacrements/mariage$
+Allow: /sacrements/onction-malades$
+
+# BLOQUER ADMIN, API, TESTS
 Disallow: /admin/
-Disallow: /api/auth/
+Disallow: /api/
+Disallow: /test-
 
-# Sitemap
-Sitemap: https://paroisses-nendaz.vercel.app/sitemap.xml
+# BLOQUER TOUTE URL SUSPECTE (protection anti-piratage)
+Disallow: /*.php
+Disallow: /*.asp
+Disallow: /*.jsp
+Disallow: /*?
+Disallow: /*&
+Disallow: /*=
+
+# Sitemap propre UNIQUEMENT avec pages légitimes
+Sitemap: https://www.paroisses-nendaz.ch/sitemap.xml
