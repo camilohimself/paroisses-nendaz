@@ -6,6 +6,8 @@ import { CALENDARS_CONFIG, getCalendarById } from '@/lib/calendars-config';
 import { getParoisseContent } from '@/lib/paroisses-content';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PlaceSchema from '@/components/structured-data/PlaceSchema';
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
 
 interface ParoissePageProps {
   params: Promise<{
@@ -103,6 +105,24 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Données structurées JSON-LD */}
+      <PlaceSchema
+        name={calendar.name}
+        description={content?.history || `Église catholique de ${calendar.name}`}
+        addressLocality={calendar.name.replace('Église de ', '').replace('Chapelle de ', '').replace('Chapelle des ', '').replace('Chapelle ', '')}
+        postalCode={calendar.id.includes('aproz') ? '1974' : calendar.id.includes('veysonnaz') ? '1993' : '1997'}
+        telephone="+41272882250"
+        email="paroisses.nendaz@netplus.ch"
+        url={`https://www.paroisses-nendaz.ch/paroisses/${calendar.id}`}
+        paroisseName={calendar.name}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: 'Paroisses', url: 'https://www.paroisses-nendaz.ch/paroisses' },
+          { name: calendar.name, url: `https://www.paroisses-nendaz.ch/paroisses/${calendar.id}` }
+        ]}
+      />
+
       {/* Hero avec image immersive */}
       {content && (
         <ParoisseHero

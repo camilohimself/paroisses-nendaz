@@ -1,6 +1,14 @@
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
+
 export default function ContactPage() {
   return (
     <div className="min-h-screen">
+      <BreadcrumbSchema
+        items={[
+          { name: 'Contact', url: 'https://www.paroisses-nendaz.ch/contact' }
+        ]}
+      />
+
       {/* Header VERSION 2 - Grandes lettres épurées */}
       <section className="bg-white py-24 border-b-4 border-sky-500">
         <div className="container mx-auto px-4 text-center">

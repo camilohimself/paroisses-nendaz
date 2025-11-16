@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Providers } from "./providers";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import OrganizationSchema from "@/components/structured-data/OrganizationSchema";
+import WebSiteSchema from "@/components/structured-data/WebSiteSchema";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,6 +78,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        <OrganizationSchema />
+        <WebSiteSchema />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
