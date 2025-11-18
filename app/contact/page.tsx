@@ -94,26 +94,38 @@ export default function ContactPage() {
             <div>
               <h2 className="text-3xl font-bold mb-8">Écrivez-nous</h2>
               
-              <form className="space-y-6">
+              <form
+                action="https://formsubmit.co/paroisse_nendaz@bluemail.ch"
+                method="POST"
+                className="space-y-6"
+              >
+                {/* FormSubmit Configuration */}
+                <input type="hidden" name="_subject" value="Nouveau message depuis paroisses-nendaz.ch" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="text" name="_honey" style={{display: 'none'}} />
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Prénom *
                     </label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
+                      name="prenom"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      required 
+                      required
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Nom *
                     </label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
+                      name="nom"
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      required 
+                      required
                     />
                   </div>
                 </div>
@@ -122,10 +134,11 @@ export default function ContactPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Email *
                   </label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
+                    name="email"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    required 
+                    required
                   />
                 </div>
 
@@ -133,8 +146,9 @@ export default function ContactPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Téléphone
                   </label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
+                    name="telephone"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
@@ -143,17 +157,18 @@ export default function ContactPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Sujet *
                   </label>
-                  <select 
+                  <select
+                    name="sujet"
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     required
                   >
                     <option value="">Choisissez un sujet...</option>
-                    <option value="bapteme">Demande de baptême</option>
-                    <option value="mariage">Demande de mariage</option>
-                    <option value="catechisme">Inscription catéchisme</option>
-                    <option value="reservation">Réservation salle</option>
-                    <option value="intention">Intention de messe</option>
-                    <option value="autre">Autre</option>
+                    <option value="Demande de baptême">Demande de baptême</option>
+                    <option value="Demande de mariage">Demande de mariage</option>
+                    <option value="Inscription catéchisme">Inscription catéchisme</option>
+                    <option value="Réservation salle">Réservation salle</option>
+                    <option value="Intention de messe">Intention de messe</option>
+                    <option value="Autre">Autre</option>
                   </select>
                 </div>
 
@@ -161,7 +176,8 @@ export default function ContactPage() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Message *
                   </label>
-                  <textarea 
+                  <textarea
+                    name="message"
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     placeholder="Décrivez votre demande..."
