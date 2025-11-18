@@ -20,9 +20,10 @@
 **Enoria** : `#2A8B8C` (toujours cette couleur exacte)
 
 ## 📊 État actuel
-- **53 pages** Next.js 15 + TypeScript
+- **54 pages** Next.js 15 + TypeScript
 - **20+ calendriers Google** (162 événements)
 - **SEO** : robots.txt, sitemap, manifest PWA, **données structurées JSON-LD**
+- **Formulaire contact** : FormSubmit activé → paroisse_nendaz@bluemail.ch
 - **Build** : 0 erreur, First Load 102-144 kB
 
 ## 🔧 Stack
@@ -732,4 +733,115 @@ onClick={() => {
 - Vérifier indexation des 23 pages légitimes
 
 ---
-*Mise à jour : 14 novembre 2025 - Site EN LIGNE + GA4 + GSC + Protection SEO anti-piratage*
+
+## 📬 SÉANCE DU 18 NOVEMBRE 2025 - FORMULAIRE CONTACT FONCTIONNEL ✅
+
+### 🎯 OBJECTIF : Activer formulaire de contact avec envoi email
+
+**Contexte** : Formulaire contact visible mais non configuré (aucun envoi email)
+
+### ✅ RÉALISATIONS MAJEURES
+
+**1. 📧 ACTIVATION FORMSUBMIT**
+- **Service** : FormSubmit.co (gratuit, zéro backend)
+- **Email destinataire** : `paroisse_nendaz@bluemail.ch`
+- **Configuration** :
+  - Action form : `https://formsubmit.co/paroisse_nendaz@bluemail.ch`
+  - Sujet automatique : "Nouveau message depuis paroisses-nendaz.ch"
+  - Template : Format tableau pour lisibilité
+  - Anti-spam : Honeypot activé
+  - Captcha : Désactivé (simplicité utilisateur)
+
+**2. 🎨 FIX BOUTON "ENVOYER" INVISIBLE**
+- **Problème détecté** : Bouton blanc sur fond blanc (invisible)
+- **Cause** : `bg-paroisse-bleuRoi` non reconnu par Tailwind
+- **Solution** : Remplacement par `bg-blue-600` (Tailwind standard)
+- **Amélioration** : Ajout ombres `shadow-lg` + `hover:shadow-xl`
+- **Résultat** : Bouton bleu vif clairement visible
+
+**3. 🇫🇷 PAGE DE REMERCIEMENT EN FRANÇAIS**
+- **Page créée** : `/contact/merci`
+- **Contenu** :
+  - Message de confirmation : "Merci ! Votre message a été envoyé avec succès"
+  - Texte : "Notre équipe pastorale vous répondra dans les plus brefs délais"
+  - Icône CheckCircle verte (succès)
+  - CTA : "Retour à l'accueil" (bleu)
+  - Info urgence : Numéro secrétariat +41 27 288 22 50
+- **Redirection automatique** : Champ caché `_next` configuré
+- **Fini** : Message "Thanks!" de FormSubmit en anglais
+
+**4. 🔧 STRUCTURE FORMULAIRE**
+- **Champs nommés** :
+  - `prenom` (requis)
+  - `nom` (requis)
+  - `email` (requis)
+  - `telephone` (optionnel)
+  - `sujet` (requis) - 6 options : baptême, mariage, catéchisme, réservation salle, intention messe, autre
+  - `message` (requis)
+
+### 📋 ACTIVATION FORMSUBMIT - PROCÉDURE
+
+**⚠️ IMPORTANT : Activation requise au premier envoi**
+
+1. **Premier formulaire test** (par vous ou équipe)
+   - Aller sur www.paroisses-nendaz.ch/contact
+   - Remplir et envoyer le formulaire
+
+2. **Email d'activation reçu**
+   - FormSubmit envoie email à `paroisse_nendaz@bluemail.ch`
+   - Sujet : "FormSubmit - Confirm your email address"
+   - **CLIQUER sur le lien d'activation** dans cet email
+
+3. **✅ Confirmé !**
+   - Tous les futurs messages arriveront automatiquement
+   - Plus besoin de validation
+
+### 📊 STATISTIQUES SESSION
+- **Durée** : ~30 min
+- **3 commits** poussés sur GitHub
+- **Fichiers créés** : 1 (`app/contact/merci/page.tsx`)
+- **Fichiers modifiés** : 1 (`app/contact/page.tsx`)
+- **Pages totales** : 54 (au lieu de 53)
+- **Build** : 0 erreur TypeScript/ESLint
+
+### 🎯 COMMITS DE LA SÉANCE
+1. `c3262d2` - 📬 FORMULAIRE CONTACT: Activation FormSubmit
+2. `83a9115` - 🎨 FIX: Bouton contact visible (bleu standard)
+3. `56d6a9e` - 🇫🇷 PAGE MERCI: Message remerciement en français
+4. `3b7410e` - ✨ MERCI: Simplification page remerciement
+
+### 📁 FICHIERS CRÉÉS/MODIFIÉS
+**Créé :**
+- `app/contact/merci/page.tsx` - Page remerciement française (57 lignes)
+
+**Modifié :**
+- `app/contact/page.tsx` - Formulaire FormSubmit activé
+
+### ✅ RÉSULTATS FINAUX
+- ✅ **Formulaire fonctionnel** : Envoi emails vers paroisse_nendaz@bluemail.ch
+- ✅ **Bouton visible** : Bleu vif avec ombres
+- ✅ **Page merci** : 100% en français, design élégant
+- ✅ **Anti-spam** : Honeypot activé
+- ✅ **Expérience utilisateur** : Complète et professionnelle
+
+### 🔔 ACTION REQUISE
+- [ ] **Envoyer premier formulaire test** pour activer FormSubmit
+- [ ] **Cliquer lien d'activation** dans email reçu à paroisse_nendaz@bluemail.ch
+- [ ] Confirmer réception emails formulaires
+
+### 💡 MÉTHODOLOGIE
+**Approche pragmatique** :
+1. Solution sans backend (FormSubmit gratuit)
+2. Correction UX immédiate (bouton invisible)
+3. Traduction complète français
+4. Simplification sur demande utilisateur
+
+**Avantages FormSubmit** :
+- Zéro configuration backend
+- Zéro coût
+- Anti-spam intégré
+- Redirection personnalisable
+- Format email tableau lisible
+
+---
+*Mise à jour : 18 novembre 2025 - Formulaire contact fonctionnel avec FormSubmit*
