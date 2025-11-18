@@ -147,11 +147,11 @@ export async function GET(request: Request) {
     const dateStr = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`
     const filename = `feuille-annonces-${dateStr}.pdf`
 
-    // Retourner le PDF
+    // Retourner le PDF (inline = prévisualisation dans le navigateur)
     return new NextResponse(buffer, {
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="${filename}"`,
+        'Content-Disposition': `inline; filename="${filename}"`,
         'Cache-Control': 'no-store, max-age=0'
       }
     })
