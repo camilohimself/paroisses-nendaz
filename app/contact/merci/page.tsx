@@ -18,30 +18,18 @@ export default function MerciPage() {
         </h1>
 
         {/* Message */}
-        <p className="text-lg text-neutral-gris mb-6">
-          Votre message a été envoyé avec succès.
+        <p className="text-lg text-neutral-gris mb-8">
+          Votre message a été envoyé avec succès.<br />
+          Notre équipe pastorale vous répondra dans les plus brefs délais.
         </p>
 
-        <p className="text-base text-neutral-gris mb-8">
-          Notre équipe pastorale vous répondra dans les plus brefs délais, généralement sous 48 heures.
-        </p>
-
-        {/* Boutons d'action */}
-        <div className="space-y-3">
-          <Link
-            href="/"
-            className="block w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition font-semibold shadow-lg hover:shadow-xl"
-          >
-            Retour à l'accueil
-          </Link>
-
-          <Link
-            href="/contact"
-            className="block w-full bg-neutral-grisClaire text-neutral-anthracite py-3 px-6 rounded-lg hover:bg-gray-300 transition font-semibold"
-          >
-            Nouveau message
-          </Link>
-        </div>
+        {/* Bouton d'action */}
+        <Link
+          href="/"
+          className="block w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition font-semibold shadow-lg hover:shadow-xl"
+        >
+          Retour à l'accueil
+        </Link>
 
         {/* Info supplémentaire */}
         <div className="mt-8 pt-6 border-t border-gray-200">
