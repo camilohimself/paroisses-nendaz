@@ -20,13 +20,13 @@
 **Enoria** : `#2A8B8C` (toujours cette couleur exacte)
 
 ## 📊 État actuel
-- **54 pages** Next.js 15 + TypeScript
+- **55 pages** Next.js 15 + TypeScript
 - **20+ calendriers Google** (162 événements)
 - **SEO** : robots.txt strict, sitemap propre, manifest PWA, **données structurées JSON-LD**
-- **Formulaire contact** : FormSubmit activé → paroisse_nendaz@bluemail.ch ⏳ Activation requise
+- **Formulaire contact** : FormSubmit activé → paroisse_nendaz@bluemail.ch ✅ Activé
 - **PDF Feuille annonces** : Prévisualisation inline (nouvel onglet)
 - **Build** : 0 erreur, First Load 102-144 kB
-- **Projet Avent** : Concept documenté, en attente contenu
+- **Projet Avent** : ✅ Page compteur live + QR code généré
 
 ## 🔧 Stack
 - Next.js 15, React 19, TypeScript, Tailwind
@@ -995,3 +995,116 @@ onClick={() => {
 
 ---
 *Mise à jour : 18 novembre 2025 - Session complète : Formulaire + GSC + Footer + PDF + Avent*
+
+---
+
+## 🎄 SÉANCE DU 21 NOVEMBRE 2025 - PAGE COMPTEUR AVENT ✅
+
+### 🎯 OBJECTIF : Créer page interactive avec compteur jusqu'au lancement
+
+**Contexte** : Besoin d'une page `/avent` avec compte à rebours festif pour générer QR code à transmettre à une collaboratrice
+
+### ✅ RÉALISATIONS MAJEURES
+
+**1. 🎨 PAGE /AVENT - COMPTEUR INTERACTIF**
+- **URL** : https://www.paroisses-nendaz.ch/avent
+- **Date lancement** : 30 novembre 2025, minuit (Europe/Zurich)
+- **Compteur dynamique** : 4 couleurs (🟡 Jaune, 🔴 Rouge, 🟢 Vert, 🔵 Bleu)
+  - Jours (jaune) : gradient yellow-400 → amber-500
+  - Heures (rouge) : gradient red-500 → rose-600
+  - Minutes (vert) : gradient emerald-500 → green-600
+  - Secondes (bleu) : gradient blue-500 → indigo-600
+- **Animation** : Cards hover avec scale transform
+- **Responsive** : Mobile-first (grid 2x2 mobile, 1x4 desktop)
+
+**2. 📱 QR CODE GÉNÉRÉ**
+- **Fichier** : `qr-codes/avent-page-principale.jpg` (4.1 KB)
+- **URL encodée** : https://www.paroisses-nendaz.ch/avent
+- **Qualité** : High error correction (95%), 500x500px
+- **Couleur** : Slate-800 sur blanc (cohérent design site)
+
+**3. 🎯 FONCTIONNALITÉS**
+- **Compte à rebours temps réel** : Update toutes les secondes
+- **Détection lancement** : Affiche message "L'aventure commence !" après le 30 nov
+- **Message d'attente** : "L'aventure commence bientôt..."
+- **Sous-titre** : "Une aventure interactive avec 4 semaines de découvertes et de missions"
+- **Design festif** : Background gradient 4 couleurs + cards ombres
+
+**4. 🛠️ STACK TECHNIQUE**
+- **Client component** : 'use client' (compteur dynamique React)
+- **Hooks** : useState + useEffect pour temps réel
+- **Icônes** : Lucide React (Calendar, Sparkles)
+- **Tailwind** : Gradients, animations, responsive
+
+### 📊 STATISTIQUES SESSION
+- **Durée** : ~45 min
+- **1 commit** : `bac4183`
+- **Fichiers créés** : 2
+  - `app/avent/page.tsx` (127 lignes)
+  - `qr-codes/avent-page-principale.jpg` (4.1 KB)
+- **Build** : 55 pages générées, 0 erreur
+- **First Load JS** : 104 kB (page /avent)
+
+### 🎯 COMMIT DE LA SÉANCE
+`bac4183` - 🎄 AVENT: Page compteur interactif + QR code
+
+### 📁 FICHIERS CRÉÉS
+**Page Avent :**
+- `app/avent/page.tsx` - Compteur temps réel 4 couleurs (127 lignes)
+
+**QR Code :**
+- `qr-codes/avent-page-principale.jpg` - QR code URL principale (4.1 KB)
+
+### ✅ RÉSULTATS FINAUX
+- ✅ **Page live** : https://www.paroisses-nendaz.ch/avent
+- ✅ **Compteur fonctionnel** : Compte à rebours jusqu'au 30 nov 2025
+- ✅ **QR code prêt** : À transmettre à la collaboratrice
+- ✅ **Design festif** : 4 couleurs thème Avent (jaune, rouge, vert, bleu)
+- ✅ **Responsive** : Mobile et desktop optimisés
+- ✅ **Build production** : 0 erreur
+
+### 🎨 DESIGN SYSTEM AVENT
+**Couleurs thème** :
+- 🟡 **Jaune** (Jours) : Lumière, espérance, étoile
+- 🔴 **Rouge** (Heures) : Amour, chaleur, cœur
+- 🟢 **Vert** (Minutes) : Vie, nature, sapin
+- 🔵 **Bleu** (Secondes) : Ciel, paix, Marie
+
+**Règle respectée** : ❌ ZÉRO emoji dans le code / ✅ 100% icônes Lucide
+
+### 📋 PROCHAINES ÉTAPES
+
+**Immédiat** :
+- [x] Page /avent créée et déployée
+- [x] QR code généré pour collaboratrice
+- [ ] **Intégrer contenu PDF** (dialogues, missions, vidéos) - En attente document
+
+**Optionnel** :
+- [ ] Ajouter animations Framer Motion (personnages qui "pop")
+- [ ] Illustrations 4 personnages colorés
+- [ ] Système déblocage progressif semaines 1-4
+
+### 💡 MÉTHODOLOGIE VALIDÉE
+**Approche efficace** :
+1. Todo list pour tracking tâches
+2. Création page avec placeholder intelligent
+3. Build et test local
+4. Génération QR code immédiate
+5. Commit et déploiement automatique
+6. Documentation complète
+
+**Avantages** :
+- Page fonctionnelle en <1h
+- QR code prêt pour distribution immédiate
+- Design cohérent avec charte site
+- Prêt pour intégration contenu futur
+
+### 🎯 VALIDATION UTILISATEUR
+- ✅ Page compteur créée avec date 30 nov 2025
+- ✅ Design festif 4 couleurs sans emoji
+- ✅ QR code généré et disponible
+- ✅ Message "L'aventure commence bientôt..." affiché
+- ⏳ **En attente** : Document PDF avec contenu dialogues/missions
+
+---
+*Mise à jour : 21 novembre 2025 - Page compteur Avent + QR code*
