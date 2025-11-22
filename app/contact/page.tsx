@@ -206,7 +206,12 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Abbé Félicien Roux */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
+              <div className="h-48 bg-gray-200 overflow-hidden">
+                <img
+                  src="/images/equipe/felicien.jpg"
+                  alt="Abbé Félicien Roux"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Abbé Félicien Roux</h3>
@@ -222,7 +227,12 @@ export default function ContactPage() {
 
             {/* Blandine Bornet */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
+              <div className="h-48 bg-gray-200 overflow-hidden">
+                <img
+                  src="/images/equipe/blandine.jpg"
+                  alt="Blandine Bornet"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Blandine Bornet</h3>
@@ -238,7 +248,12 @@ export default function ContactPage() {
 
             {/* Jean-Philippe Glassey */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
+              <div className="h-48 bg-gray-200 overflow-hidden">
+                <img
+                  src="/images/equipe/jp.jpg"
+                  alt="Jean-Philippe Glassey"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Jean-Philippe Glassey</h3>
@@ -254,7 +269,12 @@ export default function ContactPage() {
 
             {/* Martin Fendrych */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
+              <div className="h-48 bg-gray-200 overflow-hidden">
+                <img
+                  src="/images/equipe/martin.jpg"
+                  alt="Martin Fendrych"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Martin Fendrych</h3>
@@ -270,7 +290,12 @@ export default function ContactPage() {
 
             {/* Nadia Fendrych */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 flex items-center justify-center">
+              <div className="h-48 bg-gray-200 overflow-hidden">
+                <img
+                  src="/images/equipe/nadia.jpg"
+                  alt="Nadia Fendrych"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Nadia Fendrych</h3>
@@ -287,6 +312,7 @@ export default function ContactPage() {
             {/* Camilo Rivera */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="h-48 bg-gray-200 flex items-center justify-center">
+                <p className="text-gray-400 text-sm">Photo à venir</p>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Camilo Rivera</h3>
