@@ -95,9 +95,9 @@ export default function ContactPage() {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div>
+            <div id="formulaire">
               <h2 className="text-3xl font-bold mb-8">Écrivez-nous</h2>
-              
+
               <form
                 action="https://formsubmit.co/paroisse_nendaz@bluemail.ch"
                 method="POST"
