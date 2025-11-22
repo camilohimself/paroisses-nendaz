@@ -231,10 +231,12 @@ export default function Header() {
           {/* Quick Access Buttons - Pierre et Lumière */}
           <div className="hidden md:flex space-x-2">
             <a
-              href="/#messe-direct"
-              className="bg-white text-stone-700 border-2 border-stone-300 px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-stone-700 hover:text-white transition-colors font-semibold flex items-center gap-2 shadow-sm"
+              href="https://www.youtube.com/@paroissesnendazetveysonnaz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FF0000] text-white border-2 border-[#FF0000] px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#CC0000] transition-colors font-semibold flex items-center gap-2 shadow-sm"
             >
-              <span className="w-2 h-2 bg-amber-600 rounded-full animate-pulse"></span>
+              <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
               Messe & YouTube
             </a>
             <a
@@ -363,11 +365,13 @@ export default function Header() {
 
               <div className="flex space-x-2 pt-4 border-t border-stone-300">
                 <a
-                  href="/#messe-direct"
-                  className="bg-white text-stone-700 border-2 border-stone-300 px-3 py-2 rounded-lg text-sm hover:bg-stone-700 hover:text-white transition-colors font-semibold flex items-center gap-2"
+                  href="https://www.youtube.com/@paroissesnendazetveysonnaz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#FF0000] text-white border-2 border-[#FF0000] px-3 py-2 rounded-lg text-sm hover:bg-[#CC0000] transition-colors font-semibold flex items-center gap-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <span className="w-2 h-2 bg-amber-600 rounded-full animate-pulse"></span>
+                  <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
                   Messe & YouTube
                 </a>
                 <a
