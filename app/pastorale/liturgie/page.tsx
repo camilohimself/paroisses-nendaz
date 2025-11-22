@@ -133,7 +133,7 @@ export default function LiturgiePage() {
                       <p className="text-sm text-stone-600">Veysonnaz</p>
                     </div>
                     <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
-                      <p className="font-semibold text-stone-800">Le Cöbla di Dju</p>
+                      <p className="font-semibold text-stone-800">i cöble dû Bon Djyû</p>
                       <p className="text-sm text-stone-600">L'équipe du Bon Dieu</p>
                     </div>
                   </div>

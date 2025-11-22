@@ -184,7 +184,7 @@ export default function PrierePage() {
                 </div>
 
                 <p className="text-base text-stone-600 leading-relaxed">
-                  Une image de Marie trois fois admirable de Schönstatt est accueillie une fois par mois pour trois mois, chez les personnes qui le désirent. Si vous voulez faire partie d'un groupe, n'hésitez pas à contacter la responsable.
+                  Une image de Marie trois fois admirable de Schönstatt est accueillie une fois par mois pour trois jours, chez les personnes qui le désirent. Si vous voulez faire partie d'un groupe, n'hésitez pas à contacter la responsable.
                 </p>
               </div>
             </div>
