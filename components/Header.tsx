@@ -11,7 +11,7 @@ export default function Header() {
   const [contactTimeoutId, setContactTimeoutId] = useState<NodeJS.Timeout | null>(null)
 
   return (
-    <header className="bg-white shadow-sm border-b-2 border-amber-300">
+    <header className="bg-white shadow-sm border-b border-stone-200">
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           {/* Logo temporairement supprimé - en attente nouveau logo */}
@@ -25,17 +25,17 @@ export default function Header() {
           <div className="hidden md:flex space-x-8">
             <Link
               href="/"
-              className="text-stone-700 hover:text-amber-700 font-medium transition-colors relative group"
+              className="text-stone-600 hover:text-stone-900 font-medium transition-colors relative group"
             >
               <span>Accueil</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-stone-800 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
               href="/actualites"
-              className="text-stone-700 hover:text-amber-700 font-medium transition-colors relative group"
+              className="text-stone-600 hover:text-stone-900 font-medium transition-colors relative group"
             >
               <span>Actualités</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-stone-800 transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
             {/* Pastorale avec sous-menu */}
@@ -52,25 +52,25 @@ export default function Header() {
             >
               <Link
                 href="/pastorale"
-                className="text-stone-700 hover:text-amber-700 font-medium transition-colors relative group flex items-center gap-1"
+                className="text-stone-600 hover:text-stone-900 font-medium transition-colors relative group flex items-center gap-1"
               >
                 <span>Pastorale</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-stone-800 transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
-              {/* Sous-menu dropdown - Version améliorée */}
+              {/* Sous-menu dropdown - Version sobre */}
               {isPastoraleOpen && (
-                <div className="absolute left-0 top-full mt-2 w-72 bg-white shadow-2xl border-2 border-amber-300 rounded-xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 top-full mt-2 w-72 bg-white shadow-lg border border-stone-200 rounded-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <Link
                     href="/pastorale"
-                    className="block px-5 py-3 text-stone-800 hover:bg-gradient-to-r hover:from-amber-50 hover:to-amber-100 transition-all font-semibold border-b border-stone-200"
+                    className="block px-5 py-3 text-stone-800 hover:bg-stone-50 transition-all font-semibold border-b border-stone-200"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
-                        <svg className="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <div className="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center">
+                        <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                       </div>
@@ -84,16 +84,16 @@ export default function Header() {
                   <div className="py-1">
                     <Link
                       href="/pastorale/priere"
-                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-amber-100 group-hover:bg-amber-200 flex items-center justify-center transition-colors">
-                          <svg className="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                           </svg>
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Prière</div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Prière</div>
                           <div className="text-xs text-stone-500">Vie spirituelle</div>
                         </div>
                       </div>
@@ -101,16 +101,16 @@ export default function Header() {
 
                     <Link
                       href="/pastorale/liturgie"
-                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-amber-100 group-hover:bg-amber-200 flex items-center justify-center transition-colors">
-                          <svg className="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                           </svg>
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Liturgie</div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Liturgie</div>
                           <div className="text-xs text-stone-500">Service liturgique</div>
                         </div>
                       </div>
@@ -118,16 +118,16 @@ export default function Header() {
 
                     <Link
                       href="/pastorale/diaconie"
-                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-amber-100 group-hover:bg-amber-200 flex items-center justify-center transition-colors">
-                          <svg className="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                           </svg>
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Diaconie</div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Diaconie</div>
                           <div className="text-xs text-stone-500">Service fraternel</div>
                         </div>
                       </div>
@@ -139,10 +139,10 @@ export default function Header() {
 
             <Link
               href="/paroisses"
-              className="text-stone-700 hover:text-amber-700 font-medium transition-colors relative group"
+              className="text-stone-600 hover:text-stone-900 font-medium transition-colors relative group"
             >
               <span>Paroisses</span>
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-stone-800 transition-all duration-300 group-hover:w-full"></span>
             </Link>
 
             {/* Contact avec sous-menu */}
@@ -159,31 +159,31 @@ export default function Header() {
             >
               <Link
                 href="/contact"
-                className="text-stone-700 hover:text-amber-700 font-medium transition-colors relative group flex items-center gap-1"
+                className="text-stone-600 hover:text-stone-900 font-medium transition-colors relative group flex items-center gap-1"
               >
                 <span>Contact</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-amber-600 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-stone-800 transition-all duration-300 group-hover:w-full"></span>
               </Link>
 
               {/* Sous-menu dropdown Contact */}
               {isContactOpen && (
-                <div className="absolute left-0 top-full mt-2 w-64 bg-white shadow-2xl border-2 border-amber-300 rounded-xl overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 top-full mt-2 w-64 bg-white shadow-lg border border-stone-200 rounded-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="py-1">
                     <Link
                       href="/contact"
-                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-blue-100 group-hover:bg-blue-200 flex items-center justify-center transition-colors">
-                          <svg className="w-4 h-4 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                           </svg>
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Nous contacter</div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Nous contacter</div>
                           <div className="text-xs text-stone-500">Formulaire & infos</div>
                         </div>
                       </div>
@@ -191,16 +191,16 @@ export default function Header() {
 
                     <Link
                       href="/dons"
-                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-green-100 group-hover:bg-green-200 flex items-center justify-center transition-colors">
-                          <svg className="w-4 h-4 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Faire un don</div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Faire un don</div>
                           <div className="text-xs text-stone-500">Soutenir la paroisse</div>
                         </div>
                       </div>
@@ -208,16 +208,16 @@ export default function Header() {
 
                     <Link
                       href="/contact#formulaire"
-                      className="block px-5 py-3 hover:bg-gradient-to-r hover:from-amber-50 hover:to-yellow-50 transition-all group"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
                     >
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-purple-100 group-hover:bg-purple-200 flex items-center justify-center transition-colors">
-                          <svg className="w-4 h-4 text-purple-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                           </svg>
                         </div>
                         <div>
-                          <div className="text-sm font-medium text-stone-700 group-hover:text-amber-800">Demande d'intentions</div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Demande d'intentions</div>
                           <div className="text-xs text-stone-500">Messes & prières</div>
                         </div>
                       </div>
@@ -232,7 +232,7 @@ export default function Header() {
           <div className="hidden md:flex space-x-2">
             <a
               href="/#messe-direct"
-              className="bg-white text-stone-700 border-2 border-amber-500 px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-amber-500 hover:text-white transition-colors font-semibold flex items-center gap-2 shadow-sm"
+              className="bg-white text-stone-700 border-2 border-stone-300 px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-stone-700 hover:text-white transition-colors font-semibold flex items-center gap-2 shadow-sm"
             >
               <span className="w-2 h-2 bg-amber-600 rounded-full animate-pulse"></span>
               Messe & YouTube
@@ -283,14 +283,14 @@ export default function Header() {
             <div className="flex flex-col space-y-4">
               <Link
                 href="/"
-                className="text-stone-700 hover:text-amber-700 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-amber-500 pl-4"
+                className="text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Accueil
               </Link>
               <Link
                 href="/actualites"
-                className="text-stone-700 hover:text-amber-700 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-amber-500 pl-4"
+                className="text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Actualités
@@ -300,7 +300,7 @@ export default function Header() {
               <div>
                 <button
                   onClick={() => setIsPastoraleOpen(!isPastoraleOpen)}
-                  className="w-full text-left text-stone-700 hover:text-amber-700 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-amber-500 pl-4 flex items-center justify-between"
+                  className="w-full text-left text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4 flex items-center justify-between"
                 >
                   <span>Pastorale</span>
                   <svg
@@ -348,14 +348,14 @@ export default function Header() {
 
               <Link
                 href="/paroisses"
-                className="text-stone-700 hover:text-amber-700 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-amber-500 pl-4"
+                className="text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Paroisses
               </Link>
               <Link
                 href="/contact"
-                className="text-stone-700 hover:text-amber-700 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-amber-500 pl-4"
+                className="text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact
@@ -364,7 +364,7 @@ export default function Header() {
               <div className="flex space-x-2 pt-4 border-t border-stone-300">
                 <a
                   href="/#messe-direct"
-                  className="bg-white text-stone-700 border-2 border-amber-500 px-3 py-2 rounded-lg text-sm hover:bg-amber-500 hover:text-white transition-colors font-semibold flex items-center gap-2"
+                  className="bg-white text-stone-700 border-2 border-stone-300 px-3 py-2 rounded-lg text-sm hover:bg-stone-700 hover:text-white transition-colors font-semibold flex items-center gap-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="w-2 h-2 bg-amber-600 rounded-full animate-pulse"></span>
