@@ -220,12 +220,9 @@ export default function ContactPage() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Abbé Félicien Roux</h3>
                 <p className="text-stone-600 font-medium mb-3">Prêtre</p>
-                <div className="text-sm text-stone-600 space-y-1">
+                <div className="text-sm text-stone-600">
                   <a href="tel:+41272882250" className="text-amber-600 hover:underline font-medium block">
                     +41 27 288 22 50
-                  </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
-                    paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
               </div>
@@ -243,12 +240,9 @@ export default function ContactPage() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Blandine Bornet</h3>
                 <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-stone-600 space-y-1">
+                <div className="text-sm text-stone-600">
                   <a href="tel:+41272885159" className="text-amber-600 hover:underline font-medium block">
                     +41 27 288 51 59
-                  </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
-                    paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
               </div>
@@ -266,12 +260,9 @@ export default function ContactPage() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Jean-Philippe Glassey</h3>
                 <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-stone-600 space-y-1">
+                <div className="text-sm text-stone-600">
                   <a href="tel:+41272071318" className="text-amber-600 hover:underline font-medium block">
                     +41 27 207 13 18
-                  </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
-                    paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
               </div>
@@ -289,12 +280,9 @@ export default function ContactPage() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Martin Fendrych</h3>
                 <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-stone-600 space-y-1">
+                <div className="text-sm text-stone-600">
                   <a href="tel:+41273460003" className="text-amber-600 hover:underline font-medium block">
                     +41 27 346 00 03
-                  </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
-                    paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
               </div>
@@ -312,12 +300,9 @@ export default function ContactPage() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Nadia Fendrych</h3>
                 <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-stone-600 space-y-1">
+                <div className="text-sm text-stone-600">
                   <a href="tel:+41273460003" className="text-amber-600 hover:underline font-medium block">
                     +41 27 346 00 03
-                  </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
-                    paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
               </div>
