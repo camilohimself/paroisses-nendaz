@@ -10,14 +10,14 @@ export default function ContactPage() {
       />
 
       {/* Header VERSION 2 - Grandes lettres épurées */}
-      <section className="bg-white py-24 border-b-4 border-sky-500">
+      <section className="bg-white py-24 border-b-4 border-amber-500">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-7xl md:text-9xl font-black mb-8 leading-none tracking-tight">
-            <span className="text-neutral-anthracite">CONTACT</span>
+            <span className="text-stone-800">CONTACT</span>
             <br />
-            <span className="text-sky-500 text-4xl md:text-6xl font-normal tracking-wide">& INFORMATIONS</span>
+            <span className="text-amber-600 text-4xl md:text-6xl font-normal tracking-wide">& INFORMATIONS</span>
           </h1>
-          <p className="text-xl md:text-2xl text-neutral-gris max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-stone-600 max-w-2xl mx-auto">
             Votre paroisse à l'écoute
           </p>
         </div>
@@ -34,11 +34,11 @@ export default function ContactPage() {
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-stone-100 rounded-full flex items-center justify-center flex-shrink-0">
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Adresse</h3>
-                    <p className="text-gray-600">
+                    <p className="text-stone-600">
                       Route de Nendaz 355<br />
                       1996 Basse-Nendaz<br />
                       Suisse
@@ -47,33 +47,33 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-stone-100 rounded-full flex items-center justify-center flex-shrink-0">
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Téléphone</h3>
-                    <a href="tel:+41272882250" className="text-blue-600 hover:underline font-medium">
+                    <a href="tel:+41272882250" className="text-amber-600 hover:underline font-medium">
                       +41 27 288 22 50
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-stone-100 rounded-full flex items-center justify-center flex-shrink-0">
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-600 hover:underline">
+                    <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline">
                       paroisse_nendaz@bluemail.ch
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-stone-100 rounded-full flex items-center justify-center flex-shrink-0">
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Horaires</h3>
-                    <p className="text-gray-600">
+                    <p className="text-stone-600">
                       Mardi et Vendredi<br />
                       8h - 11h30<br />
                       14h - 16h30
@@ -83,12 +83,12 @@ export default function ContactPage() {
               </div>
 
               {/* Emergency Contact */}
-              <div className="mt-8 p-6 bg-red-50 border border-red-200 rounded-lg">
-                <h3 className="text-lg font-semibold text-red-800 mb-2">Urgences</h3>
-                <p className="text-red-700 text-sm">
+              <div className="mt-8 p-6 bg-amber-50 border border-amber-300 rounded-lg">
+                <h3 className="text-lg font-semibold text-amber-900 mb-2">Urgences</h3>
+                <p className="text-amber-800 text-sm">
                   Pour l&apos;onction des malades et autres urgences pastorales
                 </p>
-                <p className="text-red-800 font-semibold mt-2">
+                <p className="text-amber-900 font-semibold mt-2">
                   24h/24 • 7j/7
                 </p>
               </div>
@@ -112,59 +112,59 @@ export default function ContactPage() {
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-stone-700 mb-2">
                       Prénom *
                     </label>
                     <input
                       type="text"
                       name="prenom"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-stone-700 mb-2">
                       Nom *
                     </label>
                     <input
                       type="text"
                       name="nom"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                      className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-stone-700 mb-2">
                     Email *
                   </label>
                   <input
                     type="email"
                     name="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-stone-700 mb-2">
                     Téléphone
                   </label>
                   <input
                     type="tel"
                     name="telephone"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-stone-700 mb-2">
                     Sujet *
                   </label>
                   <select
                     name="sujet"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                     required
                   >
                     <option value="">Choisissez un sujet...</option>
@@ -178,13 +178,13 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-stone-700 mb-2">
                     Message *
                   </label>
                   <textarea
                     name="message"
                     rows={5}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full px-4 py-3 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
                     placeholder="Décrivez votre demande..."
                     required
                   ></textarea>
@@ -192,7 +192,7 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition font-semibold shadow-lg hover:shadow-xl"
+                  className="w-full bg-stone-700 text-white py-3 px-6 rounded-lg hover:bg-stone-800 transition font-semibold shadow-lg hover:shadow-xl"
                 >
                   Envoyer le message
                 </button>
@@ -219,12 +219,12 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Abbé Félicien Roux</h3>
-                <p className="text-blue-600 font-medium mb-3">Prêtre</p>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <a href="tel:+41272882250" className="text-blue-600 hover:underline font-medium block">
+                <p className="text-stone-600 font-medium mb-3">Prêtre</p>
+                <div className="text-sm text-stone-600 space-y-1">
+                  <a href="tel:+41272882250" className="text-amber-600 hover:underline font-medium block">
                     +41 27 288 22 50
                   </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline block">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
                     paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
@@ -242,12 +242,12 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Blandine Bornet</h3>
-                <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <a href="tel:+41272885159" className="text-blue-600 hover:underline font-medium block">
+                <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
+                <div className="text-sm text-stone-600 space-y-1">
+                  <a href="tel:+41272885159" className="text-amber-600 hover:underline font-medium block">
                     +41 27 288 51 59
                   </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline block">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
                     paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
@@ -265,12 +265,12 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Jean-Philippe Glassey</h3>
-                <p className="text-green-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <a href="tel:+41272071318" className="text-blue-600 hover:underline font-medium block">
+                <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
+                <div className="text-sm text-stone-600 space-y-1">
+                  <a href="tel:+41272071318" className="text-amber-600 hover:underline font-medium block">
                     +41 27 207 13 18
                   </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline block">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
                     paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
@@ -288,12 +288,12 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Martin Fendrych</h3>
-                <p className="text-orange-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <a href="tel:+41273460003" className="text-blue-600 hover:underline font-medium block">
+                <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
+                <div className="text-sm text-stone-600 space-y-1">
+                  <a href="tel:+41273460003" className="text-amber-600 hover:underline font-medium block">
                     +41 27 346 00 03
                   </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline block">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
                     paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
@@ -311,12 +311,12 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Nadia Fendrych</h3>
-                <p className="text-purple-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-gray-600 space-y-1">
-                  <a href="tel:+41273460003" className="text-blue-600 hover:underline font-medium block">
+                <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
+                <div className="text-sm text-stone-600 space-y-1">
+                  <a href="tel:+41273460003" className="text-amber-600 hover:underline font-medium block">
                     +41 27 346 00 03
                   </a>
-                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-blue-500 hover:underline block">
+                  <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline block">
                     paroisse_nendaz@bluemail.ch
                   </a>
                 </div>
@@ -330,7 +330,7 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Camilo Rivera</h3>
-                <p className="text-blue-600 font-medium mb-3">Agent pastoral</p>
+                <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
               </div>
             </div>
           </div>
@@ -347,8 +347,8 @@ export default function ContactPage() {
                 <li>Pour vos intentions de messe (délai 2 semaines avant). Il est possible de les transmettre via notre site.</li>
                 <li>Pour toute autre question (baptême, mariages, etc.).</li>
               </ul>
-              <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mt-6">
-                <p className="text-blue-700">
+              <div className="bg-amber-50 border-l-4 border-amber-500 p-4 mt-6">
+                <p className="text-amber-800">
                   <strong>Horaires du secrétariat :</strong><br/>
                   Mardi et Vendredi : 8h - 11h30<br/>
                   14h - 16h30
@@ -369,40 +369,40 @@ export default function ContactPage() {
 
               {/* Conseil de Nendaz */}
               <div>
-                <h3 className="text-xl font-bold text-center mb-6 text-blue-800">Paroisse de Nendaz</h3>
-                <div className="bg-blue-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-center mb-6 text-stone-800">Paroisse de Nendaz</h3>
+                <div className="bg-stone-50 p-6 rounded-lg">
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                      <span className="font-semibold text-blue-900">Félicien Roux</span>
-                      <span className="text-blue-700 text-xs">Curé</span>
+                    <div className="flex justify-between items-center py-2 border-b border-stone-200">
+                      <span className="font-semibold text-stone-900">Félicien Roux</span>
+                      <span className="text-stone-700 text-xs">Curé</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                      <span className="font-semibold text-blue-900">Gilles Broccard</span>
-                      <span className="text-blue-700 text-xs">Président</span>
+                    <div className="flex justify-between items-center py-2 border-b border-stone-200">
+                      <span className="font-semibold text-stone-900">Gilles Broccard</span>
+                      <span className="text-stone-700 text-xs">Président</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                      <span className="font-semibold text-blue-900">Serge Darioli</span>
-                      <span className="text-blue-700 text-xs">Caissier</span>
+                    <div className="flex justify-between items-center py-2 border-b border-stone-200">
+                      <span className="font-semibold text-stone-900">Serge Darioli</span>
+                      <span className="text-stone-700 text-xs">Caissier</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                      <span className="font-semibold text-blue-900">Solange Bressoud</span>
-                      <span className="text-blue-700 text-xs">Secrétaire</span>
+                    <div className="flex justify-between items-center py-2 border-b border-stone-200">
+                      <span className="font-semibold text-stone-900">Solange Bressoud</span>
+                      <span className="text-stone-700 text-xs">Secrétaire</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                      <span className="font-semibold text-blue-900">Johan Favre</span>
-                      <span className="text-blue-700 text-xs">Membre</span>
+                    <div className="flex justify-between items-center py-2 border-b border-stone-200">
+                      <span className="font-semibold text-stone-900">Johan Favre</span>
+                      <span className="text-stone-700 text-xs">Membre</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                      <span className="font-semibold text-blue-900">Gilles Briguet</span>
-                      <span className="text-blue-700 text-xs">Membre</span>
+                    <div className="flex justify-between items-center py-2 border-b border-stone-200">
+                      <span className="font-semibold text-stone-900">Gilles Briguet</span>
+                      <span className="text-stone-700 text-xs">Membre</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-blue-200">
-                      <span className="font-semibold text-blue-900">Richard Neuwerth</span>
-                      <span className="text-blue-700 text-xs">Membre</span>
+                    <div className="flex justify-between items-center py-2 border-b border-stone-200">
+                      <span className="font-semibold text-stone-900">Richard Neuwerth</span>
+                      <span className="text-stone-700 text-xs">Membre</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="font-semibold text-blue-900">Charles-Henri Fournier</span>
-                      <span className="text-blue-700 text-xs text-right">Délégué commune</span>
+                      <span className="font-semibold text-stone-900">Charles-Henri Fournier</span>
+                      <span className="text-stone-700 text-xs text-right">Délégué commune</span>
                     </div>
                   </div>
                 </div>
@@ -410,32 +410,32 @@ export default function ContactPage() {
 
               {/* Conseil de Veysonnaz */}
               <div>
-                <h3 className="text-xl font-bold text-center mb-6 text-green-800">Paroisse de Veysonnaz</h3>
-                <div className="bg-green-50 p-6 rounded-lg">
+                <h3 className="text-xl font-bold text-center mb-6 text-amber-800">Paroisse de Veysonnaz</h3>
+                <div className="bg-amber-50 p-6 rounded-lg">
                   <div className="space-y-2 text-sm">
-                    <div className="flex justify-between items-center py-2 border-b border-green-200">
-                      <span className="font-semibold text-green-900">Félicien Roux</span>
-                      <span className="text-green-700 text-xs">Curé</span>
+                    <div className="flex justify-between items-center py-2 border-b border-amber-200">
+                      <span className="font-semibold text-amber-900">Félicien Roux</span>
+                      <span className="text-amber-700 text-xs">Curé</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-green-200">
-                      <span className="font-semibold text-green-900">Christian Charbonnet</span>
-                      <span className="text-green-700 text-xs">Président</span>
+                    <div className="flex justify-between items-center py-2 border-b border-amber-200">
+                      <span className="font-semibold text-amber-900">Christian Charbonnet</span>
+                      <span className="text-amber-700 text-xs">Président</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-green-200">
-                      <span className="font-semibold text-green-900">Pierre-Alain Lathion</span>
-                      <span className="text-green-700 text-xs">Caissier</span>
+                    <div className="flex justify-between items-center py-2 border-b border-amber-200">
+                      <span className="font-semibold text-amber-900">Pierre-Alain Lathion</span>
+                      <span className="text-amber-700 text-xs">Caissier</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-green-200">
-                      <span className="font-semibold text-green-900">Benjamin Revaz</span>
-                      <span className="text-green-700 text-xs">Membre</span>
+                    <div className="flex justify-between items-center py-2 border-b border-amber-200">
+                      <span className="font-semibold text-amber-900">Benjamin Revaz</span>
+                      <span className="text-amber-700 text-xs">Membre</span>
                     </div>
-                    <div className="flex justify-between items-center py-2 border-b border-green-200">
-                      <span className="font-semibold text-green-900">Laurence Fournier</span>
-                      <span className="text-green-700 text-xs text-right">Déléguée commune Veysonnaz</span>
+                    <div className="flex justify-between items-center py-2 border-b border-amber-200">
+                      <span className="font-semibold text-amber-900">Laurence Fournier</span>
+                      <span className="text-amber-700 text-xs text-right">Déléguée commune Veysonnaz</span>
                     </div>
                     <div className="flex justify-between items-center py-2">
-                      <span className="font-semibold text-green-900">Charles-Henri Fournier</span>
-                      <span className="text-green-700 text-xs text-right">Délégué commune Nendaz</span>
+                      <span className="font-semibold text-amber-900">Charles-Henri Fournier</span>
+                      <span className="text-amber-700 text-xs text-right">Délégué commune Nendaz</span>
                     </div>
                   </div>
                 </div>
