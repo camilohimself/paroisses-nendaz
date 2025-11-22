@@ -82,14 +82,27 @@ const allActualites = [
 
 export async function GET(request: Request) {
   try {
-    // Calculer les dates (du prochain samedi au dimanche suivant - 9 jours)
+    // Calculer les dates avec logique "changement vendredi 18h"
     const now = new Date()
     const currentDay = now.getDay() // 0 = dimanche, 6 = samedi
+    const currentHour = now.getHours()
 
-    // Trouver le prochain samedi (ou aujourd'hui si on est samedi)
-    const daysUntilSaturday = currentDay === 6 ? 0 : (6 - currentDay + 7) % 7
-    const nextSaturday = new Date(now)
-    nextSaturday.setDate(now.getDate() + daysUntilSaturday)
+    // Déterminer le samedi de référence selon la règle :
+    // - Vendredi avant 18h : weekend actuel (samedi qui vient)
+    // - Vendredi après 18h : weekend suivant (samedi d'après)
+    // - Samedi-Jeudi : weekend qui vient
+
+    let nextSaturday = new Date(now)
+
+    if (currentDay === 5 && currentHour >= 18) {
+      // Vendredi après 18h : on vise le samedi de la semaine suivante (dans 8 jours)
+      nextSaturday.setDate(now.getDate() + 8)
+    } else {
+      // Sinon : trouver le prochain samedi (ou aujourd'hui si on est samedi)
+      const daysUntilSaturday = currentDay === 6 ? 0 : (6 - currentDay + 7) % 7
+      nextSaturday.setDate(now.getDate() + daysUntilSaturday)
+    }
+
     nextSaturday.setHours(0, 0, 0, 0) // Début de journée samedi
 
     // Dimanche suivant (8 jours après le samedi = 9 jours au total)

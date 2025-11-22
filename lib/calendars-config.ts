@@ -194,7 +194,7 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
     type: 'equipe',
     googleCalendarId: '3aq4kt6h2unfnjmvg78531e1fk@group.calendar.google.com',
     color: '#FF6B35',
-    defaultLocation: 'Diverses paroisses'
+    defaultLocation: 'Événement paroissial'
   }
 ];
 
