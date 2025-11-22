@@ -2,7 +2,7 @@
 
 import { Metadata } from 'next'
 import { useState, useEffect } from 'react'
-import { Calendar, MapPin, ChevronRight, Star, X } from 'lucide-react'
+import { Calendar, MapPin, ChevronRight, Star, X, Sparkles } from 'lucide-react'
 
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
@@ -138,7 +138,39 @@ export default function ActualitesPage() {
   const [pastEvents, setPastEvents] = useState<typeof allEvents>([])
   const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
+  // Compteur Avent
+  const [timeLeft, setTimeLeft] = useState({
+    jours: 0,
+    heures: 0,
+    minutes: 0,
+    secondes: 0
+  })
+  const [isAventLaunched, setIsAventLaunched] = useState(false)
+
   useEffect(() => {
+    // Compteur Avent
+    const launchDate = new Date('2025-11-30T00:00:00+01:00')
+
+    const updateCountdown = () => {
+      const now = new Date()
+      const difference = launchDate.getTime() - now.getTime()
+
+      if (difference <= 0) {
+        setIsAventLaunched(true)
+        return
+      }
+
+      const jours = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const heures = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const secondes = Math.floor((difference % (1000 * 60)) / 1000)
+
+      setTimeLeft({ jours, heures, minutes, secondes })
+    }
+
+    updateCountdown()
+    const countdownInterval = setInterval(updateCountdown, 1000)
+
     const today = new Date()
     today.setHours(0, 0, 0, 0)
 
@@ -169,6 +201,8 @@ export default function ActualitesPage() {
     setHighlightEvents(withImages)
     setRegularEvents(withoutImages)
     setPastEvents(past)
+
+    return () => clearInterval(countdownInterval)
   }, [])
 
   const formatDate = (dateString: string) => {
@@ -195,55 +229,80 @@ export default function ActualitesPage() {
   return (
     <div className="min-h-screen bg-neutral-grisClaire">
 
-      {/* HERO - VIDÉO CONFIRMATION MISE EN VALEUR */}
-      {featuredEvent && (
-        <section className="relative bg-white py-20 md:py-32">
-          <div className="container mx-auto px-4">
-            <div className="max-w-7xl mx-auto">
+      {/* HERO - COMPTEUR AVENT */}
+      <section className="relative bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100 py-20 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto text-center">
 
-              {/* Titre */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 leading-tight text-neutral-anthracite" style={{ fontFamily: 'Playfair Display, serif' }}>
-                {featuredEvent.title}
+            {/* Titre principal */}
+            <div className="mb-12">
+              <Sparkles className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-6 text-amber-600" />
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+                Calendrier de l'Avent
               </h1>
-
-              <p className="text-xl md:text-2xl text-center text-neutral-gris mb-12 max-w-3xl mx-auto leading-relaxed">
-                {featuredEvent.excerpt}
+              <p className="text-xl md:text-2xl text-stone-600 mb-2">
+                {isAventLaunched ? "L'aventure a commencé !" : "L'aventure commence bientôt..."}
               </p>
+            </div>
 
-              {/* Vidéo YouTube Embed */}
-              <div className="max-w-5xl mx-auto">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black">
-                  <div className="aspect-video">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${featuredEvent.youtubeId}?rel=0`}
-                      title={featuredEvent.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
+            {/* Compteur progressif stone → amber */}
+            {!isAventLaunched && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
+                {/* Jours - Stone foncé */}
+                <div className="bg-gradient-to-br from-stone-700 to-stone-800 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
+                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
+                    {timeLeft.jours}
+                  </div>
+                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
+                    {timeLeft.jours > 1 ? 'Jours' : 'Jour'}
                   </div>
                 </div>
 
-                {/* Meta info sous la vidéo */}
-                <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-neutral-gris">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-5 h-5" />
-                    <span className="font-medium">{formatDate(featuredEvent.date)}</span>
+                {/* Heures - Stone */}
+                <div className="bg-gradient-to-br from-stone-600 to-stone-700 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
+                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
+                    {timeLeft.heures}
                   </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-5 h-5" />
-                    <span className="font-medium">{featuredEvent.lieu}</span>
+                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
+                    {timeLeft.heures > 1 ? 'Heures' : 'Heure'}
+                  </div>
+                </div>
+
+                {/* Minutes - Amber */}
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
+                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
+                    {timeLeft.minutes}
+                  </div>
+                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
+                    {timeLeft.minutes > 1 ? 'Minutes' : 'Minute'}
+                  </div>
+                </div>
+
+                {/* Secondes - Amber clair */}
+                <div className="bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
+                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
+                    {timeLeft.secondes}
+                  </div>
+                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
+                    {timeLeft.secondes > 1 ? 'Secondes' : 'Seconde'}
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            )}
 
-        </section>
-      )}
+            {/* Message */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <p className="text-lg md:text-xl text-stone-700 font-medium">
+                Une aventure interactive avec 4 semaines de découvertes et de missions
+              </p>
+              <p className="text-sm md:text-base text-stone-500 mt-2">
+                Paroisses de Nendaz et Veysonnaz
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* SECTION ACTUALITÉS - LAYOUT STRUCTURÉ */}
       <section className="py-16 md:py-24">
