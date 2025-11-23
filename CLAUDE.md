@@ -20,13 +20,14 @@
 **Enoria** : `#2A8B8C` (toujours cette couleur exacte)
 
 ## 📊 État actuel
-- **55 pages** Next.js 15 + TypeScript
+- **57 pages** Next.js 15 + TypeScript
 - **20+ calendriers Google** (162 événements)
 - **SEO** : robots.txt strict, sitemap propre, manifest PWA, **données structurées JSON-LD**
 - **Formulaire contact** : FormSubmit activé → paroisse_nendaz@bluemail.ch ✅ Activé
 - **PDF Feuille annonces** : Prévisualisation inline (nouvel onglet)
 - **Build** : 0 erreur, First Load 102-144 kB
-- **Projet Avent** : ✅ Page compteur live + QR code généré
+- **Projet Avent** : ✅ Compteur live en hero page Actualités
+- **Design** : Palette Pierre et Lumière (stone/amber) unifiée sur tout le site
 
 ## 🔧 Stack
 - Next.js 15, React 19, TypeScript, Tailwind
@@ -1108,3 +1109,153 @@ onClick={() => {
 
 ---
 *Mise à jour : 21 novembre 2025 - Page compteur Avent + QR code*
+
+---
+
+## 🎨 SÉANCE DU 23 NOVEMBRE 2025 - REFONTE DESIGN + COMPTEUR AVENT ✅
+
+### 🎯 OBJECTIF : Unification palette Pierre et Lumière + Mise en avant Avent
+
+**Contexte** : Refonte complète design navbar/pages avec palette sobre stone/amber + intégration compteur Avent en hero Actualités
+
+### ✅ RÉALISATIONS MAJEURES
+
+**1. 🎨 NAVBAR - REFONTE PALETTE PIERRE ET LUMIÈRE**
+- **Avant** : Couleurs amber/yellow trop présentes ("moche" selon utilisateur)
+- **Après** : Palette sobre stone-50/100/600/800/900
+- **Changements** :
+  - Border header : `border-stone-200` (au lieu de amber-300)
+  - Liens navigation : `text-stone-600 hover:text-stone-900`
+  - Dropdowns : `bg-stone-50 hover:bg-stone-100`
+  - Icons containers : `bg-stone-50 group-hover:bg-stone-100`
+  - Quick access buttons : bordures stone-300
+  - Appliqué aux menus desktop ET mobile
+
+**2. 📄 PAGE DONS - PALETTE STONE/AMBER**
+- Border header : `border-amber-500` (au lieu de green-500)
+- Icon Heart/Smartphone : `text-amber-600`
+- Titre principal : `text-stone-800`
+- Instructions : `bg-amber-50 to-yellow-50`
+- Badges numérotés : `bg-amber-600`
+- Box urgences : `border-amber-600`
+- **Cohérence** : 100% palette paroisse
+
+**3. 📞 PAGE CONTACT - UPGRADE COMPLET**
+**Hero :**
+- Border : `border-amber-500` (au lieu de sky-500)
+- Titre : `text-stone-800`
+- Sous-titre : `text-amber-600`
+
+**Section contact :**
+- Icônes : `bg-stone-100` uniforme (au lieu de blue/green/purple/yellow)
+- Liens tel/email : `text-amber-600`
+
+**Formulaire :**
+- Focus ring : `ring-amber-500`
+- Bouton submit : `bg-stone-700 hover:bg-stone-800`
+
+**Équipe pastorale :**
+- Badges rôles : `text-stone-600` (uniforme)
+- **Emails supprimés** : Doublons (même email pour tous)
+- Conservation uniquement numéros directs
+
+**Conseils gestion :**
+- Nendaz : `stone-50/stone-800`
+- Veysonnaz : `amber-50/amber-800`
+
+**4. 🎥 NAVBAR CTA YOUTUBE - ROUGE EXCEPTION**
+- **URL** : https://www.youtube.com/@paroissesnendazetveysonnaz
+- **Couleur** : Rouge YouTube `#FF0000` (exception validée)
+- **Hover** : `#CC0000`
+- **Point animé** : Blanc (au lieu de amber-600)
+- **Target** : _blank (nouvel onglet)
+- Appliqué desktop ET mobile
+
+**5. 🎄 PAGE ACTUALITÉS - HERO COMPTEUR AVENT**
+- **Supprimé** : Vidéo YouTube Confirmation 2025
+- **Ajouté** : Compteur Avent interactif temps réel
+
+**Compteur progressif stone → amber :**
+- Jours : `stone-700 → stone-800` (foncé)
+- Heures : `stone-600 → stone-700` (moyen)
+- Minutes : `amber-500 → amber-600` (clair)
+- Secondes : `amber-400 → amber-500` (très clair)
+
+**Features :**
+- Date lancement : 30 novembre 2025 minuit (Europe/Zurich)
+- Update temps réel (1 seconde)
+- Message adaptatif avant/après lancement
+- Background dégradé `stone-50/amber-50/stone-100`
+- Icône Sparkles `amber-600`
+- Hover scale sur cards
+- Responsive (grid 2x2 mobile, 4x1 desktop)
+
+**6. 📱 NAVBAR MOBILE - DROPDOWN CONTACT**
+- **Problème** : Sous-menu Contact visible uniquement en desktop
+- **Solution** : Ajout dropdown mobile (cohérent avec Pastorale)
+
+**3 options :**
+1. Nous contacter → `/contact`
+2. Faire un don → `/dons`
+3. Demande d'intentions → `/contact#formulaire`
+
+**Fonctionnement :**
+- Bouton avec chevron animé (rotation 180°)
+- État `isContactOpen`
+- Sous-menu indenté (ml-8)
+- Hover amber-700/amber-600
+- Auto-close après navigation
+
+### 📊 STATISTIQUES SESSION
+- **Durée** : ~4h
+- **6 commits** poussés sur GitHub
+- **Fichiers modifiés** : 3 (Header.tsx, contact/page.tsx, dons/page.tsx, actualites/page.tsx)
+- **Build** : 57 pages, 0 erreur
+- **Status** : ✅ Tout déployé en production
+
+### 🎯 COMMITS DE LA SÉANCE
+1. `f236ee2` - 🎨 DESIGN: Refonte navbar + page Dons - Palette Pierre et Lumière
+2. `d5a7a51` - 🎨 CONTACT: Upgrade palette stone/amber Pierre et Lumière
+3. `9bf499b` - 🧹 CONTACT: Suppression emails doublons équipe pastorale
+4. `c0eab5a` - 🎥 NAVBAR: CTA YouTube rouge + lien chaîne paroisse
+5. `77ed39d` - 🎄 ACTUALITÉS: Hero compteur Avent progressif stone→amber
+6. `af256b2` - 📱 NAVBAR MOBILE: Ajout dropdown Contact (3 options)
+
+### ✅ RÉSULTATS FINAUX
+- ✅ **Design unifié** : Palette Pierre et Lumière sur 100% du site
+- ✅ **Navbar sobre** : Stone/amber au lieu de jaune/amber
+- ✅ **Page Dons** : Cohérente avec palette paroisse
+- ✅ **Page Contact** : Upgrade complet stone/amber
+- ✅ **CTA YouTube** : Rouge exception validée
+- ✅ **Compteur Avent** : Hero interactif page Actualités
+- ✅ **Mobile UX** : Dropdown Contact fonctionnel
+- ✅ **Build production** : 0 erreur
+
+### 🎨 DESIGN SYSTEM VALIDÉ
+**Règle principale :**
+- **Palette paroisse** : stone (foncé) + amber (clair)
+- **Exception** : Rouge YouTube `#FF0000` (CTA uniquement)
+- **Enoria** : `#2A8B8C` (toujours cette couleur exacte)
+
+**Dégradé progressif (compteur Avent) :**
+- Symbolise le temps qui avance vers la lumière de Noël
+- Du stone foncé (jours) → amber lumineux (secondes)
+
+### 💡 MÉTHODOLOGIE VALIDÉE
+**Approche itérative avec feedback utilisateur :**
+1. Diagnostic insatisfaction design (navbar "moche")
+2. Refonte complète palette navbar
+3. Extension cohérente pages Dons + Contact
+4. Exception validée (YouTube rouge)
+5. Intégration compteur Avent (hero impactant)
+6. Correction UX mobile (dropdown manquant)
+
+**Points forts :**
+- Écoute feedback utilisateur immédiat
+- Design cohérent sur tout le site
+- Exceptions justifiées (YouTube rouge)
+- UX mobile complète
+
+---
+*Mise à jour : 23 novembre 2025 - Refonte design Pierre et Lumière + Compteur Avent*
+
