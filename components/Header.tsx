@@ -355,13 +355,49 @@ export default function Header() {
               >
                 Paroisses
               </Link>
-              <Link
-                href="/contact"
-                className="text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contact
-              </Link>
+
+              {/* Contact mobile avec sous-menu */}
+              <div>
+                <button
+                  onClick={() => setIsContactOpen(!isContactOpen)}
+                  className="w-full text-left text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4 flex items-center justify-between"
+                >
+                  <span>Contact</span>
+                  <svg
+                    className={`w-4 h-4 transition-transform ${isContactOpen ? 'rotate-180' : ''}`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                {isContactOpen && (
+                  <div className="ml-8 mt-2 space-y-2">
+                    <Link
+                      href="/contact"
+                      className="block text-stone-700 hover:text-amber-700 transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsContactOpen(false); }}
+                    >
+                      Nous contacter
+                    </Link>
+                    <Link
+                      href="/dons"
+                      className="block text-stone-600 hover:text-amber-600 transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsContactOpen(false); }}
+                    >
+                      Faire un don
+                    </Link>
+                    <Link
+                      href="/contact#formulaire"
+                      className="block text-stone-600 hover:text-amber-600 transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsContactOpen(false); }}
+                    >
+                      Demande d'intentions
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               <div className="flex space-x-2 pt-4 border-t border-stone-300">
                 <a
