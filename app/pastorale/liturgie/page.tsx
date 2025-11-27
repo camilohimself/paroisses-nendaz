@@ -23,6 +23,24 @@ export default function LiturgiePage() {
           <p className="text-lg sm:text-xl md:text-2xl text-stone-600 leading-relaxed max-w-3xl mx-auto font-light">
             Services et ministères liturgiques pour célébrer dignement et avec beauté les mystères de notre foi.
           </p>
+
+          {/* CTA Servir à la messe */}
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a
+              href="https://public.enoria.app/pubinsc/auth?type=acteurs&e=598&type_messe=dominicale"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 bg-[#2A8B8C] text-white font-semibold uppercase tracking-widest hover:bg-[#237374] transition-all duration-300 rounded"
+            >
+              Servir à la messe
+            </a>
+            <Link
+              href="/contact"
+              className="inline-block px-10 py-4 border-2 border-stone-700 text-stone-700 font-semibold uppercase tracking-widest hover:bg-stone-700 hover:text-white transition-all duration-300 rounded"
+            >
+              Nous contacter
+            </Link>
+          </div>
         </div>
 
         {/* Liste verticale élégante */}
@@ -302,29 +320,6 @@ export default function LiturgiePage() {
                 1 Corinthiens 14, 40
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Appel sobre */}
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-xl text-stone-600 mb-8 leading-relaxed">
-            Pour rejoindre l'un de ces services liturgiques ou obtenir davantage d'informations,<br />nous vous invitons à prendre contact avec le secrétariat paroissial.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="https://public.enoria.app/pubinsc/auth?type=acteurs&e=598&type_messe=dominicale"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-[#2A8B8C] text-white font-semibold uppercase tracking-widest hover:bg-[#237374] transition-all duration-300 rounded"
-            >
-              Servir à la messe
-            </a>
-            <Link
-              href="/contact"
-              className="inline-block px-10 py-4 border-2 border-stone-700 text-stone-700 font-semibold uppercase tracking-widest hover:bg-stone-700 hover:text-white transition-all duration-300 rounded"
-            >
-              Nous contacter
-            </Link>
           </div>
         </div>
 
