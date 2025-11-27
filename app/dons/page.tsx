@@ -1,5 +1,6 @@
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
-import { Heart, Smartphone } from 'lucide-react';
+import { Heart, Smartphone, Building2 } from 'lucide-react';
+import IbanCard from '@/components/IbanCard';
 
 export const metadata = {
   title: 'Faire un don | Paroisses de Nendaz et Veysonnaz',
@@ -88,6 +89,38 @@ export default function DonsPage() {
                   Votre soutien permet de maintenir nos activités pastorales, d'entretenir nos lieux de culte et d'accompagner les habitants de nos paroisses dans leur vie spirituelle.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Virement bancaire */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Titre */}
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Building2 className="w-8 h-8 text-stone-700" />
+                <h2 className="text-3xl font-bold text-stone-800">Virement bancaire</h2>
+              </div>
+              <p className="text-lg text-stone-600">
+                Vous pouvez également effectuer un don par virement bancaire
+              </p>
+            </div>
+
+            {/* Cartes IBAN */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <IbanCard
+                commune="Nendaz"
+                iban="CH27 0076 5000 K022 7898 3"
+                colorScheme="stone"
+              />
+              <IbanCard
+                commune="Veysonnaz"
+                iban="CH80 8057 2000 0017 6694 0"
+                colorScheme="amber"
+              />
             </div>
           </div>
         </div>

@@ -106,9 +106,36 @@ export default function ContactPage() {
                 {/* FormSubmit Configuration */}
                 <input type="hidden" name="_subject" value="Nouveau message depuis paroisses-nendaz.ch" />
                 <input type="hidden" name="_next" value="https://www.paroisses-nendaz.ch/contact/merci" />
-                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_captcha" value="true" />
                 <input type="hidden" name="_template" value="table" />
-                <input type="text" name="_honey" style={{display: 'none'}} />
+
+                {/* Honeypot anti-spam (invisible pour les humains) */}
+                <input
+                  type="text"
+                  name="_honey"
+                  style={{
+                    position: 'absolute',
+                    left: '-9999px',
+                    top: '-9999px',
+                    opacity: 0,
+                    height: 0,
+                    width: 0,
+                    zIndex: -1
+                  }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+                {/* Second honeypot avec nom attrayant pour les bots */}
+                <div style={{ position: 'absolute', left: '-9999px' }} aria-hidden="true">
+                  <label htmlFor="website_url">Website</label>
+                  <input
+                    type="text"
+                    name="website_url"
+                    id="website_url"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
