@@ -19,8 +19,27 @@
 - Second honeypot ajoute (champ `website_url` invisible)
 - Note : texte captcha en anglais (limitation FormSubmit)
 
-### Commit
-`b8b141c` - 💳 DONS: IBAN + 🛡️ CONTACT: Anti-spam
+**3. Page /pastorale/liturgie - Bouton Enoria**
+- Ajout CTA "Servir a la messe" (lien Enoria inscription)
+- Couleur Enoria (#2A8B8C)
+- Deplace sous le hero pour meilleure visibilite
+- Lien : https://public.enoria.app/pubinsc/auth?type=acteurs&e=598&type_messe=dominicale
+
+**4. Page /actualites - Evenements decembre 2025**
+- 7 dec : Loto du choeur Le Muguet (Aproz)
+- 20 dec : Rencontre Eveil a la Foi (Basse-Nendaz)
+- 20 dec : Concert Noel Muguet + Echo du Mont (Aproz)
+- 21 dec : Loto Choeur Caecilia (Biolette)
+- 23 dec : Chantee de Noel (Haute-Nendaz)
+- 26 dec : Concert de Noel (Veysonnaz)
+- Note : Messes exclues (affichees sur page d'accueil)
+
+### Commits
+- `b8b141c` - 💳 DONS: IBAN + 🛡️ CONTACT: Anti-spam
+- `0ae62af` - 📝 JOURNAL: Session 27 nov
+- `fcdacb4` - 🙏 LITURGIE: Bouton "Servir a la messe" (Enoria)
+- `0a0c01c` - 🙏 LITURGIE: Deplace CTA sous le hero
+- `ce61af6` - 📅 ACTUALITES: Evenements decembre 2025
 
 ---
 
