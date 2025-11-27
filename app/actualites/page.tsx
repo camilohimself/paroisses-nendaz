@@ -128,6 +128,60 @@ const allEvents = [
     hasImage: false,
     category: 'Événement',
     lieu: 'Basse-Nendaz'
+  },
+  {
+    id: 'loto-muguet-dec',
+    title: 'Loto du chœur Le Muguet',
+    excerpt: 'Après-midi loto organisé par le chœur Le Muguet à la salle de gym d\'Aproz. Nombreux lots à gagner !',
+    date: '2025-12-07',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Salle de gym d\'Aproz - 17h30'
+  },
+  {
+    id: 'eveil-foi-noel',
+    title: 'Rencontre de Noël - Éveil à la Foi',
+    excerpt: 'Rencontre de Noël pour les tout-petits et leurs accompagnants. Un moment de partage et de découverte adapté aux plus jeunes.',
+    date: '2025-12-20',
+    hasImage: false,
+    category: 'Formation',
+    lieu: 'Église de Basse-Nendaz - 9h30'
+  },
+  {
+    id: 'concert-noel-muguet',
+    title: 'Concert de Noël - Le Muguet & Echo du Mont',
+    excerpt: 'Concert de Noël du chœur Le Muguet d\'Aproz et de la fanfare l\'Echo du Mont. Une soirée musicale festive !',
+    date: '2025-12-20',
+    hasImage: false,
+    category: 'Culture',
+    lieu: 'Église d\'Aproz - 20h'
+  },
+  {
+    id: 'loto-caecilia-dec',
+    title: 'Loto du Chœur Caecilia',
+    excerpt: 'Loto organisé par le Chœur La Caecilia. Venez tenter votre chance et passer un bon moment convivial !',
+    date: '2025-12-21',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Salle de la Biolette - 17h30'
+  },
+  {
+    id: 'chantee-noel',
+    title: 'Chantée de Noël',
+    excerpt: 'Chantée de Noël au centre de la station à Haute-Nendaz. Venez chanter les chants traditionnels de Noël !',
+    date: '2025-12-23',
+    hasImage: false,
+    category: 'Culture',
+    lieu: 'Centre station Haute-Nendaz - 17h30 à 18h15'
+  },
+  {
+    id: 'concert-noel-veysonnaz',
+    title: 'Concert de Noël à Veysonnaz',
+    excerpt: 'Concert de Noël à l\'église de Veysonnaz. Une belle soirée musicale pour célébrer les fêtes.',
+    date: '2025-12-26',
+    hasImage: false,
+    category: 'Culture',
+    lieu: 'Église de Veysonnaz - 20h'
   }
 ]
 
@@ -235,14 +289,23 @@ export default function ActualitesPage() {
           <div className="max-w-5xl mx-auto text-center">
 
             {/* Titre principal */}
-            <div className="mb-12">
-              <Sparkles className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-6 text-amber-600" />
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <div className="mb-8">
+              <Sparkles className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 text-amber-600" />
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Calendrier de l'Avent
               </h1>
-              <p className="text-xl md:text-2xl text-stone-600 mb-2">
+              <p className="text-lg md:text-xl text-stone-600">
                 {isAventLaunched ? "L'aventure a commencé !" : "L'aventure commence bientôt..."}
               </p>
+            </div>
+
+            {/* Image groupe personnages - Teasing */}
+            <div className="mb-6 overflow-hidden">
+              <img
+                src="/images/avent/personnages/groupe.png"
+                alt="Les 4 pèlerins de l'Avent - Luce, Fe, Xin et Sky"
+                className="w-72 h-auto md:w-96 lg:w-[28rem] mx-auto drop-shadow-xl scale-150"
+              />
             </div>
 
             {/* Compteur progressif stone → amber */}
