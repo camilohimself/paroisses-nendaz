@@ -185,7 +185,7 @@ const SLIDES_ETAPE5: Slide[] = [
     id: 20,
     texte: "Par un sourire...",
     bullePosition: 'top',
-    animation: 'bounce',
+    animation: 'pulse',
     image: 'Luce-coeur.png',
     type: 'fun-text'
   },
