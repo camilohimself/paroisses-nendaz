@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Mission 1 - Luce | Calendrier de l'Avent",
@@ -10,6 +12,19 @@ export default function MissionLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Layout sans Header/Footer pour l'expérience immersive
-  return <>{children}</>;
+  return (
+    <>
+      {/* Header visible uniquement sur desktop (md+) */}
+      <div className="hidden md:block">
+        <Header />
+      </div>
+
+      {children}
+
+      {/* Footer visible uniquement sur desktop (md+) */}
+      <div className="hidden md:block">
+        <Footer />
+      </div>
+    </>
+  );
 }
