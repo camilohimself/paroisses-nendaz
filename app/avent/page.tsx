@@ -301,6 +301,10 @@ export default function AventPage() {
                   <MapPin className="w-4 h-4" />
                   <span>Rendez-vous à l'église de <strong>Basse-Nendaz</strong></span>
                 </p>
+                <p className="text-sm text-slate-500 mt-1 flex items-center justify-center md:justify-start gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Du 1er au 6 décembre</span>
+                </p>
               </div>
             </div>
           </div>

@@ -67,16 +67,16 @@ export default function VideoHero() {
           {/* Boutons d'action */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/actualites"
-              className="inline-block px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              href="/avent"
+              className="inline-block px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              Actualités
+              Calendrier de l'Avent
             </a>
             <a
-              href="/paroisses"
+              href="/actualites"
               className="inline-block px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              Paroisses
+              Actualités
             </a>
           </div>
         </div>
