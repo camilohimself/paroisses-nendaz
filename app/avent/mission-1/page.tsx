@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { MapPin } from 'lucide-react'
 import BulleDialogue from '@/components/avent/BulleDialogue'
 
 // Type pour les slides
@@ -550,50 +551,50 @@ export default function Mission1Page() {
   if (currentSlide.type === 'fin-mission') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-100 flex flex-col items-center justify-center p-4">
-        {/* Texte de fin en très grand */}
-        <div className="w-full max-w-md mx-auto mb-6">
-          <p className="text-4xl md:text-5xl font-black text-center text-amber-600 animate-bounce">
+
+        {/* 1. Célébration - Luce brille */}
+        <div className="animate-pulse mb-4">
+          <Image
+            src="/images/avent/personnages/Luce.png"
+            alt="Luce"
+            width={160}
+            height={200}
+            className="object-contain drop-shadow-xl"
+          />
+        </div>
+
+        {/* 2. Message de félicitations */}
+        <div className="bg-white rounded-3xl p-6 shadow-2xl mb-6 max-w-md text-center">
+          <p className="text-3xl md:text-4xl font-black text-amber-600 mb-3">
             {currentSlide.texte}
+          </p>
+          <p className="text-xl text-slate-700 font-medium">
+            Mission accomplie avec Luce !
           </p>
         </div>
 
-        {/* Luce et Fe côte à côte */}
-        <div className="flex items-end justify-center gap-4 mb-6">
-          <div className="animate-pulse">
-            <Image
-              src="/images/avent/personnages/Luce.png"
-              alt="Luce"
-              width={140}
-              height={175}
-              className="object-contain drop-shadow-xl"
-            />
-          </div>
-          <div>
+        {/* 3. Teaser Fe - L'aventure continue */}
+        <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-2xl p-5 border-2 border-red-200 shadow-lg mb-6 max-w-md">
+          <div className="flex items-center gap-4">
             <Image
               src="/images/avent/personnages/Fe.png"
               alt="Fe"
-              width={140}
-              height={175}
-              className="object-contain drop-shadow-xl"
+              width={80}
+              height={100}
+              className="object-contain"
             />
-          </div>
-        </div>
-
-        {/* Message de transition vers Fe */}
-        <div className="bg-white rounded-3xl p-6 shadow-2xl mb-6 max-w-md">
-          <p className="text-xl text-slate-700 text-center font-medium mb-4">
-            Mission accomplie avec Luce !
-          </p>
-          <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-2xl p-4 border-2 border-red-200">
-            <p className="text-lg text-red-700 text-center font-bold mb-2">
-              L'aventure continue...
-            </p>
-            <p className="text-slate-600 text-center">
-              <strong>Fe</strong> t'attend à l'église de <strong>Fey</strong> pour la mission 2 !
-            </p>
-            <p className="text-sm text-red-600 text-center mt-2 font-medium">
-              À partir du 7 décembre
-            </p>
+            <div className="flex-1">
+              <p className="text-lg text-red-700 font-bold mb-1">
+                L'aventure continue...
+              </p>
+              <p className="text-slate-600 flex items-center gap-1">
+                <MapPin className="w-4 h-4 text-red-500" />
+                <span><strong>Fe</strong> t'attend à l'église de <strong>Fey</strong></span>
+              </p>
+              <p className="text-sm text-red-600 mt-1 font-medium">
+                À partir du 7 décembre
+              </p>
+            </div>
           </div>
         </div>
 
