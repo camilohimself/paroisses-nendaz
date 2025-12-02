@@ -2,6 +2,48 @@
 
 ---
 
+## SESSION 2 DECEMBRE 2025
+
+### Objectif du jour
+Page calendrier de l'Avent interactive + maillage interne
+
+### Realise aujourd'hui
+
+**1. Page `/avent` - Refonte complete**
+- Hero avec image groupe des 4 personnages
+- CTA dynamique vers mission de la semaine en cours
+- Calendrier interactif 25 jours (grille 5x5)
+- Cases colorees par semaine (jaune S1 / rouge S2 / vert S3 / bleu S4)
+- Modal contenu du jour (texte biblique + meditation + priere)
+- Section semaine : psaume + priere + chant YouTube embed
+- Fil d'Ariane retour vers /actualites
+
+**2. Donnees semaine 1 (`lib/avent-data.ts`)**
+- Structure TypeScript pour semaines et jours
+- Contenu jours 1-7 decembre extrait du PDF
+- 4 semaines definies avec couleurs Tailwind
+- Chants YouTube IDs integres
+
+**3. Mission 1 - Mise a jour**
+- Ajout lieu : "Bienvenue a l'eglise de Basse-Nendaz"
+
+**4. Maillage interne**
+- `/actualites` → CTA "Ouvrir le calendrier" → `/avent`
+- `/avent` → Lien retour → `/actualites`
+- Suppression compteur sur actualites (plus necessaire)
+
+**5. SEO OpenGraph**
+- Image groupe pour partage WhatsApp/Facebook sur `/avent`
+
+**6. QR Code Mission 1**
+- `qr-codes/mission-1-luce.jpg` genere
+
+### Commits
+- `cc6f272` - 🎄 AVENT: Page calendrier interactif + maillage interne
+- `f450b45` - 🖼️ SEO: OpenGraph image groupe pour /avent
+
+---
+
 ## SESSION 28 NOVEMBRE 2025
 
 ### Objectif du jour
