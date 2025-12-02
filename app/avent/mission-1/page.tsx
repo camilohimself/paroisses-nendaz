@@ -549,7 +549,7 @@ export default function Mission1Page() {
   // ============================================
   if (currentSlide.type === 'fin-mission') {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-amber-200 via-yellow-100 to-amber-200 flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-100 flex flex-col items-center justify-center p-4">
         {/* Texte de fin en très grand */}
         <div className="w-full max-w-md mx-auto mb-6">
           <p className="text-4xl md:text-5xl font-black text-center text-amber-600 animate-bounce">
@@ -557,26 +557,53 @@ export default function Mission1Page() {
           </p>
         </div>
 
-        {/* Luce rayonnante */}
-        <div className="mb-8">
-          <LuceAnimated animation="glow" size={250} imageName={currentSlide.image} />
+        {/* Luce et Fe côte à côte */}
+        <div className="flex items-end justify-center gap-4 mb-6">
+          <div className="animate-pulse">
+            <Image
+              src="/images/avent/personnages/Luce.png"
+              alt="Luce"
+              width={140}
+              height={175}
+              className="object-contain drop-shadow-xl"
+            />
+          </div>
+          <div>
+            <Image
+              src="/images/avent/personnages/Fe.png"
+              alt="Fe"
+              width={140}
+              height={175}
+              className="object-contain drop-shadow-xl"
+            />
+          </div>
         </div>
 
-        {/* Message de fin */}
+        {/* Message de transition vers Fe */}
         <div className="bg-white rounded-3xl p-6 shadow-2xl mb-6 max-w-md">
-          <p className="text-xl text-slate-700 text-center font-medium">
-            Mission de la semaine accomplie ! À bientôt pour de nouvelles aventures avec Luce !
+          <p className="text-xl text-slate-700 text-center font-medium mb-4">
+            Mission accomplie avec Luce !
           </p>
+          <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-2xl p-4 border-2 border-red-200">
+            <p className="text-lg text-red-700 text-center font-bold mb-2">
+              L'aventure continue...
+            </p>
+            <p className="text-slate-600 text-center">
+              <strong>Fe</strong> t'attend à l'église de <strong>Fey</strong> pour la mission 2 !
+            </p>
+            <p className="text-sm text-red-600 text-center mt-2 font-medium">
+              À partir du 7 décembre
+            </p>
+          </div>
         </div>
 
         <button
           onClick={() => {
-            // Retour au début ou vers la page Avent
             window.location.href = '/avent'
           }}
-          className="px-10 py-5 rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 text-white font-bold text-xl shadow-xl active:scale-95 transition-transform"
+          className="px-10 py-5 rounded-2xl bg-gradient-to-r from-amber-400 to-red-500 text-white font-bold text-xl shadow-xl active:scale-95 transition-transform"
         >
-          Terminer
+          Retour au calendrier
         </button>
       </div>
     )
