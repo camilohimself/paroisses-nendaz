@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, ChevronRight, ChevronLeft, Play, Lock, Sparkles, BookOpen, Music, X, Flame } from 'lucide-react'
+import { Calendar, ChevronLeft, Play, Lock, Sparkles, BookOpen, Music, X, Flame, MapPin } from 'lucide-react'
 import {
   SEMAINES_AVENT,
   JOURS_SEMAINE_1,
@@ -282,7 +282,7 @@ export default function AventPage() {
             </div>
           </div>
 
-          {/* CTA Mission en cours */}
+          {/* Teaser Mission - Invitation à se rendre sur place */}
           <div className={`rounded-2xl p-6 shadow-lg bg-gradient-to-r ${semaineActuelle.couleurTailwind.bgGradient} border-2 ${semaineActuelle.couleurTailwind.border}`}>
             <div className="flex flex-col md:flex-row items-center gap-4">
               <Image
@@ -295,16 +295,13 @@ export default function AventPage() {
               <div className="flex-1 text-center md:text-left">
                 <p className="text-sm text-slate-600 uppercase tracking-wide">Défi de la semaine {semaineActuelle.numero}</p>
                 <h2 className={`text-xl font-bold ${semaineActuelle.couleurTailwind.text}`}>
-                  Mission avec {semaineActuelle.personnage}
+                  Le défi de {semaineActuelle.personnage} t'attend !
                 </h2>
+                <p className="text-slate-600 mt-1 flex items-center justify-center md:justify-start gap-2">
+                  <MapPin className="w-4 h-4" />
+                  <span>Rendez-vous à l'église de <strong>Basse-Nendaz</strong></span>
+                </p>
               </div>
-              <Link
-                href={`/avent/mission-${semaineActuelle.numero}`}
-                className={`flex items-center gap-2 px-6 py-3 rounded-full ${semaineActuelle.couleurTailwind.accent} text-white font-bold shadow-lg hover:opacity-90 transition-opacity`}
-              >
-                Participer
-                <ChevronRight className="w-5 h-5" />
-              </Link>
             </div>
           </div>
         </div>
