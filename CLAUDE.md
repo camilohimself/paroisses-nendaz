@@ -62,4 +62,4 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 - [ ] Mission 2 (Fe), Mission 3 (Xin), Mission 4 (Sky)
 
 ---
-*Dernière màj : 28 nov 2025*
+*Dernière màj : 2 déc 2025*

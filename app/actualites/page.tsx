@@ -192,39 +192,7 @@ export default function ActualitesPage() {
   const [pastEvents, setPastEvents] = useState<typeof allEvents>([])
   const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
-  // Compteur Avent
-  const [timeLeft, setTimeLeft] = useState({
-    jours: 0,
-    heures: 0,
-    minutes: 0,
-    secondes: 0
-  })
-  const [isAventLaunched, setIsAventLaunched] = useState(false)
-
   useEffect(() => {
-    // Compteur Avent
-    const launchDate = new Date('2025-11-30T00:00:00+01:00')
-
-    const updateCountdown = () => {
-      const now = new Date()
-      const difference = launchDate.getTime() - now.getTime()
-
-      if (difference <= 0) {
-        setIsAventLaunched(true)
-        return
-      }
-
-      const jours = Math.floor(difference / (1000 * 60 * 60 * 24))
-      const heures = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-      const secondes = Math.floor((difference % (1000 * 60)) / 1000)
-
-      setTimeLeft({ jours, heures, minutes, secondes })
-    }
-
-    updateCountdown()
-    const countdownInterval = setInterval(updateCountdown, 1000)
-
     const today = new Date()
     today.setHours(0, 0, 0, 0)
 
@@ -255,8 +223,6 @@ export default function ActualitesPage() {
     setHighlightEvents(withImages)
     setRegularEvents(withoutImages)
     setPastEvents(past)
-
-    return () => clearInterval(countdownInterval)
   }, [])
 
   const formatDate = (dateString: string) => {
@@ -283,85 +249,39 @@ export default function ActualitesPage() {
   return (
     <div className="min-h-screen bg-neutral-grisClaire">
 
-      {/* HERO - COMPTEUR AVENT */}
-      <section className="relative bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100 py-20 md:py-32">
+      {/* HERO - CALENDRIER DE L'AVENT */}
+      <section className="relative bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100 py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
 
             {/* Titre principal */}
-            <div className="mb-8">
+            <div className="mb-6">
               <Sparkles className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 text-amber-600" />
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Calendrier de l'Avent
               </h1>
               <p className="text-lg md:text-xl text-stone-600">
-                {isAventLaunched ? "L'aventure a commencé !" : "L'aventure commence bientôt..."}
+                Pèlerins de l'espérance — L'aventure a commencé !
               </p>
             </div>
 
-            {/* Image groupe personnages - Teasing */}
+            {/* Image groupe personnages */}
             <div className="mb-6 overflow-hidden">
               <img
                 src="/images/avent/personnages/groupe.png"
                 alt="Les 4 pèlerins de l'Avent - Luce, Fe, Xin et Sky"
-                className="w-72 h-auto md:w-96 lg:w-[28rem] mx-auto drop-shadow-xl scale-150"
+                className="w-64 h-auto md:w-80 lg:w-96 mx-auto drop-shadow-xl scale-150"
               />
             </div>
 
-            {/* Compteur progressif stone → amber */}
-            {!isAventLaunched && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
-                {/* Jours - Stone foncé */}
-                <div className="bg-gradient-to-br from-stone-700 to-stone-800 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
-                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
-                    {timeLeft.jours}
-                  </div>
-                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
-                    {timeLeft.jours > 1 ? 'Jours' : 'Jour'}
-                  </div>
-                </div>
-
-                {/* Heures - Stone */}
-                <div className="bg-gradient-to-br from-stone-600 to-stone-700 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
-                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
-                    {timeLeft.heures}
-                  </div>
-                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
-                    {timeLeft.heures > 1 ? 'Heures' : 'Heure'}
-                  </div>
-                </div>
-
-                {/* Minutes - Amber */}
-                <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
-                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
-                    {timeLeft.minutes}
-                  </div>
-                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
-                    {timeLeft.minutes > 1 ? 'Minutes' : 'Minute'}
-                  </div>
-                </div>
-
-                {/* Secondes - Amber clair */}
-                <div className="bg-gradient-to-br from-amber-400 to-amber-500 rounded-2xl p-6 md:p-8 shadow-lg transform hover:scale-105 transition-transform">
-                  <div className="text-5xl md:text-7xl font-bold text-white mb-2">
-                    {timeLeft.secondes}
-                  </div>
-                  <div className="text-lg md:text-xl font-semibold text-white uppercase tracking-wide">
-                    {timeLeft.secondes > 1 ? 'Secondes' : 'Seconde'}
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {/* Message */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-              <p className="text-lg md:text-xl text-stone-700 font-medium">
-                Une aventure interactive avec 4 semaines de découvertes et de missions
-              </p>
-              <p className="text-sm md:text-base text-stone-500 mt-2">
-                Paroisses de Nendaz et Veysonnaz
-              </p>
-            </div>
+            {/* CTA vers le calendrier */}
+            <a
+              href="/avent"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-full shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 transition-all"
+            >
+              Ouvrir le calendrier
+              <ChevronRight className="w-5 h-5" />
+            </a>
 
           </div>
         </div>

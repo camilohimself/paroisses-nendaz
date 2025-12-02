@@ -22,7 +22,7 @@ interface Slide {
 const SLIDES_ETAPE1: Slide[] = [
   {
     id: 1,
-    texte: "Salut ! Bienvenue à toi, pèlerin de l'espérance !",
+    texte: "Salut ! Bienvenue à l'église de Basse-Nendaz, pèlerin de l'espérance !",
     bullePosition: 'top',
     animation: 'zoomIn',
     image: 'Luce.png'
