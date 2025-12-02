@@ -6,9 +6,6 @@ import dynamic from 'next/dynamic'
 const HorairesMesse = dynamic(() => import('@/components/HorairesMesse'), {
   loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-32" />
 })
-const YouTubeLiveIndicator = dynamic(() => import('@/components/YouTubeLiveIndicator'), {
-  loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-32" />
-})
 
 
 export default function Home() {
@@ -252,31 +249,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========================================= */}
-      {/* YOUTUBE LIVE - PIERRE ET LUMIÈRE        */}
-      {/* ========================================= */}
-      <section id="messe-direct" className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-
-            {/* Titre section */}
-            <div className="text-center mb-10">
-              <div className="flex justify-center mb-4">
-                <div className="h-px w-16 bg-amber-300"></div>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-stone-800 mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Messe en direct
-              </h2>
-              <p className="text-stone-600">YouTube de la Paroisse</p>
-              <div className="flex justify-center mt-4">
-                <div className="h-px w-16 bg-amber-300"></div>
-              </div>
-            </div>
-
-            <YouTubeLiveIndicator />
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

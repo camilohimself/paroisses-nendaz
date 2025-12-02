@@ -303,7 +303,7 @@ export default function AventPage() {
                 </p>
                 <p className="text-sm text-slate-500 mt-1 flex items-center justify-center md:justify-start gap-2">
                   <Calendar className="w-4 h-4" />
-                  <span>Du 1er au 6 décembre</span>
+                  <span>Du 1er décembre au 4 janvier 2026</span>
                 </p>
               </div>
             </div>
