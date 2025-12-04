@@ -121,6 +121,16 @@ const allEvents = [
     lieu: 'Messe 17h30'
   },
   {
+    id: 'saint-nicolas-2025',
+    title: 'Saint Nicolas à Basse-Nendaz',
+    excerpt: 'Saint Nicolas sera au rendez-vous ! Messe animée par les enfants des activités catéchétiques, suivie de la distribution de friandises à tous les enfants.',
+    date: '2025-12-14',
+    image: '/images/articles/saint-nicolas-2025.jpg',
+    hasImage: true,
+    category: 'Événement',
+    lieu: 'Église de Basse-Nendaz - après la messe de 10h'
+  },
+  {
     id: '1',
     title: 'Fête paroissiale 2025',
     excerpt: 'Grande fête paroissiale avec messe, repas et animations pour tous. Venez nombreux célébrer ensemble notre communauté !',
