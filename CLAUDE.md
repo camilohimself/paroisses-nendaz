@@ -67,12 +67,12 @@ git push origin main
 5. Tester + commit + push
 
 ### Lieux des missions (QR codes physiques)
-| Semaine | Personnage | Église |
-|---------|------------|--------|
-| 1 | Luce | Basse-Nendaz |
-| 2 | Fe | (à définir) |
-| 3 | Xin | (à définir) |
-| 4 | Sky | (à définir) |
+| Semaine | Personnage | Église | Status |
+|---------|------------|--------|--------|
+| 1 | Luce | Basse-Nendaz | FAIT |
+| 2 | Fe | Fey | FAIT (page + QR) |
+| 3 | Xin | Veysonnaz | À CRÉER |
+| 4 | Sky | (à définir) | À CRÉER |
 
 ### Dates clés
 | Semaine | Début | Fin | Personnage |
@@ -92,13 +92,31 @@ git push origin main
 ## Paroisses légitimes (sitemap)
 Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
-## Backlog
-- [ ] Mission 2 (Fe) - semaine du 7 déc
-- [ ] Mission 3 (Xin) - semaine du 14 déc
-- [ ] Mission 4 (Sky) - semaine du 21 déc
-- [ ] Jours semaine 2 dans avent-data.ts
+## Backlog Avent
+- [x] Mission 1 (Luce) - Basse-Nendaz - FAIT
+- [x] Mission 2 (Fe) - Fey - FAIT (page + QR + jours 8-13)
+- [ ] Mission 3 (Xin) - Veysonnaz - semaine du 14 déc
+- [ ] Mission 4 (Sky) - (église à définir) - semaine du 21 déc
+- [x] Jours semaine 1 dans avent-data.ts - FAIT
+- [x] Jours semaine 2 dans avent-data.ts - FAIT
 - [ ] Jours semaine 3 dans avent-data.ts
 - [ ] Jours semaine 4 dans avent-data.ts
+- [ ] Images Fe personnalisées (différentes postures)
+
+### Images Fe à générer (placeholders dans mission-2/page.tsx)
+```typescript
+const IMAGES_FE = {
+  accueil: 'Fe.png',      // Fe-accueil.png
+  presentation: 'Fe.png', // Fe-presentation.png
+  indices: 'Fe.png',      // Fe-indices.png
+  cherche: 'Fe.png',      // Fe-cherche.png
+  bravo: 'Fe.png',        // Fe-bravo.png
+  bible: 'Fe.png',        // Fe-bible.png
+  priere: 'Fe.png',       // Fe-priere.png
+  defi: 'Fe.png',         // Fe-defi.png
+  fin: 'Fe.png',          // Fe-fin.png
+}
+```
 
 ---
-*Dernière màj : 2 déc 2025*
+*Dernière màj : 4 déc 2025*

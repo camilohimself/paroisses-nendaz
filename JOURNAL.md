@@ -2,6 +2,39 @@
 
 ---
 
+## SESSION 4 DECEMBRE 2025 (matin)
+
+### Objectif du jour
+Mission 2 - Fe à l'église de Fey
+
+### Realise ce matin
+
+**1. Page Mission 2 (`/avent/mission-2`)**
+- Parcours interactif 5 étapes à l'église de Fey
+- Contrôle d'accès : page verrouillée jusqu'au 7 décembre
+- Écran "pas encore disponible" avec compteur
+- Étapes : Présentation Fe → Question Bible → Recherche Ambon → Psaume → Défis
+- Teaser fin : Xin à Veysonnaz (14 décembre)
+- Placeholders images pour personnalisation (IMAGES_FE en haut du fichier)
+
+**2. Données Semaine 2 (`lib/avent-data.ts`)**
+- JOURS_SEMAINE_2[] : jours 8-13 décembre
+- Méditations quotidiennes extraites du PDF
+- Fonction getJourData() mise à jour
+
+**3. Assets**
+- QR code `mission-2-fe.jpg` généré → https://www.paroisses-nendaz.ch/avent/mission-2
+- Image Fe.png copiée dans personnages
+
+### Commits
+- `641f13e` - 🎄 AVENT: Mission 2 - Fe à Fey
+
+### À faire cet après-midi
+- [ ] Générer images Fe avec IA (différentes postures pour les slides)
+- [ ] Personnaliser IMAGES_FE dans mission-2/page.tsx
+
+---
+
 ## SESSION 2 DECEMBRE 2025
 
 ### Objectif du jour
