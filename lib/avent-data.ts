@@ -294,6 +294,90 @@ Cette semaine, je veux avancer dans la vie avec confiance…`,
 ]
 
 // ============================================
+// JOURS DE L'AVENT - SEMAINE 2
+// ============================================
+
+export const JOURS_SEMAINE_2: JourAvent[] = [
+  {
+    jour: 8,
+    date: "2025-12-08",
+    titre: "La marche des mages est longue",
+    texteBiblique: "La marche des mages est longue. La marche de Marie et Joseph aussi. Il leur a fallu beaucoup de foi – confiance pour accomplir tout ce chemin. Jésus aussi a beaucoup marché…",
+    meditation: "",
+    priere: `Seigneur Jésus, j'ai confiance en toi.
+Mais, qu'il est parfois tortueux le chemin qui me conduit vers toi.
+Augmente en moi la foi, alors la joie de me savoir ton enfant bien-aimé.e me remplira de bonheur.
+
+Ô Marie, toi qui as connu ce chemin de foi, aide-moi à me laisser habiter par Dieu…`,
+    special: 'dimanche',
+    semaine: 2
+  },
+  {
+    jour: 9,
+    date: "2025-12-09",
+    titre: "Ancrés dans le Christ",
+    texteBiblique: "Les pèlerins, dans le logo de l'année de l'espérance, sont comme sur un bateau, ancrés dans le Christ. À leur suite…",
+    meditation: "",
+    priere: `Ô Seigneur, aide-moi à m'accrocher à toi,
+à te faire confiance
+même et surtout si je traverse la tempête.`,
+    semaine: 2
+  },
+  {
+    jour: 10,
+    date: "2025-12-10",
+    titre: "Différents et unis dans la foi",
+    texteBiblique: "Comme les mages sont différents les uns des autres, les 4 personnages du logo ainsi que les 4 pèlerins de l'espérance représentent les personnes venant de tous les coins du monde. Différents et unis dans la foi !",
+    meditation: "",
+    priere: `Seigneur, je te prie pour toutes les personnes des différents continents.
+Je te prie avec toutes les personnes de bonne volonté qui te prient de manières différentes.
+Viens nous donner ta lumière, ta sagesse.
+Apprends-nous à te chercher et chercher ensemble ta lumière dans nos vies…`,
+    semaine: 2
+  },
+  {
+    jour: 11,
+    date: "2025-12-11",
+    titre: "La confiance est contagieuse",
+    texteBiblique: "La confiance est contagieuse. La foi d'une personne entraîne souvent d'autres personnes à s'accrocher.",
+    meditation: "",
+    priere: `Seigneur, je te confie toutes les personnes que je porte dans mon cœur, dans ma prière, dans ma vie…
+
+Merci pour celles qui vont bien ! Je te confie celles qui ont des problèmes, soutiens-les…`,
+    semaine: 2
+  },
+  {
+    jour: 12,
+    date: "2025-12-12",
+    titre: "La croix de Jésus est une ancre",
+    texteBiblique: "La croix de Jésus est une ancre. Dans le logo de l'espérance, l'ancre a la forme d'un bateau, symbole de protection et d'unité.",
+    meditation: "",
+    priere: `Ô Jésus, toi qui es venu habiter cette terre par amour,
+par solidarité avec nous,
+toi qui as donné ta vie, toi qui es le Vivant,
+protège-nous.
+
+Aide-nous chaque jour à être des pèlerins de l'espérance rempli de confiance en ton Esprit.
+Merci d'être pour nous cette barque solide qui protège…`,
+    semaine: 2
+  },
+  {
+    jour: 13,
+    date: "2025-12-13",
+    titre: "Le Verbe s'est fait chair",
+    texteBiblique: "Et le Verbe s'est fait chair, il a habité parmi nous, et nous avons vu sa gloire, la gloire qu'il tient de son Père comme Fils unique, plein de grâce et de vérité.",
+    meditation: `Ô Jésus, tu es Parole de Dieu pour nous, ta vie est Parole, tes actes sont Parole, tes Paroles nous ouvrent à Dieu.`,
+    priere: `Ô Jésus, si parfois, je ne sens plus ta présence…
+si je suis chamboulé.e au point de ne plus croire si tu existes vraiment…
+si je doute… si je marche dans la nuit,
+
+Ô Seigneur, ouvre mon cœur à ta Parole…`,
+    special: 'bougie',
+    semaine: 2
+  }
+]
+
+// ============================================
 // FONCTIONS UTILITAIRES
 // ============================================
 
@@ -324,8 +408,15 @@ export function estJourAccessible(jour: number): boolean {
 }
 
 export function getJourData(jour: number): JourAvent | undefined {
-  // Pour l'instant, seulement semaine 1
-  return JOURS_SEMAINE_1.find(j => j.jour === jour)
+  // Semaine 1 : jours 1-7
+  const jourSemaine1 = JOURS_SEMAINE_1.find(j => j.jour === jour)
+  if (jourSemaine1) return jourSemaine1
+
+  // Semaine 2 : jours 8-13
+  const jourSemaine2 = JOURS_SEMAINE_2.find(j => j.jour === jour)
+  if (jourSemaine2) return jourSemaine2
+
+  return undefined
 }
 
 export function getSemaineParJour(jour: number): SemaineAvent {
