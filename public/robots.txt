@@ -11,7 +11,8 @@ Disallow: /
 Allow: /$
 Allow: /actualites$
 Allow: /contact$
-Allow: /evenements$
+Allow: /dons$
+Allow: /avent$
 Allow: /paroisses$
 Allow: /paroisses/aproz$
 Allow: /paroisses/basse-nendaz$

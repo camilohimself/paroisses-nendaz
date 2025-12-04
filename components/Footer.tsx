@@ -67,9 +67,14 @@ export default function Footer() {
               >
                 Base Enoria
               </a>
-              <Link href="/contact" className="block hover:text-paroisse-bleuRoi transition-colors">
+              <a
+                href="https://www.davidica.ch/location-salle.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:text-paroisse-bleuRoi transition-colors"
+              >
                 Réservation salle
-              </Link>
+              </a>
               <a
                 href="/api/feuille-annonces/generate"
                 target="_blank"

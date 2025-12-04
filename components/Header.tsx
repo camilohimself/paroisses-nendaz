@@ -222,6 +222,25 @@ export default function Header() {
                         </div>
                       </div>
                     </Link>
+
+                    <a
+                      href="https://www.davidica.ch/location-salle.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Réservation salle</div>
+                          <div className="text-xs text-stone-500">Salle paroissiale</div>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               )}
@@ -395,6 +414,15 @@ export default function Header() {
                     >
                       Demande d'intentions
                     </Link>
+                    <a
+                      href="https://www.davidica.ch/location-salle.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-stone-600 hover:text-amber-600 transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsContactOpen(false); }}
+                    >
+                      Réservation salle
+                    </a>
                   </div>
                 )}
               </div>
