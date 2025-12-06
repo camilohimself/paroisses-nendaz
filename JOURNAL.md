@@ -2,6 +2,87 @@
 
 ---
 
+## SESSION 6 DECEMBRE 2025
+
+### Objectif du jour
+Finalisation Mission 2 - Images Fe + amélioration textes
+
+### Realise aujourd'hui
+
+**1. Images Fe - 7 postures générées (ChatGPT)**
+- `Fe-accueil.png` : bras ouverts, accueillant
+- `Fe-salut.png` : main qui salue, présentation
+- `Fe-indices.png` : doigt levé, donne des indices
+- `Fe-bible.png` : tient la Bible + bâton pèlerin
+- `Fe-bravo.png` : bras levés, célébration
+- `Fe-priere.png` : en prière, yeux fermés
+- `Fe-fin.png` : salue + bâton (au revoir)
+
+**2. Intégration images dans mission-2**
+- IMAGES_FE mis à jour avec les 7 postures
+- Chaque slide utilise maintenant l'image appropriée
+
+**3. Amélioration des textes (ton enfantin)**
+Réécriture des 20 slides pour un ton plus vivant et adapté aux enfants :
+- Phrases courtes et dynamiques
+- Vocabulaire simple et joyeux
+- Interpellation directe ("Tu vois...", "À toi de jouer !")
+- Expressions ludiques ("chasse au trésor", "chercheur de trésors")
+- Émotions positives ("Youpi !", "Bravo !")
+
+**4. Mode développeur**
+- Ajout paramètre `?dev=true` pour bypasser le compteur
+- Permet de tester avant le 7 décembre sans modifier la date
+
+### Principes rédactionnels - Dialogues enfants
+
+| Avant | Après |
+|-------|-------|
+| Phrases longues explicatives | Phrases courtes, punch |
+| "Je suis vêtu de rouge parce que..." | "Tu vois ma cape rouge ?" |
+| Vocabulaire adulte | Vocabulaire enfantin |
+| Ton descriptif | Ton interactif (questions) |
+| Formules passives | Interpellation directe |
+
+**5. Slide "Raconte-moi !" (explication Bible)**
+- Nouvelle image `Fe-showing-bible.png`
+- Slide intermédiaire expliquant la Bible aux enfants
+- "La Bible, c'est une vraie bibliothèque ! 73 livres écrits sur plus de 1000 ans"
+- Cohérence mise à jour dans les slides suivantes (plus "un livre" mais "la Bible")
+
+**6. Optimisation images**
+- Toutes les images Fe réduites avec `sips -Z 500`
+- Poids total : ~17MB → ~1.4MB (réduction 90%)
+- Chargement mobile fluide
+
+**7. Tracking GA4**
+- Nouveau fichier `lib/analytics.ts`
+- Events : `mission_start`, `mission_complete`, `bible_discovered`, `ambon_found`
+- Intégré dans mission-1 et mission-2
+
+**8. Page /avent - Blocs semaine enrichis**
+- Ajout champ `introduction` (description personnage + intention)
+- Ajout champ `actionSemaine` (défi concret de la semaine)
+- Contenu pour les 4 semaines extrait du PDF
+- Mode dev `?dev=true` pour prévisualiser toutes les semaines
+- Teaser dynamique selon semaine actuelle (église + personnage)
+
+### Architecture - Déverrouillage automatique
+
+Le calendrier se déverrouille automatiquement selon la date du navigateur :
+```typescript
+// lib/avent-data.ts
+getSemaineActuelle() → compare new Date() avec dateDebut/dateFin
+getJourActuel() → calcule le jour depuis le 1er décembre
+```
+
+Pas besoin de redéployer - le calcul est côté client à chaque visite.
+
+### Commits
+- `342ccc4` 🎄 AVENT: Mission 2 complète + blocs semaine enrichis
+
+---
+
 ## SESSION 4 DECEMBRE 2025 (matin)
 
 ### Objectif du jour
@@ -28,10 +109,6 @@ Mission 2 - Fe à l'église de Fey
 
 ### Commits
 - `641f13e` - 🎄 AVENT: Mission 2 - Fe à Fey
-
-### À faire cet après-midi
-- [ ] Générer images Fe avec IA (différentes postures pour les slides)
-- [ ] Personnaliser IMAGES_FE dans mission-2/page.tsx
 
 ---
 
