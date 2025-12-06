@@ -25,11 +25,13 @@ export interface SemaineAvent {
     border: string
     accent: string
   }
+  introduction: string // Description du personnage + intention de la semaine
   psaume: {
     numero: string
     texte: string
   }
   priereSemaine: string
+  actionSemaine: string // "Comment puis-je vivre... aujourd'hui ?"
   chant: {
     titre: string
     youtubeId: string
@@ -57,6 +59,11 @@ export const SEMAINES_AVENT: SemaineAvent[] = [
       border: "border-amber-400",
       accent: "bg-amber-500"
     },
+    introduction: `Avec les enfants, je me mets en route, avec Luce, qui veut dire "lumière".
+
+Vêtue de jaune, en référence au drapeau du Vatican, elle nous apporte la lumière qui illumine notre chemin de foi. Comme ses amis, elle porte les différents attributs d'un pèlerin ; un bâton, des bottes tachées de boue en signe du long voyage à accomplir, un chapelet autour du cou, des yeux avec des reflets en forme de coquille Saint-Jacques.
+
+Cette semaine, je veux accueillir la lumière et la semer autour de moi…`,
     psaume: {
       numero: "Psaume 26",
       texte: `Le Seigneur est ma lumière et mon salut ; de qui aurais-je crainte ?
@@ -74,6 +81,11 @@ que je devienne à mon tour, lumière pour les autres.
 
 Tu es ma lumière,
 merci pour la paix que tu me donnes...`,
+    actionSemaine: `Comment puis-je semer de la lumière dans ma vie ?
+
+D'abord en me rechargeant par un temps de prière… Puis en partageant la lumière par un sourire – par une parole qui fait du bien – par une parole de sagesse – par mon humour – par ma joie de vivre…
+
+Chaque jour, je choisis une action concrète pour semer de la lumière autour de moi et je fais avancer le pèlerin de l'espérance, Luce, vers la crèche… ou je dépose en évidence la carte de l'étoile…`,
     chant: {
       titre: "Dans la lumière de Dieu",
       youtubeId: "fOJoUI_IA4s"
@@ -95,6 +107,11 @@ merci pour la paix que tu me donnes...`,
       border: "border-red-400",
       accent: "bg-red-500"
     },
+    introduction: `Avec les enfants, je me mets en route avec "Fe" qui veut dire Foi.
+
+Vêtu de rouge, il est rempli d'énergie et symbolise la confiance et la persévérance nécessaires pour avancer dans la vie. Avec sa Bible dans sa poche, il partage des paroles d'espérance et nous rappelle que la foi peut nous guider.
+
+Cette semaine, je veux avancer dans la vie avec confiance…`,
     psaume: {
       numero: "Psaume 71 (72)",
       texte: `En ces jours-là, fleurira la justice,
@@ -109,6 +126,13 @@ Rappelle-moi que Tu es digne de confiance
 et que Tu n'abandonnes jamais tes enfants.
 
 Augmente ma foi pour savoir que ni la mort, ni la vie, ni les anges ni les dirigeants, ni le présent, ni l'avenir, ni la hauteur, ni la profondeur, ni rien d'autre dans toute la création ne pourra me séparer de Ton amour.`,
+    actionSemaine: `Comment puis-je vivre ma foi aujourd'hui ?
+
+Lire une parole de la Bible chaque jour – à dire chaque jour de cette semaine : "Jésus, j'ai confiance en toi." – en témoignant par ma vie…
+
+Dans quel domaine suis-je particulièrement invité.e à faire confiance, dans ma vie de tous les jours ? Je demande la force à Dieu et je m'y exerce chaque jour de cette semaine.
+
+Chaque jour, je choisis une action concrète pour vivre ma foi et je fais avancer le pèlerin de l'espérance, Fe, vers la crèche… ou je dépose en évidence la carte de l'ancre…`,
     chant: {
       titre: "J'ai confiance, je ne crains pas",
       youtubeId: "rIjW99MJf7w"
@@ -130,6 +154,13 @@ Augmente ma foi pour savoir que ni la mort, ni la vie, ni les anges ni les dirig
       border: "border-emerald-400",
       accent: "bg-emerald-500"
     },
+    introduction: `Avec les enfants, je me mets en route, avec "Xin", qui veut dire cœur.
+
+Vêtue de vert, elle est source de douceur et de tendresse. Avec son doudou dans sa poche, elle apporte une chaleur réconfortante à tous ceux qui croisent son chemin. Une fleur orne son bâton, symbolisant la beauté et l'espoir qu'elle désire semer sur son chemin de pèlerinage.
+
+Jésus est l'ancre de notre vie, il nous aide à traverser les moments de tempête et nous apporte le réconfort et la tendresse dont nous avons besoin.
+
+Cette semaine, je veux accueillir et semer l'espérance autour de moi…`,
     psaume: {
       numero: "Psaume 145 (146)",
       texte: `Viens, Seigneur, et sauve-nous ! Alléluia !
@@ -143,6 +174,11 @@ Le Seigneur protège l'étranger, il soutient la veuve et l'orphelin.
 D'âge en âge, le Seigneur régnera.`
     },
     priereSemaine: `Seigneur, je te prie pour les opprimés, les enchaînés, les aveugles de cœur, les accablés, les étrangers, soutiens-les, protège-les et aide-moi à me faire proche de ceux qui souffrent…`,
+    actionSemaine: `Comment puis-je vivre et semer l'espérance aujourd'hui ?
+
+Comment puis-je semer la douceur et la tendresse autour de moi ? Semer la tendresse et la douceur c'est comme semer des fleurs. Je cherche comment je pourrais le faire aujourd'hui… semer un sourire, un service, faire plaisir à quelqu'un en lui offrant un dessin, s'approcher de quelqu'un qui est seul, réconforter quelqu'un de triste…
+
+Chaque jour, je choisis une action concrète pour semer l'espérance, et je fais avancer le pèlerin de l'espérance, Xin, vers la crèche… ou je dépose en évidence la carte des fleurs…`,
     chant: {
       titre: "Pèlerins sur la terre",
       youtubeId: "bfhW9hRddOg"
@@ -164,6 +200,11 @@ D'âge en âge, le Seigneur régnera.`
       border: "border-blue-400",
       accent: "bg-blue-500"
     },
+    introduction: `Je me mets en route avec les enfants, avec "Sky" qui veut dire ciel.
+
+Vêtu d'un manteau bleu, il emporte toujours sa guitare pour répandre des mélodies d'espoir et de joie. Sa guitare symbolise la prière, car chanter c'est prier deux fois ! Sky apporte une touche de musique et de spiritualité à la marche du pèlerinage.
+
+Cette semaine, je veux accueillir la joie et la semer autour de moi…`,
     psaume: {
       numero: "Psaume 23 (24)",
       texte: `Qu'il vienne, le Seigneur : c'est lui, le roi de gloire !
@@ -179,6 +220,13 @@ et de Dieu son Sauveur, la justice.
 Voici le peuple de ceux qui le cherchent !`
     },
     priereSemaine: `Je m'exerce à dire merci en chantant un alléluia, un chant de Noël, un chant de Jésus, un chant de joie, ou je fais une prière qui commence par "Je te loue Seigneur pour…" ou "Merci la vie, pour…"`,
+    actionSemaine: `Comment puis-je louer Dieu, dire merci à Dieu aujourd'hui ?
+
+Je m'exerce à dire merci en chantant un alléluia, un chant de Noël, un chant de Jésus, un chant de joie, ou je fais une prière qui commence par "Je te loue Seigneur pour…" ou "Merci la vie, pour…"
+
+Chaque jour, je choisis une action concrète pour louer, dire merci à Dieu et je fais avancer le pèlerin de l'espérance Sky vers la crèche… ou je dépose en évidence la carte de l'ange musicien…
+
+Dans la semaine, j'accroche un ange sur mon sapin. Je chante Les anges dans nos campagnes.`,
     chant: {
       titre: "Comment ne pas te louer",
       youtubeId: "H06KAewLhaY"

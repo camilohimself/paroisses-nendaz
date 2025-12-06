@@ -7,6 +7,7 @@ import { Calendar, ChevronLeft, Play, Lock, Sparkles, BookOpen, Music, X, Flame,
 import {
   SEMAINES_AVENT,
   JOURS_SEMAINE_1,
+  JOURS_SEMAINE_2,
   getSemaineActuelle,
   getJourActuel,
   estJourAccessible,
@@ -172,6 +173,13 @@ function SectionSemaine({ semaine }: { semaine: SemaineAvent }) {
         </div>
       </div>
 
+      {/* Introduction - Description du personnage */}
+      <div className="bg-white/60 rounded-2xl p-5 mb-6">
+        <p className="text-slate-700 leading-relaxed whitespace-pre-line">
+          {semaine.introduction}
+        </p>
+      </div>
+
       {/* Psaume */}
       <div className="bg-white/70 rounded-2xl p-5 mb-6">
         <p className="text-sm font-medium text-slate-500 mb-2">{semaine.psaume.numero}</p>
@@ -185,6 +193,14 @@ function SectionSemaine({ semaine }: { semaine: SemaineAvent }) {
         <h3 className={`font-bold mb-3 ${semaine.couleurTailwind.text}`}>Prière de la semaine</h3>
         <p className="text-slate-700 leading-relaxed whitespace-pre-line">
           {semaine.priereSemaine}
+        </p>
+      </div>
+
+      {/* Action de la semaine */}
+      <div className={`rounded-2xl p-5 mb-6 ${semaine.couleurTailwind.bg} border-2 ${semaine.couleurTailwind.border}`}>
+        <h3 className={`font-bold mb-3 ${semaine.couleurTailwind.text}`}>Mon défi de la semaine</h3>
+        <p className="text-slate-700 leading-relaxed whitespace-pre-line">
+          {semaine.actionSemaine}
         </p>
       </div>
 
@@ -233,12 +249,18 @@ export default function AventPage() {
   const [semaineActuelle, setSemaineActuelle] = useState<SemaineAvent>(SEMAINES_AVENT[0])
   const [selectedJour, setSelectedJour] = useState<JourAvent | null>(null)
   const [isClient, setIsClient] = useState(false)
+  const [devMode, setDevMode] = useState(false)
 
   useEffect(() => {
     setIsClient(true)
-    const jour = getJourActuel()
+    // Mode dev: ?dev=true pour voir toutes les semaines
+    const params = new URLSearchParams(window.location.search)
+    const isDev = params.get('dev') === 'true'
+    setDevMode(isDev)
+
+    const jour = isDev ? 25 : getJourActuel() // En mode dev, on simule le jour 25
     setJourActuel(jour)
-    setSemaineActuelle(getSemaineActuelle())
+    setSemaineActuelle(isDev ? SEMAINES_AVENT[3] : getSemaineActuelle())
   }, [])
 
   // Avant le 1er décembre, afficher le compteur
@@ -299,7 +321,12 @@ export default function AventPage() {
                 </h2>
                 <p className="text-slate-600 mt-1 flex items-center justify-center md:justify-start gap-2">
                   <MapPin className="w-4 h-4" />
-                  <span>Rendez-vous à l'église de <strong>Basse-Nendaz</strong></span>
+                  <span>Rendez-vous à l'église de <strong>{
+                    semaineActuelle.numero === 1 ? 'Basse-Nendaz' :
+                    semaineActuelle.numero === 2 ? 'Fey' :
+                    semaineActuelle.numero === 3 ? 'Veysonnaz' :
+                    'Haute-Nendaz'
+                  }</strong></span>
                 </p>
                 <p className="text-sm text-slate-500 mt-1 flex items-center justify-center md:justify-start gap-2">
                   <Calendar className="w-4 h-4" />
@@ -356,10 +383,12 @@ export default function AventPage() {
         </div>
       </section>
 
-      {/* Section semaine en cours */}
+      {/* Sections des semaines accessibles */}
       <section className="px-4 pb-12">
-        <div className="max-w-4xl mx-auto">
-          <SectionSemaine semaine={semaineActuelle} />
+        <div className="max-w-4xl mx-auto space-y-8">
+          {SEMAINES_AVENT.filter(s => s.numero <= semaineActuelle.numero).map((semaine) => (
+            <SectionSemaine key={semaine.numero} semaine={semaine} />
+          ))}
         </div>
       </section>
 

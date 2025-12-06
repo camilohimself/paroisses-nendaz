@@ -1,25 +1,26 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Calendar, ChevronLeft, Lock } from 'lucide-react'
+import { trackMission } from '@/lib/analytics'
 
 // ============================================
-// IMAGES DE FE - PLACEHOLDERS À PERSONNALISER
-// Remplacer par Fe-indices.png, Fe-bravo.png, etc.
-// quand les dessins seront prêts
+// IMAGES DE FE - POSTURES PERSONNALISÉES
 // ============================================
 const IMAGES_FE = {
-  accueil: 'Fe.png',           // Fe qui accueille
-  presentation: 'Fe.png',      // Fe qui se présente
-  indices: 'Fe.png',           // Fe qui donne des indices
-  cherche: 'Fe.png',           // Fe qui invite à chercher
-  bravo: 'Fe.png',             // Fe content (bravo!)
-  bible: 'Fe.png',             // Fe avec la Bible visible
-  priere: 'Fe.png',            // Fe en prière
-  defi: 'Fe.png',              // Fe qui propose le défi
-  fin: 'Fe.png',               // Fe qui dit au revoir
+  accueil: 'Fe-accueil.png',       // Fe bras ouverts, accueillant
+  presentation: 'Fe-salut.png',    // Fe qui salue, se présente
+  indices: 'Fe-indices.png',       // Fe doigt levé, donne des indices
+  cherche: 'Fe-indices.png',       // Fe qui invite à chercher
+  bravo: 'Fe-bravo.png',           // Fe bras levés, célébration
+  bible: 'Fe-bible.png',           // Fe avec la Bible + bâton pèlerin
+  showingBible: 'Fe-showing-bible.png', // Fe montre la Bible ouverte
+  ambon: 'Fe-ambon.png',           // Fe devant l'ambon (contexte église)
+  priere: 'Fe-priere.png',         // Fe en prière, yeux fermés
+  defi: 'Fe-indices.png',          // Fe énergique (réutilise indices)
+  fin: 'Fe-fin.png',               // Fe qui dit au revoir + bâton
 }
 
 // Teaser semaine 3
@@ -50,42 +51,42 @@ interface Slide {
 const SLIDES_ETAPE1: Slide[] = [
   {
     id: 1,
-    texte: "Salut, Bienvenue à toi pèlerin !",
+    texte: "Salut toi\u00A0! Bienvenue, petit pèlerin\u00A0!",
     bullePosition: 'top',
     animation: 'zoomIn',
     image: IMAGES_FE.accueil
   },
   {
     id: 2,
-    texte: "Je m'appelle Fe. Mon nom veut dire... Foi !",
+    texte: "Moi c'est Fe\u00A0! Tu sais ce que ça veut dire\u00A0? Foi\u00A0!",
     bullePosition: 'top',
     animation: 'pulse',
     image: IMAGES_FE.presentation
   },
   {
     id: 3,
-    texte: "J'ai bien choisi mon lieu pour me cacher, à l'église de Fey 😉",
+    texte: "Fe à Fey... Pas mal comme cachette, non\u00A0?",
     bullePosition: 'bottom',
     animation: 'float',
     image: IMAGES_FE.presentation
   },
   {
     id: 4,
-    texte: "Je suis vêtu de rouge parce que je suis énergique, rempli de confiance et de persévérance pour avancer dans la Vie avec Jésus.",
+    texte: "Tu vois ma cape rouge\u00A0? C'est la couleur de l'énergie et du courage\u00A0! Avec Jésus, j'avance sans avoir peur.",
     bullePosition: 'top',
     animation: 'glow',
     image: IMAGES_FE.presentation
   },
   {
     id: 5,
-    texte: "Je suis venu ici pour te donner des paroles d'espérance qui habitent en mon cœur et qui me font grandir dans la foi.",
+    texte: "J'ai un secret à te partager... Des paroles qui réchauffent le cœur et font grandir la foi\u00A0!",
     bullePosition: 'bottom',
     animation: 'float',
     image: IMAGES_FE.indices
   },
   {
     id: 6,
-    texte: "Si tu m'observes d'un peu plus près, tu pourras trouver un objet qui me donne des mots d'espoir. L'as-tu trouvé ?",
+    texte: "Regarde-moi bien... Tu vois l'objet que je porte\u00A0? Il contient des trésors de paroles\u00A0!",
     bullePosition: 'top',
     animation: 'zoom',
     image: IMAGES_FE.indices,
@@ -99,7 +100,7 @@ const SLIDES_ETAPE1: Slide[] = [
 const SLIDES_ETAPE2: Slide[] = [
   {
     id: 7,
-    texte: "Es-tu prêt pour la suite ? C'est parti !",
+    texte: "Prêt pour une nouvelle aventure\u00A0? Allez, suis-moi\u00A0!",
     bullePosition: 'top',
     animation: 'bounce',
     image: IMAGES_FE.accueil,
@@ -107,35 +108,35 @@ const SLIDES_ETAPE2: Slide[] = [
   },
   {
     id: 8,
-    texte: "Nous partons maintenant à la recherche d'un nouvel endroit...",
+    texte: "On part à la chasse au trésor\u00A0! Je cherche un endroit très spécial...",
     bullePosition: 'bottom',
     animation: 'float',
     image: IMAGES_FE.indices
   },
   {
     id: 9,
-    texte: "Ce lieu est très important car c'est de là qu'on annonce lors des messes les messages et les histoires de Jésus.",
+    texte: "C'est depuis cet endroit qu'on raconte les plus belles histoires de Jésus pendant la messe\u00A0!",
     bullePosition: 'top',
     animation: 'glow',
     image: IMAGES_FE.indices
   },
   {
     id: 10,
-    texte: "On dit que c'est l'endroit où la Parole de Dieu prend vie pour nous.",
+    texte: "Ici, les mots de Dieu prennent vie et parlent à notre cœur.",
     bullePosition: 'bottom',
     animation: 'pulse',
     image: IMAGES_FE.bible
   },
   {
     id: 11,
-    texte: "D'ici le lecteur est vu et entendu par tous. On y dépose un livre dans lequel on trouve des histoires de la Bible.",
+    texte: "Tout le monde peut voir et entendre celui qui lit. Et c'est là qu'on pose la Bible pour lire ses histoires\u00A0!",
     bullePosition: 'top',
     animation: 'float',
     image: IMAGES_FE.bible
   },
   {
     id: 12,
-    texte: "Maintenant, parcours l'église et trouve-moi !",
+    texte: "À toi de jouer\u00A0! Cherche cet endroit dans l'église... Je t'y attends\u00A0!",
     bullePosition: 'bottom',
     animation: 'zoom',
     image: IMAGES_FE.cherche,
@@ -149,27 +150,20 @@ const SLIDES_ETAPE2: Slide[] = [
 const SLIDES_ETAPE3: Slide[] = [
   {
     id: 13,
-    texte: "Félicitations, Bravo, tu as trouvé !",
-    bullePosition: 'top',
-    animation: 'bounce',
-    image: IMAGES_FE.bravo
+    texte: "Cet endroit s'appelle l'ambon. C'est ici qu'on lit la Parole de Dieu\u00A0!",
+    bullePosition: 'bottom',
+    animation: 'glow',
+    image: IMAGES_FE.ambon
   },
   {
     id: 14,
-    texte: "L'objet que tu vois est l'ambon. C'est ici que l'on lit des passages de la Bible.",
-    bullePosition: 'bottom',
-    animation: 'glow',
-    image: IMAGES_FE.bible
-  },
-  {
-    id: 15,
-    texte: "Il y a un grand livre dans l'église remplie d'histoires. Tu peux lire celle que tu veux !",
+    texte: "Tu te souviens\u00A0? La Bible avec ses 73 livres\u00A0! Ici tu peux en feuilleter un et découvrir une histoire de Jésus.",
     bullePosition: 'top',
     animation: 'float',
     image: IMAGES_FE.bible
   },
   {
-    id: 16,
+    id: 15,
     texte: "",
     bullePosition: 'top',
     animation: 'glow',
@@ -183,15 +177,15 @@ const SLIDES_ETAPE3: Slide[] = [
 // ============================================
 const SLIDES_ETAPE4: Slide[] = [
   {
-    id: 17,
-    texte: "Maintenant que tu es rempli de confiance et de bonnes paroles...",
+    id: 16,
+    texte: "Maintenant, ton cœur est rempli de belles paroles...",
     bullePosition: 'top',
     animation: 'float',
     image: IMAGES_FE.defi
   },
   {
-    id: 18,
-    texte: "Je te propose en sortant d'ici de penser à lire des passages de la Bible.",
+    id: 17,
+    texte: "Mon défi pour toi\u00A0: cette semaine, ouvre la Bible et lis une histoire avec quelqu'un que tu aimes\u00A0!",
     bullePosition: 'bottom',
     animation: 'pulse',
     image: IMAGES_FE.bible,
@@ -204,15 +198,15 @@ const SLIDES_ETAPE4: Slide[] = [
 // ============================================
 const SLIDES_ETAPE5: Slide[] = [
   {
-    id: 19,
-    texte: "Mission de la semaine accomplie !",
+    id: 18,
+    texte: "Youpi\u00A0! Mission accomplie\u00A0!",
     bullePosition: 'top',
     animation: 'bounce',
     image: IMAGES_FE.bravo
   },
   {
-    id: 20,
-    texte: "À bientôt pour de nouvelles aventures !",
+    id: 19,
+    texte: "On se retrouve bientôt pour une nouvelle aventure\u00A0! Que Dieu te garde.",
     bullePosition: 'bottom',
     animation: 'glow',
     image: IMAGES_FE.fin,
@@ -239,7 +233,9 @@ const REPONSES_NON_BIBLE = [
   "C'est un grand livre avec une croix dessus !"
 ]
 
-const TEXTE_BRAVO_BIBLE = "Bravo tu as trouvé ! C'est une Bible que j'ai mis dans ma poche !"
+const TEXTE_BRAVO_BIBLE = "Bravo tu as trouvé\u00A0! C'est une Bible que j'ai mise dans ma poche\u00A0!"
+
+const TEXTE_EXPLICATION_BIBLE = "La Bible, c'est une vraie bibliothèque\u00A0! Elle contient 73 livres écrits par plein de personnes différentes, sur plus de 1000 ans\u00A0!"
 
 // ============================================
 // COMPOSANT FE ANIMÉ
@@ -409,15 +405,27 @@ export default function Mission2Page() {
   const [slideIndex, setSlideIndex] = useState(0)
   const [tentativesNon, setTentativesNon] = useState(0)
   const [showBravoBible, setShowBravoBible] = useState(false)
+  const [showExplicationBible, setShowExplicationBible] = useState(false)
   const [showBravoAmbon, setShowBravoAmbon] = useState(false)
   const [showIndice, setShowIndice] = useState(false)
   const [etape, setEtape] = useState(1)
+  const hasTrackedStart = useRef(false)
+  const hasTrackedComplete = useRef(false)
 
-  // Vérification de la date d'accès
+  // Vérification de la date d'accès (avec bypass dev via ?dev=true)
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const devMode = params.get('dev') === 'true'
     const now = new Date()
-    setIsAccessible(now >= DATE_ACTIVATION)
+    const accessible = devMode || now >= DATE_ACTIVATION
+    setIsAccessible(accessible)
     setIsLoading(false)
+
+    // Tracker le début de la mission (une seule fois)
+    if (accessible && !hasTrackedStart.current) {
+      hasTrackedStart.current = true
+      trackMission.start(2, 'Fe', 'Fey')
+    }
   }, [])
 
   const currentSlide = ALL_SLIDES[slideIndex]
@@ -477,6 +485,7 @@ export default function Mission2Page() {
   // Question Bible
   const handleOuiBible = () => {
     setShowBravoBible(true)
+    trackMission.bibleDiscovered(2)
   }
 
   const handleNonBible = () => {
@@ -494,6 +503,11 @@ export default function Mission2Page() {
 
   const handleContinuerApresBible = () => {
     setShowBravoBible(false)
+    setShowExplicationBible(true) // Passer à l'explication de la Bible
+  }
+
+  const handleContinuerApresExplication = () => {
+    setShowExplicationBible(false)
     setSlideIndex(SLIDES_ETAPE1.length) // Aller au premier slide de l'étape 2
     setEtape(2)
     setTentativesNon(0)
@@ -503,6 +517,7 @@ export default function Mission2Page() {
   // Action chercher ambon
   const handleTrouveAmbon = () => {
     setShowBravoAmbon(true)
+    trackMission.ambonFound(2)
   }
 
   const handleContinuerApresAmbon = () => {
@@ -543,9 +558,40 @@ export default function Mission2Page() {
               onClick={handleContinuerApresBible}
               className="px-8 py-4 rounded-2xl bg-gradient-to-r from-red-400 to-red-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
             >
+              Raconte-moi !
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN EXPLICATION BIBLE
+  // ============================================
+  if (showExplicationBible) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-red-100 via-red-50 to-red-100 flex flex-col items-center justify-center p-4">
+        <div className="mb-6">
+          <FeAnimated animation="glow" size={240} imageName={IMAGES_FE.showingBible} />
+        </div>
+
+        <div className="w-full max-w-md">
+          <BulleAvecTriangle texte={TEXTE_EXPLICATION_BIBLE} triangleDirection="top" />
+
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={handleContinuerApresExplication}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-red-400 to-red-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
+            >
               Continuer l'aventure
             </button>
           </div>
+        </div>
+
+        {/* Indicateur étape */}
+        <div className="mt-6 text-center">
+          <span className="text-red-600 font-medium text-sm">Étape {etape} sur 5</span>
         </div>
       </div>
     )
@@ -739,6 +785,12 @@ export default function Mission2Page() {
   // ÉCRAN FIN DE MISSION
   // ============================================
   if (currentSlide.type === 'fin-mission') {
+    // Tracker la mission complète (une seule fois)
+    if (!hasTrackedComplete.current) {
+      hasTrackedComplete.current = true
+      trackMission.complete(2, 'Fe')
+    }
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-red-100 via-red-50 to-red-100 flex flex-col items-center justify-center p-4">
 

@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { MapPin } from 'lucide-react'
 import BulleDialogue from '@/components/avent/BulleDialogue'
+import { trackMission } from '@/lib/analytics'
 
 // Type pour les slides
 type SlideType = 'dialogue' | 'question-chapelet' | 'cta-mission' | 'action-chercher' | 'priere' | 'fun-text' | 'fin-mission'
@@ -294,6 +295,16 @@ export default function Mission1Page() {
   const [showBravoTabernacle, setShowBravoTabernacle] = useState(false)
   const [showIndice, setShowIndice] = useState(false)
   const [etape, setEtape] = useState(1) // 1 = présentation, 2 = mission tabernacle
+  const hasTrackedStart = useRef(false)
+  const hasTrackedComplete = useRef(false)
+
+  // Tracker le début de la mission (une seule fois)
+  useEffect(() => {
+    if (!hasTrackedStart.current) {
+      hasTrackedStart.current = true
+      trackMission.start(1, 'Luce', 'Basse-Nendaz')
+    }
+  }, [])
 
   const currentSlide = ALL_SLIDES[slideIndex]
   const isFirstSlide = slideIndex === 0
@@ -549,6 +560,12 @@ export default function Mission1Page() {
   // ÉCRAN FIN DE MISSION
   // ============================================
   if (currentSlide.type === 'fin-mission') {
+    // Tracker la mission complète (une seule fois)
+    if (!hasTrackedComplete.current) {
+      hasTrackedComplete.current = true
+      trackMission.complete(1, 'Luce')
+    }
+
     return (
       <div className="min-h-screen bg-gradient-to-br from-amber-100 via-yellow-50 to-amber-100 flex flex-col items-center justify-center p-4">
 
