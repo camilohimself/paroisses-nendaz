@@ -2,6 +2,73 @@
 
 ---
 
+## SESSION 10 DECEMBRE 2025
+
+### Objectif du jour
+Enquête sur les erreurs 404 dans Google Analytics (27,8% des utilisateurs!)
+
+### Analyse GA4 (période 10 nov - 10 déc 2025)
+
+**Données analysées :** fichier CSV exporté de GA4 (3068 lignes, 8812 vues totales)
+
+**Sources des 404 identifiées :**
+
+| Catégorie | URLs | Vues | % du total |
+|-----------|------|------|------------|
+| Spam japonais (IDs numériques + .html) | 2979 | ~3609 | ~85% |
+| Ancien site (/agenda/pdf, /horaires, etc.) | ~20 | ~650 | ~15% |
+| Pages supprimées (/evenements) | ~3 | ~15 | <1% |
+
+**Verdict :** 85% des 404 = spam SEO japonais (piratage ancien), pas de notre ressort direct
+
+### Realise aujourd'hui
+
+**1. Redirections 301 (next.config.ts)**
+
+Ajout de 10 redirections permanentes pour récupérer le trafic légitime :
+
+| Ancienne URL | Destination | Vues/mois |
+|--------------|-------------|-----------|
+| /messe-en-direct | / | 45 |
+| /horaires | /paroisses | 37 |
+| /documents | /actualites | 29 |
+| /nendaz | /paroisses | 22 |
+| /centre-dimpression-de-la-feuille-dannonce | /contact | 16 |
+| /reservation | davidica.ch/location-salle | 10 |
+| /pardon | /sacrements/pardon | 5 |
+| /servants-de-messe | /pastorale/liturgie | 4 |
+| /evenements | /actualites | 1 |
+| /agenda/* (wildcard) | /actualites | ~493 |
+
+**Total trafic récupéré : ~662 vues/mois**
+
+**2. Google Search Console - Demandes de suppression**
+
+| URL préfixe | Statut |
+|-------------|--------|
+| /ctg/ | Demande envoyée |
+| /zhHant/ | Demande envoyée |
+| /product/ | Non indexé (rien à faire) |
+| /agenda/ | Non indexé (rien à faire) |
+
+### URLs spam identifiées (exemples)
+```
+/ctg/search/similarImageSearchResultView (159 vues)
+/168429985, /123772129, etc. (URLs numériques)
+/117885146.html, /392298474.html (URLs .html)
+/zhHant/product/surugaya/... (spam chinois/japonais)
+```
+
+### Protection existante (rappel)
+- `robots.txt` : whitelist stricte, bloque tout par défaut
+- `sitemap.ts` : uniquement 23 URLs légitimes
+- Les URLs spam retournent 404 → Google les désindexera (~4-6 semaines)
+
+### Commits
+- `0ab5018` 🔀 SEO: Redirections 301 anciennes URLs → pages actuelles
+
+---
+
 ## SESSION 6 DECEMBRE 2025
 
 ### Objectif du jour
