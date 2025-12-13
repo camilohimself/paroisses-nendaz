@@ -104,52 +104,60 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
 ---
 
-## SESSION 13 DÉC 2025 - EN COURS
+## SESSION 13 DÉC 2025 - TERMINÉE ✅
 
-### État Mission 3 (Xin)
+### Mission 3 (Xin) - COMPLÈTE
 - [x] `JOURS_SEMAINE_3[]` ajouté dans `avent-data.ts` (jours 14-20)
 - [x] `getJourData()` mis à jour pour semaine 3
 - [x] `/app/avent/mission-3/page.tsx` créé (structure complète)
-- [x] QR code `mission-3-xin.jpg` déjà généré
-- [x] **Monologues Xin améliorés** (plus chaleureux, adaptés enfants)
-- [x] **Image Xin.png propre intégrée** (400×500, depuis Xin-1.png)
-- [x] **Build vérifié** ✅
-- [ ] **Images poses Xin à personnaliser** (utilise Xin.png par défaut)
+- [x] QR code `mission-3-xin.jpg` généré
+- [x] Monologues Xin améliorés (plus chaleureux, adaptés enfants)
+- [x] **10 images Xin générées et optimisées** (~130KB chacune)
+- [x] Build vérifié ✅
+- [x] **Déployé en production** ✅
 
-### Images Xin à générer (Grok)
-Format : 400×500 px, PNG transparent, style chibi kawaii sticker
+### Images Xin intégrées
 ```
-Xin-accueil.png      → Bras ouverts, accueillante
-Xin-presentation.png → Se présente, souriante
-Xin-baton.png        → Montre son bâton avec la fleur
-Xin-indices.png      → Doigt levé, donne un indice
-Xin-doudou.png       → Montre son doudou
-Xin-cherche.png      → Invite à chercher dans l'église
-Xin-marie.png        → Devant/près de Marie (contexte église)
-Xin-priere.png       → En prière, yeux fermés
-Xin-bravo.png        → Bras levés, célébration
-Xin-fin.png          → Dit au revoir
+/public/images/avent/personnages/
+├── Xin.png              (96KB)  - Accueil, bras ouverts
+├── Xin-presentation.png (109KB) - Salut main levée
+├── Xin-baton.png        (144KB) - Montre bâton avec fleur
+├── Xin-indices.png      (134KB) - Doigt levé, indices
+├── Xin-defi.png         (131KB) - Câline son doudou
+├── Xin-cherche.png      (128KB) - Main sur yeux, cherche
+├── Xin-marie.png        (240KB) - Devant vitraux Marie
+├── Xin-priere.png       (129KB) - En prière, yeux fermés
+├── Xin-bravo.png        (122KB) - Bras levés, célébration
+└── Xin-fin.png          (128KB) - Au revoir
 ```
 
-### Script Mission 3 validé
+### Activation
+- **Date** : 14 décembre 2025 à 00:00 (minuit)
+- **Page Avent** : Semaine 3 visible dès le 14 déc
+- **Mission 3** : Accessible dès minuit
+
+### Commits
+- `11fc12a` - Images Xin personnalisées (9 poses optimisées)
+- `05ee3ae` - Activation à minuit (14 déc 00h00)
+- `67bd8da` - Mission 3 complète + jours 14-20
+
+### Script Mission 3
 1. **Étape 1** : Présentation Xin (4 slides) → Question bâton Oui/Non
 2. **Étape 2** : Indices pour Marie (5 slides) → Bouton "J'ai trouvé"
 3. **Étape 3** : Explication Marie + Prière (3 slides)
 4. **Étape 4** : Défi semaine (2 slides) - câlins, dessins, sourires
 5. **Étape 5** : Fin + Teaser Sky à Aproz (2 slides)
 
-### Prochaines étapes
-1. ~~Améliorer monologues Xin~~ ✅
-2. Générer les images poses Xin avec Grok (prompts fournis)
-3. Copier images dans `/public/images/avent/personnages/`
-4. Mettre à jour `IMAGES_XIN` dans mission-3/page.tsx
-5. Tester avec `?dev=true`
-6. Deploy
+---
 
-### Infos semaine 4
+## BACKLOG - Semaine 4 (Sky)
 - Personnage : **Sky** (bleu)
-- Église : **Aproz** (confirmé dans docx)
+- Église : **Aproz**
 - Dates : 21-25 décembre
+- [ ] Créer `/app/avent/mission-4/page.tsx`
+- [ ] Ajouter `JOURS_SEMAINE_4[]` dans avent-data.ts
+- [ ] Générer images Sky
+- [ ] Générer QR code mission-4
 
 ---
-*Dernière màj : 13 déc 2025 - 16h*
+*Dernière màj : 13 déc 2025 - 21h*
