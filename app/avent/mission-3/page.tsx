@@ -29,7 +29,7 @@ const IMAGE_SKY_TEASER = 'Sky.png'
 // ============================================
 // DATE D'ACTIVATION DE LA MISSION
 // ============================================
-const DATE_ACTIVATION = new Date('2025-12-13T20:00:00+01:00')
+const DATE_ACTIVATION = new Date('2025-12-14T00:00:00+01:00')
 
 // ============================================
 // TYPE POUR LES SLIDES
