@@ -9,18 +9,17 @@ import { trackMission } from '@/lib/analytics'
 // ============================================
 // IMAGES DE XIN - POSTURES PERSONNALISÉES
 // ============================================
-// TODO: Générer ces images avec différentes postures de Xin
 const IMAGES_XIN = {
-  accueil: 'Xin.png',        // Xin bras ouverts, accueillante
-  presentation: 'Xin.png',   // Xin qui se présente
-  indices: 'Xin.png',        // Xin doigt levé, donne des indices
-  baton: 'Xin.png',          // Xin montrant son bâton avec fleur
-  cherche: 'Xin.png',        // Xin qui invite à chercher
-  bravo: 'Xin.png',          // Xin bras levés, célébration
-  marie: 'Xin.png',          // Xin devant statue Marie
-  priere: 'Xin.png',         // Xin en prière, yeux fermés
-  defi: 'Xin.png',           // Xin avec doudou, tendresse
-  fin: 'Xin.png',            // Xin qui dit au revoir
+  accueil: 'Xin.png',              // Xin bras ouverts, accueillante
+  presentation: 'Xin-presentation.png',  // Xin qui se présente, salut
+  indices: 'Xin-indices.png',      // Xin doigt levé, donne des indices
+  baton: 'Xin-baton.png',          // Xin montrant son bâton avec fleur
+  cherche: 'Xin-cherche.png',      // Xin main sur yeux, cherche
+  bravo: 'Xin-bravo.png',          // Xin bras levés, célébration
+  marie: 'Xin-marie.png',          // Xin devant vitraux Marie
+  priere: 'Xin-priere.png',        // Xin en prière, yeux fermés
+  defi: 'Xin-defi.png',            // Xin câline son doudou
+  fin: 'Xin-fin.png',              // Xin qui dit au revoir
 }
 
 // Teaser semaine 4
