@@ -426,6 +426,98 @@ si je doute… si je marche dans la nuit,
 ]
 
 // ============================================
+// JOURS DE L'AVENT - SEMAINE 3
+// ============================================
+
+export const JOURS_SEMAINE_3: JourAvent[] = [
+  {
+    jour: 14,
+    date: "2025-12-14",
+    titre: "Je marche plein d'espérance",
+    texteBiblique: "",
+    meditation: `Avec les enfants, je me mets en route, avec "Xin", qui veut dire cœur.
+
+Vêtue de vert, elle est source de douceur et de tendresse. Avec son doudou dans sa poche, elle apporte une chaleur réconfortante à tous ceux qui croisent son chemin. Une fleur orne son bâton, symbolisant la beauté et l'espoir qu'elle désire semer sur son chemin de pèlerinage.
+
+Jésus est l'ancre de notre vie, il nous aide à traverser les moments de tempête et nous apporte le réconfort et la tendresse dont nous avons besoin.
+
+Cette semaine, je veux accueillir et semer l'espérance autour de moi…`,
+    special: 'dimanche',
+    semaine: 3
+  },
+  {
+    jour: 15,
+    date: "2025-12-15",
+    titre: "La confiance et l'espérance sont le moteur",
+    texteBiblique: "Les mages ne connaissent pas précisément où et comment est le but, ni le chemin. La confiance et l'espérance sont le moteur de leur marche.",
+    meditation: "",
+    priere: `Seigneur, aide-moi à garder toujours l'espérance, à croire en la vie malgré ce qui peut arriver, à continuer d'aimer même quand c'est difficile…`,
+    semaine: 3
+  },
+  {
+    jour: 16,
+    date: "2025-12-16",
+    titre: "Dieu est toujours surprenant",
+    texteBiblique: "Les mages vont à Jérusalem : chef-lieu religieux et politique. Ils cherchent le messie, l'envoyé de Dieu dans un palais ou un temple. Mais Dieu est toujours surprenant, il naît dans une étable…",
+    meditation: "",
+    priere: `Ouvre mes yeux, Seigneur, aide-moi à te voir dans mon humble quotidien, dans mes proches, dans les personnes que je rencontre, celles pour qui je me ferai solidaire…
+
+Seigneur, je te confie spécialement… (les personnes qui sont à ma charge dans ma famille, par mon travail, dans mon cœur, dans ma prière, celles pour qui je ferai un don…)
+
+Je te prie aussi pour les personnes à qui j'offrirai un cadeau et celles qui m'en offriront…`,
+    semaine: 3
+  },
+  {
+    jour: 17,
+    date: "2025-12-17",
+    titre: "Dire OUI au plan de Dieu",
+    texteBiblique: "Marie et Joseph aussi marchent et vivent remplis d'espérance. L'arrivée de Dieu dans leur vie a bousculé tous leurs plans. Leur première démarche a été de dire OUI au plan de Dieu. Malgré les changements, ils sont remplis de joie et d'espérance en attendant la naissance de leur enfant-Dieu.",
+    meditation: "",
+    priere: `Seigneur, aide-moi à te dire OUI, à risquer de me laisser bousculer par Ta Parole. Voici mon cœur, ma vie et mes mains pour qu'advienne aujourd'hui ton règne…`,
+    semaine: 3
+  },
+  {
+    jour: 18,
+    date: "2025-12-18",
+    titre: "L'espérance ne déçoit pas",
+    texteBiblique: "« L'espérance ne déçoit pas. » Saint Paul apôtre aux Romains 5,5\n« Ne nous laissons pas voler notre espérance ! » Pape François",
+    meditation: `Je cherche comment Dieu est une source d'espérance pour moi et je chante un alléluia…`,
+    priere: `Merci Jésus, pour l'espérance nouvelle que tu nous donnes…
+par ton amour, par ton choix de prendre chair,
+par ta mort et ta résurrection,
+tu nous ouvres un chemin nouveau. Alléluia !`,
+    semaine: 3
+  },
+  {
+    jour: 19,
+    date: "2025-12-19",
+    titre: "Devenons semeur d'espérance",
+    texteBiblique: "L'Espérance chrétienne est la plus belle contagion au monde !",
+    meditation: "",
+    priere: `Seigneur, aide-moi à semer l'espérance aujourd'hui dans ma vie, par mon sourire, mon écoute, une parole bienfaisante, ma tendresse, un service rendu, un téléphone à une personne seule ou malade, par un don…
+
+Ô Viens Seigneur Jésus !`,
+    semaine: 3
+  },
+  {
+    jour: 20,
+    date: "2025-12-20",
+    titre: "L'espérance fait de nous des pèlerins",
+    texteBiblique: "Nous sommes invités à passer de l'angoisse existentielle à l'intranquillité de l'Évangile, celle qui nous ouvre à l'inconnu et à la grâce. — Marion Muller-Collard",
+    meditation: "",
+    priere: `Seigneur, fais de nous des pèlerins de l'espérance...
+Aide-nous à semer ton amour, ta lumière, autour de nous…
+Que la joie de nous savoir aimés et sauvés soit le moteur de notre vie…
+
+Rends solide notre foi, affermis notre espérance et aide-nous à persévérer dans "l'intranquillité" de la charité…
+
+Que l'espérance conduise notre marche aujourd'hui…`,
+    special: 'bougie',
+    semaine: 3
+  }
+]
+
+// ============================================
 // FONCTIONS UTILITAIRES
 // ============================================
 
@@ -463,6 +555,10 @@ export function getJourData(jour: number): JourAvent | undefined {
   // Semaine 2 : jours 8-13
   const jourSemaine2 = JOURS_SEMAINE_2.find(j => j.jour === jour)
   if (jourSemaine2) return jourSemaine2
+
+  // Semaine 3 : jours 14-20
+  const jourSemaine3 = JOURS_SEMAINE_3.find(j => j.jour === jour)
+  if (jourSemaine3) return jourSemaine3
 
   return undefined
 }

@@ -95,28 +95,61 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 ## Backlog Avent
 - [x] Mission 1 (Luce) - Basse-Nendaz - FAIT
 - [x] Mission 2 (Fe) - Fey - FAIT (page + QR + jours 8-13)
-- [ ] Mission 3 (Xin) - Veysonnaz - semaine du 14 déc
-- [ ] Mission 4 (Sky) - (église à définir) - semaine du 21 déc
+- [x] Mission 3 (Xin) - Veysonnaz - PAGE CRÉÉE, images à personnaliser
+- [ ] Mission 4 (Sky) - Aproz - semaine du 21 déc
 - [x] Jours semaine 1 dans avent-data.ts - FAIT
 - [x] Jours semaine 2 dans avent-data.ts - FAIT
-- [ ] Jours semaine 3 dans avent-data.ts
+- [x] Jours semaine 3 dans avent-data.ts - FAIT (jours 14-20)
 - [ ] Jours semaine 4 dans avent-data.ts
-- [ ] Images Fe personnalisées (différentes postures)
-
-### Images Fe à générer (placeholders dans mission-2/page.tsx)
-```typescript
-const IMAGES_FE = {
-  accueil: 'Fe.png',      // Fe-accueil.png
-  presentation: 'Fe.png', // Fe-presentation.png
-  indices: 'Fe.png',      // Fe-indices.png
-  cherche: 'Fe.png',      // Fe-cherche.png
-  bravo: 'Fe.png',        // Fe-bravo.png
-  bible: 'Fe.png',        // Fe-bible.png
-  priere: 'Fe.png',       // Fe-priere.png
-  defi: 'Fe.png',         // Fe-defi.png
-  fin: 'Fe.png',          // Fe-fin.png
-}
-```
 
 ---
-*Dernière màj : 4 déc 2025*
+
+## SESSION 13 DÉC 2025 - EN COURS
+
+### État Mission 3 (Xin)
+- [x] `JOURS_SEMAINE_3[]` ajouté dans `avent-data.ts` (jours 14-20)
+- [x] `getJourData()` mis à jour pour semaine 3
+- [x] `/app/avent/mission-3/page.tsx` créé (structure complète)
+- [x] QR code `mission-3-xin.jpg` déjà généré
+- [x] **Monologues Xin améliorés** (plus chaleureux, adaptés enfants)
+- [x] **Image Xin.png propre intégrée** (400×500, depuis Xin-1.png)
+- [x] **Build vérifié** ✅
+- [ ] **Images poses Xin à personnaliser** (utilise Xin.png par défaut)
+
+### Images Xin à générer (Grok)
+Format : 400×500 px, PNG transparent, style chibi kawaii sticker
+```
+Xin-accueil.png      → Bras ouverts, accueillante
+Xin-presentation.png → Se présente, souriante
+Xin-baton.png        → Montre son bâton avec la fleur
+Xin-indices.png      → Doigt levé, donne un indice
+Xin-doudou.png       → Montre son doudou
+Xin-cherche.png      → Invite à chercher dans l'église
+Xin-marie.png        → Devant/près de Marie (contexte église)
+Xin-priere.png       → En prière, yeux fermés
+Xin-bravo.png        → Bras levés, célébration
+Xin-fin.png          → Dit au revoir
+```
+
+### Script Mission 3 validé
+1. **Étape 1** : Présentation Xin (4 slides) → Question bâton Oui/Non
+2. **Étape 2** : Indices pour Marie (5 slides) → Bouton "J'ai trouvé"
+3. **Étape 3** : Explication Marie + Prière (3 slides)
+4. **Étape 4** : Défi semaine (2 slides) - câlins, dessins, sourires
+5. **Étape 5** : Fin + Teaser Sky à Aproz (2 slides)
+
+### Prochaines étapes
+1. ~~Améliorer monologues Xin~~ ✅
+2. Générer les images poses Xin avec Grok (prompts fournis)
+3. Copier images dans `/public/images/avent/personnages/`
+4. Mettre à jour `IMAGES_XIN` dans mission-3/page.tsx
+5. Tester avec `?dev=true`
+6. Deploy
+
+### Infos semaine 4
+- Personnage : **Sky** (bleu)
+- Église : **Aproz** (confirmé dans docx)
+- Dates : 21-25 décembre
+
+---
+*Dernière màj : 13 déc 2025 - 16h*
