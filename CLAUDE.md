@@ -150,6 +150,41 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
 ---
 
+## SESSION 16 DÉC 2025 - TERMINÉE
+
+### Fix Tailwind v4 - Couleurs paroisse
+- [x] Ajout des couleurs `paroisse-*` dans `@theme inline` de `globals.css`
+- [x] Fix bloc "Préparer un baptême" invisible sur `/sacrements/bapteme`
+- **Cause** : Tailwind v4 nécessite les couleurs dans `@theme`, pas seulement `tailwind.config.ts`
+- **Commit** : `1340335`
+
+### GA4 Tracking - Mission 3
+- [x] Ajout type `marie_found` dans `lib/analytics.ts`
+- [x] Ajout `trackMission.marieFound(3)` quand statue Marie trouvée
+- **Commit** : `9273ae8`
+
+### Footer Enoria
+- [x] Synchronisation lien footer avec header
+- **Avant** : `https://web.enoria.app/`
+- **Après** : `https://public.enoria.app/pubinsc/auth?type=foyer&p=598`
+- **Commit** : `9273ae8`
+
+### Feuille d'Annonces - Nouvelle logique dates
+- [x] Simplification : **Jour J + 7 jours** (au lieu de logique weekends)
+- **Avant** : Samedi → Dimanche +8j avec règle vendredi 18h
+- **Après** : Date du clic → Date du clic + 7 jours
+- **Fichier** : `app/api/feuille-annonces/generate/route.tsx`
+- **Commit** : `ed4cf39`
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `1340335` | fix: Add paroisse colors to Tailwind v4 @theme block |
+| `9273ae8` | feat: Add marie_found tracking + fix Enoria footer link |
+| `ed4cf39` | refactor: Simplify feuille d'annonces date logic |
+
+---
+
 ## BACKLOG - Semaine 4 (Sky)
 - Personnage : **Sky** (bleu)
 - Église : **Aproz**
@@ -160,4 +195,4 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 - [ ] Générer QR code mission-4
 
 ---
-*Dernière màj : 13 déc 2025 - 21h*
+*Dernière màj : 16 déc 2025 - session Claude*
