@@ -497,6 +497,7 @@ export default function Mission3Page() {
   // Action chercher Marie
   const handleTrouveMarie = () => {
     setShowBravoMarie(true)
+    trackMission.marieFound(3)
   }
 
   const handleContinuerApresMarie = () => {

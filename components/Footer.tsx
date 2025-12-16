@@ -60,7 +60,7 @@ export default function Footer() {
                 Messe en direct
               </a>
               <a
-                href="https://web.enoria.app/"
+                href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block hover:text-paroisse-bleuRoi transition-colors"
