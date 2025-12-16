@@ -82,33 +82,17 @@ const allActualites = [
 
 export async function GET(request: Request) {
   try {
-    // Calculer les dates avec logique "changement vendredi 18h"
+    // Logique simple : Jour J (aujourd'hui) + 7 jours suivants
     const now = new Date()
-    const currentDay = now.getDay() // 0 = dimanche, 6 = samedi
-    const currentHour = now.getHours()
 
-    // Déterminer le samedi de référence selon la règle :
-    // - Vendredi avant 18h : weekend actuel (samedi qui vient)
-    // - Vendredi après 18h : weekend suivant (samedi d'après)
-    // - Samedi-Jeudi : weekend qui vient
+    // Date de début = aujourd'hui à 00:00
+    const dateDebut = new Date(now)
+    dateDebut.setHours(0, 0, 0, 0)
 
-    let nextSaturday = new Date(now)
-
-    if (currentDay === 5 && currentHour >= 18) {
-      // Vendredi après 18h : on vise le samedi de la semaine suivante (dans 8 jours)
-      nextSaturday.setDate(now.getDate() + 8)
-    } else {
-      // Sinon : trouver le prochain samedi (ou aujourd'hui si on est samedi)
-      const daysUntilSaturday = currentDay === 6 ? 0 : (6 - currentDay + 7) % 7
-      nextSaturday.setDate(now.getDate() + daysUntilSaturday)
-    }
-
-    nextSaturday.setHours(0, 0, 0, 0) // Début de journée samedi
-
-    // Dimanche suivant (8 jours après le samedi = 9 jours au total)
-    const followingSunday = new Date(nextSaturday)
-    followingSunday.setDate(nextSaturday.getDate() + 8)
-    followingSunday.setHours(23, 59, 59, 999) // Fin de journée dimanche
+    // Date de fin = aujourd'hui + 7 jours à 23:59
+    const dateFin = new Date(dateDebut)
+    dateFin.setDate(dateDebut.getDate() + 7)
+    dateFin.setHours(23, 59, 59, 999)
 
     // Récupérer les événements Google Calendar
     let calendarEvents = []
@@ -121,20 +105,20 @@ export async function GET(request: Request) {
       const calendarData = await calendarResponse.json()
 
       if (calendarData.success && calendarData.data.events) {
-        // Filtrer les événements du samedi au dimanche suivant (9 jours)
+        // Filtrer les événements de Jour J à Jour J + 7
         calendarEvents = calendarData.data.events.filter((event: any) => {
           const eventDate = new Date(event.startDate)
-          return eventDate >= nextSaturday && eventDate <= followingSunday
+          return eventDate >= dateDebut && eventDate <= dateFin
         })
       }
     } catch (error) {
       console.error('Erreur récupération Google Calendar:', error)
     }
 
-    // Filtrer les actualités du samedi au dimanche suivant (9 jours)
+    // Filtrer les actualités de Jour J à Jour J + 7
     const actualitesEvents = allActualites.filter(event => {
       const eventDate = new Date(event.date)
-      return eventDate >= nextSaturday && eventDate <= followingSunday
+      return eventDate >= dateDebut && eventDate <= dateFin
     })
 
     console.log(`Génération PDF: ${calendarEvents.length} messes, ${actualitesEvents.length} événements`)
@@ -144,8 +128,8 @@ export async function GET(request: Request) {
       <FeuilleAnnoncesPDF
         calendarEvents={calendarEvents}
         actualitesEvents={actualitesEvents}
-        dateDebut={nextSaturday.toISOString()}
-        dateFin={followingSunday.toISOString()}
+        dateDebut={dateDebut.toISOString()}
+        dateFin={dateFin.toISOString()}
       />
     )
 
