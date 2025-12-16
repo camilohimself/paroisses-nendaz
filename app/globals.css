@@ -35,6 +35,32 @@
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
   --font-accent: 'Crimson Text', serif;
+
+  /* Couleurs paroisse - Charte graphique officielle */
+  --color-paroisse-violet: #8B4789;
+  --color-paroisse-bleuRoi: #2E5EAA;
+  --color-paroisse-jaune: #FFC107;
+  --color-paroisse-turquoise: #5DADE2;
+  --color-paroisse-bleuMarine: #1E3A5F;
+  --color-paroisse-bleuCiel: #87CEEB;
+  --color-paroisse-vert: #4CAF50;
+  --color-paroisse-bleuCommunaute: #4A90E2;
+  --color-paroisse-rouge: #E74C3C;
+  --color-paroisse-violetFonce: #6B3569;
+  --color-paroisse-bleuCielFonce: #2B7AB5;
+  --color-paroisse-jauneFonce: #CC8800;
+  --color-paroisse-vertFonce: #2E7D32;
+  --color-paroisse-rougeFonce: #C0392B;
+  --color-paroisse-turquoiseFonce: #1A7FA0;
+
+  /* Couleurs neutres */
+  --color-neutral-anthracite: #3E3E3E;
+  --color-neutral-blanc: #FFFFFF;
+  --color-neutral-grisClaire: #F5F5F5;
+  --color-neutral-gris: #4A5568;
+
+  /* Enoria */
+  --color-enoria: #2A8B8C;
 }
 
 /* MODE SOMBRE DÉSACTIVÉ - Site paroissial toujours en mode clair
