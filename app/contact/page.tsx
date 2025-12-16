@@ -342,7 +342,7 @@ export default function ContactPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Camilo Rivera</h3>
-                <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
+                <p className="text-stone-600 font-medium mb-3">Agent de communication</p>
               </div>
             </div>
           </div>
