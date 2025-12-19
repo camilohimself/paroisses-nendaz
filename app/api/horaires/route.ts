@@ -40,6 +40,7 @@ function detectEventType(title: string, description?: string): EventType {
   if (text.includes('formation') || text.includes('catéchisme') || text.includes('catechisme')) return 'formation';
   if (text.includes('prière') || text.includes('priere') || text.includes('chapelet')) return 'priere';
   if (text.includes('célébration') || text.includes('celebration')) return 'celebration';
+  if (text.includes('fête patronale') || text.includes('fete patronale') || text.includes('patron') || text.includes('st-') || text.includes('saint-')) return 'fete';
 
   return 'autre';
 }

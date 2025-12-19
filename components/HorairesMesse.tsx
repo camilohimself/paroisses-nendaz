@@ -4,12 +4,14 @@ import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import { sanitizeHtml } from '@/lib/sanitize';
 import { CalendarEvent, EventType, EVENT_TYPES } from '@/lib/calendars-config';
+import { ChevronDown } from 'lucide-react';
 
 interface HorairesMesseProps {
   sector?: 'nendaz' | 'veysonnaz' | 'autres' | 'transversal';
   calendarId?: string;
   showCalendarSelector?: boolean;
   maxEvents?: number;
+  expandStep?: number;
 }
 
 interface ApiResponse {
@@ -38,9 +40,11 @@ export default function HorairesMesse({
   sector,
   calendarId,
   showCalendarSelector = false,
-  maxEvents = 10
+  maxEvents = 10,
+  expandStep = 6
 }: HorairesMesseProps) {
-  const [events, setEvents] = useState<CalendarEvent[]>([]);
+  const [allEvents, setAllEvents] = useState<CalendarEvent[]>([]);
+  const [displayedCount, setDisplayedCount] = useState<number>(maxEvents);
   const [calendars, setCalendars] = useState<Array<{id: string; name: string; sector: string; type: string; color: string}>>([]);
   const [selectedCalendar, setSelectedCalendar] = useState<string>(calendarId || 'all');
   const [selectedSector, setSelectedSector] = useState<string>(sector || 'all');
@@ -48,11 +52,20 @@ export default function HorairesMesse({
   const [error, setError] = useState<string | null>(null);
   const [lastSync, setLastSync] = useState<string | null>(null);
 
+  // Events to display (limited by displayedCount)
+  const events = allEvents.slice(0, displayedCount);
+  const hasMoreEvents = allEvents.length > displayedCount;
+
   useEffect(() => {
     fetchEvents();
     const interval = setInterval(fetchEvents, 3600000); // Rafraîchir toutes les heures
     return () => clearInterval(interval);
-  }, [selectedCalendar, selectedSector, maxEvents]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [selectedCalendar, selectedSector]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Reset displayed count when filters change
+  useEffect(() => {
+    setDisplayedCount(maxEvents);
+  }, [selectedCalendar, selectedSector, maxEvents]);
 
   const fetchEvents = async () => {
     try {
@@ -67,7 +80,7 @@ export default function HorairesMesse({
       const data: ApiResponse = await response.json();
 
       if (data.success && data.data) {
-        setEvents(data.data.events.slice(0, maxEvents));
+        setAllEvents(data.data.events);
         setCalendars(data.data.calendars);
         setLastSync(data.data.lastSync);
         setError(null);
@@ -77,17 +90,21 @@ export default function HorairesMesse({
         Object.values(data.data.bySector).forEach(sectorEvents => {
           fallbackEvents.push(...sectorEvents);
         });
-        setEvents(fallbackEvents.slice(0, maxEvents));
+        setAllEvents(fallbackEvents);
         setCalendars(data.data.calendars);
         setError('Mode hors-ligne - Horaires de démonstration');
       }
     } catch (err) {
       console.error('Erreur:', err);
       setError('Impossible de charger les horaires');
-      setEvents([]);
+      setAllEvents([]);
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleShowMore = () => {
+    setDisplayedCount(prev => prev + expandStep);
   };
 
   const formatDate = (dateString: string) => {
@@ -252,6 +269,22 @@ export default function HorairesMesse({
               </div>
             );
           })}
+        </div>
+      )}
+
+      {/* Bouton Voir plus */}
+      {hasMoreEvents && !loading && (
+        <div className="mt-6 text-center">
+          <button
+            onClick={handleShowMore}
+            className="inline-flex items-center gap-2 px-6 py-3 bg-stone-100 hover:bg-stone-200 text-stone-700 font-medium rounded-lg transition-colors border border-stone-300"
+          >
+            <span>Voir plus</span>
+            <ChevronDown className="w-4 h-4" />
+          </button>
+          <p className="text-xs text-stone-500 mt-2">
+            {allEvents.length - displayedCount} événement{allEvents.length - displayedCount > 1 ? 's' : ''} supplémentaire{allEvents.length - displayedCount > 1 ? 's' : ''}
+          </p>
         </div>
       )}
 
