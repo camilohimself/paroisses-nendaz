@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export default function LiturgiePage() {
   return (
@@ -150,10 +151,18 @@ export default function LiturgiePage() {
                       <p className="font-semibold text-stone-800">La Barlouka Kadémie</p>
                       <p className="text-sm text-stone-600">Veysonnaz</p>
                     </div>
-                    <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
-                      <p className="font-semibold text-stone-800">i cöble dû Bon Djyû</p>
-                      <p className="text-sm text-stone-600">L'équipe du Bon Dieu</p>
-                    </div>
+                    <Link
+                      href="/pastorale/liturgie/coble-bon-djyu"
+                      className="block bg-gradient-to-br from-rose-50 to-rose-100 p-3 rounded-lg border-2 border-rose-300 hover:border-rose-400 hover:shadow-md transition-all group"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="font-semibold text-rose-800">i cöble dû Bon Djyû</p>
+                          <p className="text-sm text-rose-600">La bande du Bon Dieu</p>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-rose-400 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
                   </div>
                 </div>
 
