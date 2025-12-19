@@ -209,7 +209,7 @@ const allEvents = [
     date: '2026-01-20',
     hasImage: false,
     category: 'Événement',
-    lieu: 'Basse-Nendaz'
+    lieu: 'Église de Basse-Nendaz'
   },
   {
     id: 'loto-eglise-aproz',
