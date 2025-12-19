@@ -185,6 +185,52 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
 ---
 
+## SESSION 19 DÉC 2025 - TERMINÉE
+
+### Page dédiée "i cöble dû Bon Djyû"
+- [x] Nouvelle page `/pastorale/liturgie/coble-bon-djyu`
+- [x] Groupe d'animation liturgique familiale (pas juste une chorale)
+- [x] Contenu : mission, FAQ accordion, prochaines dates, contact Jonathan Droxler
+- [x] Palette **rose doux** (dusty pink) - couleur famille/tendresse
+- [x] Carte cliquable sur `/pastorale/liturgie`
+- **Commit** : `8dc467f`
+
+### Calendrier Google - Fêtes patronales
+- [x] Nouveau calendrier : `theodianendaz@gmail.com` (bleu `#3B82F6`)
+- [x] Nouveau type événement `fete` → label "Célébration"
+- [x] Détection auto : "fête patronale", "patron", "st-", "saint-"
+- **Commit** : `139bd75`
+
+### Bouton "Voir plus" - HorairesMesse
+- [x] Ajout bouton pour charger +6 événements
+- [x] Affiche nombre d'événements restants
+- [x] Reset au changement de filtre
+- **Commit** : `139bd75`
+
+### Actualités - Nouveaux événements
+- [x] Loto Hospitaliers de Lourdes (11 jan 2026, Biolette 17h30)
+- [x] Fête St-Sébastien (20 jan 2026, Église Basse-Nendaz)
+- [x] Loto église Aproz (25 jan 2026, Salle gym Aproz 17h30)
+- [x] **Épiphanie 2026** (4 jan, Église Basse-Nendaz 10h) + affiche
+- **Commits** : `7c0d1cf`, `b893111`, `ca4fb81`, `cda7567`
+
+### QR Code Mission 4
+- [x] Généré `qr-codes/mission-4-sky.jpg`
+- [x] URL : `/avent/mission-4`
+- [x] Couleur bleu Sky `#1e3a5f`
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `8dc467f` | feat: Add dedicated page for "i cöble dû Bon Djyû" |
+| `139bd75` | feat: Add Fêtes patronales calendar + "Voir plus" button |
+| `7c0d1cf` | feat: Add 3 new events for January 2026 |
+| `b893111` | fix: Préciser lieu Fête St-Sébastien |
+| `ca4fb81` | feat: Add Épiphanie 2026 event with poster |
+| `cda7567` | fix: Update Épiphanie 2026 poster (corrected version) |
+
+---
+
 ## BACKLOG - Semaine 4 (Sky)
 - Personnage : **Sky** (bleu)
 - Église : **Aproz**
@@ -192,7 +238,7 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 - [ ] Créer `/app/avent/mission-4/page.tsx`
 - [ ] Ajouter `JOURS_SEMAINE_4[]` dans avent-data.ts
 - [ ] Générer images Sky
-- [ ] Générer QR code mission-4
+- [x] Générer QR code mission-4 ✅
 
 ---
-*Dernière màj : 16 déc 2025 - session Claude*
+*Dernière màj : 19 déc 2025 - session Claude*
