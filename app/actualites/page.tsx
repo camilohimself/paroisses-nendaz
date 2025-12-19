@@ -192,6 +192,33 @@ const allEvents = [
     hasImage: false,
     category: 'Culture',
     lieu: 'Église de Veysonnaz - 20h'
+  },
+  {
+    id: 'loto-hospitaliers-lourdes',
+    title: 'Loto des Hospitaliers de Lourdes',
+    excerpt: 'Après-midi loto organisé par les Hospitaliers de Lourdes. Venez nombreux pour soutenir cette belle cause et passer un moment convivial !',
+    date: '2026-01-11',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Salle de la Biolette, Basse-Nendaz - 17h30'
+  },
+  {
+    id: 'fete-patronale-st-sebastien',
+    title: 'Fête de St-Sébastien',
+    excerpt: 'Fête patronale de Basse-Nendaz. Vin chaud offert après la messe avec la participation des chasseurs de la paroisse.',
+    date: '2026-01-20',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Basse-Nendaz'
+  },
+  {
+    id: 'loto-eglise-aproz',
+    title: 'Loto de l\'église d\'Aproz',
+    excerpt: 'Après-midi loto organisé au profit de l\'église d\'Aproz. De nombreux lots à gagner dans une ambiance chaleureuse !',
+    date: '2026-01-25',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Salle de gym d\'Aproz - 17h30'
   }
 ]
 
