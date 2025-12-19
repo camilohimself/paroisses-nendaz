@@ -7,6 +7,17 @@ import { Calendar, MapPin, ChevronRight, Star, X, Sparkles } from 'lucide-react'
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
   {
+    id: 'epiphanie-2026',
+    title: 'L\'Épiphanie - Messe des Familles',
+    excerpt: 'Crèche vivante, mise en scène de l\'Évangile par les confirmands, bénédiction des musiciens. Les enfants sont invités à venir habillés en mages ou en bergers ! RDV enfants à 9h45.',
+    date: '2026-01-04',
+    image: '/images/articles/epiphanie-2026.jpg',
+    hasImage: true,
+    category: 'Événement',
+    lieu: 'Église de Basse-Nendaz - 10h00',
+    featured: false
+  },
+  {
     id: 'confirmation-2025-video',
     title: 'Célébration de la Confirmation 2025',
     excerpt: 'Revivez en images la magnifique célébration de la Confirmation de nos jeunes. Un moment fort de foi et de communion dans notre paroisse.',
