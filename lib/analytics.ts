@@ -13,6 +13,7 @@ type AventEventName =
   | 'bible_discovered'   // Bible trouvée
   | 'ambon_found'        // Ambon trouvé
   | 'marie_found'        // Statue Marie trouvée (Mission 3)
+  | 'angel_found'        // Ange trouvé (Mission 4)
   | 'calendar_view'      // Vue du calendrier
 
 interface AventEventParams {
@@ -74,6 +75,12 @@ export const trackMission = {
 
   marieFound: (mission: number) => {
     trackAventEvent('marie_found', {
+      mission_number: mission
+    })
+  },
+
+  angelFound: (mission: number) => {
+    trackAventEvent('angel_found', {
       mission_number: mission
     })
   }

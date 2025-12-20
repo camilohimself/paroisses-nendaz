@@ -1,9 +1,31 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronLeft, Clock, Star, Sparkles } from 'lucide-react'
+import { MapPin, Calendar, ChevronLeft, Lock, Music, Star } from 'lucide-react'
+import { trackMission } from '@/lib/analytics'
+
+// ============================================
+// IMAGES DE SKY - POSTURES PERSONNALISÉES
+// ============================================
+const IMAGES_SKY = {
+  accueil: 'Sky.png',              // Sky pose neutre
+  presentation: 'Sky-presentation.png',  // Sky qui salue
+  chant: 'Sky-chant.png',          // Sky joue guitare
+  indices: 'Sky-indices.png',      // Sky doigt sur lèvres (mystère)
+  cherche: 'Sky-cherche.png',      // Sky main sur yeux, cherche
+  ange: 'Sky-ange.png',            // Sky devant la crèche avec ange
+  bravo: 'Sky-bravo.png',          // Sky bras levés, confettis
+  fin: 'Sky-fin.png',              // Sky qui dit au revoir
+}
+
+// Images des autres personnages pour le récap final
+const IMAGES_AUTRES = {
+  luce: 'Luce.png',
+  fe: 'Fe.png',
+  xin: 'Xin.png',
+}
 
 // ============================================
 // DATE D'ACTIVATION DE LA MISSION
@@ -11,9 +33,249 @@ import { ChevronLeft, Clock, Star, Sparkles } from 'lucide-react'
 const DATE_ACTIVATION = new Date('2025-12-21T00:00:00+01:00')
 
 // ============================================
-// COMPOSANT COMPTE À REBOURS
+// TYPE POUR LES SLIDES
 // ============================================
-function Countdown({ targetDate }: { targetDate: Date }) {
+type SlideType = 'dialogue' | 'question-guitare' | 'cta-mission' | 'action-chercher' | 'defi-chant' | 'fin-mission' | 'scene-creche'
+
+interface Slide {
+  id: number
+  texte: string
+  bullePosition: 'top' | 'bottom'
+  animation: string
+  image: string
+  type?: SlideType
+}
+
+// ============================================
+// ÉTAPE 1 : Présentation Sky (slides 1-5)
+// ============================================
+const SLIDES_ETAPE1: Slide[] = [
+  {
+    id: 1,
+    texte: "Salut toi\u00A0! Bienvenue à l'église d'Aproz\u00A0!",
+    bullePosition: 'top',
+    animation: 'zoomIn',
+    image: IMAGES_SKY.presentation
+  },
+  {
+    id: 2,
+    texte: "Je m'appelle Sky... Ça veut dire «\u00A0ciel\u00A0»\u00A0! Tu sais, le ciel où brillent les étoiles, où volent les oiseaux... et les anges\u00A0!",
+    bullePosition: 'top',
+    animation: 'float',
+    image: IMAGES_SKY.accueil
+  },
+  {
+    id: 3,
+    texte: "C'est la dernière semaine avant Noël... et je suis tellement content de t'accompagner pour ce dernier défi\u00A0!",
+    bullePosition: 'bottom',
+    animation: 'pulse',
+    image: IMAGES_SKY.presentation
+  },
+  {
+    id: 4,
+    texte: "Avant de commencer, j'ai une petite devinette pour toi... Observe-moi bien\u00A0! Il y a quelque chose d'accroché dans mon dos. C'est un objet qui m'aide à prier d'une façon très spéciale...",
+    bullePosition: 'top',
+    animation: 'glow',
+    image: IMAGES_SKY.accueil,
+    type: 'question-guitare'
+  }
+]
+
+// ============================================
+// ÉTAPE 2 : Mission Ange (slides 6-11)
+// ============================================
+const SLIDES_ETAPE2: Slide[] = [
+  {
+    id: 6,
+    texte: "Allez, tu es prêt pour la suite de l'aventure\u00A0? Cette fois, tu vas devoir chercher quelque chose dans l'église... C'est parti\u00A0!",
+    bullePosition: 'top',
+    animation: 'bounce',
+    image: IMAGES_SKY.presentation,
+    type: 'cta-mission'
+  },
+  {
+    id: 7,
+    texte: "Voici mon premier indice : «\u00A0Je suis toujours près de toi... mais tu ne peux pas me toucher.\u00A0»",
+    bullePosition: 'bottom',
+    animation: 'float',
+    image: IMAGES_SKY.indices
+  },
+  {
+    id: 8,
+    texte: "Deuxième indice : «\u00A0Je suis un messager très spécial. J'adore annoncer les bonnes nouvelles\u00A0!\u00A0»",
+    bullePosition: 'top',
+    animation: 'glow',
+    image: IMAGES_SKY.indices
+  },
+  {
+    id: 9,
+    texte: "Dernier indice : «\u00A0Je t'aide à faire de bonnes choses et je veille sur toi...\u00A0»",
+    bullePosition: 'bottom',
+    animation: 'pulse',
+    image: IMAGES_SKY.indices
+  },
+  {
+    id: 10,
+    texte: "Maintenant, ouvre grand les yeux et parcours l'église... Tu me trouveras peut-être sur la crèche\u00A0! Bonne chance\u00A0!",
+    bullePosition: 'top',
+    animation: 'zoom',
+    image: IMAGES_SKY.cherche,
+    type: 'action-chercher'
+  }
+]
+
+// ============================================
+// ÉTAPE 3 : Explication Ange
+// ============================================
+const SLIDES_ETAPE3: Slide[] = [
+  {
+    id: 11,
+    texte: "Tu l'as trouvé\u00A0! C'est l'Ange\u00A0! Il est là, tout en haut de la crèche, avec son message «\u00A0Paix sur la terre\u00A0».",
+    bullePosition: 'bottom',
+    animation: 'glow',
+    image: IMAGES_SKY.ange,
+    type: 'scene-creche'
+  },
+  {
+    id: 12,
+    texte: "Les anges sont les messagers de Dieu. Tu sais, la nuit de Noël, c'est un ange qui est venu dire aux bergers : «\u00A0N'ayez pas peur\u00A0! Le Sauveur est né\u00A0!\u00A0»",
+    bullePosition: 'top',
+    animation: 'float',
+    image: IMAGES_SKY.ange,
+    type: 'scene-creche'
+  },
+  {
+    id: 13,
+    texte: "Et tous les anges se sont mis à chanter de joie\u00A0!",
+    bullePosition: 'bottom',
+    animation: 'pulse',
+    image: IMAGES_SKY.chant
+  }
+]
+
+// ============================================
+// ÉTAPE 4 : Défi chant/prière
+// ============================================
+const SLIDES_ETAPE4: Slide[] = [
+  {
+    id: 14,
+    texte: "Maintenant, j'ai un petit défi pour toi... Est-ce que tu voudrais chanter une chanson de Noël\u00A0? Celle que tu préfères\u00A0! Ou si tu veux, on peut lire ensemble une belle prière...",
+    bullePosition: 'top',
+    animation: 'float',
+    image: IMAGES_SKY.chant,
+    type: 'defi-chant'
+  }
+]
+
+// ============================================
+// ÉTAPE 5 : Fin et récap des 4 personnages
+// ============================================
+const SLIDES_ETAPE5: Slide[] = [
+  {
+    id: 15,
+    texte: "BRAVO\u00A0! Tu as réussi toutes les missions du calendrier de l'Avent\u00A0!",
+    bullePosition: 'top',
+    animation: 'bounce',
+    image: IMAGES_SKY.bravo
+  },
+  {
+    id: 16,
+    texte: "Tu es prêt pour Noël\u00A0! Merci d'avoir participé à cette belle aventure avec nous.",
+    bullePosition: 'bottom',
+    animation: 'glow',
+    image: IMAGES_SKY.fin,
+    type: 'fin-mission'
+  }
+]
+
+const ALL_SLIDES = [...SLIDES_ETAPE1, ...SLIDES_ETAPE2, ...SLIDES_ETAPE3, ...SLIDES_ETAPE4, ...SLIDES_ETAPE5]
+
+const PRIERE_SKY = `Seigneur, je te loue pour cette belle aventure de l'Avent\u00A0!
+
+Merci pour la lumière, la foi, l'espérance et la joie
+que tu as semées dans mon cœur.
+
+En ce temps de Noël, aide-moi à partager
+ton amour avec tous ceux que je rencontre.
+
+Que les anges chantent dans mon cœur\u00A0!
+Joyeux Noël, Jésus\u00A0!`
+
+const REPONSES_NON_GUITARE = [
+  "Regarde bien dans mon dos...",
+  "C'est un instrument de musique avec des cordes\u00A0!"
+]
+
+const TEXTE_BRAVO_GUITARE = "Bravo, tu as l'œil\u00A0! C'est bien ma guitare\u00A0!"
+
+const TEXTE_EXPLICATION_GUITARE = "Tu sais ce qu'on dit\u00A0? «\u00A0Quand on chante, on prie deux fois\u00A0!\u00A0» La musique, c'est comme une prière qui s'envole vers le ciel..."
+
+// ============================================
+// COMPOSANT SKY ANIMÉ
+// ============================================
+function SkyAnimated({
+  animation,
+  size = 200,
+  imageName = 'Sky.png'
+}: {
+  animation: string
+  size?: number
+  imageName?: string
+}) {
+  const animationClasses: Record<string, string> = {
+    bounce: 'animate-bounce',
+    pulse: 'animate-pulse',
+    float: 'animate-float',
+    glow: 'animate-glow',
+    zoom: 'animate-zoom',
+    zoomIn: 'animate-zoomIn'
+  }
+
+  return (
+    <div className={`transition-all duration-500 ${animationClasses[animation] || ''}`}>
+      <Image
+        src={`/images/avent/personnages/${imageName}`}
+        alt="Sky"
+        width={size}
+        height={size * 1.25}
+        className="object-contain drop-shadow-xl"
+        priority
+      />
+    </div>
+  )
+}
+
+// ============================================
+// COMPOSANT BULLE AVEC TRIANGLE
+// ============================================
+function BulleAvecTriangle({
+  texte,
+  triangleDirection = 'bottom'
+}: {
+  texte: string
+  triangleDirection?: 'top' | 'bottom'
+}) {
+  return (
+    <div className="relative bg-white rounded-3xl p-6 shadow-2xl">
+      {triangleDirection === 'top' && (
+        <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-b-[16px] border-b-white" />
+      )}
+
+      <p className="text-xl text-slate-800 leading-relaxed text-center font-medium">
+        {texte}
+      </p>
+
+      {triangleDirection === 'bottom' && (
+        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[16px] border-l-transparent border-r-[16px] border-r-transparent border-t-[16px] border-t-white" />
+      )}
+    </div>
+  )
+}
+
+// ============================================
+// ÉCRAN "PAS ENCORE DISPONIBLE"
+// ============================================
+function EcranNonDisponible() {
   const [timeLeft, setTimeLeft] = useState({
     jours: 0,
     heures: 0,
@@ -22,210 +284,772 @@ function Countdown({ targetDate }: { targetDate: Date }) {
   })
 
   useEffect(() => {
-    const calculateTimeLeft = () => {
+    const updateCountdown = () => {
       const now = new Date()
-      const difference = targetDate.getTime() - now.getTime()
+      const difference = DATE_ACTIVATION.getTime() - now.getTime()
 
-      if (difference > 0) {
-        setTimeLeft({
-          jours: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          heures: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          secondes: Math.floor((difference / 1000) % 60)
-        })
+      if (difference <= 0) {
+        window.location.reload()
+        return
       }
+
+      const jours = Math.floor(difference / (1000 * 60 * 60 * 24))
+      const heures = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
+      const secondes = Math.floor((difference % (1000 * 60)) / 1000)
+
+      setTimeLeft({ jours, heures, minutes, secondes })
     }
 
-    calculateTimeLeft()
-    const timer = setInterval(calculateTimeLeft, 1000)
+    updateCountdown()
+    const interval = setInterval(updateCountdown, 1000)
 
-    return () => clearInterval(timer)
-  }, [targetDate])
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <div className="flex gap-3 sm:gap-4 justify-center">
-      {[
-        { value: timeLeft.jours, label: 'jours' },
-        { value: timeLeft.heures, label: 'heures' },
-        { value: timeLeft.minutes, label: 'min' },
-        { value: timeLeft.secondes, label: 'sec' }
-      ].map((item, index) => (
-        <div key={index} className="flex flex-col items-center">
-          <div className="bg-white/20 backdrop-blur-sm rounded-xl px-3 py-2 sm:px-4 sm:py-3 min-w-[60px] sm:min-w-[70px] border border-white/30">
-            <span className="text-2xl sm:text-3xl font-bold text-white tabular-nums">
-              {String(item.value).padStart(2, '0')}
-            </span>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+      <div className="text-center max-w-md">
+        {/* Icône cadenas */}
+        <div className="mb-6">
+          <div className="w-20 h-20 mx-auto bg-blue-200 rounded-full flex items-center justify-center">
+            <Lock className="w-10 h-10 text-blue-600" />
           </div>
-          <span className="text-xs sm:text-sm text-blue-100 mt-1">{item.label}</span>
         </div>
-      ))}
+
+        {/* Sky en aperçu */}
+        <div className="mb-6 opacity-60">
+          <Image
+            src="/images/avent/personnages/Sky.png"
+            alt="Sky"
+            width={150}
+            height={187}
+            className="mx-auto object-contain"
+          />
+        </div>
+
+        <h1 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4">
+          Mission pas encore disponible
+        </h1>
+
+        <p className="text-lg text-blue-700 mb-6">
+          Sky t'attend à l'église d'<strong>Aproz</strong> à partir du <strong>21 décembre</strong> !
+        </p>
+
+        {/* Compteur */}
+        <div className="grid grid-cols-4 gap-2 mb-8">
+          <div className="bg-white rounded-xl p-3 shadow-lg">
+            <div className="text-2xl font-bold text-blue-600">{timeLeft.jours}</div>
+            <div className="text-xs text-slate-500">jours</div>
+          </div>
+          <div className="bg-white rounded-xl p-3 shadow-lg">
+            <div className="text-2xl font-bold text-blue-600">{timeLeft.heures}</div>
+            <div className="text-xs text-slate-500">heures</div>
+          </div>
+          <div className="bg-white rounded-xl p-3 shadow-lg">
+            <div className="text-2xl font-bold text-blue-600">{timeLeft.minutes}</div>
+            <div className="text-xs text-slate-500">min</div>
+          </div>
+          <div className="bg-white rounded-xl p-3 shadow-lg">
+            <div className="text-2xl font-bold text-blue-600">{timeLeft.secondes}</div>
+            <div className="text-xs text-slate-500">sec</div>
+          </div>
+        </div>
+
+        {/* Lien retour */}
+        <Link
+          href="/avent"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5" />
+          Retour au calendrier
+        </Link>
+      </div>
     </div>
   )
 }
 
 // ============================================
-// PAGE MISSION 4 - COMPTE À REBOURS
+// PAGE PRINCIPALE MISSION 4
 // ============================================
 export default function Mission4Page() {
-  const [isActivated, setIsActivated] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const [isAccessible, setIsAccessible] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [slideIndex, setSlideIndex] = useState(0)
+  const [tentativesNon, setTentativesNon] = useState(0)
+  const [showBravoGuitare, setShowBravoGuitare] = useState(false)
+  const [showExplicationGuitare, setShowExplicationGuitare] = useState(false)
+  const [showBravoAnge, setShowBravoAnge] = useState(false)
+  const [showIndice, setShowIndice] = useState(false)
+  const [showPriere, setShowPriere] = useState(false)
+  const [etape, setEtape] = useState(1)
+  const hasTrackedStart = useRef(false)
+  const hasTrackedComplete = useRef(false)
 
+  // Vérification de la date d'accès (avec bypass dev via ?dev=true)
   useEffect(() => {
-    setMounted(true)
+    const params = new URLSearchParams(window.location.search)
+    const devMode = params.get('dev') === 'true'
     const now = new Date()
-    setIsActivated(now >= DATE_ACTIVATION)
+    const accessible = devMode || now >= DATE_ACTIVATION
+    setIsAccessible(accessible)
+    setIsLoading(false)
+
+    // Tracker le début de la mission (une seule fois)
+    if (accessible && !hasTrackedStart.current) {
+      hasTrackedStart.current = true
+      trackMission.start(4, 'Sky', 'Aproz')
+    }
   }, [])
 
-  // Évite le flash de contenu pendant l'hydratation
-  if (!mounted) {
+  const currentSlide = ALL_SLIDES[slideIndex]
+  const isFirstSlide = slideIndex === 0
+
+  const handleSuivant = () => {
+    if (slideIndex < ALL_SLIDES.length - 1) {
+      const newIndex = slideIndex + 1
+      setSlideIndex(newIndex)
+      setShowIndice(false)
+
+      // Gestion des étapes
+      const etape1End = SLIDES_ETAPE1.length
+      const etape2End = etape1End + SLIDES_ETAPE2.length
+      const etape3End = etape2End + SLIDES_ETAPE3.length
+      const etape4End = etape3End + SLIDES_ETAPE4.length
+
+      if (newIndex >= etape4End) {
+        setEtape(5)
+      } else if (newIndex >= etape3End) {
+        setEtape(4)
+      } else if (newIndex >= etape2End) {
+        setEtape(3)
+      } else if (newIndex >= etape1End) {
+        setEtape(2)
+      }
+    }
+  }
+
+  const handleRetour = () => {
+    if (slideIndex > 0) {
+      const newIndex = slideIndex - 1
+      setSlideIndex(newIndex)
+      setShowIndice(false)
+      setTentativesNon(0)
+
+      // Gestion des étapes
+      const etape1End = SLIDES_ETAPE1.length
+      const etape2End = etape1End + SLIDES_ETAPE2.length
+      const etape3End = etape2End + SLIDES_ETAPE3.length
+      const etape4End = etape3End + SLIDES_ETAPE4.length
+
+      if (newIndex < etape1End) {
+        setEtape(1)
+      } else if (newIndex < etape2End) {
+        setEtape(2)
+      } else if (newIndex < etape3End) {
+        setEtape(3)
+      } else if (newIndex < etape4End) {
+        setEtape(4)
+      } else {
+        setEtape(5)
+      }
+    }
+  }
+
+  // Question Guitare
+  const handleOuiGuitare = () => {
+    setShowBravoGuitare(true)
+  }
+
+  const handleNonGuitare = () => {
+    if (tentativesNon < 2) {
+      setTentativesNon(tentativesNon + 1)
+      setShowIndice(true)
+
+      if (tentativesNon === 1) {
+        setTimeout(() => {
+          setShowBravoGuitare(true)
+        }, 2000)
+      }
+    }
+  }
+
+  const handleContinuerApresGuitare = () => {
+    setShowBravoGuitare(false)
+    setShowExplicationGuitare(true)
+  }
+
+  const handleContinuerApresExplication = () => {
+    setShowExplicationGuitare(false)
+    setSlideIndex(SLIDES_ETAPE1.length)
+    setEtape(2)
+    setTentativesNon(0)
+    setShowIndice(false)
+  }
+
+  // Action chercher Ange
+  const handleTrouveAnge = () => {
+    setShowBravoAnge(true)
+    trackMission.angelFound(4)
+  }
+
+  const handleContinuerApresAnge = () => {
+    setShowBravoAnge(false)
+    setSlideIndex(SLIDES_ETAPE1.length + SLIDES_ETAPE2.length)
+    setEtape(3)
+  }
+
+  // Loading
+  if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700 flex items-center justify-center">
-        <div className="animate-pulse">
-          <Star className="w-12 h-12 text-blue-300" />
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex items-center justify-center">
+        <div className="animate-pulse text-blue-600 text-xl">Chargement...</div>
+      </div>
+    )
+  }
+
+  // Pas encore accessible
+  if (!isAccessible) {
+    return <EcranNonDisponible />
+  }
+
+  // ============================================
+  // ÉCRAN BRAVO GUITARE
+  // ============================================
+  if (showBravoGuitare) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+        <div className="mb-6">
+          <SkyAnimated animation="bounce" size={220} imageName={IMAGES_SKY.bravo} />
+        </div>
+
+        <div className="w-full max-w-md">
+          <BulleAvecTriangle texte={TEXTE_BRAVO_GUITARE} triangleDirection="top" />
+
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={handleContinuerApresGuitare}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
+            >
+              Raconte-moi !
+            </button>
+          </div>
         </div>
       </div>
     )
   }
 
-  // Si la mission est activée, on affichera le contenu complet (à développer)
-  if (isActivated) {
+  // ============================================
+  // ÉCRAN EXPLICATION GUITARE
+  // ============================================
+  if (showExplicationGuitare) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700">
-        <div className="container mx-auto px-4 py-8 max-w-lg">
-          {/* Header */}
-          <div className="flex items-center justify-between mb-6">
-            <Link
-              href="/avent"
-              className="flex items-center gap-2 text-blue-100 hover:text-white transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-              <span>Retour</span>
-            </Link>
-            <div className="flex items-center gap-2 text-blue-200">
-              <Star className="w-5 h-5" />
-              <span className="text-sm font-medium">Semaine 4</span>
-            </div>
-          </div>
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+        <div className="mb-6">
+          <SkyAnimated animation="glow" size={240} imageName={IMAGES_SKY.chant} />
+        </div>
 
-          {/* Contenu activé - placeholder */}
-          <div className="text-center py-12">
-            <div className="relative w-64 h-64 mx-auto mb-8">
-              <Image
-                src="/images/avent/personnages/Sky.png"
-                alt="Sky"
-                fill
-                className="object-contain"
-                priority
-              />
+        <div className="w-full max-w-md">
+          <BulleAvecTriangle texte={TEXTE_EXPLICATION_GUITARE} triangleDirection="top" />
+
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={handleContinuerApresExplication}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
+            >
+              Continuer l'aventure
+            </button>
+          </div>
+        </div>
+
+        {/* Indicateur étape */}
+        <div className="mt-6 text-center">
+          <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
+        </div>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN BRAVO ANGE
+  // ============================================
+  if (showBravoAnge) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+        <div className="mb-6">
+          <SkyAnimated animation="glow" size={280} imageName={IMAGES_SKY.bravo} />
+        </div>
+
+        <div className="w-full max-w-md">
+          <BulleAvecTriangle texte="Bravo, tu as trouvé !" triangleDirection="top" />
+
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={handleContinuerApresAnge}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
+            >
+              Découvrir la suite
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN QUESTION GUITARE (Étape 1)
+  // ============================================
+  if (currentSlide.type === 'question-guitare') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+        <div className="mb-8">
+          <SkyAnimated animation="zoom" size={220} imageName={currentSlide.image} />
+        </div>
+
+        <div className="w-full max-w-md mx-auto">
+          <BulleAvecTriangle
+            texte={showIndice ? REPONSES_NON_GUITARE[tentativesNon - 1] : currentSlide.texte}
+            triangleDirection="top"
+          />
+
+          {showIndice ? (
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={() => {
+                  if (tentativesNon >= 2) {
+                    setShowBravoGuitare(true)
+                  } else {
+                    setShowIndice(false)
+                  }
+                }}
+                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
+              >
+                Suivant
+              </button>
             </div>
-            <h1 className="text-3xl font-bold text-white mb-4">
-              Mission de Sky
-            </h1>
-            <p className="text-blue-100 text-lg">
-              La mission arrive bientôt...
+          ) : (
+            <div className="flex justify-center gap-4 mt-6">
+              <button
+                onClick={handleOuiGuitare}
+                className="px-10 py-4 rounded-2xl bg-white border-2 border-blue-400 text-blue-600 font-bold text-lg shadow-lg active:scale-95 transition-transform"
+              >
+                C'est une guitare !
+              </button>
+              <button
+                onClick={handleNonGuitare}
+                className="px-10 py-4 rounded-2xl bg-white border-2 border-slate-300 text-slate-600 font-bold text-lg shadow-lg active:scale-95 transition-transform"
+              >
+                Je ne sais pas
+              </button>
+            </div>
+          )}
+
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleRetour}
+              className="px-6 py-3 rounded-xl bg-white/80 text-slate-500 font-medium shadow active:scale-95 transition-transform text-sm"
+            >
+              Retour
+            </button>
+          </div>
+        </div>
+
+        {/* Indicateur étape */}
+        <div className="mt-8 text-center">
+          <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
+        </div>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN DÉFI CHANT/PRIÈRE (Étape 4)
+  // ============================================
+  if (currentSlide.type === 'defi-chant') {
+    if (showPriere) {
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+          {/* Carte prière */}
+          <div className="w-full max-w-md mx-auto bg-white rounded-3xl p-8 shadow-2xl mb-6">
+            <p className="text-sm text-blue-500 font-medium mb-3 text-center">Prière de Noël :</p>
+            <p className="text-lg text-slate-700 leading-relaxed text-center font-serif whitespace-pre-line italic">
+              {PRIERE_SKY}
             </p>
           </div>
+
+          {/* Sky en prière/chant */}
+          <div className="mb-4">
+            <SkyAnimated animation="glow" size={120} imageName={IMAGES_SKY.chant} />
+          </div>
+
+          <div className="flex gap-4">
+            <button
+              onClick={() => setShowPriere(false)}
+              className="px-6 py-3 rounded-xl bg-white/80 text-slate-500 font-medium shadow active:scale-95 transition-transform"
+            >
+              Retour
+            </button>
+            <button
+              onClick={handleSuivant}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
+            >
+              Continuer
+            </button>
+          </div>
+
+          {/* Indicateur étape */}
+          <div className="mt-6 text-center">
+            <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
+          </div>
+        </div>
+      )
+    }
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+        <div className="mb-6">
+          <SkyAnimated animation="float" size={180} imageName={IMAGES_SKY.chant} />
+        </div>
+
+        <div className="w-full max-w-md mx-auto">
+          <BulleAvecTriangle texte={currentSlide.texte} triangleDirection="top" />
+
+          <div className="flex justify-center gap-4 mt-6">
+            <button
+              onClick={handleSuivant}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform flex items-center gap-2"
+            >
+              <Music className="w-5 h-5" />
+              Je chante !
+            </button>
+            <button
+              onClick={() => setShowPriere(true)}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform flex items-center gap-2"
+            >
+              <Star className="w-5 h-5" />
+              Je prie
+            </button>
+          </div>
+
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleRetour}
+              className="px-6 py-3 rounded-xl bg-white/80 text-slate-500 font-medium shadow active:scale-95 transition-transform text-sm"
+            >
+              Retour
+            </button>
+          </div>
+        </div>
+
+        {/* Indicateur étape */}
+        <div className="mt-6 text-center">
+          <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
         </div>
       </div>
     )
   }
 
-  // Page compte à rebours
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-950 via-blue-900 to-blue-800 overflow-hidden">
-      {/* Étoiles décoratives */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 2}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
-            }}
-          >
-            <Sparkles className="w-3 h-3 text-blue-300/40" />
-          </div>
-        ))}
-      </div>
-
-      <div className="container mx-auto px-4 py-8 max-w-lg relative z-10">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-8">
-          <Link
-            href="/avent"
-            className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5" />
-            <span>Retour</span>
-          </Link>
-          <div className="flex items-center gap-2 text-blue-300">
-            <Clock className="w-5 h-5" />
-            <span className="text-sm font-medium">Bientôt disponible</span>
-          </div>
-        </div>
-
-        {/* Contenu principal */}
-        <div className="text-center">
-          {/* Badge semaine */}
-          <div className="inline-flex items-center gap-2 bg-blue-500/20 border border-blue-400/30 rounded-full px-4 py-2 mb-6">
-            <Star className="w-4 h-4 text-blue-300" />
-            <span className="text-blue-100 text-sm font-medium">Semaine 4 - Du 21 au 25 décembre</span>
-          </div>
-
-          {/* Image Sky */}
-          <div className="relative w-56 h-56 sm:w-72 sm:h-72 mx-auto mb-8">
-            <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
+  // ============================================
+  // ÉCRAN SCÈNE CRÈCHE - IMAGE PLEIN ÉCRAN
+  // ============================================
+  if (currentSlide.type === 'scene-creche') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col p-4">
+        {/* Image crèche en grand - pleine largeur */}
+        <div className="flex-1 flex items-center justify-center mb-4">
+          <div className="w-full max-w-2xl">
             <Image
-              src="/images/avent/personnages/Sky.png"
-              alt="Sky - Personnage de la semaine 4"
-              fill
-              className="object-contain drop-shadow-2xl relative z-10"
+              src={`/images/avent/personnages/${currentSlide.image}`}
+              alt="Sky devant la crèche avec l'ange"
+              width={800}
+              height={450}
+              className="w-full h-auto rounded-2xl shadow-2xl object-contain"
               priority
             />
           </div>
+        </div>
 
-          {/* Titre */}
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-            Sky arrive bientôt !
-          </h1>
-          <p className="text-blue-100 text-lg mb-8 max-w-sm mx-auto">
-            La dernière mission du calendrier de l&apos;Avent t&apos;attend à l&apos;église d&apos;Aproz...
+        {/* Bulle de texte en bas */}
+        <div className="w-full max-w-md mx-auto mb-4">
+          <BulleAvecTriangle texte={currentSlide.texte} triangleDirection="top" />
+        </div>
+
+        {/* Boutons navigation */}
+        <div className="flex justify-center gap-4 mb-4">
+          <button
+            onClick={handleRetour}
+            className="px-6 py-3 rounded-xl bg-white/80 text-slate-500 font-medium shadow active:scale-95 transition-transform"
+          >
+            Retour
+          </button>
+          <button
+            onClick={handleSuivant}
+            className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold shadow-xl active:scale-95 transition-transform"
+          >
+            Suivant
+          </button>
+        </div>
+
+        {/* Indicateur étape */}
+        <div className="text-center">
+          <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
+        </div>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN FIN DE MISSION - RÉCAP 4 PERSONNAGES
+  // ============================================
+  if (currentSlide.type === 'fin-mission') {
+    // Tracker la mission complète (une seule fois)
+    if (!hasTrackedComplete.current) {
+      hasTrackedComplete.current = true
+      trackMission.complete(4, 'Sky')
+    }
+
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+
+        {/* 1. Célébration - Sky */}
+        <div className="animate-pulse mb-4">
+          <Image
+            src={`/images/avent/personnages/${IMAGES_SKY.bravo}`}
+            alt="Sky"
+            width={140}
+            height={175}
+            className="object-contain drop-shadow-xl"
+          />
+        </div>
+
+        {/* 2. Message de félicitations */}
+        <div className="bg-white rounded-3xl p-6 shadow-2xl mb-6 max-w-md text-center">
+          <p className="text-2xl md:text-3xl font-black text-blue-600 mb-4">
+            Toutes les missions accomplies !
           </p>
 
-          {/* Compte à rebours */}
-          <div className="bg-blue-800/50 backdrop-blur-sm rounded-2xl p-6 border border-blue-600/30 mb-8">
-            <p className="text-blue-200 text-sm mb-4 flex items-center justify-center gap-2">
-              <Clock className="w-4 h-4" />
-              La mission commence dans...
-            </p>
-            <Countdown targetDate={DATE_ACTIVATION} />
+          {/* Récap des 4 personnages */}
+          <div className="grid grid-cols-4 gap-2 mb-4">
+            <div className="text-center">
+              <Image src={`/images/avent/personnages/${IMAGES_AUTRES.luce}`} alt="Luce" width={50} height={62} className="mx-auto" />
+              <p className="text-xs text-amber-600 font-medium mt-1">Lumière</p>
+            </div>
+            <div className="text-center">
+              <Image src={`/images/avent/personnages/${IMAGES_AUTRES.fe}`} alt="Fe" width={50} height={62} className="mx-auto" />
+              <p className="text-xs text-red-600 font-medium mt-1">Foi</p>
+            </div>
+            <div className="text-center">
+              <Image src={`/images/avent/personnages/${IMAGES_AUTRES.xin}`} alt="Xin" width={50} height={62} className="mx-auto" />
+              <p className="text-xs text-emerald-600 font-medium mt-1">Espérance</p>
+            </div>
+            <div className="text-center">
+              <Image src={`/images/avent/personnages/${IMAGES_SKY.accueil}`} alt="Sky" width={50} height={62} className="mx-auto" />
+              <p className="text-xs text-blue-600 font-medium mt-1">Joie</p>
+            </div>
           </div>
 
-          {/* Message teaser */}
-          <div className="bg-gradient-to-r from-blue-600/20 via-blue-500/20 to-blue-600/20 rounded-xl p-5 border border-blue-500/20">
-            <p className="text-blue-100 italic">
-              &quot;Je suis Sky, et je vais t&apos;accompagner pour la dernière semaine
-              avant Noël ! Prépare-toi pour une belle aventure...&quot;
-            </p>
-            <p className="text-blue-300 text-sm mt-3">
-              Rendez-vous le 21 décembre !
-            </p>
-          </div>
+          <p className="text-lg text-slate-700">
+            Tu es prêt pour Noël !
+          </p>
+        </div>
 
-          {/* Lien retour calendrier */}
-          <div className="mt-10">
-            <Link
-              href="/avent"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-medium transition-colors"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Voir le calendrier de l&apos;Avent
-            </Link>
+        {/* 3. RDV Épiphanie */}
+        <div className="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl p-5 border-2 border-amber-200 shadow-lg mb-6 max-w-md">
+          <div className="text-center">
+            <p className="text-lg text-amber-700 font-bold mb-2">
+              On a un petit secret pour toi...
+            </p>
+            <p className="text-slate-600 mb-2">
+              Rendez-vous à la <strong>messe de l'Épiphanie</strong> pour une surprise !
+            </p>
+            <div className="flex items-center justify-center gap-4 text-sm">
+              <span className="flex items-center gap-1 text-amber-600">
+                <Calendar className="w-4 h-4" />
+                <strong>Samedi 4 janvier à 17h</strong>
+              </span>
+              <span className="flex items-center gap-1 text-amber-600">
+                <MapPin className="w-4 h-4" />
+                <strong>Basse-Nendaz</strong>
+              </span>
+            </div>
           </div>
         </div>
+
+        {/* 4. Message Joyeux Noël */}
+        <div className="text-center mb-6">
+          <p className="text-3xl font-black bg-gradient-to-r from-red-500 via-green-500 to-red-500 bg-clip-text text-transparent">
+            Joyeux Noël !
+          </p>
+        </div>
+
+        <button
+          onClick={() => {
+            window.location.href = '/avent'
+          }}
+          className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-xl shadow-xl active:scale-95 transition-transform"
+        >
+          Retour au calendrier
+        </button>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN ACTION CHERCHER ANGE (Étape 2)
+  // ============================================
+  if (currentSlide.type === 'action-chercher') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+        <div className="mb-8">
+          <SkyAnimated animation={currentSlide.animation} size={220} imageName={currentSlide.image} />
+        </div>
+
+        <div className="w-full max-w-md mx-auto">
+          <BulleAvecTriangle texte={currentSlide.texte} triangleDirection="top" />
+
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={handleTrouveAnge}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-bold text-lg shadow-xl active:scale-95 transition-transform"
+            >
+              J'ai trouvé !
+            </button>
+          </div>
+
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleRetour}
+              className="px-6 py-3 rounded-xl bg-white/80 text-slate-500 font-medium shadow active:scale-95 transition-transform text-sm"
+            >
+              Revoir les indices
+            </button>
+          </div>
+        </div>
+
+        {/* Indicateur étape */}
+        <div className="mt-8 text-center">
+          <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
+        </div>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN CTA MISSION (Transition vers étape 2)
+  // ============================================
+  if (currentSlide.type === 'cta-mission') {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+        <div className="w-full max-w-md mb-8">
+          <BulleAvecTriangle texte={currentSlide.texte} triangleDirection="bottom" />
+        </div>
+
+        <div className="mb-6">
+          <SkyAnimated animation={currentSlide.animation} size={220} imageName={currentSlide.image} />
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            onClick={handleSuivant}
+            className="px-10 py-5 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold text-xl shadow-xl active:scale-95 transition-transform"
+          >
+            C'est parti !
+          </button>
+        </div>
+
+        {/* Indicateur étape */}
+        <div className="mt-8 text-center">
+          <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
+        </div>
+      </div>
+    )
+  }
+
+  // ============================================
+  // ÉCRAN DIALOGUE STANDARD
+  // ============================================
+  const isBulleTop = currentSlide.bullePosition === 'top'
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
+
+      {/* Layout bulle en HAUT : Bulle → Personnage */}
+      {isBulleTop && (
+        <>
+          <div className="w-full max-w-md mb-8">
+            <BulleAvecTriangle texte={currentSlide.texte} triangleDirection="bottom" />
+          </div>
+
+          <div className="mb-6">
+            <SkyAnimated animation={currentSlide.animation} imageName={currentSlide.image} />
+          </div>
+
+          <div className="flex gap-4">
+            {!isFirstSlide && (
+              <button
+                onClick={handleRetour}
+                className="px-6 py-3 rounded-xl bg-white/80 text-slate-500 font-medium shadow active:scale-95 transition-transform"
+              >
+                Retour
+              </button>
+            )}
+            <button
+              onClick={handleSuivant}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold shadow-xl active:scale-95 transition-transform"
+            >
+              Suivant
+            </button>
+          </div>
+        </>
+      )}
+
+      {/* Layout bulle en BAS : Personnage → Bulle */}
+      {!isBulleTop && (
+        <>
+          <div className="mb-8">
+            <SkyAnimated animation={currentSlide.animation} imageName={currentSlide.image} />
+          </div>
+
+          <div className="w-full max-w-md mb-6">
+            <BulleAvecTriangle texte={currentSlide.texte} triangleDirection="top" />
+          </div>
+
+          <div className="flex gap-4">
+            {!isFirstSlide && (
+              <button
+                onClick={handleRetour}
+                className="px-6 py-3 rounded-xl bg-white/80 text-slate-500 font-medium shadow active:scale-95 transition-transform"
+              >
+                Retour
+              </button>
+            )}
+            <button
+              onClick={handleSuivant}
+              className="px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold shadow-xl active:scale-95 transition-transform"
+            >
+              Suivant
+            </button>
+          </div>
+        </>
+      )}
+
+      {/* Indicateur de progression par étape */}
+      <div className="mt-8 flex flex-col items-center gap-2">
+        <div className="flex gap-3">
+          {[1, 2, 3, 4, 5].map((e) => (
+            <div
+              key={e}
+              className={`w-3 h-3 rounded-full transition-colors ${
+                e === etape
+                  ? 'bg-blue-500 scale-125'
+                  : e < etape
+                  ? 'bg-blue-400'
+                  : 'bg-white/60'
+              }`}
+            />
+          ))}
+        </div>
+        <span className="text-blue-600 font-medium text-sm">Étape {etape} sur 5</span>
       </div>
     </div>
   )

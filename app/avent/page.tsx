@@ -6,8 +6,6 @@ import Link from 'next/link'
 import { Calendar, ChevronLeft, Play, Lock, Sparkles, BookOpen, Music, X, Flame, MapPin } from 'lucide-react'
 import {
   SEMAINES_AVENT,
-  JOURS_SEMAINE_1,
-  JOURS_SEMAINE_2,
   getSemaineActuelle,
   getJourActuel,
   estJourAccessible,
@@ -325,7 +323,7 @@ export default function AventPage() {
                     semaineActuelle.numero === 1 ? 'Basse-Nendaz' :
                     semaineActuelle.numero === 2 ? 'Fey' :
                     semaineActuelle.numero === 3 ? 'Veysonnaz' :
-                    'Haute-Nendaz'
+                    'Aproz'
                   }</strong></span>
                 </p>
                 <p className="text-sm text-slate-500 mt-1 flex items-center justify-center md:justify-start gap-2">

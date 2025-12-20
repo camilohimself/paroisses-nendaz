@@ -518,6 +518,99 @@ Que l'espérance conduise notre marche aujourd'hui…`,
 ]
 
 // ============================================
+// JOURS DE L'AVENT - SEMAINE 4
+// ============================================
+
+export const JOURS_SEMAINE_4: JourAvent[] = [
+  {
+    jour: 21,
+    date: "2025-12-21",
+    titre: "Alléluia, je loue Dieu !",
+    texteBiblique: "",
+    meditation: `Je me mets en route avec les enfants, avec "Sky" qui veut dire ciel.
+
+Vêtu d'un manteau bleu, il emporte toujours sa guitare pour répandre des mélodies d'espoir et de joie. Sa guitare symbolise la prière, car chanter c'est prier deux fois ! Sky apporte une touche de musique et de spiritualité à la marche du pèlerinage.
+
+Cette semaine, je veux accueillir la joie et la semer autour de moi…`,
+    priere: `Je m'exerce à dire merci en chantant un alléluia, un chant de Noël, un chant de Jésus, un chant de joie, ou je fais une prière qui commence par "Je te loue Seigneur pour…" ou "Merci la vie, pour…"`,
+    special: 'dimanche',
+    semaine: 4
+  },
+  {
+    jour: 22,
+    date: "2025-12-22",
+    titre: "La joie de rencontrer Jésus",
+    texteBiblique: "Quand ils virent l'étoile, ils ressentirent une très grande joie.",
+    meditation: `Les mages ont été remplis d'une très grande joie quand ils ont retrouvé l'étoile qui les conduit vers Jésus. Les bergers aussi ont ressenti cette joie, eux qui étaient les plus pauvres, les exclus de la société.
+
+La joie d'approcher Jésus, de le rencontrer, de lui parler, de l'écouter, de s'en remettre à lui.`,
+    priere: `Seigneur, donne-moi cette joie de te rencontrer dans ma prière, dans ta Parole, dans les sacrements, dans les personnes que je rencontre…
+
+S'il y a des tensions dans ma vie, je te prie pour… (ceux avec qui je vis une tension)
+Aide-nous à nous réconcilier, donne-nous ta joie…`,
+    semaine: 4
+  },
+  {
+    jour: 23,
+    date: "2025-12-23",
+    titre: "La joie dans mes relations",
+    texteBiblique: "En ces jours-là, Marie se mit en route et se rendit avec empressement vers la région montagneuse, dans une ville de Judée. Elle entra dans la maison de Zacharie et salua Élisabeth.",
+    meditation: `Marie va voir Élisabeth sa cousine. Ces deux femmes vivent une situation similaire et échangent leur joie, leur foi. Cette rencontre est joyeuse parce que fondée sur la foi, sur l'amour, sur la fraternité.
+
+Ai-je des personnes avec qui partager ma foi ? des personnes ressources ? Je les nomme…`,
+    priere: `Merci pour les personnes avec qui je chemine dans la foi…
+Seigneur, je te confie les relations qui manquent de joie…
+
+Donne-nous ton Esprit de Joie aujourd'hui…`,
+    semaine: 4
+  },
+  {
+    jour: 24,
+    date: "2025-12-24",
+    titre: "Veillée de Noël",
+    texteBiblique: "L'ange Gabriel fut envoyé par Dieu dans une ville de Galilée, appelée Nazareth, à une jeune fille vierge. L'ange lui dit : « Sois sans crainte, Marie, car tu as trouvé grâce auprès de Dieu. »",
+    meditation: `Viens Esprit Saint, viens remplir le cœur de tes fidèles, viens allumer en nous le feu de ton amour.
+
+Je prépare mon cœur à accueillir Jésus.
+Ce soir, c'est la nuit de Noël !`,
+    priere: `Viens Esprit Saint !
+Aide-moi à accueillir avec la joie des bergers
+celui qui vient pour tous les hommes,
+celui qui vient pour moi.
+
+Que cette nuit sainte soit pour moi source de joie profonde !`,
+    special: 'bougie',
+    semaine: 4
+  },
+  {
+    jour: 25,
+    date: "2025-12-25",
+    titre: "Joyeux Noël !",
+    texteBiblique: "L'ange dit aux bergers : « Ne craignez pas, car voici que je vous annonce une bonne nouvelle, qui sera une grande joie pour tout le peuple : Aujourd'hui, dans la ville de David, vous est né un Sauveur qui est le Christ, le Seigneur. »",
+    meditation: `Noël ! Le jour tant attendu est arrivé ! Jésus est né !
+
+Avec Luce, Fe, Xin et Sky, nous avons marché ensemble vers ce jour merveilleux. La lumière, la foi, l'espérance et la joie nous ont accompagnés.
+
+Maintenant, portons-les dans notre vie chaque jour !`,
+    priere: `Joyeux Noël, Jésus !
+Merci d'être venu parmi nous.
+Merci pour cette belle aventure de l'Avent.
+
+Avec la lumière de Luce,
+la foi de Fe,
+l'espérance de Xin,
+et la joie de Sky,
+
+Je veux te suivre toute l'année !
+Gloire à Dieu au plus haut des cieux,
+et paix sur la terre aux hommes qu'il aime !
+Alléluia !`,
+    special: 'noel',
+    semaine: 4
+  }
+]
+
+// ============================================
 // FONCTIONS UTILITAIRES
 // ============================================
 
@@ -559,6 +652,10 @@ export function getJourData(jour: number): JourAvent | undefined {
   // Semaine 3 : jours 14-20
   const jourSemaine3 = JOURS_SEMAINE_3.find(j => j.jour === jour)
   if (jourSemaine3) return jourSemaine3
+
+  // Semaine 4 : jours 21-25
+  const jourSemaine4 = JOURS_SEMAINE_4.find(j => j.jour === jour)
+  if (jourSemaine4) return jourSemaine4
 
   return undefined
 }
