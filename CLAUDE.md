@@ -36,9 +36,9 @@ git push origin main
 /app/avent/page.tsx              # Page calendrier interactif
 /app/avent/layout.tsx            # Métadonnées OpenGraph
 /app/avent/mission-1/page.tsx    # Mission Luce (FAIT)
-/app/avent/mission-2/page.tsx    # Mission Fe (À CRÉER)
-/app/avent/mission-3/page.tsx    # Mission Xin (À CRÉER)
-/app/avent/mission-4/page.tsx    # Mission Sky (À CRÉER)
+/app/avent/mission-2/page.tsx    # Mission Fe (FAIT)
+/app/avent/mission-3/page.tsx    # Mission Xin (FAIT)
+/app/avent/mission-4/page.tsx    # Mission Sky (FAIT)
 /lib/avent-data.ts               # Données semaines + jours
 /public/images/avent/personnages/ # Images PNG optimisées
 /qr-codes/mission-X-xxx.jpg      # QR codes par mission
@@ -47,9 +47,9 @@ git push origin main
 ### Structure données (`lib/avent-data.ts`)
 - `SEMAINES_AVENT[]` : 4 semaines avec thème, personnage, couleurs, psaume, prière, chant YouTube
 - `JOURS_SEMAINE_1[]` : Jours 1-7 (FAIT)
-- `JOURS_SEMAINE_2[]` : Jours 8-13 (À AJOUTER)
-- `JOURS_SEMAINE_3[]` : Jours 14-20 (À AJOUTER)
-- `JOURS_SEMAINE_4[]` : Jours 21-25 (À AJOUTER)
+- `JOURS_SEMAINE_2[]` : Jours 8-13 (FAIT)
+- `JOURS_SEMAINE_3[]` : Jours 14-20 (FAIT)
+- `JOURS_SEMAINE_4[]` : Jours 21-25 (FAIT)
 
 ### Chants YouTube (IDs)
 | Semaine | Chant | YouTube ID |
@@ -70,9 +70,9 @@ git push origin main
 | Semaine | Personnage | Église | Status |
 |---------|------------|--------|--------|
 | 1 | Luce | Basse-Nendaz | FAIT |
-| 2 | Fe | Fey | FAIT (page + QR) |
-| 3 | Xin | Veysonnaz | À CRÉER |
-| 4 | Sky | (à définir) | À CRÉER |
+| 2 | Fe | Fey | FAIT |
+| 3 | Xin | Veysonnaz | FAIT |
+| 4 | Sky | Aproz | FAIT |
 
 ### Dates clés
 | Semaine | Début | Fin | Personnage |
@@ -92,15 +92,15 @@ git push origin main
 ## Paroisses légitimes (sitemap)
 Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
-## Backlog Avent
+## Backlog Avent - COMPLET
 - [x] Mission 1 (Luce) - Basse-Nendaz - FAIT
-- [x] Mission 2 (Fe) - Fey - FAIT (page + QR + jours 8-13)
-- [x] Mission 3 (Xin) - Veysonnaz - PAGE CRÉÉE, images à personnaliser
-- [ ] Mission 4 (Sky) - Aproz - semaine du 21 déc
+- [x] Mission 2 (Fe) - Fey - FAIT
+- [x] Mission 3 (Xin) - Veysonnaz - FAIT
+- [x] Mission 4 (Sky) - Aproz - FAIT
 - [x] Jours semaine 1 dans avent-data.ts - FAIT
 - [x] Jours semaine 2 dans avent-data.ts - FAIT
-- [x] Jours semaine 3 dans avent-data.ts - FAIT (jours 14-20)
-- [ ] Jours semaine 4 dans avent-data.ts
+- [x] Jours semaine 3 dans avent-data.ts - FAIT
+- [x] Jours semaine 4 dans avent-data.ts - FAIT
 
 ---
 
@@ -231,14 +231,70 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
 ---
 
-## BACKLOG - Semaine 4 (Sky)
-- Personnage : **Sky** (bleu)
-- Église : **Aproz**
-- Dates : 21-25 décembre
-- [ ] Créer `/app/avent/mission-4/page.tsx`
-- [ ] Ajouter `JOURS_SEMAINE_4[]` dans avent-data.ts
-- [ ] Générer images Sky
-- [x] Générer QR code mission-4 ✅
+## SESSION 20 DÉC 2025 - TERMINÉE
+
+### Mission 4 (Sky) - COMPLÈTE
+- [x] `/app/avent/mission-4/page.tsx` créé (page interactive complète)
+- [x] 5 étapes interactives : présentation, guitare, indices, recherche ange, fin
+- [x] Objet à trouver : **Ange sur la crèche** (poupée en tissu)
+- [x] Scène crèche en pleine largeur (type `scene-creche`)
+- [x] `JOURS_SEMAINE_4[]` mis à jour avec contenu officiel du PDF
+- [x] Tracking GA4 `angel_found` ajouté
+- [x] Location corrigée : "Aproz" (au lieu de "Haute-Nendaz")
+- [x] Build vérifié
+- [x] **Déployé en production**
+
+### Images Sky intégrées
+```
+/public/images/avent/personnages/
+├── Sky.png              - Personnage principal (capuche bleue, guitare)
+├── Sky-presentation.png - Salut main levée
+├── Sky-chant.png        - Joue de la guitare
+├── Sky-indices.png      - Pose une question
+├── Sky-cherche.png      - Main sur yeux, cherche
+├── Sky-bravo.png        - Bras levés, célébration
+├── Sky-fin.png          - Au revoir
+└── Sky-ange.png         - Crèche avec ange (scène pleine largeur)
+```
+
+### Jours Semaine 4 (contenu officiel PDF)
+| Jour | Date | Titre |
+|------|------|-------|
+| 21 | 21 déc | Alléluia, je loue Dieu ! (dimanche) |
+| 22 | 22 déc | La joie de rencontrer Jésus |
+| 23 | 23 déc | La joie dans mes relations |
+| 24 | 24 déc | Veillée de Noël (bougie) |
+| 25 | 25 déc | Joyeux Noël ! |
+
+### Script Mission 4
+1. **Étape 1** : Présentation Sky (4 slides) → Question guitare Oui/Non
+2. **Étape 2** : Indices pour l'ange (5 slides) → Bouton "J'ai trouvé"
+3. **Étape 3** : Scène crèche pleine largeur + Explication ange
+4. **Étape 4** : Défi semaine - chanter un Alléluia
+5. **Étape 5** : Fin + Joyeux Noël avec les 4 personnages
+
+### Activation
+- **Date** : 21 décembre 2025 à 00:00 (minuit)
+- **Page Avent** : Semaine 4 visible dès le 21 déc
+- **Mission 4** : Accessible dès minuit
+
+### Commit
+| Hash | Description |
+|------|-------------|
+| `988e8bd` | feat: Complete Mission 4 (Sky) interactive page + Week 4 content |
 
 ---
-*Dernière màj : 19 déc 2025 - session Claude*
+
+## CALENDRIER DE L'AVENT 2025 - COMPLET
+
+Le projet Avent 2025 est maintenant terminé avec les 4 missions interactives :
+
+| Semaine | Personnage | Thème | Église | Objet à trouver |
+|---------|------------|-------|--------|-----------------|
+| 1 | Luce (jaune) | Lumière | Basse-Nendaz | Bible |
+| 2 | Fe (rouge) | Foi | Fey | Ambon |
+| 3 | Xin (vert) | Espérance | Veysonnaz | Statue Marie |
+| 4 | Sky (bleu) | Joie | Aproz | Ange sur crèche |
+
+---
+*Dernière màj : 20 déc 2025 - session Claude*
