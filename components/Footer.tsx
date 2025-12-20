@@ -91,6 +91,18 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-neutral-gris text-sm">
               © 2025 Paroisses de Nendaz et Veysonnaz. Tous droits réservés.
+              <span className="mx-2 opacity-40">·</span>
+              <span className="text-xs opacity-60">
+                Site par{' '}
+                <a
+                  href="https://osom.ch"
+                  target="_blank"
+                  rel="noopener"
+                  className="hover:opacity-100 transition-opacity"
+                >
+                  OSOM
+                </a>
+              </span>
             </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a
