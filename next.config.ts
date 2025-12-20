@@ -6,10 +6,41 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
 
-  // Redirections pour anciennes URLs (récupération trafic 404)
+  // Redirections pour anciennes URLs WordPress (récupération trafic 404)
   async redirects() {
     return [
-      // Anciennes pages du site (trafic légitime)
+      // === URLs WordPress détectées dans Google ===
+      {
+        source: '/category/:path*',
+        destination: '/paroisses',
+        permanent: true,
+      },
+      {
+        source: '/notre-vision-pastorale',
+        destination: '/pastorale',
+        permanent: true,
+      },
+      {
+        source: '/inscriptions',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/eveil-a-foi',
+        destination: '/pastorale',
+        permanent: true,
+      },
+      {
+        source: '/veysonnaz',
+        destination: '/paroisses/veysonnaz',
+        permanent: true,
+      },
+      {
+        source: '/pelerinage-moitie-moitie',
+        destination: '/actualites',
+        permanent: true,
+      },
+      // === Anciennes pages du site ===
       {
         source: '/messe-en-direct',
         destination: '/',
