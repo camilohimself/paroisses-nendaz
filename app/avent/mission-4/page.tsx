@@ -633,7 +633,7 @@ export default function Mission4Page() {
                 onClick={handleOuiGuitare}
                 className="px-10 py-4 rounded-2xl bg-white border-2 border-blue-400 text-blue-600 font-bold text-lg shadow-lg active:scale-95 transition-transform"
               >
-                C'est une guitare !
+                Oui, je vois !
               </button>
               <button
                 onClick={handleNonGuitare}
@@ -865,7 +865,7 @@ export default function Mission4Page() {
             <div className="flex items-center justify-center gap-4 text-sm">
               <span className="flex items-center gap-1 text-amber-600">
                 <Calendar className="w-4 h-4" />
-                <strong>Samedi 4 janvier à 17h</strong>
+                <strong>Dimanche 4 janvier à 10h</strong>
               </span>
               <span className="flex items-center gap-1 text-amber-600">
                 <MapPin className="w-4 h-4" />
