@@ -235,11 +235,11 @@ export default function CobleBonDjyuPage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="tel:+41794555386"
+                href="tel:+41794555387"
                 className="inline-flex items-center gap-3 px-6 py-3 bg-white text-stone-700 rounded-xl font-semibold hover:bg-rose-50 transition-colors border border-rose-300 shadow-sm"
               >
                 <Phone className="w-5 h-5 text-rose-400" />
-                079 455 53 86
+                +41 79 455 53 87
               </a>
               <a
                 href="mailto:Jonathan.droxler@gmail.com"
