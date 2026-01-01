@@ -7,6 +7,18 @@ import { Calendar, MapPin, ChevronRight, Star, X, Sparkles } from 'lucide-react'
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
   {
+    id: 'billet-priere-janvier-2026',
+    title: 'Billet de prière - Janvier 2026',
+    excerpt: '« Une seule espérance ! » — Intentions de prière du Pape, des évêques suisses et pour notre secteur. Prière pour l\'unité des chrétiens.',
+    date: '2026-01-01',
+    image: '/images/articles/billet-priere-janvier-2026.jpg',
+    hasImage: true,
+    category: 'Pastorale',
+    lieu: 'Toutes paroisses',
+    pdfUrl: '/documents/billets-priere/billet-priere-janvier-2026.pdf',
+    displayUntil: '2026-01-31' // Visible tout le mois de janvier
+  },
+  {
     id: 'epiphanie-2026',
     title: 'L\'Épiphanie - Messe des Familles',
     excerpt: 'Crèche vivante, mise en scène de l\'Évangile par les confirmands, bénédiction des musiciens. Les enfants sont invités à venir habillés en mages ou en bergers ! RDV enfants à 9h45.',
@@ -220,7 +232,7 @@ const allEvents = [
     date: '2026-01-20',
     hasImage: false,
     category: 'Événement',
-    lieu: 'Église de Basse-Nendaz'
+    lieu: 'Chapelle Saint-Sébastien - 19h00'
   },
   {
     id: 'loto-eglise-aproz',
@@ -297,37 +309,47 @@ export default function ActualitesPage() {
   return (
     <div className="min-h-screen bg-neutral-grisClaire">
 
-      {/* HERO - CALENDRIER DE L'AVENT */}
-      <section className="relative bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100 py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      {/* HERO - BONNE ANNÉE 2026 */}
+      <section className="relative bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100 py-16 md:py-24 overflow-hidden">
+        {/* Décoration subtile */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-amber-600 rounded-full"></div>
+          <div className="absolute bottom-10 right-10 w-48 h-48 border-2 border-amber-600 rounded-full"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-4xl mx-auto text-center">
 
-            {/* Titre principal */}
+            {/* Icône */}
             <div className="mb-6">
-              <Sparkles className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 text-amber-600" />
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-                Calendrier de l'Avent
-              </h1>
-              <p className="text-lg md:text-xl text-stone-600">
-                Pèlerins de l'espérance — L'aventure a commencé !
-              </p>
+              <Star className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 text-amber-500 fill-amber-500" />
             </div>
 
-            {/* Image groupe personnages */}
-            <div className="mb-6 overflow-hidden">
-              <img
-                src="/images/avent/personnages/groupe.png"
-                alt="Les 4 pèlerins de l'Avent - Luce, Fe, Xin et Sky"
-                className="w-64 h-auto md:w-80 lg:w-96 mx-auto drop-shadow-xl scale-150"
-              />
-            </div>
+            {/* Titre principal */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Bonne et sainte année 2026
+            </h1>
 
-            {/* CTA vers le calendrier */}
+            {/* Citation biblique */}
+            <blockquote className="text-xl md:text-2xl text-stone-600 italic mb-2" style={{ fontFamily: 'Crimson Text, serif' }}>
+              « Une seule espérance ! »
+            </blockquote>
+            <p className="text-stone-500 mb-8">
+              — Éphésiens 4,4
+            </p>
+
+            {/* Message de vœux */}
+            <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-8">
+              Que cette nouvelle année soit remplie de grâces, de paix et de fraternité.
+              Continuons ensemble notre chemin de pèlerins de l'espérance.
+            </p>
+
+            {/* CTA vers les paroisses */}
             <a
-              href="/avent"
+              href="/paroisses"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-full shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 transition-all"
             >
-              Ouvrir le calendrier
+              Découvrir nos paroisses
               <ChevronRight className="w-5 h-5" />
             </a>
 
