@@ -339,19 +339,10 @@ export default function ActualitesPage() {
             </p>
 
             {/* Message de vœux */}
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto mb-8">
+            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
               Que cette nouvelle année soit remplie de grâces, de paix et de fraternité.
               Continuons ensemble notre chemin de pèlerins de l'espérance.
             </p>
-
-            {/* CTA vers les paroisses */}
-            <a
-              href="/paroisses"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold text-lg rounded-full shadow-lg hover:from-amber-600 hover:to-amber-700 hover:scale-105 transition-all"
-            >
-              Découvrir nos paroisses
-              <ChevronRight className="w-5 h-5" />
-            </a>
 
           </div>
         </div>
