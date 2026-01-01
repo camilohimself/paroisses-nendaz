@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Calendar, ChevronLeft, Lock } from 'lucide-react'
 import { trackMission } from '@/lib/analytics'
+import { estAventArchive } from '@/lib/avent-data'
 
 // ============================================
 // IMAGES DE XIN - POSTURES PERSONNALISÉES
@@ -381,6 +383,7 @@ function EcranNonDisponible() {
 // PAGE PRINCIPALE MISSION 3
 // ============================================
 export default function Mission3Page() {
+  const router = useRouter()
   const [isAccessible, setIsAccessible] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [slideIndex, setSlideIndex] = useState(0)
@@ -392,6 +395,13 @@ export default function Mission3Page() {
   const [etape, setEtape] = useState(1)
   const hasTrackedStart = useRef(false)
   const hasTrackedComplete = useRef(false)
+
+  // Rediriger vers la page d'archive après le 6 janvier 2026
+  useEffect(() => {
+    if (estAventArchive()) {
+      router.replace('/avent')
+    }
+  }, [router])
 
   // Vérification de la date d'accès (avec bypass dev via ?dev=true)
   useEffect(() => {

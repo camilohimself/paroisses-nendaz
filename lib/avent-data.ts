@@ -666,3 +666,15 @@ export function getSemaineParJour(jour: number): SemaineAvent {
   if (jour <= 20) return SEMAINES_AVENT[2]
   return SEMAINES_AVENT[3]
 }
+
+// ============================================
+// ARCHIVAGE - Après l'Épiphanie (6 janvier 2026)
+// ============================================
+
+// Date de fin du calendrier de l'Avent (7 janvier 2026 à 00:00)
+export const DATE_FIN_AVENT = new Date('2026-01-07T00:00:00+01:00')
+
+// Vérifie si le calendrier est archivé (après le 6 janvier 2026)
+export function estAventArchive(): boolean {
+  return new Date() >= DATE_FIN_AVENT
+}

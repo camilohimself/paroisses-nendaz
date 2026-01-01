@@ -107,7 +107,16 @@ export default function HorairesMesse({
     setDisplayedCount(prev => prev + expandStep);
   };
 
-  const formatDate = (dateString: string) => {
+  // Vérifie si un événement est "journée entière" (all-day event)
+  // Ces événements ont généralement une heure à 00:00 ou 01:00 (UTC+1)
+  const isAllDayEvent = (dateString: string): boolean => {
+    const date = new Date(dateString);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    return (hours === 0 || hours === 1) && minutes === 0;
+  };
+
+  const formatDate = (dateString: string, eventType?: EventType) => {
     if (!dateString) return '';
 
     try {
@@ -118,28 +127,59 @@ export default function HorairesMesse({
       tomorrow.setDate(tomorrow.getDate() + 1);
       const isTomorrow = date.toDateString() === tomorrow.toDateString();
 
+      // Pour les fêtes liturgiques (type "fete") ou événements all-day, ne pas afficher l'heure
+      const isAllDay = eventType === 'fete' || isAllDayEvent(dateString);
+
       const timeOptions: Intl.DateTimeFormatOptions = {
         hour: '2-digit',
         minute: '2-digit'
       };
 
       if (isToday) {
-        return `Aujourd'hui à ${date.toLocaleTimeString('fr-CH', timeOptions)}`;
+        return isAllDay ? `Aujourd'hui` : `Aujourd'hui à ${date.toLocaleTimeString('fr-CH', timeOptions)}`;
       } else if (isTomorrow) {
-        return `Demain à ${date.toLocaleTimeString('fr-CH', timeOptions)}`;
+        return isAllDay ? `Demain` : `Demain à ${date.toLocaleTimeString('fr-CH', timeOptions)}`;
       } else {
-        const options: Intl.DateTimeFormatOptions = {
-          weekday: 'long',
-          day: 'numeric',
-          month: 'long',
-          hour: '2-digit',
-          minute: '2-digit'
-        };
-        return date.toLocaleDateString('fr-CH', options);
+        if (isAllDay) {
+          const options: Intl.DateTimeFormatOptions = {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long'
+          };
+          return date.toLocaleDateString('fr-CH', options);
+        } else {
+          const options: Intl.DateTimeFormatOptions = {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            hour: '2-digit',
+            minute: '2-digit'
+          };
+          return date.toLocaleDateString('fr-CH', options);
+        }
       }
     } catch {
       return dateString;
     }
+  };
+
+  // Nettoie les noms de calendrier (retire les préfixes "0. ", "Z - ", etc.)
+  const cleanCalendarName = (name: string): string => {
+    return name.replace(/^[0-9]+\.\s*/, '').replace(/^Z\s*-\s*/, '').trim();
+  };
+
+  // Vérifie si le lieu est redondant avec le nom du calendrier
+  const isLocationRedundant = (location: string | undefined, calendarName: string | undefined): boolean => {
+    if (!location || !calendarName) return false;
+    const locLower = location.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const calLower = calendarName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return calLower.includes(locLower) || locLower.includes(calLower);
+  };
+
+  // Vérifie si le titre est redondant avec le type d'événement
+  const isTitleRedundant = (title: string, eventType: EventType): boolean => {
+    const typeLabel = EVENT_TYPES[eventType]?.label || '';
+    return title.toLowerCase().trim() === typeLabel.toLowerCase().trim();
   };
 
   const getEventTypeStyle = (type: EventType) => {
@@ -230,7 +270,7 @@ export default function HorairesMesse({
                   {/* Date - en haut sur mobile, à droite sur desktop */}
                   <div className="md:order-2 md:text-right md:ml-4">
                     <p className="text-sm font-medium text-gray-900">
-                      {formatDate(event.startDate)}
+                      {formatDate(event.startDate, event.type)}
                     </p>
                   </div>
 
@@ -251,17 +291,21 @@ export default function HorairesMesse({
                             color: event.calendar.color
                           }}
                         >
-                          {event.calendar.name}
+                          {cleanCalendarName(event.calendar.name)}
                         </span>
                       )}
                     </div>
-                    <h4 className="font-semibold text-gray-900">{event.title}</h4>
+                    {/* Titre - masqué si identique au type d'événement (ex: "Messe" pour type messe) */}
+                    {!isTitleRedundant(event.title, event.type) && (
+                      <h4 className="font-semibold text-gray-900">{event.title}</h4>
+                    )}
                     {event.description && (
                       <div className="text-sm text-gray-600 mt-1 prose prose-sm max-w-none">
                         {parse(sanitizeHtml(event.description))}
                       </div>
                     )}
-                    {event.location && (
+                    {/* Lieu - masqué si redondant avec le nom du calendrier */}
+                    {event.location && !isLocationRedundant(event.location, event.calendar?.name) && (
                       <p className="text-sm text-gray-500 mt-1">📍 {event.location}</p>
                     )}
                   </div>

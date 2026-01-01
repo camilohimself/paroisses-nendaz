@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, ChevronLeft, Play, Lock, Sparkles, BookOpen, Music, X, Flame, MapPin } from 'lucide-react'
+import { Calendar, ChevronLeft, Play, Lock, Sparkles, BookOpen, Music, X, Flame, MapPin, Heart, Star } from 'lucide-react'
 import {
   SEMAINES_AVENT,
   getSemaineActuelle,
@@ -11,6 +11,7 @@ import {
   estJourAccessible,
   getJourData,
   getSemaineParJour,
+  estAventArchive,
   type JourAvent,
   type SemaineAvent
 } from '@/lib/avent-data'
@@ -248,18 +249,28 @@ export default function AventPage() {
   const [selectedJour, setSelectedJour] = useState<JourAvent | null>(null)
   const [isClient, setIsClient] = useState(false)
   const [devMode, setDevMode] = useState(false)
+  const [archive, setArchive] = useState(false)
 
   useEffect(() => {
     setIsClient(true)
+
     // Mode dev: ?dev=true pour voir toutes les semaines
     const params = new URLSearchParams(window.location.search)
     const isDev = params.get('dev') === 'true'
     setDevMode(isDev)
 
+    // Vérifier si le calendrier est archivé (après le 6 janvier 2026)
+    setArchive(estAventArchive())
+
     const jour = isDev ? 25 : getJourActuel() // En mode dev, on simule le jour 25
     setJourActuel(jour)
     setSemaineActuelle(isDev ? SEMAINES_AVENT[3] : getSemaineActuelle())
   }, [])
+
+  // Après le 6 janvier 2026, afficher la page d'archive
+  if (isClient && archive) {
+    return <PageArchive />
+  }
 
   // Avant le 1er décembre, afficher le compteur
   if (isClient && jourActuel === 0) {
@@ -511,6 +522,95 @@ function CompteurAvantLancement() {
             Paroisses de Nendaz
           </p>
         </div>
+      </div>
+    </div>
+  )
+}
+
+// ============================================
+// PAGE ARCHIVE (après le 6 janvier 2026)
+// ============================================
+function PageArchive() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100 flex items-center justify-center p-4">
+      <div className="text-center max-w-4xl w-full">
+        {/* En-tête avec étoile */}
+        <div className="mb-8">
+          <Star className="w-16 h-16 mx-auto mb-4 text-amber-500 fill-amber-500" />
+          <h1 className="text-4xl md:text-6xl font-bold text-stone-800 mb-4">
+            Merci d'avoir participé !
+          </h1>
+          <p className="text-xl md:text-2xl font-light text-stone-600">
+            Calendrier de l'Avent 2025
+          </p>
+        </div>
+
+        {/* Image groupe des 4 personnages */}
+        <div className="flex justify-center mb-8">
+          <Image
+            src="/images/avent/personnages/groupe.png"
+            alt="Luce, Fe, Xin et Sky - Les 4 pèlerins de l'espérance"
+            width={320}
+            height={200}
+            className="object-contain drop-shadow-lg"
+            priority
+          />
+        </div>
+
+        {/* Message de remerciement */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg mb-8">
+          <Heart className="w-10 h-10 mx-auto mb-4 text-red-500" />
+          <p className="text-lg md:text-xl text-stone-700 font-medium mb-4">
+            Merci à toutes les familles qui ont accompagné Luce, Fe, Xin et Sky
+            dans cette belle aventure de l'Avent !
+          </p>
+          <p className="text-stone-600">
+            Ensemble, nous avons cheminé sur le thème
+            <strong className="text-amber-700"> « Pèlerins de l'espérance »</strong>
+            à travers nos 4 églises de Basse-Nendaz, Fey, Veysonnaz et Aproz.
+          </p>
+        </div>
+
+        {/* Récapitulatif des thèmes */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="bg-amber-100 rounded-xl p-4 border-2 border-amber-300">
+            <p className="text-2xl mb-1">Luce</p>
+            <p className="text-amber-700 font-semibold">Lumière</p>
+          </div>
+          <div className="bg-red-100 rounded-xl p-4 border-2 border-red-300">
+            <p className="text-2xl mb-1">Fe</p>
+            <p className="text-red-700 font-semibold">Foi</p>
+          </div>
+          <div className="bg-emerald-100 rounded-xl p-4 border-2 border-emerald-300">
+            <p className="text-2xl mb-1">Xin</p>
+            <p className="text-emerald-700 font-semibold">Espérance</p>
+          </div>
+          <div className="bg-blue-100 rounded-xl p-4 border-2 border-blue-300">
+            <p className="text-2xl mb-1">Sky</p>
+            <p className="text-blue-700 font-semibold">Joie</p>
+          </div>
+        </div>
+
+        {/* Boutons de navigation */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href="/actualites"
+            className="inline-block px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Voir les actualités
+          </Link>
+          <Link
+            href="/"
+            className="inline-block px-8 py-4 bg-stone-600 hover:bg-stone-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Retour à l'accueil
+          </Link>
+        </div>
+
+        {/* Message RDV 2026 */}
+        <p className="mt-8 text-stone-500 text-sm">
+          Rendez-vous en décembre 2026 pour une nouvelle aventure !
+        </p>
       </div>
     </div>
   )
