@@ -18,7 +18,7 @@ export default function IbanCard({ commune, iban, colorScheme }: IbanCardProps) 
     try {
       await navigator.clipboard.writeText(ibanClean);
       setCopied(true);
-      trackDons.ibanCopy(commune);
+      trackDons.addPaymentInfoIban(commune);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Erreur lors de la copie:', err);

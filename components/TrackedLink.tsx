@@ -1,7 +1,7 @@
 'use client'
 
 import { ReactNode } from 'react'
-import { trackExternal, trackContact } from '@/lib/analytics-events'
+import { trackContent } from '@/lib/analytics-events'
 
 interface TrackedLinkProps {
   href: string
@@ -25,29 +25,27 @@ export default function TrackedLink({
   'aria-label': ariaLabel
 }: TrackedLinkProps) {
   const handleClick = () => {
-    // Track based on link type
+    // Track avec select_content (événement standard GA4)
     if (href.includes('enoria.app')) {
       const source = context.includes('header') ? 'header'
         : context.includes('footer') ? 'footer'
         : context.includes('card') ? 'card'
         : 'other'
-      trackExternal.enoriaClick(source as 'header' | 'footer' | 'card' | 'other')
+      trackContent.selectEnoria(source as 'header' | 'footer' | 'card' | 'other')
     } else if (href.includes('youtube.com') || href.includes('youtu.be')) {
-      // Extract video ID if present
       const videoIdMatch = href.match(/(?:v=|\/)([\w-]{11})/)
       const videoId = videoIdMatch ? videoIdMatch[1] : 'channel'
-      trackExternal.youtubeClick(videoId, context)
+      trackContent.selectYoutube(videoId, context)
     } else if (href.startsWith('tel:')) {
       const numero = href.replace('tel:', '')
-      trackContact.phoneClick(numero, context)
+      trackContent.selectPhone(numero, context)
     } else if (href.startsWith('mailto:')) {
       const email = href.replace('mailto:', '')
-      trackContact.emailClick(email, context)
+      trackContent.selectEmail(email, context)
     } else if (href.startsWith('http')) {
-      trackExternal.linkClick(href, context)
+      trackContent.selectExternalLink(href, context)
     }
 
-    // Call original onClick if provided
     if (onClick) onClick()
   }
 

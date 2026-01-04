@@ -1,5 +1,5 @@
 // Système de tracking GA4 - Paroisses Nendaz 2026
-// Événements pour mesurer l'engagement pastoral, les dons et les conversions
+// Refonte selon recommandations GA4 (événements standards, types stricts)
 
 declare global {
   interface Window {
@@ -8,13 +8,66 @@ declare global {
 }
 
 // ============================================
-// TYPES D'ÉVÉNEMENTS
+// TYPES STRICTS
 // ============================================
 
 type SacrementType = 'bapteme' | 'communion' | 'confirmation' | 'mariage' | 'pardon' | 'onction-malades'
 type ParoisseSlug = 'aproz' | 'basse-nendaz' | 'brignon' | 'fey' | 'haute-nendaz' | 'saclentse' | 'veysonnaz'
 type ContactSujet = 'Demande de baptême' | 'Demande de mariage' | 'Inscription catéchisme' | 'Réservation salle' | 'Intention de messe' | 'Autre'
 type DonCommune = 'Nendaz' | 'Veysonnaz'
+type PaymentMethod = 'twint' | 'iban_nendaz' | 'iban_veysonnaz'
+type ContentType = 'external_link' | 'phone_number' | 'email' | 'video' | 'platform'
+type AventPersonnage = 'Luce' | 'Fe' | 'Xin' | 'Sky'
+type AventLieu = 'Basse-Nendaz' | 'Fey' | 'Veysonnaz' | 'Aproz'
+
+// Paramètres typés pour chaque catégorie d'événement
+interface SacrementViewParams {
+  sacrement_type: SacrementType
+}
+
+interface ParoisseViewParams {
+  paroisse_slug: ParoisseSlug
+  paroisse_nom: string
+}
+
+interface SelectContentParams {
+  content_type: ContentType
+  item_id: string
+  context?: string
+}
+
+interface BeginCheckoutParams {
+  currency: 'CHF'
+  value: number
+  payment_type?: PaymentMethod
+}
+
+interface AddPaymentInfoParams {
+  currency: 'CHF'
+  value: number
+  payment_type: PaymentMethod
+}
+
+interface ContactFormParams {
+  sujet?: ContactSujet
+}
+
+interface HorairesFilterParams {
+  paroisse: string
+  type_evenement: string
+}
+
+interface HorairesExpandParams {
+  count_visible: number
+}
+
+interface AventMissionParams {
+  mission_number: 1 | 2 | 3 | 4
+  personnage?: AventPersonnage
+  lieu?: AventLieu
+  step_number?: number
+  step_name?: string
+}
 
 // ============================================
 // FONCTION HELPER PRINCIPALE
@@ -22,13 +75,10 @@ type DonCommune = 'Nendaz' | 'Veysonnaz'
 
 function trackEvent(
   eventName: string,
-  params: Record<string, string | number | boolean>
+  params: Record<string, string | number | boolean | undefined>
 ) {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, {
-      event_category: 'Paroisses Nendaz',
-      ...params
-    })
+    window.gtag('event', eventName, params)
   }
 }
 
@@ -61,39 +111,39 @@ export const trackPastoral = {
 
   /** Vue des pages liturgie */
   liturgieView: (page: string) => {
-    trackEvent('liturgie_view', {
-      page
-    })
+    trackEvent('liturgie_view', { page })
   }
 }
 
 // ============================================
-// 2. DONS & SOUTIEN
+// 2. DONS & SOUTIEN (Événements E-commerce GA4)
 // ============================================
 
 export const trackDons = {
-  /** Vue de la page dons */
-  pageView: () => {
-    trackEvent('don_page_view', {})
+  /** Début du processus de don (arrivée sur la page) */
+  beginCheckout: () => {
+    trackEvent('begin_checkout', {
+      currency: 'CHF',
+      value: 1 // Valeur symbolique pour activer les rapports e-commerce
+    })
   },
 
   /** QR TWINT visible pendant plus de 3 secondes */
-  twintView: () => {
-    trackEvent('don_twint_view', {
-      method: 'twint'
+  addPaymentInfoTwint: () => {
+    trackEvent('add_payment_info', {
+      currency: 'CHF',
+      value: 1,
+      payment_type: 'twint'
     })
   },
 
   /** Copie d'un IBAN */
-  ibanCopy: (commune: DonCommune) => {
-    trackEvent('don_iban_copy', {
-      commune
+  addPaymentInfoIban: (commune: DonCommune) => {
+    trackEvent('add_payment_info', {
+      currency: 'CHF',
+      value: 1,
+      payment_type: commune === 'Nendaz' ? 'iban_nendaz' : 'iban_veysonnaz'
     })
-  },
-
-  /** Clic sur "Nous contacter" depuis la page dons */
-  contactClick: () => {
-    trackEvent('don_contact_click', {})
   }
 }
 
@@ -109,57 +159,60 @@ export const trackContact = {
 
   /** Soumission du formulaire */
   formSubmit: (sujet: ContactSujet) => {
-    trackEvent('contact_form_submit', {
-      sujet
-    })
+    trackEvent('contact_form_submit', { sujet })
   },
 
   /** Page de confirmation affichée */
   success: () => {
     trackEvent('contact_success', {})
+  }
+}
+
+// ============================================
+// 4. SÉLECTION DE CONTENU (Standard GA4)
+// ============================================
+
+export const trackContent = {
+  /** Clic sur un lien Enoria */
+  selectEnoria: (source: 'header' | 'footer' | 'card' | 'other') => {
+    trackEvent('select_content', {
+      content_type: 'platform',
+      item_id: `enoria_${source}`
+    })
+  },
+
+  /** Clic sur une vidéo YouTube */
+  selectYoutube: (videoId: string, context: string) => {
+    trackEvent('select_content', {
+      content_type: 'video',
+      item_id: videoId,
+      context
+    })
   },
 
   /** Clic sur un numéro de téléphone */
-  phoneClick: (numero: string, context: string) => {
-    trackEvent('phone_click', {
-      numero,
+  selectPhone: (numero: string, context: string) => {
+    trackEvent('select_content', {
+      content_type: 'phone_number',
+      item_id: numero,
       context
     })
   },
 
   /** Clic sur un email */
-  emailClick: (email: string, context: string) => {
-    trackEvent('email_click', {
-      email,
-      context
-    })
-  }
-}
-
-// ============================================
-// 4. LIENS EXTERNES
-// ============================================
-
-export const trackExternal = {
-  /** Clic sur un lien Enoria */
-  enoriaClick: (source: 'header' | 'footer' | 'card' | 'other') => {
-    trackEvent('enoria_click', {
-      source
-    })
-  },
-
-  /** Clic sur une vidéo YouTube */
-  youtubeClick: (videoId: string, context: string) => {
-    trackEvent('youtube_click', {
-      video_id: videoId,
+  selectEmail: (email: string, context: string) => {
+    trackEvent('select_content', {
+      content_type: 'email',
+      item_id: email,
       context
     })
   },
 
   /** Clic sur un lien externe quelconque */
-  linkClick: (url: string, context: string) => {
-    trackEvent('external_link', {
-      url,
+  selectExternalLink: (url: string, context: string) => {
+    trackEvent('select_content', {
+      content_type: 'external_link',
+      item_id: url,
       context
     })
   }
@@ -187,31 +240,73 @@ export const trackHoraires = {
 }
 
 // ============================================
-// 6. UTILITAIRES
+// 6. AVENT (Archivé - Pour comparaison 2026)
 // ============================================
 
-export const trackUtils = {
-  /** Génération de la feuille d'annonces PDF */
-  feuilleGenerate: (dateDebut: string, dateFin: string) => {
-    trackEvent('feuille_generate', {
-      date_debut: dateDebut,
-      date_fin: dateFin
+export const trackAvent = {
+  /** Début d'une mission */
+  missionStart: (mission: 1 | 2 | 3 | 4, personnage: AventPersonnage, lieu: AventLieu) => {
+    trackEvent('avent_mission_start', {
+      mission_number: mission,
+      personnage,
+      lieu
     })
   },
 
-  /** Ouverture d'une galerie photo */
-  galleryOpen: (paroisse: string, imageIndex: number) => {
-    trackEvent('gallery_open', {
-      paroisse,
-      image_index: imageIndex
+  /** Mission terminée */
+  missionComplete: (mission: 1 | 2 | 3 | 4, personnage: AventPersonnage) => {
+    trackEvent('avent_mission_complete', {
+      mission_number: mission,
+      personnage
     })
   },
 
-  /** Navigation dans une galerie */
-  galleryNavigate: (paroisse: string, direction: 'next' | 'prev') => {
-    trackEvent('gallery_navigate', {
-      paroisse,
-      direction
+  /** Progression dans les étapes */
+  missionStep: (mission: 1 | 2 | 3 | 4, stepNumber: number, stepName: string) => {
+    trackEvent('avent_mission_step', {
+      mission_number: mission,
+      step_number: stepNumber,
+      step_name: stepName
     })
+  },
+
+  /** Objet trouvé */
+  objectFound: (mission: 1 | 2 | 3 | 4, objectName: 'bible' | 'ambon' | 'marie' | 'angel') => {
+    trackEvent('avent_object_found', {
+      mission_number: mission,
+      object_name: objectName
+    })
+  }
+}
+
+// ============================================
+// ALIAS RÉTROCOMPATIBILITÉ (pour les missions Avent existantes)
+// ============================================
+
+export const trackMission = {
+  start: (mission: number, personnage: string, lieu: string) => {
+    trackAvent.missionStart(
+      mission as 1 | 2 | 3 | 4,
+      personnage as AventPersonnage,
+      lieu as AventLieu
+    )
+  },
+  complete: (mission: number, personnage: string) => {
+    trackAvent.missionComplete(mission as 1 | 2 | 3 | 4, personnage as AventPersonnage)
+  },
+  step: (mission: number, stepNumber: number, stepName: string) => {
+    trackAvent.missionStep(mission as 1 | 2 | 3 | 4, stepNumber, stepName)
+  },
+  bibleDiscovered: (mission: number) => {
+    trackAvent.objectFound(mission as 1 | 2 | 3 | 4, 'bible')
+  },
+  ambonFound: (mission: number) => {
+    trackAvent.objectFound(mission as 1 | 2 | 3 | 4, 'ambon')
+  },
+  marieFound: (mission: number) => {
+    trackAvent.objectFound(mission as 1 | 2 | 3 | 4, 'marie')
+  },
+  angelFound: (mission: number) => {
+    trackAvent.objectFound(mission as 1 | 2 | 3 | 4, 'angel')
   }
 }

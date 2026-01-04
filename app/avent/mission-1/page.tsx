@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { MapPin } from 'lucide-react'
 import BulleDialogue from '@/components/avent/BulleDialogue'
-import { trackMission } from '@/lib/analytics'
+import { trackMission } from '@/lib/analytics-events'
 import { estAventArchive } from '@/lib/avent-data'
 
 // Type pour les slides

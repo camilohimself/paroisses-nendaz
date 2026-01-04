@@ -4,20 +4,20 @@ import { useEffect, useRef } from 'react'
 import { trackDons } from '@/lib/analytics-events'
 
 export default function DonsTracker() {
-  const hasTrackedView = useRef(false)
+  const hasTrackedCheckout = useRef(false)
   const hasTrackedTwint = useRef(false)
 
   useEffect(() => {
-    // Track page view once
-    if (!hasTrackedView.current) {
-      trackDons.pageView()
-      hasTrackedView.current = true
+    // Track begin_checkout (événement e-commerce GA4 standard)
+    if (!hasTrackedCheckout.current) {
+      trackDons.beginCheckout()
+      hasTrackedCheckout.current = true
     }
 
-    // Track TWINT QR visibility after 3 seconds
+    // Track add_payment_info pour TWINT après 3 secondes
     const timer = setTimeout(() => {
       if (!hasTrackedTwint.current) {
-        trackDons.twintView()
+        trackDons.addPaymentInfoTwint()
         hasTrackedTwint.current = true
       }
     }, 3000)

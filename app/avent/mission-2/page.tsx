@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MapPin, Calendar, ChevronLeft, Lock } from 'lucide-react'
-import { trackMission } from '@/lib/analytics'
+import { trackMission } from '@/lib/analytics-events'
 import { estAventArchive } from '@/lib/avent-data'
 
 // ============================================
