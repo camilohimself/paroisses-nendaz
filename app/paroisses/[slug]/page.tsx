@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import HorairesMesse from '@/components/HorairesMesse';
 import ParoisseHero from '@/components/ParoisseHero';
 import ImageGallery from '@/components/ImageGallery';
+import ParoisseTracker from '@/components/ParoisseTracker';
 import { CALENDARS_CONFIG, getCalendarById } from '@/lib/calendars-config';
 import { getParoisseContent } from '@/lib/paroisses-content';
 import { Metadata } from 'next';
@@ -105,6 +106,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      <ParoisseTracker slug={slug} nom={calendar.name} />
       {/* Données structurées JSON-LD */}
       <PlaceSchema
         name={calendar.name}

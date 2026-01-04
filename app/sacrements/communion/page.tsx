@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Metadata } from 'next'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { trackPastoral } from '@/lib/analytics-events'
 import {
   BookOpen,
   Target,
@@ -25,6 +25,14 @@ import {
 
 export default function CommunionPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
+  const hasTracked = useRef(false)
+
+  useEffect(() => {
+    if (!hasTracked.current) {
+      trackPastoral.sacrementView('communion')
+      hasTracked.current = true
+    }
+  }, [])
 
   const toggleAccordion = (index: number) => {
     setOpenAccordion(openAccordion === index ? null : index)

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import { sanitizeHtml } from '@/lib/sanitize';
 import { CalendarEvent, EventType, EVENT_TYPES } from '@/lib/calendars-config';
+import { trackHoraires } from '@/lib/analytics-events';
 import { ChevronDown } from 'lucide-react';
 
 interface HorairesMesseProps {
@@ -104,7 +105,9 @@ export default function HorairesMesse({
   };
 
   const handleShowMore = () => {
-    setDisplayedCount(prev => prev + expandStep);
+    const newCount = displayedCount + expandStep;
+    setDisplayedCount(newCount);
+    trackHoraires.expand(newCount);
   };
 
   // Vérifie si un événement est "journée entière" (all-day event)
@@ -215,6 +218,7 @@ export default function HorairesMesse({
               onChange={(e) => {
                 setSelectedSector(e.target.value);
                 setSelectedCalendar('all');
+                trackHoraires.filterChange(e.target.value, 'all');
               }}
               className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
@@ -228,7 +232,10 @@ export default function HorairesMesse({
             {selectedSector !== 'all' && (
               <select
                 value={selectedCalendar}
-                onChange={(e) => setSelectedCalendar(e.target.value)}
+                onChange={(e) => {
+                  setSelectedCalendar(e.target.value);
+                  trackHoraires.filterChange(e.target.value, selectedSector);
+                }}
                 className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               >
                 <option value="all">Tous les lieux</option>

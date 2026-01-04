@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { Copy, Check } from 'lucide-react';
+import { trackDons } from '@/lib/analytics-events';
 
 interface IbanCardProps {
-  commune: string;
+  commune: 'Nendaz' | 'Veysonnaz';
   iban: string;
   colorScheme: 'stone' | 'amber';
 }
@@ -17,6 +18,7 @@ export default function IbanCard({ commune, iban, colorScheme }: IbanCardProps) 
     try {
       await navigator.clipboard.writeText(ibanClean);
       setCopied(true);
+      trackDons.ibanCopy(commune);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Erreur lors de la copie:', err);

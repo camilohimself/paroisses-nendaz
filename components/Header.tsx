@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import TrackedLink from './TrackedLink'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -249,23 +250,25 @@ export default function Header() {
 
           {/* Quick Access Buttons - Pierre et Lumière */}
           <div className="hidden md:flex space-x-2">
-            <a
+            <TrackedLink
               href="https://www.youtube.com/@paroissesnendazetveysonnaz"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#FF0000] text-white border-2 border-[#FF0000] px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#CC0000] transition-colors font-semibold flex items-center gap-2 shadow-sm"
+              context="header-button"
             >
               <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
               Messe & YouTube
-            </a>
-            <a
+            </TrackedLink>
+            <TrackedLink
               href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#2A8B8C] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#2A8B8C]/90 transition-colors font-semibold shadow-sm"
+              context="header-button"
             >
               Enoria
-            </a>
+            </TrackedLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -428,24 +431,26 @@ export default function Header() {
               </div>
 
               <div className="flex space-x-2 pt-4 border-t border-stone-300">
-                <a
+                <TrackedLink
                   href="https://www.youtube.com/@paroissesnendazetveysonnaz"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#FF0000] text-white border-2 border-[#FF0000] px-3 py-2 rounded-lg text-sm hover:bg-[#CC0000] transition-colors font-semibold flex items-center gap-2"
                   onClick={() => setIsMenuOpen(false)}
+                  context="header-mobile"
                 >
                   <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
                   Messe & YouTube
-                </a>
-                <a
+                </TrackedLink>
+                <TrackedLink
                   href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#2A8B8C] text-white px-3 py-2 rounded-lg text-sm hover:bg-[#2A8B8C]/90 transition-colors font-semibold"
+                  context="header-mobile"
                 >
                   Enoria
-                </a>
+                </TrackedLink>
               </div>
             </div>
           </div>

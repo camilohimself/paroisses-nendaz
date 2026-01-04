@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
 import { HandHeart } from 'lucide-react'
+import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
   title: 'Onction des malades - Sacrements - Paroisses de Nendaz',
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 export default function OnctionMaladesPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-neutral-grisClaire/30 via-white to-paroisse-turquoise/10">
+      <PageTracker type="sacrement" sacrement="onction-malades" />
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">

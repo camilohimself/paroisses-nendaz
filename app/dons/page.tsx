@@ -1,6 +1,7 @@
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
 import { Heart, Smartphone, Building2 } from 'lucide-react';
 import IbanCard from '@/components/IbanCard';
+import DonsTracker from '@/components/DonsTracker';
 
 export const metadata = {
   title: 'Faire un don | Paroisses de Nendaz et Veysonnaz',
@@ -10,6 +11,7 @@ export const metadata = {
 export default function DonsPage() {
   return (
     <div className="min-h-screen">
+      <DonsTracker />
       <BreadcrumbSchema
         items={[
           { name: 'Dons', url: 'https://www.paroisses-nendaz.ch/dons' }

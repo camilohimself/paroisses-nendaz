@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Metadata } from 'next'
 import { FileText, Users, Phone, Mail, MapPin, BookOpen, UsersRound, Calendar } from 'lucide-react'
+import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
   title: 'Pardon et Réconciliation - Sacrements - Paroisses de Nendaz',
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 export default function PardonPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-neutral-grisClaire/30 via-white to-emerald-50/20">
+      <PageTracker type="sacrement" sacrement="pardon" />
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumb */}
         <nav className="mb-8">
