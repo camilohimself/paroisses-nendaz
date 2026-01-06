@@ -27,9 +27,9 @@ export default function VideoHero() {
     setShowMemorial(isMemorialPeriod());
   }, []);
 
-  // Évite le flash pendant l'hydratation - affiche la vidéo par défaut
+  // Évite le flash pendant l'hydratation - fond neutre
   if (!mounted) {
-    return <VideoHeroContent />;
+    return <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-white" />;
   }
 
   // Période mémorial : affiche l'image statique
@@ -45,8 +45,17 @@ export default function VideoHero() {
 function MemorialHero() {
   return (
     <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-white">
-      {/* Image mémorial - centrée */}
-      <div className="absolute inset-0 flex items-center justify-center p-4 md:p-8">
+      {/* Image mémorial - version mobile (portrait) */}
+      <div className="absolute inset-0 flex items-center justify-center p-4 md:hidden">
+        <img
+          src="/images/events/hero-memorial-mobile-2026.jpg"
+          alt="En mémoire des victimes de Crans-Montana - Vendredi 9 janvier 2026 - Église Saint-Léger, Basse-Nendaz"
+          className="max-w-full max-h-full object-contain"
+        />
+      </div>
+
+      {/* Image mémorial - version desktop (paysage) */}
+      <div className="absolute inset-0 hidden md:flex items-center justify-center p-8">
         <img
           src="/images/events/hero-memorial-2026.jpg"
           alt="En mémoire des victimes de Crans-Montana - Vendredi 9 janvier 2026 - Église Saint-Léger, Basse-Nendaz"
