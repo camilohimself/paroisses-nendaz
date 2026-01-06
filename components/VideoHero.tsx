@@ -2,9 +2,66 @@
  * Composant Video Hero pour la page d'accueil
  * Vidéo drone en arrière-plan avec overlay gradient sur zone texte
  * Optimisé : 4.2MB desktop, 1.7MB mobile (vs 184MB source)
+ *
+ * TEMPORAIRE: Affiche le hero mémorial Crans-Montana du 6 au 10 janvier 2026
  */
 
+'use client';
+
+import { useState, useEffect } from 'react';
+
+// Vérifie si on est dans la période du mémorial (6-10 janvier 2026)
+function isMemorialPeriod(): boolean {
+  const now = new Date();
+  const start = new Date('2026-01-06T00:00:00+01:00'); // 6 janvier minuit (heure suisse)
+  const end = new Date('2026-01-11T00:00:00+01:00');   // 10 janvier 23h59 (= 11 janvier 00:00)
+  return now >= start && now < end;
+}
+
 export default function VideoHero() {
+  const [showMemorial, setShowMemorial] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    setShowMemorial(isMemorialPeriod());
+  }, []);
+
+  // Évite le flash pendant l'hydratation - affiche la vidéo par défaut
+  if (!mounted) {
+    return <VideoHeroContent />;
+  }
+
+  // Période mémorial : affiche l'image statique
+  if (showMemorial) {
+    return <MemorialHero />;
+  }
+
+  // Période normale : affiche la vidéo
+  return <VideoHeroContent />;
+}
+
+// Hero Mémorial Crans-Montana (6-10 janvier 2026)
+function MemorialHero() {
+  return (
+    <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-white">
+      {/* Image mémorial - centrée */}
+      <div className="absolute inset-0 flex items-center justify-center p-4 md:p-8">
+        <img
+          src="/images/events/hero-memorial-2026.jpg"
+          alt="En mémoire des victimes de Crans-Montana - Vendredi 9 janvier 2026 - Église Saint-Léger, Basse-Nendaz"
+          className="max-w-full max-h-full object-contain"
+        />
+      </div>
+
+      {/* Bordure subtile en bas */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-stone-300 to-transparent"></div>
+    </div>
+  );
+}
+
+// Hero vidéo standard (contenu original)
+function VideoHeroContent() {
   return (
     <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-neutral-anthracite">
       {/* Vidéo background - Desktop (>768px) */}
