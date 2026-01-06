@@ -343,10 +343,34 @@ Le projet Avent 2025 est maintenant terminé avec les 4 missions interactives :
 | Facebook | 24 |
 | veysonnaz.ch | 17 |
 
+### Refonte HorairesMesse (homepage)
+- [x] Suppression badges calendrier colorés
+- [x] Ajout icône MapPin rouge pour le lieu
+- [x] Suppression calendrier "fêtes patronales" (theodianendaz@gmail.com)
+- [x] Suppression type événement `fete`
+- [x] Label "Autre" → "Rencontre" (plus accueillant)
+- [x] Ajout "La Papatuor" à l'événement St-Sébastien (20 jan)
+
+### Audit projet crisisinfo.ch
+- [x] Analyse complète du projet `/WORKSPACE-OSOM/3_PROJECTS/crisisinfo`
+- Stack : Astro 4.x, Netlify, trilingue FR/EN/IT
+- Contexte : Incendie Crans-Montana (1er jan 2026), 40 décès, 116 blessés
+- Phase 3.2 : Préparation deuil national 9 janvier
+
+### Événement mémorial Crans-Montana
+- **Date** : Jeudi 9 janvier 2026
+- **Lieu** : Église Saint-Léger, Basse-Nendaz
+- **Programme** : 18h Adoration, 18h30 Prière, 19h Messe
+- [x] Prompt Gemini créé pour visuel affiche (ruban noir + bougie)
+- [x] Guidelines typographie Canva : Playfair Display + Montserrat, noir/gris
+- Texte : "En mémoire des victimes de Crans-Montana"
+- Panneau messages : "Un espace accueillera vos messages de soutien"
+
 ### Commits session
 | Hash | Description |
 |------|-------------|
 | `c859eaa` | feat: Add custom 404 page with GA4 tracking |
+| `7c5c02a` | feat: Redesign HorairesMesse cards + cleanup calendar config |
 
 ---
 
