@@ -12,7 +12,7 @@ Next.js 15, React 19, TypeScript, Tailwind, Google Calendar API (20+ lieux), Ver
 ## Commandes
 ```bash
 npm run dev      # Port 3002
-npm run build    # 58 pages
+npm run build    # 62 pages
 git push origin main
 ```
 
@@ -297,4 +297,57 @@ Le projet Avent 2025 est maintenant terminé avec les 4 missions interactives :
 | 4 | Sky (bleu) | Joie | Aproz | Ange sur crèche |
 
 ---
-*Dernière màj : 20 déc 2025 - session Claude*
+
+## SESSION 6 JAN 2026 - TERMINÉE
+
+### Rapport GA4 Décembre 2025
+- [x] Analyse complète des métriques décembre 2025
+- [x] Export et traitement données GA4
+- [x] Rapport généré : `docs/RAPPORT-GA4-DECEMBRE-2025.md`
+
+### Métriques clés décembre 2025
+| Métrique | Valeur |
+|----------|--------|
+| Visiteurs uniques | 1 104 |
+| Pages vues | 4 150 |
+| Sessions | 2 046 |
+| Durée moyenne | 1min 35s |
+| Trafic Google | 53% |
+| Trafic direct | 34% |
+
+### Bilan Calendrier de l'Avent 2025
+| Métrique | Valeur |
+|----------|--------|
+| Visiteurs hub Avent | 231 |
+| Missions démarrées | 50 |
+| Missions terminées | 20 |
+| Taux complétion | 40% |
+
+### Pic de Noël
+- **23 décembre 2025** : 168 visiteurs (+250%)
+- Cause : recherche horaires messes de Noël
+
+### Page 404 personnalisée
+- [x] Création `/app/not-found.tsx`
+- [x] Design cohérent palette Pierre et Lumière
+- [x] Tracking GA4 événement `page_not_found`
+- [x] Liens utiles : Accueil, Paroisses, Actualités, Contact
+- **Commit** : `c859eaa`
+
+### Sources trafic principales
+| Source | Visiteurs |
+|--------|-----------|
+| Google organic | 587 |
+| Direct (QR codes) | 371 |
+| nendaz.ch | 76 |
+| Facebook | 24 |
+| veysonnaz.ch | 17 |
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `c859eaa` | feat: Add custom 404 page with GA4 tracking |
+
+---
+
+*Dernière màj : 6 jan 2026 - session Claude*

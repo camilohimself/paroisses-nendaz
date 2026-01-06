@@ -196,15 +196,6 @@ export const CALENDARS_CONFIG: CalendarConfig[] = [
     color: '#FF6B35',
     defaultLocation: 'Événement paroissial'
   },
-  {
-    id: 'fetes-patronales',
-    name: 'Fêtes patronales',
-    sector: 'transversal',
-    type: 'equipe',
-    googleCalendarId: 'theodianendaz@gmail.com',
-    color: '#3B82F6',
-    defaultLocation: 'Paroisse de Nendaz'
-  }
 ];
 
 // Helpers functions
@@ -237,8 +228,7 @@ export const EVENT_TYPES = {
   formation: { label: 'Formation', color: '#228B22' },
   priere: { label: 'Prière', color: '#FF8C00' },
   celebration: { label: 'Célébration', color: '#4B0082' },
-  fete: { label: 'Célébration', color: '#3B82F6' },
-  autre: { label: 'Autre', color: '#708090' }
+  autre: { label: 'Rencontre', color: '#708090' }
 } as const;
 
 export type EventType = keyof typeof EVENT_TYPES;

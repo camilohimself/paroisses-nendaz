@@ -5,7 +5,7 @@ import parse from 'html-react-parser';
 import { sanitizeHtml } from '@/lib/sanitize';
 import { CalendarEvent, EventType, EVENT_TYPES } from '@/lib/calendars-config';
 import { trackHoraires } from '@/lib/analytics-events';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MapPin } from 'lucide-react';
 
 interface HorairesMesseProps {
   sector?: 'nendaz' | 'veysonnaz' | 'autres' | 'transversal';
@@ -130,8 +130,8 @@ export default function HorairesMesse({
       tomorrow.setDate(tomorrow.getDate() + 1);
       const isTomorrow = date.toDateString() === tomorrow.toDateString();
 
-      // Pour les fêtes liturgiques (type "fete") ou événements all-day, ne pas afficher l'heure
-      const isAllDay = eventType === 'fete' || isAllDayEvent(dateString);
+      // Pour les événements all-day, ne pas afficher l'heure
+      const isAllDay = isAllDayEvent(dateString);
 
       const timeOptions: Intl.DateTimeFormatOptions = {
         hour: '2-digit',
@@ -290,17 +290,6 @@ export default function HorairesMesse({
                       >
                         {EVENT_TYPES[event.type]?.label || event.type}
                       </span>
-                      {event.calendar && (
-                        <span
-                          className="inline-block px-2 py-1 rounded-full text-xs font-medium"
-                          style={{
-                            backgroundColor: `${event.calendar.color}15`,
-                            color: event.calendar.color
-                          }}
-                        >
-                          {cleanCalendarName(event.calendar.name)}
-                        </span>
-                      )}
                     </div>
                     {/* Titre - masqué si identique au type d'événement (ex: "Messe" pour type messe) */}
                     {!isTitleRedundant(event.title, event.type) && (
@@ -311,9 +300,12 @@ export default function HorairesMesse({
                         {parse(sanitizeHtml(event.description))}
                       </div>
                     )}
-                    {/* Lieu - masqué si redondant avec le nom du calendrier */}
-                    {event.location && !isLocationRedundant(event.location, event.calendar?.name) && (
-                      <p className="text-sm text-gray-500 mt-1">📍 {event.location}</p>
+                    {/* Lieu - toujours affiché avec pin */}
+                    {(event.calendar || event.location) && (
+                      <p className="text-sm text-gray-500 mt-1 flex items-center gap-1">
+                        <MapPin className="w-4 h-4 text-red-500 flex-shrink-0" />
+                        {event.location || cleanCalendarName(event.calendar?.name || '')}
+                      </p>
                     )}
                   </div>
                 </div>
