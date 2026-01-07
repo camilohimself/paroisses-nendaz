@@ -1,5 +1,6 @@
 import QuickAccessCard from '@/components/QuickAccessCard'
 import VideoHero from '@/components/VideoHero'
+import SaintDuJour from '@/components/SaintDuJour'
 import dynamic from 'next/dynamic'
 
 // Lazy load non-critical components
@@ -199,6 +200,10 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ========================================= */}
+      {/* SAINT DU JOUR - BANDEAU                 */}
+      {/* ========================================= */}
+      <SaintDuJour variante="bandeau" />
 
       {/* ========================================= */}
       {/* PROCHAINS ÉVÉNEMENTS - PIERRE ET LUMIÈRE */}
