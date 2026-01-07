@@ -92,6 +92,30 @@ git push origin main
 ## Paroisses légitimes (sitemap)
 Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
+## Saint du Jour - Homepage
+
+### Fichiers clés
+```
+/lib/saints-data.ts           # 366 jours avec nom + flag estFete
+/components/SaintDuJour.tsx   # Composant avec 3 variantes (bandeau utilisé)
+```
+
+### Fonctionnement
+- **Mise à jour automatique** : calcul côté client via `new Date()`
+- **Aucune intervention requise** : s'actualise à chaque visite
+- **Fêtes liturgiques** : style amber prononcé (flag `estFete: true`)
+
+### Variantes disponibles
+| Variante | Usage |
+|----------|-------|
+| `discret` | Ligne simple avec icône |
+| `carte` | Encart stylisé centré |
+| `bandeau` | Pleine largeur (ACTIF sur homepage) |
+
+### Maintenance annuelle
+- **Fin 2026** : Mettre à jour `saints-data.ts` pour 2027
+- Les fêtes mobiles (Pâques, Ascension, Pentecôte) changent chaque année
+
 ## Backlog Avent - COMPLET
 - [x] Mission 1 (Luce) - Basse-Nendaz - FAIT
 - [x] Mission 2 (Fe) - Fey - FAIT
@@ -374,4 +398,30 @@ Le projet Avent 2025 est maintenant terminé avec les 4 missions interactives :
 
 ---
 
-*Dernière màj : 6 jan 2026 - session Claude*
+## SESSION 7 JAN 2026 - TERMINÉE
+
+### Saint du Jour - Nouvelle fonctionnalité
+- [x] Création `lib/saints-data.ts` avec 366 jours du calendrier 2026
+- [x] Création `components/SaintDuJour.tsx` avec 3 variantes
+- [x] Intégration variante "bandeau" sur homepage (entre Accès rapides et Célébrations)
+- [x] Flag `estFete` pour fêtes liturgiques majeures (style amber)
+- [x] Mise à jour automatique quotidienne (calcul côté client)
+
+### Structure homepage mise à jour
+```
+Page d'accueil
+├── 1. Hero Vidéo
+├── 2. Accès Rapides (4 cartes)
+├── 3. Saint du Jour (bandeau) ← NOUVEAU
+├── 4. Prochaines Célébrations
+└── 5. Horaires Habituels
+```
+
+### Commit session
+| Hash | Description |
+|------|-------------|
+| `f2aca05` | feat: Add Saint du Jour component on homepage |
+
+---
+
+*Dernière màj : 7 jan 2026 - session Claude*
