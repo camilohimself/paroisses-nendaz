@@ -228,7 +228,7 @@ const allEvents = [
   {
     id: 'fete-patronale-st-sebastien',
     title: 'Fête de St-Sébastien',
-    excerpt: 'Fête patronale de Basse-Nendaz animée par La Papatuor. Vin chaud offert après la messe avec la participation des chasseurs de la paroisse.',
+    excerpt: 'Fête patronale de Basse-Nendaz animée par Le Papatuor. Vin chaud offert après la messe avec la participation des chasseurs de la paroisse.',
     date: '2026-01-20',
     hasImage: false,
     category: 'Événement',

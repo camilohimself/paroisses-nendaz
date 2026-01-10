@@ -148,7 +148,7 @@ export default function LiturgiePage() {
                       <p className="text-sm text-stone-600">Basse-Nendaz</p>
                     </div>
                     <div className="bg-amber-50 p-3 rounded-lg border border-amber-200">
-                      <p className="font-semibold text-stone-800">La Barlouka Kadémie</p>
+                      <p className="font-semibold text-stone-800">Barlouks' Academy</p>
                       <p className="text-sm text-stone-600">Veysonnaz</p>
                     </div>
                     <Link
