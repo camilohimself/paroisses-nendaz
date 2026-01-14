@@ -191,9 +191,12 @@ export default function ContactPage() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">Martin Fendrych</h3>
                 <p className="text-stone-600 font-medium mb-3">Agent pastoral</p>
-                <div className="text-sm text-stone-600">
+                <div className="text-sm text-stone-600 space-y-1">
                   <a href="tel:+41273460003" className="text-amber-600 hover:underline font-medium block">
                     +41 27 346 00 03
+                  </a>
+                  <a href="mailto:martinbruno@bluewin.ch" className="text-amber-600 hover:underline block">
+                    martinbruno@bluewin.ch
                   </a>
                 </div>
               </div>
