@@ -238,246 +238,207 @@ export default function PastoralePage() {
       </section>
 
       {/* ========================================= */}
-      {/* CATÉCHÈSE - CHALEUREUX ET JOYEUX         */}
+      {/* CATÉCHÈSE - PALETTE MINÉRALE             */}
       {/* ========================================= */}
-      <section id="catechese" className="py-20 bg-gradient-to-b from-amber-50 via-orange-50 to-yellow-50">
+      <section id="catechese" className="py-20 bg-stone-100">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
 
-            {/* Titre section - Plus chaleureux */}
+            {/* Titre section */}
             <div className="text-center mb-16">
-              <div className="inline-block mb-6">
-                <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full border-2 border-amber-300 shadow-lg">
-                  <Sparkles className="w-6 h-6 text-amber-500" />
-                  <p className="text-amber-700 font-bold uppercase tracking-wider text-sm">Grandir dans la foi</p>
-                  <Sparkles className="w-6 h-6 text-amber-500" />
-                </div>
+              <div className="flex justify-center mb-4">
+                <div className="h-px w-16 bg-amber-300"></div>
               </div>
-              <h2 className="text-5xl md:text-6xl font-bold text-amber-900 mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
                 Catéchèse
               </h2>
-              <p className="text-2xl text-amber-800 leading-relaxed max-w-2xl mx-auto font-light">
-                Un parcours <span className="font-bold text-orange-600">joyeux et coloré</span> pour tous les âges !
+              <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+                Des parcours adaptés à chaque âge pour grandir dans la foi
               </p>
+              <div className="flex justify-center mt-4">
+                <div className="h-px w-16 bg-amber-300"></div>
+              </div>
             </div>
 
             {/* Liste des parcours - Design joyeux et chaleureux */}
             <div className="space-y-8">
 
-              {/* Éveil à la foi - JAUNE SOLEIL */}
-              <div className="group bg-gradient-to-br from-yellow-100 via-amber-50 to-orange-100 p-8 md:p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-yellow-300">
+              {/* Éveil à la foi - SABLE CHAUD */}
+              <div className="group bg-amber-50 p-8 md:p-10 rounded-2xl border-2 border-amber-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500">
                 <div className="flex items-start gap-6 mb-6">
-                  <div className="flex-shrink-0 w-20 h-20 bg-yellow-400 rounded-2xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-500 shadow-lg">
-                    <span className="text-4xl">🌟</span>
+                  <div className="flex-shrink-0 w-16 h-16 bg-amber-100 border-2 border-amber-300 rounded-xl flex items-center justify-center">
+                    <Sparkles className="w-8 h-8 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="text-4xl md:text-5xl font-bold text-amber-900 mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                       Éveil à la foi
                     </h3>
-                    <div className="inline-block px-5 py-2 bg-yellow-400 rounded-full shadow-md">
-                      <p className="text-base font-bold text-amber-900">
-                        👶 0 à 10 ans
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-xl text-amber-900 mb-6 leading-relaxed">
-                  Les premiers pas <strong className="text-orange-600">joyeux et ludiques</strong> pour découvrir Jésus et son message d'amour !
-                </p>
-
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-yellow-300 mb-6 shadow-lg">
-                  <p className="text-sm text-amber-800 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <Calendar className="w-5 h-5" /> Prochaines rencontres 2025-2026
-                  </p>
-                  <div className="space-y-3">
-                    <div className="flex items-start gap-3 bg-yellow-50 p-3 rounded-xl">
-                      <Star className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-amber-900">Samedi 20 décembre 2025 • 9h30</p>
-                        <p className="text-amber-700 text-sm">Église de Basse-Nendaz</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 bg-yellow-50 p-3 rounded-xl">
-                      <Star className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-amber-900">Vendredi 3 avril 2026 • 15h</p>
-                        <p className="text-amber-700 text-sm">Église de Basse-Nendaz</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 bg-yellow-50 p-3 rounded-xl">
-                      <Star className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-bold text-amber-900">Dimanche 5 avril 2026 • 10h</p>
-                        <p className="text-amber-700 text-sm">Église de Basse-Nendaz • Atelier de la Parole</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-4 border-t-2 border-yellow-200">
-                    <p className="text-sm text-amber-800 font-semibold flex items-center gap-2">
-                      <Sparkles className="w-4 h-4" /> 3 belles rencontres par année
+                    <p className="text-sm font-semibold text-amber-700 uppercase tracking-wider">
+                      0 à 10 ans
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-amber-900 font-bold bg-yellow-200/50 px-4 py-3 rounded-xl">
-                  <Mail className="w-5 h-5" />
-                  <p>Inscription via le secrétariat paroissial</p>
-                </div>
-              </div>
+                <p className="text-lg text-stone-700 mb-6 leading-relaxed">
+                  Les premiers pas pour découvrir Jésus et son message d&apos;amour, à travers des activités ludiques et adaptées aux tout-petits.
+                </p>
 
-              {/* Grain de Soleil - ORANGE CHALEUREUX */}
-              <div className="group bg-gradient-to-br from-orange-100 via-amber-50 to-yellow-100 p-8 md:p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 border-4 border-orange-300">
-                <div className="flex items-start gap-6 mb-6">
-                  <div className="flex-shrink-0 w-20 h-20 bg-orange-400 rounded-2xl flex items-center justify-center transform group-hover:-rotate-6 transition-transform duration-500 shadow-lg">
-                    <Sun className="w-10 h-10 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-4xl md:text-5xl font-bold text-orange-900 mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                      Grain de Soleil
-                    </h3>
-                    <div className="inline-block px-5 py-2 bg-orange-400 rounded-full shadow-md">
-                      <p className="text-base font-bold text-orange-900">
-                        🌱 7-15 ans
-                      </p>
+                <div className="bg-white p-6 rounded-xl border border-amber-200 mb-6">
+                  <p className="text-sm text-stone-600 font-semibold uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-amber-600" /> Prochaines rencontres
+                  </p>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3 p-3 bg-amber-50 rounded-lg border-l-4 border-amber-400">
+                      <div>
+                        <p className="font-semibold text-stone-800">Vendredi 3 avril 2026 • 15h</p>
+                        <p className="text-stone-600 text-sm">Église de Basse-Nendaz</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3 p-3 bg-amber-50 rounded-lg border-l-4 border-amber-400">
+                      <div>
+                        <p className="font-semibold text-stone-800">Dimanche 5 avril 2026 • 10h</p>
+                        <p className="text-stone-600 text-sm">Église de Basse-Nendaz • Atelier de la Parole</p>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-xl text-orange-900 mb-6 leading-relaxed">
-                  Grandir ensemble vers les <strong className="text-amber-700">sacrements de communion et confirmation</strong> ! Un chemin lumineux et joyeux.
+                <div className="flex items-center gap-2 text-stone-700 bg-amber-100 px-4 py-3 rounded-lg">
+                  <Mail className="w-5 h-5 text-amber-600" />
+                  <p className="font-medium">Inscription via le secrétariat paroissial</p>
+                </div>
+              </div>
+
+              {/* Grain de Soleil - TERRE CUITE DOUCE */}
+              <div className="group bg-orange-50/50 p-8 md:p-10 rounded-2xl border-2 border-orange-200 hover:border-orange-400 hover:shadow-xl transition-all duration-500">
+                <div className="flex items-start gap-6 mb-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-orange-100 border-2 border-orange-300 rounded-xl flex items-center justify-center">
+                    <Sun className="w-8 h-8 text-orange-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      Grain de Soleil
+                    </h3>
+                    <p className="text-sm font-semibold text-orange-700 uppercase tracking-wider">
+                      7 à 15 ans
+                    </p>
+                  </div>
+                </div>
+
+                <p className="text-lg text-stone-700 mb-6 leading-relaxed">
+                  Grandir ensemble vers les sacrements de communion et confirmation, un chemin de foi accompagné.
                 </p>
 
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-orange-300 mb-6 shadow-lg">
-                  <p className="text-sm text-orange-800 font-bold uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <Church className="w-5 h-5" /> Messes Grain de Soleil
+                <div className="bg-white p-6 rounded-xl border border-orange-200 mb-6">
+                  <p className="text-sm text-stone-600 font-semibold uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <Church className="w-4 h-4 text-orange-600" /> Messes Grain de Soleil
                   </p>
                   <div className="space-y-4">
-                    <div className="bg-orange-50 p-4 rounded-xl">
-                      <p className="font-bold text-orange-900 mb-2 flex items-center gap-2">
-                        <MapPin className="w-5 h-5" /> À Veysonnaz
+                    <div className="p-4 bg-orange-50/50 rounded-lg border-l-4 border-orange-400">
+                      <p className="font-semibold text-stone-800 mb-2 flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-orange-600" /> À Veysonnaz
                       </p>
-                      <div className="space-y-1 text-sm text-orange-800 pl-6">
+                      <div className="space-y-1 text-sm text-stone-600 pl-6">
                         <p>• 10h à la Toussaint</p>
                         <p>• 10h à Noël</p>
                         <p>• 9h le jour de Pâques</p>
                       </div>
                     </div>
-                    <div className="bg-orange-50 p-4 rounded-xl">
-                      <p className="font-bold text-orange-900 mb-2 flex items-center gap-2">
-                        <MapPin className="w-5 h-5" /> À Basse-Nendaz
+                    <div className="p-4 bg-orange-50/50 rounded-lg border-l-4 border-orange-400">
+                      <p className="font-semibold text-stone-800 mb-2 flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-orange-600" /> À Basse-Nendaz
                       </p>
-                      <div className="space-y-1 text-sm text-orange-800 pl-6">
-                        <p>• 10h à la fête paroissiale (1er dimanche d'octobre)</p>
+                      <div className="space-y-1 text-sm text-stone-600 pl-6">
+                        <p>• 10h à la fête paroissiale (1er dimanche d&apos;octobre)</p>
                         <p>• 10h à Pâques</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-orange-900 font-bold bg-orange-200/50 px-4 py-3 rounded-xl">
-                  <Target className="w-5 h-5" />
-                  <p>Préparation joyeuse aux sacrements</p>
+                <div className="flex items-center gap-2 text-stone-700 bg-orange-100 px-4 py-3 rounded-lg">
+                  <Target className="w-5 h-5 text-orange-600" />
+                  <p className="font-medium">Préparation aux sacrements</p>
                 </div>
               </div>
 
-              {/* Parcours Adultes - STYLE MATURE MAIS ACCUEILLANT */}
-              <div className="group bg-gradient-to-br from-emerald-100 via-teal-50 to-amber-100 p-8 md:p-10 rounded-3xl shadow-xl border-4 border-emerald-300">
+              {/* Parcours Adultes - STONE SOBRE */}
+              <div className="group bg-stone-50 p-8 md:p-10 rounded-2xl border-2 border-stone-300 hover:border-stone-500 hover:shadow-xl transition-all duration-500">
                 <div className="flex items-start gap-6 mb-6">
-                  <div className="flex-shrink-0 w-20 h-20 bg-emerald-400 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-lg">
-                    <span className="text-4xl">🌿</span>
+                  <div className="flex-shrink-0 w-16 h-16 bg-stone-100 border-2 border-stone-400 rounded-xl flex items-center justify-center">
+                    <Star className="w-8 h-8 text-stone-600" />
                   </div>
                   <div>
-                    <h3 className="text-4xl md:text-5xl font-bold text-emerald-900" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
                       Parcours Adultes
                     </h3>
+                    <p className="text-sm font-semibold text-stone-600 uppercase tracking-wider">
+                      Catéchuménat et formation
+                    </p>
                   </div>
                 </div>
 
-                <p className="text-xl text-emerald-900 leading-relaxed">
-                  Approfondir sa foi, se préparer aux sacrements ou <strong>cheminer spirituellement à tout âge</strong> 🌟 à travers des formations, conférences et accompagnements personnalisés.
+                <p className="text-lg text-stone-700 leading-relaxed">
+                  Approfondir sa foi, se préparer aux sacrements ou cheminer spirituellement à tout âge, à travers des formations, conférences et accompagnements personnalisés.
                 </p>
               </div>
 
-              {/* Messes des familles - STYLE FESTIF ET FAMILIAL */}
-              <div className="group bg-gradient-to-br from-pink-100 via-purple-50 to-blue-100 p-8 md:p-10 rounded-3xl shadow-xl border-4 border-pink-300">
+              {/* Messes des familles - ROSE PÂLE / GRÈGE */}
+              <div className="group bg-rose-50/50 p-8 md:p-10 rounded-2xl border-2 border-rose-200 hover:border-rose-400 hover:shadow-xl transition-all duration-500">
                 <div className="flex items-start gap-6 mb-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-rose-100 border-2 border-rose-300 rounded-xl flex items-center justify-center">
+                    <Heart className="w-8 h-8 text-rose-600" />
+                  </div>
                   <div>
-                    <h3 className="text-4xl md:text-5xl font-bold text-purple-900 mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
-                      Messes des activités catéchétiques
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      Messes des familles
                     </h3>
-                    <div className="inline-block px-5 py-2 bg-gradient-to-r from-pink-400 to-purple-400 rounded-full shadow-md">
-                      <p className="text-base font-bold text-white">Messes des familles</p>
-                    </div>
+                    <p className="text-sm font-semibold text-rose-700 uppercase tracking-wider">
+                      Activités catéchétiques
+                    </p>
                   </div>
                 </div>
 
-                <p className="text-xl text-purple-900 mb-8 leading-relaxed">
-                  Des moments privilégiés pour <strong>célébrer en famille</strong> et vivre la foi ensemble avec toute la communauté paroissiale.
+                <p className="text-lg text-stone-700 mb-6 leading-relaxed">
+                  Des moments privilégiés pour célébrer en famille et vivre la foi ensemble avec toute la communauté paroissiale.
                 </p>
 
-                <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border-2 border-pink-300 shadow-lg mb-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <p className="text-sm text-purple-700 font-bold uppercase tracking-wider">Programme 2025-2026</p>
-                  </div>
+                <div className="bg-white p-6 rounded-xl border border-rose-200 mb-6">
+                  <p className="text-sm text-stone-600 font-semibold uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-rose-600" /> Prochaines dates
+                  </p>
                   <div className="space-y-3">
-                    <div className="flex items-start gap-3 bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded-xl border-l-4 border-pink-400">
-                      <div>
-                        <p className="font-bold text-purple-900">Samedi 15 novembre 2025 • 17h</p>
-                        <p className="text-sm text-purple-700">📍 Haute-Nendaz</p>
-                      </div>
+                    <div className="p-4 bg-rose-50/50 rounded-lg border-l-4 border-rose-400">
+                      <p className="font-semibold text-stone-800">Samedi 7 février 2026 • 19h</p>
+                      <p className="text-stone-600 text-sm flex items-center gap-1">
+                        <MapPin className="w-3 h-3" /> Aproz
+                      </p>
                     </div>
-                    <div className="flex items-start gap-3 bg-gradient-to-r from-blue-50 to-pink-50 p-4 rounded-xl border-l-4 border-blue-400">
-                      <div>
-                        <p className="font-bold text-blue-900">Dimanche 15 décembre 2025 • 10h</p>
-                        <p className="text-sm text-blue-700">📍 Basse-Nendaz</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 bg-gradient-to-r from-purple-50 to-blue-50 p-4 rounded-xl border-l-4 border-purple-400">
-                      <div>
-                        <p className="font-bold text-purple-900">Dimanche 4 janvier 2026 • 10h</p>
-                        <p className="text-sm text-purple-700">📍 Basse-Nendaz • Messe des familles</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 bg-gradient-to-r from-pink-50 to-purple-50 p-4 rounded-xl border-l-4 border-pink-400">
-                      <div>
-                        <p className="font-bold text-pink-900">Samedi 7 février 2026 • 19h</p>
-                        <p className="text-sm text-pink-700">📍 Aproz</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3 bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-xl border-l-4 border-purple-400">
-                      <div>
-                        <p className="font-bold text-purple-900">Samedi 21 mars 2026 • 19h</p>
-                        <p className="text-sm text-purple-700">📍 Veysonnaz</p>
-                      </div>
+                    <div className="p-4 bg-rose-50/50 rounded-lg border-l-4 border-rose-400">
+                      <p className="font-semibold text-stone-800">Samedi 21 mars 2026 • 19h</p>
+                      <p className="text-stone-600 text-sm flex items-center gap-1">
+                        <MapPin className="w-3 h-3" /> Veysonnaz
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-purple-900 font-bold bg-gradient-to-r from-pink-200/50 to-purple-200/50 px-5 py-4 rounded-xl">
-                  <Heart className="w-6 h-6 text-purple-600" />
-                  <p className="text-lg">Toutes les familles sont les bienvenues !</p>
+                <div className="flex items-center gap-2 text-stone-700 bg-rose-100 px-4 py-3 rounded-lg">
+                  <Heart className="w-5 h-5 text-rose-600" />
+                  <p className="font-medium">Toutes les familles sont les bienvenues</p>
                 </div>
               </div>
 
             </div>
 
-            {/* Citation finale Catéchèse - VERSION JOYEUSE */}
+            {/* Citation finale Catéchèse */}
             <div className="mt-20 text-center">
-              <div className="inline-flex items-center gap-4 mb-6">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-                <Sparkles className="w-8 h-8 text-amber-500" />
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-              </div>
-              <p className="text-amber-900 italic text-2xl max-w-3xl mx-auto leading-relaxed font-semibold" style={{ fontFamily: 'Crimson Text, serif' }}>
+              <div className="h-px w-24 bg-stone-300 mx-auto mb-6"></div>
+              <p className="text-stone-700 italic text-xl max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Crimson Text, serif' }}>
                 « Laissez les enfants venir à moi,<br />car le royaume de Dieu est à ceux qui leur ressemblent. »
               </p>
-              <p className="text-base text-orange-700 mt-4 font-bold tracking-wider">Marc 10, 14</p>
-              <div className="inline-flex items-center gap-4 mt-6">
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-                <span className="text-3xl">🌟</span>
-                <div className="h-px w-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-              </div>
+              <p className="text-sm text-stone-500 mt-4 tracking-widest uppercase">Marc 10, 14</p>
+              <div className="h-px w-24 bg-stone-300 mx-auto mt-6"></div>
             </div>
 
           </div>
