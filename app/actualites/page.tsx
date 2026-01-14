@@ -242,6 +242,33 @@ const allEvents = [
     hasImage: false,
     category: 'Événement',
     lieu: 'Salle de gym d\'Aproz - 17h30'
+  },
+  {
+    id: 'soupe-careme-2026',
+    title: 'Soupe de Carême et temps de ressourcement',
+    excerpt: 'Soirée de partage autour d\'une soupe de Carême suivie d\'un temps de ressourcement spirituel. Un moment simple et fraternel pour vivre le Carême ensemble.',
+    date: '2026-03-13',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'Salle paroissiale de Basse-Nendaz - 19h30'
+  },
+  {
+    id: 'concert-caecilia-mars-2026',
+    title: 'Concert Caecilia',
+    excerpt: 'Concert du chœur La Caecilia de Fey. Une soirée musicale à ne pas manquer !',
+    date: '2026-03-18',
+    hasImage: false,
+    category: 'Culture',
+    lieu: 'Église de Fey - 20h15'
+  },
+  {
+    id: 'concert-davidica-2026',
+    title: 'Concert Davidica avec le chœur Chanson du pays de Gruyère',
+    excerpt: 'Concert exceptionnel de l\'ensemble Davidica accompagné du chœur Chanson du pays de Gruyère. Une belle rencontre musicale entre chorales.',
+    date: '2026-03-29',
+    hasImage: false,
+    category: 'Culture',
+    lieu: 'Église de Haute-Nendaz - 17h00'
   }
 ]
 
