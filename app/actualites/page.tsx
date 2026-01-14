@@ -547,6 +547,27 @@ export default function ActualitesPage() {
 
           </div>
 
+          {/* Liens utiles */}
+          <div className="mt-16 pt-12 border-t border-neutral-gris/20">
+            <h3 className="text-xl font-bold text-neutral-anthracite mb-6 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Découvrir aussi
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+              <a href="/pastorale" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center border border-neutral-gris/20">
+                <p className="font-semibold text-neutral-anthracite group-hover:text-paroisse-vert transition-colors">Vie pastorale</p>
+                <p className="text-xs text-neutral-gris">Sacrements & catéchèse</p>
+              </a>
+              <a href="/paroisses" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center border border-neutral-gris/20">
+                <p className="font-semibold text-neutral-anthracite group-hover:text-paroisse-vert transition-colors">Nos paroisses</p>
+                <p className="text-xs text-neutral-gris">Églises & chapelles</p>
+              </a>
+              <a href="/contact" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center border border-neutral-gris/20">
+                <p className="font-semibold text-neutral-anthracite group-hover:text-paroisse-vert transition-colors">Nous contacter</p>
+                <p className="text-xs text-neutral-gris">Questions & demandes</p>
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 

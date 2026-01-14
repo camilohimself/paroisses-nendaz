@@ -135,12 +135,39 @@ export default function DonsPage() {
             <p className="text-stone-600 mb-6">
               Pour toute question concernant les dons, n'hésitez pas à nous contacter.
             </p>
-            <a
-              href="/contact"
-              className="inline-block bg-stone-700 text-white px-8 py-3 rounded-lg hover:bg-stone-800 transition-colors font-semibold"
-            >
-              Nous contacter
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="/contact"
+                className="inline-block bg-stone-700 text-white px-8 py-3 rounded-lg hover:bg-stone-800 transition-colors font-semibold"
+              >
+                Nous contacter
+              </a>
+              <a
+                href="/contact#formulaire"
+                className="inline-block border-2 border-amber-600 text-amber-700 px-8 py-3 rounded-lg hover:bg-amber-50 transition-colors font-semibold"
+              >
+                Intentions de messe
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Autres façons de soutenir */}
+      <section className="py-12 bg-stone-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-8 text-stone-800">Autres façons de soutenir</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <a href="/pastorale" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all border border-stone-200">
+                <p className="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">S'engager bénévolement</p>
+                <p className="text-sm text-stone-500">Découvrir les services paroissiaux</p>
+              </a>
+              <a href="/pastorale/liturgie" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all border border-stone-200">
+                <p className="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">Servir à la messe</p>
+                <p className="text-sm text-stone-500">Lecteurs, servants, chorales</p>
+              </a>
+            </div>
           </div>
         </div>
       </section>

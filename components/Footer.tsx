@@ -44,8 +44,8 @@ export default function Footer() {
               <Link href="/actualites" className="block hover:text-paroisse-bleuRoi transition-colors">
                 Actualités
               </Link>
-              <Link href="/horaires" className="block hover:text-paroisse-bleuRoi transition-colors">
-                Horaires messes
+              <Link href="/contact" className="block hover:text-paroisse-bleuRoi transition-colors">
+                Contact
               </Link>
             </div>
           </div>

@@ -332,6 +332,33 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Liens utiles */}
+      <section className="py-12 bg-stone-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-center mb-8 text-stone-800">Liens utiles</h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <a href="/pastorale" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
+                <p className="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">Vie pastorale</p>
+                <p className="text-xs text-stone-500">Sacrements & catéchèse</p>
+              </a>
+              <a href="/paroisses" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
+                <p className="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">Nos paroisses</p>
+                <p className="text-xs text-stone-500">Églises & chapelles</p>
+              </a>
+              <a href="/actualites" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
+                <p className="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">Actualités</p>
+                <p className="text-xs text-stone-500">Événements à venir</p>
+              </a>
+              <a href="/dons" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center">
+                <p className="font-semibold text-stone-800 group-hover:text-amber-700 transition-colors">Faire un don</p>
+                <p className="text-xs text-stone-500">Soutenir la paroisse</p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
