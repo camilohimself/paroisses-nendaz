@@ -184,7 +184,7 @@ export default function ConfirmationPage() {
           <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Document d'information</h2>
           <div className="max-w-2xl">
             <a
-              href="/documents/confirmation/info-parents-confirmation-2024-2025.pdf"
+              href="/documents/confirmation/info-parents-confirmation-2025-2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all border-2 border-transparent hover:border-paroisse-violet group block"
@@ -193,7 +193,7 @@ export default function ConfirmationPage() {
                 <span className="text-4xl group-hover:scale-110 transition-transform">📄</span>
                 <div className="flex-1">
                   <h3 className="font-bold text-neutral-anthracite mb-2 group-hover:text-paroisse-violet transition-colors text-lg">
-                    Flyer d'information pour les parents 2024-2025
+                    Flyer d'information pour les parents 2025-2026
                   </h3>
                   <p className="text-sm text-neutral-gris mb-3">
                     Toutes les informations détaillées sur le parcours de confirmation : programme, dates, activités obligatoires et à choix

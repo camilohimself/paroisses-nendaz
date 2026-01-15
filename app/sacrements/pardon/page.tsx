@@ -102,7 +102,7 @@ export default function PardonPage() {
                   </p>
                 </div>
 
-                <h3 className="text-xl font-semibold text-emerald-800 mt-8 mb-4">Le sacrement du pardon pour les enfants</h3>
+                <h3 className="text-xl font-semibold text-emerald-800 mt-8 mb-4">Parcours de l'initiation au sacrement du pardon pour les enfants</h3>
                 <p className="leading-relaxed mb-4">
                   <strong>Chers parents,</strong>
                 </p>
