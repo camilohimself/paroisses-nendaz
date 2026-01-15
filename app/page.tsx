@@ -41,7 +41,7 @@ export default function Home() {
 
             {/* Card 1 - Service Liturgique */}
             <a
-              href="/pastorale#communaute"
+              href="/pastorale/liturgie"
               className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
             >
               <div className="flex items-center gap-3 mb-6">

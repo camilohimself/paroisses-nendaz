@@ -113,7 +113,9 @@ export default function Footer() {
             </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a
-                href="#"
+                href="https://www.facebook.com/paroisses.nendazveysonnaz/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-neutral-gris hover:text-paroisse-bleuRoi transition-colors"
                 aria-label="Facebook"
               >

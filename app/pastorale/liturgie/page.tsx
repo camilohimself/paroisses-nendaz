@@ -25,7 +25,7 @@ export default function LiturgiePage() {
             Services et ministères liturgiques pour célébrer dignement et avec beauté les mystères de notre foi.
           </p>
 
-          {/* CTA Servir à la messe */}
+          {/* CTA Inscription aux services */}
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="https://public.enoria.app/pubinsc/auth?type=acteurs&e=598&type_messe=dominicale"
@@ -33,7 +33,7 @@ export default function LiturgiePage() {
               rel="noopener noreferrer"
               className="inline-block px-10 py-4 bg-[#2A8B8C] text-white font-semibold uppercase tracking-widest hover:bg-[#237374] transition-all duration-300 rounded"
             >
-              Servir à la messe
+              Inscription aux services
             </a>
             <Link
               href="/contact"
