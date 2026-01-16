@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Metadata } from 'next'
-import { FileText, Users, Phone, Mail, MapPin, BookOpen, UsersRound, Calendar } from 'lucide-react'
+import { FileText, Users, Phone, Mail, MapPin, BookOpen, UsersRound, Calendar, Church } from 'lucide-react'
 import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
@@ -113,6 +113,127 @@ export default function PardonPage() {
                 <p className="leading-relaxed">
                   Nous vous accompagnerons tout au long de ce chemin, pour que cette étape devienne un moment précieux dans la vie de foi de votre enfant.
                 </p>
+              </div>
+            </div>
+
+            {/* Le Parcours - 4 temps */}
+            <div className="bg-white rounded-xl shadow-md p-8">
+              <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Le parcours de préparation</h2>
+              <p className="text-neutral-gris mb-8">
+                La préparation se déroule en <strong>4 temps complémentaires</strong>, suivis d&apos;une retraite et de la célébration.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Temps 1 - Ton pierre montagne */}
+                <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">1</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-neutral-anthracite text-lg">Temps en famille</h3>
+                      <p className="text-sm text-slate-700">Avec les parents</p>
+                    </div>
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-anthracite">
+                    <li className="flex items-start gap-2">
+                      <span className="text-slate-600 mt-1">✓</span>
+                      <span>Reprendre ensemble ce que l&apos;enfant a vécu en catéchèse</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-slate-600 mt-1">✓</span>
+                      <span>Créer un coin prière à la maison, un espace pour se recueillir en famille</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Temps 2 - Ton forêt alpine */}
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-xl border-2 border-emerald-200">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-emerald-700 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">2</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-neutral-anthracite text-lg">Catéchèse hors école</h3>
+                      <p className="text-sm text-emerald-700">Pour le secteur</p>
+                    </div>
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-anthracite">
+                    <li className="flex items-start gap-2">
+                      <span className="text-emerald-500 mt-1">✓</span>
+                      <span>Participer à l&apos;animation de la messe paroissiale avec les autres enfants du secteur</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Temps 3 - Ton terre chaude */}
+                <div className="bg-gradient-to-br from-stone-50 to-amber-50 p-6 rounded-xl border-2 border-stone-200">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-stone-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">3</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-neutral-anthracite text-lg">Catéchèse à l&apos;école</h3>
+                      <p className="text-sm text-stone-700">Par les catéchistes</p>
+                    </div>
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-anthracite">
+                    <li className="flex items-start gap-2">
+                      <span className="text-stone-600 mt-1">✓</span>
+                      <span>3 rencontres prises sur le temps d&apos;école</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-stone-600 mt-1">✓</span>
+                      <div>
+                        <span>Thèmes abordés :</span>
+                        <ul className="mt-1 space-y-0.5 ml-2">
+                          <li className="flex items-start gap-2">
+                            <span className="text-stone-500">•</span>
+                            <span>Découvrir l&apos;Amour de Dieu</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-stone-500">•</span>
+                            <span>Reconnaître nos manques d&apos;amour et accueillir le pardon</span>
+                          </li>
+                          <li className="flex items-start gap-2">
+                            <span className="text-stone-500">•</span>
+                            <span>Devenir témoin de la foi</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Temps 4 - Ton soleil alpin */}
+                <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-xl border-2 border-amber-200">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-white font-bold text-lg">4</span>
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-neutral-anthracite text-lg">Temps en paroisse</h3>
+                      <p className="text-sm text-amber-700">Vie paroissiale</p>
+                    </div>
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-anthracite">
+                    <li className="flex items-start gap-2">
+                      <span className="text-amber-500 mt-1">✓</span>
+                      <span>Participer à la journée des couronnes de l&apos;Avent, un moment de partage et de créativité</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Retraite + Célébrations - Un seul bloc */}
+              <div className="mt-6">
+                <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl border-2 border-emerald-200">
+                  <h4 className="font-bold text-neutral-anthracite mb-2 flex items-center gap-2">
+                    <Church className="w-6 h-6 text-emerald-700" />
+                    Retraite et Célébrations
+                  </h4>
+                  <p className="text-sm text-neutral-anthracite">Un temps de retraite pour se préparer, puis recevoir le sacrement du pardon avec le prêtre</p>
+                </div>
               </div>
             </div>
 
