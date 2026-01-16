@@ -92,6 +92,27 @@ const nextConfig: NextConfig = {
         destination: '/actualites',
         permanent: true,
       },
+      // === Parcours des pèlerins (ex-Avent 2025) ===
+      {
+        source: '/avent/mission-1',
+        destination: '/parcours-pelerins/luce',
+        permanent: true,
+      },
+      {
+        source: '/avent/mission-2',
+        destination: '/parcours-pelerins/fe',
+        permanent: true,
+      },
+      {
+        source: '/avent/mission-3',
+        destination: '/parcours-pelerins/xin',
+        permanent: true,
+      },
+      {
+        source: '/avent/mission-4',
+        destination: '/parcours-pelerins/sky',
+        permanent: true,
+      },
     ];
   },
 };
