@@ -133,6 +133,24 @@ export default function Header() {
                         </div>
                       </div>
                     </Link>
+
+                    <Link
+                      href="/pastorale/activites-catechetiques"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Activités catéchétiques</div>
+                          <div className="text-xs text-stone-500">Enfants 1H-8H</div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -365,6 +383,13 @@ export default function Header() {
                       onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
                     >
                       Diaconie
+                    </Link>
+                    <Link
+                      href="/pastorale/activites-catechetiques"
+                      className="block text-stone-600 hover:text-amber-600 transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsPastoraleOpen(false); }}
+                    >
+                      Activités catéchétiques
                     </Link>
                   </div>
                 )}
