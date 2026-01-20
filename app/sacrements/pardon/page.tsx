@@ -161,7 +161,7 @@ export default function PardonPage() {
                   <ul className="space-y-2 text-sm text-neutral-anthracite">
                     <li className="flex items-start gap-2">
                       <span className="text-emerald-500 mt-1">✓</span>
-                      <span>Participer à l&apos;animation de la messe paroissiale avec les autres enfants du secteur</span>
+                      <span>Possibilité de participer à la messe des fenêtres catéchétiques avec les autres enfants du secteur (fortement conseillé)</span>
                     </li>
                   </ul>
                 </div>
