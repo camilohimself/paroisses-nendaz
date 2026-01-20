@@ -424,4 +424,68 @@ Page d'accueil
 
 ---
 
-*Dernière màj : 7 jan 2026 - session Claude*
+## SESSION 16 JAN 2026 - TERMINÉE
+
+### Parcours des pèlerins - Pérennisation Avent 2025
+- [x] Création page landing `/parcours-pelerins` (hub des 4 missions)
+- [x] Migration missions vers `/parcours-pelerins/{luce,fe,xin,sky}`
+- [x] Redirections 301 pour anciens QR codes `/avent/mission-X`
+- [x] Image hero optimisée `hero-parcours-pelerins.jpg` (277KB)
+- [x] QR code `parcours-pelerins-landing.jpg` généré
+
+### Fichiers clés
+```
+/app/parcours-pelerins/page.tsx           # Hub 4 missions
+/app/parcours-pelerins/luce/page.tsx      # Mission 1
+/app/parcours-pelerins/fe/page.tsx        # Mission 2
+/app/parcours-pelerins/xin/page.tsx       # Mission 3
+/app/parcours-pelerins/sky/page.tsx       # Mission 4
+/docs/qr-codes/parcours-pelerins-landing.jpg
+```
+
+### Redirections actives (next.config.ts)
+| Ancienne URL | Nouvelle URL |
+|--------------|--------------|
+| `/avent/mission-1` | `/parcours-pelerins/luce` |
+| `/avent/mission-2` | `/parcours-pelerins/fe` |
+| `/avent/mission-3` | `/parcours-pelerins/xin` |
+| `/avent/mission-4` | `/parcours-pelerins/sky` |
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `04da60f` | feat: Create permanent Parcours des pèlerins section |
+| `eca2568` | chore: Add QR code for parcours-pelerins landing page |
+
+---
+
+## SESSION 20 JAN 2026 - TERMINÉE
+
+### Bug fix - Erreur 404 pages parcours-pelerins
+- **Symptôme** : QR codes menaient à erreur 404 en production
+- **Cause** : Propriété `slug` manquante dans tableau `missions` de `page.tsx`
+- **Erreur TypeScript** : `Property 'slug' does not exist on type...`
+- **Impact** : Build échouait → Vercel ne déployait pas → 404
+
+### Diagnostic
+1. `npm run build` local = échec TypeScript
+2. Pages existaient en local mais pas déployées
+3. `git status` montrait branche à jour (faux positif - build cassé)
+
+### Correction
+- [x] Ajout propriété `slug` aux 4 objets mission dans `/app/parcours-pelerins/page.tsx`
+- [x] Build vérifié OK localement
+- [x] Déploiement Vercel réussi
+- [x] Test production : toutes pages accessibles
+
+### Commit fix
+| Hash | Description |
+|------|-------------|
+| `de8109d` | fix: Add missing slug property to missions array |
+
+### Leçon retenue
+**Toujours vérifier `npm run build` avant de pousser**, surtout avec TypeScript strict. Un build local qui échoue = déploiement Vercel bloqué.
+
+---
+
+*Dernière màj : 20 jan 2026 - session Claude*
