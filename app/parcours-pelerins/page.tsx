@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 
 const missions = [
   {
+    slug: 'luce',
     name: 'Luce',
     theme: 'Lumière',
     church: 'Basse-Nendaz',
@@ -19,6 +20,7 @@ const missions = [
     image: '/images/avent/personnages/Luce.png',
   },
   {
+    slug: 'fe',
     name: 'Fe',
     theme: 'Foi',
     church: 'Fey',
@@ -28,6 +30,7 @@ const missions = [
     image: '/images/avent/personnages/Fe.png',
   },
   {
+    slug: 'xin',
     name: 'Xin',
     theme: 'Espérance',
     church: 'Veysonnaz',
@@ -37,6 +40,7 @@ const missions = [
     image: '/images/avent/personnages/Xin.png',
   },
   {
+    slug: 'sky',
     name: 'Sky',
     theme: 'Joie',
     church: 'Aproz',
