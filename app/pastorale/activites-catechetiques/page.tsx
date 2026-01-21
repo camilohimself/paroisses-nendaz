@@ -482,20 +482,6 @@ export default function ActivitesCatechetiquesPage() {
                   </div>
                 </div>
 
-                {/* Nadia Fendrych */}
-                <div className="border-l-4 border-emerald-500 pl-4 py-2">
-                  <h4 className="font-bold text-neutral-anthracite">Nadia Fendrych</h4>
-                  <div className="space-y-1 text-sm mt-2">
-                    <a href="tel:+41273460003" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
-                      <Phone className="w-4 h-4" />
-                      027 346 00 03
-                    </a>
-                    <a href="mailto:nadia.fendrych@gmail.com" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
-                      <Mail className="w-4 h-4" />
-                      nadia.fendrych@gmail.com
-                    </a>
-                  </div>
-                </div>
               </div>
 
               <div className="mt-4 pt-4 border-t border-stone-200">
