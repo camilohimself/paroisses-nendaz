@@ -488,4 +488,59 @@ Page d'accueil
 
 ---
 
-*Dernière màj : 20 jan 2026 - session Claude*
+## SESSION 21 JAN 2026 - TERMINÉE
+
+### Fix page pardon - Wording card 2
+- [x] Modification texte "Catéchèse hors école"
+- **Avant** : "Participer à l'animation de la messe paroissiale..."
+- **Après** : "Possibilité de participer à la messe des fenêtres catéchétiques... (fortement conseillé)"
+
+### Nouvelle page - Activités catéchétiques
+- [x] Création `/pastorale/activites-catechetiques`
+- [x] 8 degrés (1H-8H) en cartes colorées
+- [x] 3 temps de déroulement des activités
+- [x] PDFs intégrés : 6H, 7H, 8H (1-2H, 3H en placeholder)
+- [x] Vidéo tutoriel inscription (`8BlXpMJ__0o`)
+- [x] Contacts par degré : Anne-Lyse Métrailler (1-3H), Jean-Philippe Glassey (6-8H), Martin Fendrych (7-8H)
+- [x] Lien ajouté dans menu Pastorale (1ère position)
+
+### Fichiers clés
+```
+/app/pastorale/activites-catechetiques/page.tsx
+/public/documents/activites-catechetiques/flyer-6h.pdf
+/public/documents/activites-catechetiques/flyer-7h.pdf
+/public/documents/activites-catechetiques/flyer-8h.pdf
+```
+
+### Nouvelle page - /enoria (landing page)
+- [x] Page intermédiaire avant connexion Enoria
+- [x] 2 CTA horizontaux : "Se connecter" + "Voir le tutoriel"
+- [x] Message simplifié : "Connexion : email ou téléphone (pas les deux)"
+- [x] Vidéo tutoriel inscription Enoria (`Sb1pV4ZboYM`)
+- [x] Bouton Header "Enoria" pointe maintenant vers `/enoria`
+
+### Ajustements UX
+- [x] Retrait sticky sidebar page activités catéchétiques
+- [x] Format téléphone uniformisé : +41 xx xxx xx xx
+- [x] Menu Pastorale : "Activités catéchétiques" en 1ère position
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `3a5b5bc` | fix: Update pardon page card 2 wording |
+| `93be05f` | feat: Add Activités catéchétiques page (1H-8H) |
+| `88a2cd1` | feat: Add YouTube tutorial + contacts by degree |
+| `1630ed0` | fix: Update contacts with complete phone/email |
+| `d60e506` | fix: Remove Nadia Fendrych from contacts |
+| `32e58cb` | fix: Remove sticky + standardize phone format |
+| `3eb7b60` | feat: Move Activités catéchétiques first in menu |
+| `11cd591` | feat: Create /enoria landing page |
+| `0822220` | refactor: Simplify /enoria layout |
+
+### URLs nouvelles
+- https://www.paroisses-nendaz.ch/pastorale/activites-catechetiques
+- https://www.paroisses-nendaz.ch/enoria
+
+---
+
+*Dernière màj : 21 jan 2026 - session Claude*
