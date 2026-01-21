@@ -415,7 +415,7 @@ export default function ActivitesCatechetiquesPage() {
           {/* Sidebar - 1/3 */}
           <div className="lg:col-span-1">
             {/* CTA Inscription Enoria */}
-            <div className="bg-gradient-to-br from-amber-600 to-orange-600 text-white rounded-xl shadow-lg p-6 mb-6 sticky top-6">
+            <div className="bg-gradient-to-br from-amber-600 to-orange-600 text-white rounded-xl shadow-lg p-6 mb-6">
               <h3 className="text-xl font-bold mb-4 text-white">Inscrire mon enfant</h3>
               <p className="mb-6 text-amber-100">
                 Toutes les inscriptions se font via la plateforme Enoria.
@@ -445,7 +445,7 @@ export default function ActivitesCatechetiquesPage() {
                   <div className="space-y-1 text-sm">
                     <a href="tel:+41774153202" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Phone className="w-4 h-4" />
-                      077 415 32 02
+                      +41 77 415 32 02
                     </a>
                   </div>
                 </div>
@@ -457,7 +457,7 @@ export default function ActivitesCatechetiquesPage() {
                   <div className="space-y-1 text-sm">
                     <a href="tel:+41272071318" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Phone className="w-4 h-4" />
-                      027 207 13 18
+                      +41 27 207 13 18
                     </a>
                     <a href="mailto:jpglassey@bluewin.ch" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Mail className="w-4 h-4" />
@@ -473,7 +473,7 @@ export default function ActivitesCatechetiquesPage() {
                   <div className="space-y-1 text-sm">
                     <a href="tel:+41273460003" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Phone className="w-4 h-4" />
-                      027 346 00 03
+                      +41 27 346 00 03
                     </a>
                     <a href="mailto:martinbruno@netplus.ch" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Mail className="w-4 h-4" />
@@ -488,7 +488,7 @@ export default function ActivitesCatechetiquesPage() {
                 <p className="text-sm text-neutral-gris">
                   En cas de difficulté, contactez le secrétariat au{' '}
                   <a href="tel:+41772693529" className="text-amber-700 font-semibold hover:underline">
-                    077 269 35 29
+                    +41 77 269 35 29
                   </a>
                 </p>
               </div>
