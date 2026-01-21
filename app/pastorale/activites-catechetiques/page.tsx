@@ -394,21 +394,19 @@ export default function ActivitesCatechetiquesPage() {
                 ))}
               </div>
 
-              {/* Vidéo YouTube placeholder */}
+              {/* Vidéo YouTube tutoriel Enoria */}
               <h3 className="text-lg font-bold text-neutral-anthracite mb-4 flex items-center gap-2">
                 <Play className="w-5 h-5 text-amber-600" />
                 Tutoriel inscription Enoria
               </h3>
-              <div className="aspect-video bg-gradient-to-br from-stone-100 to-stone-200 rounded-xl flex items-center justify-center border-2 border-dashed border-stone-300">
-                <div className="text-center p-8">
-                  <div className="w-16 h-16 bg-stone-300 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Play className="w-8 h-8 text-stone-500" />
-                  </div>
-                  <p className="text-stone-600 font-semibold mb-2">Vidéo en préparation</p>
-                  <p className="text-sm text-stone-500">
-                    Un tutoriel pas à pas pour accompagner les familles dans l&apos;inscription sur Enoria.
-                  </p>
-                </div>
+              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.youtube.com/embed/Sb1pV4ZboYM"
+                  title="Tutoriel inscription Enoria"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
               </div>
             </div>
 
@@ -436,14 +434,30 @@ export default function ActivitesCatechetiquesPage() {
             <div className="bg-white rounded-xl shadow-md p-6 mb-6">
               <h3 className="text-lg font-bold text-neutral-anthracite mb-4 flex items-center gap-2">
                 <Users className="w-5 h-5 text-amber-600" />
-                Contacts catéchistes
+                Contacts par degré
               </h3>
 
               <div className="space-y-4">
-                {/* Jean-Philippe Glassey */}
+                {/* Anne-Lyse Métrailler */}
                 <div className="border-l-4 border-amber-500 pl-4 py-2">
+                  <h4 className="font-bold text-neutral-anthracite">Anne-Lyse Métrailler</h4>
+                  <p className="text-sm text-amber-700 font-medium mb-2">1-2H, 3H</p>
+                  <div className="space-y-1 text-sm">
+                    <a href="tel:+41774153202" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
+                      <Phone className="w-4 h-4" />
+                      077 415 32 02
+                    </a>
+                    <a href="mailto:annelysemetrailler6@gmail.com" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
+                      <Mail className="w-4 h-4" />
+                      annelysemetrailler6@gmail.com
+                    </a>
+                  </div>
+                </div>
+
+                {/* Jean-Philippe Glassey */}
+                <div className="border-l-4 border-orange-500 pl-4 py-2">
                   <h4 className="font-bold text-neutral-anthracite">Jean-Philippe Glassey</h4>
-                  <p className="text-sm text-amber-700 font-medium mb-2">Catéchiste</p>
+                  <p className="text-sm text-orange-700 font-medium mb-2">6H, 7H, 8H</p>
                   <div className="space-y-1 text-sm">
                     <a href="tel:+41797627757" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Phone className="w-4 h-4" />
@@ -457,9 +471,9 @@ export default function ActivitesCatechetiquesPage() {
                 </div>
 
                 {/* Martin Fendrych */}
-                <div className="border-l-4 border-stone-400 pl-4 py-2">
+                <div className="border-l-4 border-blue-500 pl-4 py-2">
                   <h4 className="font-bold text-neutral-anthracite">Martin Fendrych</h4>
-                  <p className="text-sm text-stone-600 font-medium mb-2">Catéchiste</p>
+                  <p className="text-sm text-blue-700 font-medium mb-2">7H, 8H</p>
                   <div className="space-y-1 text-sm">
                     <a href="tel:+41772111842" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Phone className="w-4 h-4" />
