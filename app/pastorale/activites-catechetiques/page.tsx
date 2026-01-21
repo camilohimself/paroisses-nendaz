@@ -401,7 +401,7 @@ export default function ActivitesCatechetiquesPage() {
               </h3>
               <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
                 <iframe
-                  src="https://www.youtube.com/embed/Sb1pV4ZboYM"
+                  src="https://www.youtube.com/embed/8BlXpMJ__0o"
                   title="Tutoriel inscription Enoria"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
