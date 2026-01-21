@@ -447,10 +447,6 @@ export default function ActivitesCatechetiquesPage() {
                       <Phone className="w-4 h-4" />
                       077 415 32 02
                     </a>
-                    <a href="mailto:annelysemetrailler6@gmail.com" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
-                      <Mail className="w-4 h-4" />
-                      annelysemetrailler6@gmail.com
-                    </a>
                   </div>
                 </div>
 
@@ -459,9 +455,9 @@ export default function ActivitesCatechetiquesPage() {
                   <h4 className="font-bold text-neutral-anthracite">Jean-Philippe Glassey</h4>
                   <p className="text-sm text-orange-700 font-medium mb-2">6H, 7H, 8H</p>
                   <div className="space-y-1 text-sm">
-                    <a href="tel:+41797627757" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
+                    <a href="tel:+41272071318" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Phone className="w-4 h-4" />
-                      079 762 77 57
+                      027 207 13 18
                     </a>
                     <a href="mailto:jpglassey@bluewin.ch" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Mail className="w-4 h-4" />
@@ -475,9 +471,28 @@ export default function ActivitesCatechetiquesPage() {
                   <h4 className="font-bold text-neutral-anthracite">Martin Fendrych</h4>
                   <p className="text-sm text-blue-700 font-medium mb-2">7H, 8H</p>
                   <div className="space-y-1 text-sm">
-                    <a href="tel:+41772111842" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
+                    <a href="tel:+41273460003" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
                       <Phone className="w-4 h-4" />
-                      077 211 18 42
+                      027 346 00 03
+                    </a>
+                    <a href="mailto:martinbruno@netplus.ch" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
+                      <Mail className="w-4 h-4" />
+                      martinbruno@netplus.ch
+                    </a>
+                  </div>
+                </div>
+
+                {/* Nadia Fendrych */}
+                <div className="border-l-4 border-emerald-500 pl-4 py-2">
+                  <h4 className="font-bold text-neutral-anthracite">Nadia Fendrych</h4>
+                  <div className="space-y-1 text-sm mt-2">
+                    <a href="tel:+41273460003" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
+                      <Phone className="w-4 h-4" />
+                      027 346 00 03
+                    </a>
+                    <a href="mailto:nadia.fendrych@gmail.com" className="flex items-center gap-2 text-neutral-gris hover:text-amber-700">
+                      <Mail className="w-4 h-4" />
+                      nadia.fendrych@gmail.com
                     </a>
                   </div>
                 </div>
