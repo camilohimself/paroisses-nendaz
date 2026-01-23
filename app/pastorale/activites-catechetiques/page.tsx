@@ -371,7 +371,7 @@ export default function ActivitesCatechetiquesPage() {
                 {flyers.map((flyer) => (
                   flyer.disponible ? (
                     <a
-                      key={flyer.niveau}
+                      key={flyer.href}
                       href={flyer.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -383,6 +383,9 @@ export default function ActivitesCatechetiquesPage() {
                           <span className="inline-block bg-amber-500 text-white text-xs font-bold px-2 py-0.5 rounded mb-1">
                             {flyer.niveau}
                           </span>
+                          {flyer.titre !== `Flyer ${flyer.niveau}` && (
+                            <p className="text-sm font-semibold text-neutral-anthracite">{flyer.titre}</p>
+                          )}
                           <p className="text-sm text-neutral-gris">{flyer.description}</p>
                           <span className="text-xs text-amber-700 font-semibold">Télécharger PDF</span>
                         </div>
@@ -390,7 +393,7 @@ export default function ActivitesCatechetiquesPage() {
                     </a>
                   ) : (
                     <div
-                      key={flyer.niveau}
+                      key={flyer.href}
                       className="bg-stone-100 p-4 rounded-lg border-2 border-stone-200 opacity-60"
                     >
                       <div className="flex items-start gap-3">
