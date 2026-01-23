@@ -95,17 +95,31 @@ const degres = [
 const flyers = [
   {
     niveau: '1-2H',
-    titre: 'Flyer 1H-2H',
+    titre: 'Patricia Délèze',
     description: 'Découvrir l\'Église et Jésus mon ami',
-    disponible: false,
-    href: '#',
+    disponible: true,
+    href: '/documents/activites-catechetiques/flyer-1-2h-patricia-deleze.pdf',
+  },
+  {
+    niveau: '1-2H',
+    titre: 'Christelle Briguet',
+    description: 'Découvrir l\'Église et Jésus mon ami',
+    disponible: true,
+    href: '/documents/activites-catechetiques/flyer-1-2h-christelle-briguet.pdf',
+  },
+  {
+    niveau: '1-2H',
+    titre: 'Christelle Maytain',
+    description: 'Découvrir l\'Église et Jésus mon ami',
+    disponible: true,
+    href: '/documents/activites-catechetiques/flyer-1-2h-christelle-maytain.pdf',
   },
   {
     niveau: '3H',
     titre: 'Flyer 3H',
     description: 'Ouvre ton cœur à Jésus',
-    disponible: false,
-    href: '#',
+    disponible: true,
+    href: '/documents/activites-catechetiques/flyer-3h.pdf',
   },
   {
     niveau: '6H',
@@ -394,19 +408,47 @@ export default function ActivitesCatechetiquesPage() {
                 ))}
               </div>
 
-              {/* Vidéo YouTube tutoriel Enoria */}
+              {/* Vidéos YouTube tutoriels Enoria */}
               <h3 className="text-lg font-bold text-neutral-anthracite mb-4 flex items-center gap-2">
                 <Play className="w-5 h-5 text-amber-600" />
-                Tutoriel inscription Enoria
+                Tutoriels Enoria
               </h3>
-              <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/8BlXpMJ__0o"
-                  title="Tutoriel inscription Enoria"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
+              <p className="text-neutral-gris mb-6">
+                Deux vidéos pour vous accompagner dans l&apos;inscription de votre enfant.
+              </p>
+
+              <div className="space-y-6">
+                {/* Tuto 1 : Créer un compte */}
+                <div>
+                  <h4 className="font-semibold text-neutral-anthracite mb-2">
+                    1. Créer un compte / « Mon foyer » dans Enoria
+                  </h4>
+                  <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                    <iframe
+                      src="https://www.youtube.com/embed/Sb1pV4ZboYM"
+                      title="Tutoriel Enoria - Créer un compte"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                </div>
+
+                {/* Tuto 2 : Inscrire l'enfant */}
+                <div>
+                  <h4 className="font-semibold text-neutral-anthracite mb-2">
+                    2. Inscrire l&apos;enfant à l&apos;activité catéchétique
+                  </h4>
+                  <div className="aspect-video rounded-xl overflow-hidden shadow-lg">
+                    <iframe
+                      src="https://www.youtube.com/embed/8BlXpMJ__0o"
+                      title="Tutoriel Enoria - Inscrire l'enfant"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                </div>
               </div>
             </div>
 
