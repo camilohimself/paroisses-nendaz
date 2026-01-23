@@ -543,4 +543,39 @@ Page d'accueil
 
 ---
 
-*Dernière màj : 21 jan 2026 - session Claude*
+## SESSION 23 JAN 2026 - TERMINÉE
+
+### Mise à jour Activités catéchétiques - Flyers complets
+- [x] Ajout 3 flyers 1-2H distincts par enseignante :
+  - Patricia Délèze
+  - Christelle Briguet
+  - Christelle Maytain
+- [x] Ajout flyer 3H
+- [x] Remplacement flyer 7H (version 2025-2026)
+- [x] Affichage nom enseignante sur cartes 1-2H
+
+### Tutoriels Enoria - 2 vidéos
+- [x] Tuto 1 : Créer un compte / "Mon foyer" (`Sb1pV4ZboYM`)
+- [x] Tuto 2 : Inscrire l'enfant à l'activité (`8BlXpMJ__0o`)
+
+### Fichiers PDFs ajoutés
+```
+/public/documents/activites-catechetiques/
+├── flyer-1-2h-patricia-deleze.pdf    (NEW)
+├── flyer-1-2h-christelle-briguet.pdf (NEW)
+├── flyer-1-2h-christelle-maytain.pdf (NEW)
+├── flyer-3h.pdf                      (NEW)
+├── flyer-6h.pdf
+├── flyer-7h.pdf                      (UPDATED)
+└── flyer-8h.pdf
+```
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `168b19e` | feat: Update activités catéchétiques flyers + add 2 Enoria tutorials |
+| `b26093b` | fix: Display teacher name on 1-2H flyer cards |
+
+---
+
+*Dernière màj : 23 jan 2026 - session Claude*
