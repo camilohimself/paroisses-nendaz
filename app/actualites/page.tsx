@@ -244,6 +244,15 @@ const allEvents = [
     lieu: 'Salle de gym d\'Aproz - 17h30'
   },
   {
+    id: 'loto-eglises-basse-haute-nendaz',
+    title: 'Loto des églises de Basse-Nendaz et Haute-Nendaz',
+    excerpt: 'Après-midi loto organisé au profit des églises de Basse-Nendaz et Haute-Nendaz. Venez nombreux pour passer un bon moment convivial !',
+    date: '2026-02-22',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Salle de la Biolette, Basse-Nendaz - 17h30'
+  },
+  {
     id: 'soupe-careme-2026',
     title: 'Soupe de Carême et temps de ressourcement',
     excerpt: 'Soirée de partage autour d\'une soupe de Carême suivie d\'un temps de ressourcement spirituel. Un moment simple et fraternel pour vivre le Carême ensemble.',

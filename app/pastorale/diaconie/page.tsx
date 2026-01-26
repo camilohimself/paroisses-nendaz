@@ -133,9 +133,22 @@ export default function DiaconiePage() {
                   </div>
                 </div>
 
-                <p className="text-base text-stone-600 leading-relaxed">
+                <p className="text-base text-stone-600 leading-relaxed mb-4">
                   Mouvement pour les personnes retraitées qui favorise la réflexion chrétienne, le partage fraternel et les questionnements sur le sens de la vie, des engagements et du vieillissement dans la foi.
                 </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded">
+                    <p className="text-sm font-semibold text-stone-800 mb-1">Responsable Basse-Nendaz</p>
+                    <p className="text-base text-stone-800">Françoise Bourban</p>
+                    <p className="text-sm text-emerald-700">+41 79 832 21 81</p>
+                  </div>
+                  <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded">
+                    <p className="text-sm font-semibold text-stone-800 mb-1">Responsable Aproz</p>
+                    <p className="text-base text-stone-800">Huguette Ulmann</p>
+                    <p className="text-sm text-emerald-700">+41 78 848 62 58</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
