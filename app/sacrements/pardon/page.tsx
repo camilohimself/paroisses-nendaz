@@ -7,6 +7,12 @@ import PageTracker from '@/components/PageTracker'
 export const metadata: Metadata = {
   title: 'Pardon et Réconciliation - Sacrements - Paroisses de Nendaz',
   description: 'Le sacrement du pardon, également connu sous les noms de sacrement de réconciliation, de pénitence ou de confession.',
+  openGraph: {
+    title: 'Pardon et Réconciliation | Paroisses de Nendaz',
+    description: 'Sacrement de réconciliation, de pénitence ou de confession.',
+    url: 'https://www.paroisses-nendaz.ch/sacrements/pardon',
+    images: [{ url: '/images/sacrements/pardon-hero.jpg', width: 1200, height: 630 }],
+  },
 }
 
 export default function PardonPage() {

@@ -5,7 +5,13 @@ import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
   title: 'Confirmation - Sacrements - Paroisses de Nendaz',
-  description: 'Parcours de préparation à la confirmation pour les jeunes de notre communauté paroissiale.',
+  description: 'Parcours de préparation à la confirmation pour les jeunes de notre communauté paroissiale de Nendaz et Veysonnaz.',
+  openGraph: {
+    title: 'Confirmation | Paroisses de Nendaz',
+    description: 'Parcours de préparation à la confirmation pour les jeunes.',
+    url: 'https://www.paroisses-nendaz.ch/sacrements/confirmation',
+    images: [{ url: '/logo-paroisses.png', width: 1080, height: 1350 }],
+  },
 }
 
 export default function ConfirmationPage() {

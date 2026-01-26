@@ -5,7 +5,13 @@ import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
   title: 'Mariage - Sacrements - Paroisses de Nendaz',
-  description: 'Préparez votre mariage religieux dans notre communauté paroissiale.',
+  description: 'Préparez votre mariage religieux dans notre communauté paroissiale de Nendaz et Veysonnaz.',
+  openGraph: {
+    title: 'Mariage | Paroisses de Nendaz',
+    description: 'Préparez votre mariage religieux dans notre communauté paroissiale.',
+    url: 'https://www.paroisses-nendaz.ch/sacrements/mariage',
+    images: [{ url: '/logo-paroisses.png', width: 1080, height: 1350 }],
+  },
 }
 
 export default function MariagePage() {

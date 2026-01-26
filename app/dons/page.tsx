@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
 import { Heart, Smartphone, Building2 } from 'lucide-react';
 import IbanCard from '@/components/IbanCard';
@@ -55,9 +56,11 @@ export default function DonsPage() {
               {/* Image QR Code TWINT */}
               <div className="flex justify-center mb-10">
                 <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-stone-200">
-                  <img
+                  <Image
                     src="/images/twint-qr.jpg"
                     alt="QR Code TWINT - Paroisse de Nendaz"
+                    width={400}
+                    height={400}
                     className="w-full max-w-md mx-auto rounded-lg"
                   />
                 </div>

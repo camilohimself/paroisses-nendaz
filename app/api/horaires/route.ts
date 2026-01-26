@@ -1,30 +1,6 @@
-import { google } from 'googleapis';
+import { google, calendar_v3 } from 'googleapis';
 import { NextResponse } from 'next/server';
 import { CALENDARS_CONFIG, CalendarEvent, EventType, EVENT_TYPES } from '@/lib/calendars-config';
-
-// Types pour l'API Google Calendar
-interface GoogleCalendarEvent {
-  id?: string;
-  summary?: string;
-  description?: string;
-  location?: string;
-  start?: { dateTime?: string; date?: string };
-  end?: { dateTime?: string; date?: string };
-  recurringEventId?: string;
-}
-
-interface GoogleCalendarAPI {
-  events: {
-    list: (params: {
-      calendarId: string;
-      timeMin: string;
-      timeMax: string;
-      singleEvents: boolean;
-      orderBy: string;
-      maxResults: number;
-    }) => Promise<{ data: { items?: GoogleCalendarEvent[] } }>;
-  };
-}
 
 // Fonction pour déterminer le type d'événement
 function detectEventType(title: string, description?: string): EventType {
@@ -46,7 +22,7 @@ function detectEventType(title: string, description?: string): EventType {
 
 // Fonction pour récupérer les événements d'un calendrier
 async function fetchCalendarEvents(
-  calendar: any,
+  calendar: calendar_v3.Calendar,
   calendarConfig: typeof CALENDARS_CONFIG[0],
   timeMin: string,
   timeMax: string
@@ -63,15 +39,15 @@ async function fetchCalendarEvents(
 
     const events = response.data.items || [];
 
-    return events.map((event: GoogleCalendarEvent) => ({
+    return events.map((event) => ({
       id: `${calendarConfig.id}-${event.id}`,
       calendarId: calendarConfig.id,
       title: event.summary || 'Sans titre',
-      description: event.description,
+      description: event.description || undefined,
       location: event.location || calendarConfig.defaultLocation,
-      type: detectEventType(event.summary || '', event.description),
+      type: detectEventType(event.summary || '', event.description || undefined),
       startDate: event.start?.dateTime || event.start?.date || '',
-      endDate: event.end?.dateTime || event.end?.date,
+      endDate: event.end?.dateTime || event.end?.date || undefined,
       isRecurring: !!event.recurringEventId,
       calendar: calendarConfig
     }));
@@ -85,7 +61,9 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const sector = searchParams.get('sector');
   const calendarId = searchParams.get('calendarId');
-  const months = parseInt(searchParams.get('months') || '3');
+  const monthsParam = parseInt(searchParams.get('months') || '3');
+  // Validate months parameter (1-24 range to prevent abuse)
+  const months = Math.min(Math.max(monthsParam, 1), 24);
 
   try {
     // Configuration de l'API Google Calendar

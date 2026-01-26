@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { renderToStream } from '@react-pdf/renderer'
 import { FeuilleAnnoncesPDF } from '@/lib/feuille-annonces-pdf'
+import { CalendarEvent } from '@/lib/calendars-config'
 
 export const dynamic = 'force-dynamic'
 
@@ -106,7 +107,7 @@ export async function GET(request: Request) {
 
       if (calendarData.success && calendarData.data.events) {
         // Filtrer les événements de Jour J à Jour J + 7
-        calendarEvents = calendarData.data.events.filter((event: any) => {
+        calendarEvents = calendarData.data.events.filter((event: CalendarEvent) => {
           const eventDate = new Date(event.startDate)
           return eventDate >= dateDebut && eventDate <= dateFin
         })
@@ -121,7 +122,7 @@ export async function GET(request: Request) {
       return eventDate >= dateDebut && eventDate <= dateFin
     })
 
-    console.log(`Génération PDF: ${calendarEvents.length} messes, ${actualitesEvents.length} événements`)
+    // Debug log removed for production
 
     // Générer le PDF
     const stream = await renderToStream(
@@ -134,11 +135,11 @@ export async function GET(request: Request) {
     )
 
     // Convertir le stream en buffer
-    const chunks: any[] = []
+    const chunks: Uint8Array[] = []
     for await (const chunk of stream) {
-      chunks.push(chunk)
+      chunks.push(chunk as Uint8Array)
     }
-    const buffer = Buffer.concat(chunks as Uint8Array[])
+    const buffer = Buffer.concat(chunks)
 
     // Créer le nom du fichier avec la date
     const dateStr = `${now.getDate()}-${now.getMonth() + 1}-${now.getFullYear()}`

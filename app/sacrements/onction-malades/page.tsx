@@ -6,6 +6,12 @@ import PageTracker from '@/components/PageTracker'
 export const metadata: Metadata = {
   title: 'Onction des malades - Sacrements - Paroisses de Nendaz',
   description: 'Le sacrement de l\'onction des malades pour confier la souffrance à la compassion du Christ.',
+  openGraph: {
+    title: 'Onction des malades | Paroisses de Nendaz',
+    description: 'Sacrement pour confier la souffrance à la compassion du Christ.',
+    url: 'https://www.paroisses-nendaz.ch/sacrements/onction-malades',
+    images: [{ url: '/logo-paroisses.png', width: 1080, height: 1350 }],
+  },
 }
 
 export default function OnctionMaladesPage() {

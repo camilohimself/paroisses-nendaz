@@ -1,8 +1,8 @@
 'use client'
 
-import { Metadata } from 'next'
 import { useState, useEffect } from 'react'
-import { Calendar, MapPin, ChevronRight, Star, X, Sparkles } from 'lucide-react'
+import Image from 'next/image'
+import { Calendar, MapPin, Star, X } from 'lucide-react'
 
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
@@ -423,10 +423,12 @@ export default function ActualitesPage() {
                         }}
                       >
                         {'image' in event && event.image ? (
-                          <img
+                          <Image
                             src={event.image}
                             alt={event.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                         ) : (
                           <div className="absolute inset-0 flex items-center justify-center">
@@ -593,12 +595,16 @@ export default function ActualitesPage() {
           >
             <X className="w-8 h-8" />
           </button>
-          <img
-            src={lightboxImage}
-            alt="Affiche événement"
-            className="max-w-full max-h-full object-contain"
-            onClick={(e) => e.stopPropagation()}
-          />
+          <div className="relative w-full h-full max-w-4xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+            <Image
+              src={lightboxImage}
+              alt="Affiche événement"
+              fill
+              sizes="100vw"
+              className="object-contain"
+              priority
+            />
+          </div>
         </div>
       )}
     </div>

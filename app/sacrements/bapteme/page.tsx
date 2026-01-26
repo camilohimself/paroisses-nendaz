@@ -5,7 +5,13 @@ import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
   title: 'Baptême - Sacrements - Paroisses de Nendaz',
-  description: 'Préparez le baptême de votre enfant ou votre propre baptême dans notre communauté paroissiale.',
+  description: 'Préparez le baptême de votre enfant ou votre propre baptême dans notre communauté paroissiale de Nendaz et Veysonnaz.',
+  openGraph: {
+    title: 'Baptême | Paroisses de Nendaz',
+    description: 'Premier sacrement de la vie chrétienne, porte d\'entrée dans la communauté des croyants.',
+    url: 'https://www.paroisses-nendaz.ch/sacrements/bapteme',
+    images: [{ url: '/logo-paroisses.png', width: 1080, height: 1350 }],
+  },
 }
 
 export default function BaptemePage() {
