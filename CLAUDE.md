@@ -578,4 +578,86 @@ Page d'accueil
 
 ---
 
-*Dernière màj : 23 jan 2026 - session Claude*
+## SESSION 26 JAN 2026 - TERMINÉE
+
+### Audit technique complet Next.js
+Audit de performance, sécurité, SEO et bonnes pratiques sans modification visuelle.
+
+### Inventaire site production
+- **23 URLs** dans sitemap.xml
+- **76 événements** Google Calendar actifs
+- `/admin/*` non déployé (404) - code préparatoire uniquement
+
+### 10 optimisations appliquées
+
+#### Performance images
+- [x] `epiphanie-2026.jpg` : **1.4MB → 155KB** WebP (89% réduction)
+- [x] Migration `app/actualites/page.tsx` : `<img>` → `next/image` avec `fill` + `sizes`
+- [x] Migration `app/dons/page.tsx` : QR code → `next/image`
+
+#### Robustesse Next.js
+- [x] Création `app/error.tsx` - gestion erreurs avec tracking GA4
+- [x] Création `app/loading.tsx` - skeleton UI avec croix animée
+- [x] Fix TypeScript : 3 usages `any` → types stricts (`calendar_v3.Calendar`, `CalendarEvent`, `Uint8Array[]`)
+
+#### SEO OpenGraph
+- [x] Ajout OG metadata à 6 pages sacrements (bapteme, communion, confirmation, pardon, mariage, onction-malades)
+- [x] Création `app/sacrements/communion/layout.tsx` pour metadata (page 'use client')
+
+#### Sécurité
+- [x] Ajout `Content-Security-Policy` header dans `vercel.json`
+- [x] Validation paramètre `months` API horaires (borné 1-24)
+- [x] Suppression `console.log` production
+
+### Fichiers créés
+```
+/app/error.tsx                           # Gestion erreurs globale
+/app/loading.tsx                         # Skeleton UI
+/app/sacrements/communion/layout.tsx     # Metadata OG
+/public/images/articles/epiphanie-2026.webp  # Image optimisée
+```
+
+### Fichiers modifiés
+```
+app/actualites/page.tsx                  # next/image migration
+app/dons/page.tsx                        # next/image migration
+app/api/horaires/route.ts                # Types + validation
+app/api/feuille-annonces/generate/route.tsx  # Types + cleanup
+app/sacrements/*/page.tsx                # 5 pages avec OG
+vercel.json                              # CSP header
+```
+
+### CSP Header ajouté
+```
+Content-Security-Policy:
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' 'unsafe-eval' googletagmanager.com google-analytics.com;
+  style-src 'self' 'unsafe-inline' fonts.googleapis.com;
+  font-src 'self' fonts.gstatic.com;
+  img-src 'self' data: https:;
+  frame-src youtube.com youtube-nocookie.com public.enoria.app;
+  connect-src 'self' google-analytics.com googleapis.com
+```
+
+### Commit session
+| Hash | Description |
+|------|-------------|
+| `8df7fc6` | perf: Audit technique - 10 optimisations Next.js |
+
+### Éléments exclus (non pertinents)
+- `/admin/*` : non déployé en production (code préparatoire)
+- Auth NextAuth : non active
+- Prisma/DB : non connectée
+
+### Résumé audit
+| Catégorie | Score | Notes |
+|-----------|-------|-------|
+| Performance | 8/10 | Images optimisées, next/image |
+| Robustesse | 9/10 | error.tsx + loading.tsx ajoutés |
+| TypeScript | 9/10 | Plus de `any` dans API |
+| SEO | 9/10 | OG complet sur sacrements |
+| Sécurité | 8/10 | CSP + validation params |
+
+---
+
+*Dernière màj : 26 jan 2026 - session Claude (Audit technique)*
