@@ -2,10 +2,98 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Calendar, MapPin, Star, X } from 'lucide-react'
+import { Calendar, MapPin, Star, X, ExternalLink } from 'lucide-react'
 
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
+  // === ÉVÉNEMENTS DIOCÉSAINS (autres villes) ===
+  {
+    id: 'saint-valentin-2026',
+    title: 'Saint Valentin en tout temps',
+    excerpt: 'Prenez soin de votre couple le temps d\'une soirée animée par un couple dynamique ! Repas en amoureux de 19h à 22h. Menu spécial 100.- par couple. 19 fév à Troistorrents, 20 fév à Martigny.',
+    date: '2026-02-19',
+    image: '/images/articles/saint-valentin-2026.webp',
+    hasImage: true,
+    category: 'Pastorale',
+    lieu: 'Troistorrents & Martigny',
+    externalUrl: 'https://diocese-sion.ch/et-moi/couples/evenements-couples',
+    displayUntil: '2026-02-20'
+  },
+  {
+    id: 'festival-familles-2026',
+    title: 'Festival des Familles',
+    excerpt: 'Une journée sympathique mêlant foi, rencontres, rires et jeux au Labyrinthe Aventure ! 9h30 ouverture, 10h messe, 12h pique-nique, 13h30 défis en famille, 15h louange et bénédiction.',
+    date: '2026-03-15',
+    image: '/images/articles/festival-familles-2026.webp',
+    hasImage: true,
+    category: 'Événement',
+    lieu: 'Labyrinthe Aventure, Evionnaz',
+    externalUrl: 'https://diocese-sion.ch/et-moi/familles/evenement/festival-des-familles'
+  },
+  {
+    id: 'montee-paques-simplon-2026',
+    title: 'Montée vers Pâques au Simplon',
+    excerpt: 'Quatre jours extraordinaires pour vivre intensément le mystère de Pâques en famille à l\'Hospice du Simplon. Un moment très attendu par les familles ! Inscriptions ouvertes.',
+    date: '2026-04-02',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'Hospice du Simplon - du 2 au 5 avril',
+    externalUrl: 'https://diocese-sion.ch/et-moi/familles/evenement/montee-vers-paques-au-simplon',
+    displayUntil: '2026-04-05'
+  },
+  // === SOIRÉES BIBLIQUES CARÊME 2026 ===
+  {
+    id: 'soiree-biblique-1-careme-2026',
+    title: 'Soirée biblique 1 — L\'appel du prophète',
+    excerpt: 'Une vocation dérangeante. Comprendre ce qu\'est un prophète et comment Dieu appelle. Texte : Jérémie 1, 4-10. Série de 4 soirées sur le thème "Être prophète".',
+    date: '2026-03-04',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'Cure de Basse-Nendaz - 19h30',
+    displayUntil: '2026-03-04'
+  },
+  {
+    id: 'soiree-biblique-2-careme-2026',
+    title: 'Soirée biblique 2 — Le prophète face à l\'injustice',
+    excerpt: 'Parole qui dérange. Explorer le rôle du prophète comme dénonciateur de l\'injustice. Texte : Amos 5, 21-24. Série de 4 soirées sur le thème "Être prophète".',
+    date: '2026-03-11',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'Cure de Basse-Nendaz - 20h00',
+    displayUntil: '2026-03-11'
+  },
+  {
+    id: 'temps-fort-careme-2026',
+    title: 'Temps Fort de Carême — Soupe & Témoignage',
+    excerpt: 'Soirée spéciale Carême : Messe ATAC à 19h, suivie d\'une soupe partagée et d\'un témoignage sur le Rwanda. Un moment fort de partage et de fraternité.',
+    date: '2026-03-13',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Église de Basse-Nendaz - 19h00',
+    featured: true,
+    displayUntil: '2026-03-13'
+  },
+  {
+    id: 'soiree-biblique-3-careme-2026',
+    title: 'Soirée biblique 3 — Le souffle de l\'Esprit',
+    excerpt: 'Prophète inspiré. Découvrir que le prophète est habité par l\'Esprit. Texte : Ézéchiel 37, 1-14 (la vision des ossements). Série de 4 soirées sur le thème "Être prophète".',
+    date: '2026-03-25',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'Cure de Basse-Nendaz - 20h00',
+    displayUntil: '2026-03-25'
+  },
+  {
+    id: 'soiree-biblique-4-careme-2026',
+    title: 'Soirée biblique 4 — Prophète pour aujourd\'hui',
+    excerpt: 'Témoins du Royaume. Relier la mission prophétique à l\'action concrète dans le monde. Texte : Matthieu 11, 7-11 (Jean le Baptiste). Série de 4 soirées sur le thème "Être prophète".',
+    date: '2026-04-01',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'Cure de Basse-Nendaz - 19h30',
+    displayUntil: '2026-04-01'
+  },
+  // === ÉVÉNEMENTS PAROISSES NENDAZ ===
   {
     id: 'billet-priere-janvier-2026',
     title: 'Billet de prière - Janvier 2026',
@@ -465,9 +553,22 @@ export default function ActualitesPage() {
                           {event.excerpt}
                         </p>
 
-                        <div className="flex items-center gap-2 text-neutral-gris text-sm">
-                          <MapPin className="w-4 h-4" />
-                          <span className="font-medium">{event.lieu}</span>
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-neutral-gris text-sm">
+                            <MapPin className="w-4 h-4" />
+                            <span className="font-medium">{event.lieu}</span>
+                          </div>
+                          {'externalUrl' in event && event.externalUrl && (
+                            <a
+                              href={event.externalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-paroisse-vert text-white text-sm font-semibold rounded-full hover:bg-paroisse-vertFonce transition-colors"
+                            >
+                              Plus d'infos
+                              <ExternalLink className="w-4 h-4" />
+                            </a>
+                          )}
                         </div>
                       </div>
                     </article>
@@ -517,9 +618,22 @@ export default function ActualitesPage() {
                               {event.excerpt}
                             </p>
 
-                            <div className="flex items-center gap-2 text-neutral-gris text-sm">
-                              <MapPin className="w-4 h-4" />
-                              <span className="font-medium">{event.lieu}</span>
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2 text-neutral-gris text-sm">
+                                <MapPin className="w-4 h-4" />
+                                <span className="font-medium">{event.lieu}</span>
+                              </div>
+                              {'externalUrl' in event && event.externalUrl && (
+                                <a
+                                  href={event.externalUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1 text-paroisse-vert text-sm font-semibold hover:text-paroisse-vertFonce transition-colors"
+                                >
+                                  Plus d'infos
+                                  <ExternalLink className="w-3 h-3" />
+                                </a>
+                              )}
                             </div>
                           </div>
                         </div>

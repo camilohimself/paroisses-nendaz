@@ -660,4 +660,106 @@ Content-Security-Policy:
 
 ---
 
-*Dernière màj : 26 jan 2026 - session Claude (Audit technique)*
+## SESSION 3 FÉV 2026 - TERMINÉE
+
+### Projet Carême 2026 - "Prophète ? Moi ?"
+- [x] Lecture et analyse du PDF (28 pages)
+- [x] Création specs : `careme2026/SPECS-CAREME-2026.md`
+- [x] Création roadmap : `careme2026/ROADMAP-CAREME-2026.md`
+- [x] Phase 1 : Structure de base `/app/careme2026`
+- [x] Données 47 jours + 7 saints : `/lib/careme-data.ts`
+- [x] Page Timeline (Option B mobile-first)
+- [x] Palette "Lavande Douce" validée
+- [x] Modal détail jour + téléchargements dimanches
+- [ ] Phase 2 : Images saints (à fournir)
+- [ ] Phase 3 : PDFs téléchargeables (à fournir)
+- [ ] Phase 4 : Lien menu navigation
+- [ ] Phase 5 : Événements locaux
+
+### 3 événements diocésains ajoutés (Actualités)
+- [x] **Saint Valentin en tout temps** (19-20 fév) - Troistorrents/Martigny
+- [x] **Festival des Familles** (15 mars) - Labyrinthe Aventure, Evionnaz
+- [x] **Montée vers Pâques** (2-5 avril) - Hospice du Simplon
+
+### Images optimisées
+| Fichier | Avant | Après | Réduction |
+|---------|-------|-------|-----------|
+| `festival-familles-2026.webp` | 5.9 MB | 290 KB | 95% |
+| `saint-valentin-2026.webp` | 278 KB | 62 KB | 78% |
+
+### Fichiers créés
+```
+/app/careme2026/page.tsx                     # Page Timeline principale
+/app/careme2026/palettes/page.tsx            # Comparaison 4 palettes
+/lib/careme-data.ts                          # 47 jours + 7 saints
+/careme2026/SPECS-CAREME-2026.md             # Spécifications détaillées
+/careme2026/ROADMAP-CAREME-2026.md           # Roadmap implémentation
+/public/images/careme/saints/                # (dossier prêt)
+/public/documents/careme/                    # (dossier prêt)
+```
+
+---
+
+## Carême 2026 - Architecture
+
+### Fichiers clés
+```
+/app/careme2026/page.tsx              # Page Timeline interactive
+/lib/careme-data.ts                   # Données 47 jours + 7 saints
+/public/images/careme/saints/         # Illustrations saints (à ajouter)
+/public/documents/careme/             # PDFs téléchargeables (à ajouter)
+```
+
+### Structure données (`lib/careme-data.ts`)
+- `SAINTS_COACHS[]` : 7 saints avec nom, titre, église patronale, description, prière
+- `SEMAINES_CAREME[]` : 7 semaines avec dates et saint associé
+- `JOURS_CAREME[]` : 47 jours avec contenu, date, saint associé
+- `getEtatJour()` : Calcul état (verrouillé/actif/complété) selon date
+- `getProgression()` : Calcul progression globale
+
+### Palette "Lavande Douce"
+| Variable | Hex | Usage |
+|----------|-----|-------|
+| `headerFrom` | `#8B7CB3` | Header gradient début |
+| `headerTo` | `#6B5B95` | Header gradient fin |
+| `active` | `#8B7CB3` | Jour actif |
+| `activeRing` | `#C4B7D4` | Ring jour actif |
+| `complete` | `#7BA087` | Jours complétés (vert sauge) |
+| `accent` | `#D4AF37` | Progression, dimanches (or) |
+| `bgFrom` | `#F5F3F7` | Fond page début |
+| `bgTo` | `#EDE8F2` | Fond page fin |
+| `text` | `#4A4063` | Texte principal |
+| `textLight` | `#7B6E8F` | Texte secondaire |
+
+### Structure 7 semaines
+| Semaine | Dates | Saint Coach | Église |
+|---------|-------|-------------|--------|
+| 0 (Cendres) | 18-21 fév | Carlo Acutis | - |
+| 1 | 22-28 fév | St Michel Archange | Haute-Nendaz |
+| 2 | 1-7 mars | St Léger | Basse-Nendaz |
+| 3 | 8-14 mars | St Nicolas de Flüe | Aproz |
+| 4 | 15-21 mars | St Joseph | - |
+| 5 | 22-28 mars | Marie Auxiliatrice | Veysonnaz |
+| 6 (Sainte) | 29 mars - 5 avr | Christ Roi | Fey |
+
+### Mécanique Timeline
+1. **Verrouillé** : Jours futurs (gris, icône cadenas)
+2. **Actif** : Jour J (lavande, ring, shadow)
+3. **Complété** : Jours passés (vert sauge, check)
+4. **Dimanche** : Ring or, accès fiche saint + téléchargements
+
+### Téléchargements par dimanche (à ajouter)
+```
+/public/documents/careme/
+├── coloriage-{saint-id}.pdf
+├── bricolage-{saint-id}.pdf
+└── vitrail-{saint-id}.pdf
+```
+
+### URL
+- **Dev** : http://localhost:3002/careme2026
+- **Prod** : https://www.paroisses-nendaz.ch/careme2026
+
+---
+
+*Dernière màj : 3 fév 2026 - session Claude (Carême 2026 Timeline + palette Lavande Douce)*
