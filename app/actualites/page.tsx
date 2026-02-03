@@ -433,40 +433,48 @@ export default function ActualitesPage() {
   return (
     <div className="min-h-screen bg-neutral-grisClaire">
 
-      {/* HERO - BONNE ANNÉE 2026 */}
-      <section className="relative bg-gradient-to-br from-stone-50 via-amber-50 to-stone-100 py-16 md:py-24 overflow-hidden">
-        {/* Décoration subtile */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-amber-600 rounded-full"></div>
-          <div className="absolute bottom-10 right-10 w-48 h-48 border-2 border-amber-600 rounded-full"></div>
-        </div>
+      {/* HERO - CARÊME 2026 */}
+      <section className="relative h-[400px] md:h-[500px] overflow-hidden">
+        {/* Image de fond */}
+        <Image
+          src="/images/articles/hero-careme-2026.webp"
+          alt="Chemin forestier vers la croix - Carême 2026"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
 
-        <div className="container mx-auto px-4 relative">
-          <div className="max-w-4xl mx-auto text-center">
+        <div className="container mx-auto px-4 relative h-full flex items-end pb-12 md:pb-16">
+          <div className="max-w-3xl">
 
-            {/* Icône */}
-            <div className="mb-6">
-              <Star className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-4 text-amber-500 fill-amber-500" />
-            </div>
+            {/* Badge */}
+            <span className="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full mb-4">
+              18 février — 5 avril 2026
+            </span>
 
             {/* Titre principal */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
-              Bonne et sainte année 2026
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              Carême 2026 : Prophète ? Moi ?
             </h1>
 
             {/* Citation biblique */}
-            <blockquote className="text-xl md:text-2xl text-stone-600 italic mb-2" style={{ fontFamily: 'Crimson Text, serif' }}>
-              « Une seule espérance ! »
+            <blockquote className="text-xl md:text-2xl text-white/90 italic mb-2" style={{ fontFamily: 'Crimson Text, serif' }}>
+              « Avant que tu ne sois formé, je t'ai consacré »
             </blockquote>
-            <p className="text-stone-500 mb-8">
-              — Éphésiens 4,4
+            <p className="text-white/70 mb-6">
+              — Jérémie 1, 5
             </p>
 
-            {/* Message de vœux */}
-            <p className="text-lg text-stone-600 max-w-2xl mx-auto">
-              Que cette nouvelle année soit remplie de grâces, de paix et de fraternité.
-              Continuons ensemble notre chemin de pèlerins de l'espérance.
-            </p>
+            {/* CTA */}
+            <a
+              href="/careme2026"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-stone-800 font-semibold rounded-full hover:bg-amber-50 transition-colors"
+            >
+              Découvrir le parcours
+              <ExternalLink className="w-4 h-4" />
+            </a>
 
           </div>
         </div>
