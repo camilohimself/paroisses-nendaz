@@ -762,4 +762,55 @@ Content-Security-Policy:
 
 ---
 
-*Dernière màj : 3 fév 2026 - session Claude (Carême 2026 Timeline + palette Lavande Douce)*
+## SESSION 3 FÉV 2026 (suite) - TERMINÉE
+
+### Images Saints Carême - Intégration complète
+- [x] Extraction 7 images depuis Word (`images saints version 2.docx`)
+- [x] Conversion WebP optimisée (6.9 MB → 2.5 MB, -64%)
+- [x] Intégration dans timeline (avatars + modales dimanche)
+
+### Images saints intégrées
+```
+/public/images/careme/saints/
+├── carlo-acutis.webp       (374 KB)
+├── michel-archange.webp    (301 KB)
+├── leger.webp              (322 KB)
+├── nicolas-flue.webp       (315 KB)
+├── joseph.webp             (395 KB)
+├── marie-auxiliatrice.webp (429 KB)
+└── christ-roi.webp         (414 KB)
+```
+
+### 5 événements Carême ajoutés (Actualités)
+| Date | Événement | Lieu |
+|------|-----------|------|
+| 4 mars 19h30 | Soirée biblique 1 — L'appel du prophète | Cure Basse-Nendaz |
+| 11 mars 20h00 | Soirée biblique 2 — Le prophète face à l'injustice | Cure Basse-Nendaz |
+| 13 mars 19h00 | **Temps Fort** — Soupe & Témoignage Rwanda | Église Basse-Nendaz |
+| 25 mars 20h00 | Soirée biblique 3 — Le souffle de l'Esprit | Cure Basse-Nendaz |
+| 1er avril 19h30 | Soirée biblique 4 — Prophète pour aujourd'hui | Cure Basse-Nendaz |
+
+### Hero Actualités - Carême 2026
+- [x] Nouvelle image hero alpine (chemin forestier + croix)
+- [x] Génération via Canva/Nano (prompt fourni)
+- [x] Optimisation WebP (458 KB)
+- [x] Texte : "Carême 2026 : Prophète ? Moi ?"
+- [x] Citation : Jérémie 1, 5
+- [x] CTA vers `/careme2026`
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `8b92add` | feat: Add Carême 2026 timeline with 7 saints + 5 parish events |
+| `638e36b` | feat: Replace Actualités hero with Carême 2026 alpine image |
+
+### Tâches restantes Carême 2026
+- [ ] Ajouter lien "Carême 2026" dans menu navigation
+- [ ] Passer DATE_DEMO → `new Date()` avant le 18 février
+- [ ] PDFs téléchargeables (coloriage, bricolage, vitrail × 7)
+- [ ] Métadonnées OpenGraph
+- [ ] QR code pour affichage physique
+
+---
+
+*Dernière màj : 3 fév 2026 - session Claude (Images saints + Hero Carême + Événements)*
