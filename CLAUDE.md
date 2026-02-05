@@ -813,4 +813,43 @@ Content-Security-Policy:
 
 ---
 
-*Dernière màj : 3 fév 2026 - session Claude (Images saints + Hero Carême + Événements)*
+## SESSION 5 FÉV 2026 - TERMINÉE
+
+### Mise à jour PDF Carême
+- [x] Remplacement PDF par version définitive (corrections orthographiques)
+- [x] Ancien PDF supprimé, nouveau renommé
+
+### Annonciation (25 mars)
+- [x] Ajout mention dans description Marie Auxiliatrice
+- [x] Ajout "Annonciation : Marie a dit OUI !" au jour 36
+
+### Compte à rebours Actualités
+- [x] CTA désactivé avec countdown élégant jusqu'au 18 février
+- [x] Hook `useCountdown()` avec mise à jour chaque seconde
+- [x] Affichage : "Dans 12j : 14h : 31m : 14s"
+- [x] Bouton "Disponible le 18 février" (icône Clock)
+- [x] Activation automatique le Mercredi des Cendres
+
+### Fix Carlo Acutis
+- [x] Ajout propriété `estJourSaint` à l'interface `JourCareme`
+- [x] Jour 1 (Mercredi des Cendres) marqué `estJourSaint: true`
+- [x] Fiche Carlo Acutis accessible via jour 1
+- [x] Ring or + étoile sur jours spéciaux (comme dimanches)
+
+### Vérification contenu
+- [x] Comparaison PDF "chemin du carême" vs données site
+- [x] Site plus précis que le PDF (coquilles corrigées)
+- [x] Aucune modification nécessaire
+
+### Commits session
+| Hash | Description |
+|------|-------------|
+| `5402595` | feat: Add countdown CTA for Carême 2026 + Annunciation content |
+| `836f1de` | fix: Add Carlo Acutis card on Ash Wednesday (estJourSaint flag) |
+
+### Documentation mise à jour
+- [x] `careme2026/ROADMAP-CAREME-2026.md` avec changelog complet
+
+---
+
+*Dernière màj : 5 fév 2026 - session Claude (Countdown + Carlo Acutis + Annonciation)*
