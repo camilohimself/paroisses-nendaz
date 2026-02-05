@@ -21,6 +21,7 @@ export interface JourCareme {
   saintCoachId: string
   estDimanche: boolean
   estPaques?: boolean
+  estJourSaint?: boolean // Jour spécial qui affiche la fiche saint (ex: Mercredi des Cendres)
 }
 
 export interface SemaineCareme {
@@ -124,7 +125,7 @@ export const SEMAINES_CAREME: SemaineCareme[] = [
 // Les 47 jours du Carême
 export const JOURS_CAREME: JourCareme[] = [
   // Semaine 0 - Carlo Acutis (Cendres)
-  { jour: 1, date: '2026-02-18', jourSemaine: 'Mercredi', contenu: 'Je fais un moment de calme dans mon coin prière', saintCoachId: 'carlo-acutis', estDimanche: false },
+  { jour: 1, date: '2026-02-18', jourSemaine: 'Mercredi', contenu: 'Mercredi des Cendres : Je lis la carte de Carlo Acutis et je fais un moment de calme dans mon coin prière', saintCoachId: 'carlo-acutis', estDimanche: false, estJourSaint: true },
   { jour: 2, date: '2026-02-19', jourSemaine: 'Jeudi', contenu: 'Viens Esprit-Saint m\'aider à me rapprocher de toi', saintCoachId: 'carlo-acutis', estDimanche: false },
   { jour: 3, date: '2026-02-20', jourSemaine: 'Vendredi', contenu: 'J\'aide quelqu\'un en lui donnant beaucoup d\'amour', saintCoachId: 'carlo-acutis', estDimanche: false },
   { jour: 4, date: '2026-02-21', jourSemaine: 'Samedi', contenu: 'Jésus je te confie toutes les personnes de ma famille', saintCoachId: 'carlo-acutis', estDimanche: false },

@@ -277,7 +277,7 @@ function JourCard({
       className="aspect-square rounded-xl flex flex-col items-center justify-center transition-all duration-200"
       style={{
         ...getStyles(),
-        ...(jour.estDimanche && etat !== 'verrouille' ? { boxShadow: `0 0 0 2px ${COLORS.accent}` } : {})
+        ...((jour.estDimanche || jour.estJourSaint) && etat !== 'verrouille' ? { boxShadow: `0 0 0 2px ${COLORS.accent}` } : {})
       }}
     >
       {etat === 'verrouille' ? (
@@ -290,7 +290,7 @@ function JourCard({
       ) : (
         <>
           <span className="text-lg font-bold">{jourDuMois}</span>
-          {jour.estDimanche && <Star className="w-3 h-3 mt-0.5" style={{ color: COLORS.accent }} />}
+          {(jour.estDimanche || jour.estJourSaint) && <Star className="w-3 h-3 mt-0.5" style={{ color: COLORS.accent }} />}
         </>
       )}
     </button>
@@ -351,8 +351,8 @@ function JourModal({
             </p>
           </div>
 
-          {/* Section Saint (pour les dimanches) */}
-          {jour.estDimanche && saint && (
+          {/* Section Saint (pour les dimanches et jours spéciaux comme le Mercredi des Cendres) */}
+          {(jour.estDimanche || jour.estJourSaint) && saint && (
             <div className="border-t pt-6">
               {/* Image fiche complète du saint */}
               {saint.image && (
