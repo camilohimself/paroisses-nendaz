@@ -93,7 +93,7 @@ export const SAINTS_COACHS: SaintCoach[] = [
     eglisePatronale: 'Veysonnaz',
     semaine: 5,
     couleur: 'bleu-ciel',
-    description: 'Marie Auxiliatrice ("Secours des Chrétiens") est un titre donné à la Vierge Marie. Elle est invoquée comme protectrice et aide dans les moments difficiles. C\'est la patronne de Veysonnaz.',
+    description: 'Marie Auxiliatrice ("Secours des Chrétiens") est un titre donné à la Vierge Marie. Elle est invoquée comme protectrice et aide dans les moments difficiles. C\'est la patronne de Veysonnaz. Le 25 mars, nous célébrons l\'Annonciation, le jour où Marie a dit "oui" à Dieu.',
     priere: 'Marie, toi qui as dit oui à Dieu, aide-moi à accueillir sa Parole dans ma vie et à la partager autour de moi.',
     image: '/images/careme/saints/marie-auxiliatrice.webp'
   },
@@ -169,7 +169,7 @@ export const JOURS_CAREME: JourCareme[] = [
   { jour: 33, date: '2026-03-22', jourSemaine: 'Dimanche', contenu: 'Je lis la carte de Sainte Marie Auxiliatrice', saintCoachId: 'marie-auxiliatrice', estDimanche: true },
   { jour: 34, date: '2026-03-23', jourSemaine: 'Lundi', contenu: 'Jésus, mets en mon cœur ta Parole pour que je puisse la redire aux autres', saintCoachId: 'marie-auxiliatrice', estDimanche: false },
   { jour: 35, date: '2026-03-24', jourSemaine: 'Mardi', contenu: 'Jésus change mon cœur pour que je puisse voir les personnes à ta manière', saintCoachId: 'marie-auxiliatrice', estDimanche: false },
-  { jour: 36, date: '2026-03-25', jourSemaine: 'Mercredi', contenu: 'Je cherche 3 choses que je sais faire et je remercie Jésus pour ça', saintCoachId: 'marie-auxiliatrice', estDimanche: false },
+  { jour: 36, date: '2026-03-25', jourSemaine: 'Mercredi', contenu: 'Annonciation : Marie a dit OUI ! Je cherche 3 choses que je sais faire et je remercie Jésus pour ça', saintCoachId: 'marie-auxiliatrice', estDimanche: false },
   { jour: 37, date: '2026-03-26', jourSemaine: 'Jeudi', contenu: 'Aujourd\'hui je partage un goûter en famille ou avec mes amis à la récréation', saintCoachId: 'marie-auxiliatrice', estDimanche: false },
   { jour: 38, date: '2026-03-27', jourSemaine: 'Vendredi', contenu: 'Aujourd\'hui, je rends visite ou je prie pour une personne qui est seule ou malade', saintCoachId: 'marie-auxiliatrice', estDimanche: false },
   { jour: 39, date: '2026-03-28', jourSemaine: 'Samedi', contenu: 'Seigneur transforme mon cœur pour que ton amour puisse grandir autour de moi', saintCoachId: 'marie-auxiliatrice', estDimanche: false },

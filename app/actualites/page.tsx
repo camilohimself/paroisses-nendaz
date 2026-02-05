@@ -2,7 +2,104 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Calendar, MapPin, Star, X, ExternalLink } from 'lucide-react'
+import Link from 'next/link'
+import { Calendar, MapPin, Star, X, ExternalLink, Clock } from 'lucide-react'
+
+// Date de début du Carême 2026 (Mercredi des Cendres)
+const CAREME_START = new Date('2026-02-18T00:00:00')
+
+interface TimeLeft {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
+
+function useCountdown(targetDate: Date): { timeLeft: TimeLeft | null; isStarted: boolean } {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
+  const [isStarted, setIsStarted] = useState(false)
+
+  useEffect(() => {
+    const calculateTimeLeft = () => {
+      const now = new Date()
+      const difference = targetDate.getTime() - now.getTime()
+
+      if (difference <= 0) {
+        setIsStarted(true)
+        setTimeLeft(null)
+        return
+      }
+
+      setTimeLeft({
+        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((difference / 1000 / 60) % 60),
+        seconds: Math.floor((difference / 1000) % 60)
+      })
+    }
+
+    calculateTimeLeft()
+    const timer = setInterval(calculateTimeLeft, 1000)
+
+    return () => clearInterval(timer)
+  }, [targetDate])
+
+  return { timeLeft, isStarted }
+}
+
+function CaremeCTA() {
+  const { timeLeft, isStarted } = useCountdown(CAREME_START)
+
+  if (isStarted) {
+    return (
+      <Link
+        href="/careme2026"
+        className="inline-flex items-center gap-2 px-6 py-3 bg-white text-stone-800 font-semibold rounded-full hover:bg-amber-50 transition-colors"
+      >
+        Découvrir le parcours
+        <ExternalLink className="w-4 h-4" />
+      </Link>
+    )
+  }
+
+  return (
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      {/* Bouton désactivé */}
+      <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/30 text-white/80 font-semibold rounded-full cursor-not-allowed backdrop-blur-sm">
+        <Clock className="w-4 h-4" />
+        Disponible le 18 février
+      </span>
+
+      {/* Compte à rebours */}
+      {timeLeft && (
+        <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
+          <span className="text-white/70 text-sm hidden sm:inline">Dans</span>
+          <div className="flex items-center gap-2 text-white font-mono">
+            <div className="text-center">
+              <span className="text-lg font-bold">{timeLeft.days}</span>
+              <span className="text-xs text-white/60 ml-1">j</span>
+            </div>
+            <span className="text-white/40">:</span>
+            <div className="text-center">
+              <span className="text-lg font-bold">{String(timeLeft.hours).padStart(2, '0')}</span>
+              <span className="text-xs text-white/60 ml-1">h</span>
+            </div>
+            <span className="text-white/40">:</span>
+            <div className="text-center">
+              <span className="text-lg font-bold">{String(timeLeft.minutes).padStart(2, '0')}</span>
+              <span className="text-xs text-white/60 ml-1">m</span>
+            </div>
+            <span className="text-white/40 hidden sm:inline">:</span>
+            <div className="text-center hidden sm:block">
+              <span className="text-lg font-bold">{String(timeLeft.seconds).padStart(2, '0')}</span>
+              <span className="text-xs text-white/60 ml-1">s</span>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
 
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
@@ -467,14 +564,8 @@ export default function ActualitesPage() {
               — Jérémie 1, 5
             </p>
 
-            {/* CTA */}
-            <a
-              href="/careme2026"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-stone-800 font-semibold rounded-full hover:bg-amber-50 transition-colors"
-            >
-              Découvrir le parcours
-              <ExternalLink className="w-4 h-4" />
-            </a>
+            {/* CTA avec compte à rebours */}
+            <CaremeCTA />
 
           </div>
         </div>
