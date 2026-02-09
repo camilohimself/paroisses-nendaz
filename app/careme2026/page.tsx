@@ -41,9 +41,10 @@ const COLORS = {
   lightBg: '#F0EBF4',         // Fond clair pour cards
 }
 
-// Date de démonstration (à remplacer par new Date() en production)
-// Pour tester : mettre une date entre le 18 fév et le 5 avril 2026
-const DATE_DEMO = new Date('2026-03-08') // Dimanche St Nicolas de Flüe
+// Mode production : suit le jour réel
+// Pour prévisualiser, décommenter une date fixe ci-dessous :
+// const DATE_DEMO = new Date('2026-03-08') // test mi-carême
+const DATE_DEMO = new Date()
 
 export default function Careme2026Page() {
   const [selectedJour, setSelectedJour] = useState<JourCareme | null>(null)
@@ -155,6 +156,11 @@ export default function Careme2026Page() {
                     <h2 className="text-lg font-semibold" style={{ color: COLORS.text }}>
                       {saint?.nom}
                     </h2>
+                    {semaine.theme && (
+                      <p className="text-xs italic" style={{ color: COLORS.textLight }}>
+                        {semaine.theme}
+                      </p>
+                    )}
                     {saint?.eglisePatronale && (
                       <p className="text-sm flex items-center gap-1" style={{ color: COLORS.textLight }}>
                         <Church className="w-3 h-3" />
@@ -344,12 +350,47 @@ function JourModal({
 
         {/* Contenu */}
         <div className="p-6">
-          {/* Message du jour */}
+          {/* Résumé du jour (grille) */}
           <div className="rounded-2xl p-5 mb-6" style={{ backgroundColor: COLORS.lightBg }}>
-            <p className="text-lg leading-relaxed" style={{ color: COLORS.text }}>
+            <p className="text-lg leading-relaxed font-medium" style={{ color: COLORS.text }}>
               {jour.contenu}
             </p>
           </div>
+
+          {/* Citation biblique */}
+          {jour.citationBiblique && (
+            <div className="mb-6 border-l-4 pl-4 py-2" style={{ borderColor: COLORS.accent }}>
+              <p className="italic leading-relaxed" style={{ color: COLORS.text }}>
+                {jour.citationBiblique}
+              </p>
+              {jour.verset && (
+                <p className="text-sm mt-2 font-medium" style={{ color: COLORS.active }}>
+                  {jour.verset}
+                </p>
+              )}
+            </div>
+          )}
+
+          {/* Méditation */}
+          {jour.meditation && (
+            <div className="mb-6">
+              <p className="leading-relaxed" style={{ color: COLORS.textLight }}>
+                {jour.meditation}
+              </p>
+            </div>
+          )}
+
+          {/* Prière */}
+          {jour.priere && (
+            <div className="rounded-xl p-4 mb-6" style={{ backgroundColor: '#FEF9E7' }}>
+              <p className="text-sm font-medium mb-2" style={{ color: '#92700C' }}>
+                Prière
+              </p>
+              <p className="italic leading-relaxed" style={{ color: '#92700C' }}>
+                {jour.priere}
+              </p>
+            </div>
+          )}
 
           {/* Section Saint (pour les dimanches et jours spéciaux comme le Mercredi des Cendres) */}
           {(jour.estDimanche || jour.estJourSaint) && saint && (
@@ -426,11 +467,7 @@ function JourModal({
                   label="Bricolage"
                   filename={`bricolage-${saint.id}.pdf`}
                 />
-                <DownloadButton
-                  icon={<BookOpen className="w-4 h-4" />}
-                  label="Vitrail à colorier"
-                  filename={`vitrail-${saint.id}.pdf`}
-                />
+                {/* TODO: Ajouter vitrail quand les fichiers seront prêts */}
               </div>
             </div>
           )}
