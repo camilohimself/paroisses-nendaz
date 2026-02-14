@@ -50,8 +50,8 @@ export default function AnnouncementModal() {
           <Image
             src="/images/loto-eglises-2026.jpg"
             alt="Loto des Eglises de Basse-Nendaz et Haute-Nendaz - Dimanche 22 fevrier 2026 a 17h30 - Salle de la Biolette"
-            width={1754}
-            height={2481}
+            width={800}
+            height={1131}
             className="w-full h-auto"
             priority
           />
