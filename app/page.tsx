@@ -1,6 +1,7 @@
 import QuickAccessCard from '@/components/QuickAccessCard'
 import VideoHero from '@/components/VideoHero'
 import SaintDuJour from '@/components/SaintDuJour'
+import AnnouncementModal from '@/components/AnnouncementModal'
 import dynamic from 'next/dynamic'
 
 // Lazy load non-critical components
@@ -12,6 +13,11 @@ const HorairesMesse = dynamic(() => import('@/components/HorairesMesse'), {
 export default function Home() {
   return (
     <div className="min-h-screen bg-stone-50">
+
+      {/* ========================================= */}
+      {/* MODAL ANNONCE - LOTO DES ÉGLISES         */}
+      {/* ========================================= */}
+      <AnnouncementModal />
 
       {/* ========================================= */}
       {/* HERO VIDEO - DRONE PAROISSES            */}
