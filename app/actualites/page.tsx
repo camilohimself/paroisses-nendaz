@@ -462,7 +462,7 @@ const allEvents = [
     date: '2026-03-29',
     hasImage: false,
     category: 'Culture',
-    lieu: 'Église de Haute-Nendaz - 17h00'
+    lieu: 'Église de Haute-Nendaz - 17h30'
   }
 ]
 
