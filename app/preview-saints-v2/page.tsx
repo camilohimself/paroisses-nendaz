@@ -112,8 +112,7 @@ function SaintCard({
                 font-bold leading-snug
                 ${isPrimary ? 'text-[1.05rem] text-stone-800' : 'text-[0.9rem] text-stone-700'}
               `}
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
+                         >
               {saint.nom}
             </h3>
           </div>
@@ -176,8 +175,7 @@ function SaintCard({
                       : '-top-1 left-2.5 text-[2.5rem] text-stone-300/40'
                     }
                   `}
-                  style={{ fontFamily: 'Georgia, serif' }}
-                >
+                                 >
                   &ldquo;
                 </div>
 
@@ -243,8 +241,7 @@ export default function PreviewSaintsV2() {
             <Sun className="w-5 h-5 text-amber-500/80" />
             <p
               className="text-[0.95rem] text-stone-700 capitalize font-medium"
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
+                         >
               {MOCK_DATA.date}
             </p>
             <p className="text-[10px] uppercase tracking-[0.25em] text-stone-400 font-medium">

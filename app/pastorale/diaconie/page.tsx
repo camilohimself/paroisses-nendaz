@@ -1,7 +1,26 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+
+export const metadata: Metadata = {
+  title: 'Diaconie - Service fraternel',
+  description: 'La diaconie dans les paroisses de Nendaz et Veysonnaz : entraide, visites aux malades, soutien aux personnes isolées et actions de solidarité.',
+  openGraph: {
+    title: 'Diaconie - Paroisses de Nendaz',
+    description: 'Service fraternel, entraide et solidarité dans nos paroisses.',
+    url: 'https://www.paroisses-nendaz.ch/pastorale/diaconie',
+  },
+}
 
 export default function DiaconiePage() {
   return (
+    <>
+    <BreadcrumbSchema
+      items={[
+        { name: 'Vie pastorale', url: 'https://www.paroisses-nendaz.ch/pastorale' },
+        { name: 'Diaconie', url: 'https://www.paroisses-nendaz.ch/pastorale/diaconie' },
+      ]}
+    />
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-amber-50/30">
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-24">
 
@@ -15,8 +34,7 @@ export default function DiaconiePage() {
             </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-stone-800 mb-6 md:mb-10 tracking-tight leading-tight"
-              style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-stone-800 mb-6 md:mb-10 tracking-tight leading-tight">
             Diaconie
           </h1>
 
@@ -32,16 +50,14 @@ export default function DiaconiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300">
                   01
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-amber-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Dames des veillées de prières
                   </h3>
                   <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30 rounded">
@@ -67,16 +83,14 @@ export default function DiaconiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-sky-500/20 group-hover:text-sky-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-sky-500/20 group-hover:text-sky-500/40 transition-colors duration-300">
                   02
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-sky-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Hospitaliers de Lourdes
                   </h3>
                   <div className="inline-block px-4 py-1 bg-sky-500/10 border border-sky-500/30 rounded">
@@ -103,16 +117,14 @@ export default function DiaconiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-emerald-500/20 group-hover:text-emerald-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-emerald-500/20 group-hover:text-emerald-500/40 transition-colors duration-300">
                   03
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-emerald-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Mouvement Chrétien des Retraités
                   </h3>
                   <div className="inline-block px-4 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded">
@@ -157,16 +169,14 @@ export default function DiaconiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300">
                   04
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-amber-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Visiteuses et visiteurs des malades
                   </h3>
                   <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30 rounded">
@@ -212,7 +222,7 @@ export default function DiaconiePage() {
 
             <div className="text-center">
               <p className="text-4xl font-bold text-stone-800 mb-6 leading-relaxed"
-                 style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+                >
                 « Ce que vous avez fait<br />au plus petit d'entre les miens,<br />c'est à moi que vous l'avez fait. »
               </p>
               <div className="w-16 h-px bg-amber-500 mx-auto mb-4"></div>
@@ -238,5 +248,6 @@ export default function DiaconiePage() {
 
       </div>
     </div>
+    </>
   )
 }

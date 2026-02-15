@@ -30,7 +30,7 @@ export default function NotFound() {
 
         {/* Numéro 404 */}
         <div className="mb-6">
-          <span className="text-8xl md:text-9xl font-bold text-stone-200" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <span className="text-8xl md:text-9xl font-bold text-stone-200 font-serif">
             404
           </span>
         </div>
@@ -38,8 +38,7 @@ export default function NotFound() {
         {/* Message principal */}
         <h1
           className="text-2xl md:text-3xl font-bold text-stone-800 mb-4"
-          style={{ fontFamily: 'Playfair Display, serif' }}
-        >
+                 >
           Page introuvable
         </h1>
 

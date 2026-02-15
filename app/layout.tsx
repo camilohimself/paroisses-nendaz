@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Playfair_Display, Crimson_Text, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -8,14 +8,26 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import OrganizationSchema from "@/components/structured-data/OrganizationSchema";
 import WebSiteSchema from "@/components/structured-data/WebSiteSchema";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "600", "700", "900"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const crimson = Crimson_Text({
   subsets: ["latin"],
+  variable: "--font-crimson",
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -83,13 +95,19 @@ export default function RootLayout({
         <WebSiteSchema />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${playfair.variable} ${crimson.variable} ${inter.variable} antialiased`}
       >
         <GoogleAnalytics />
         <Providers>
           <div className="min-h-screen flex flex-col">
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-2 focus:left-2 focus:bg-amber-500 focus:text-white focus:px-4 focus:py-2 focus:font-semibold focus:rounded"
+            >
+              Aller au contenu principal
+            </a>
             <Header />
-            <main className="flex-1">
+            <main id="main-content" className="flex-1">
               {children}
             </main>
             <Footer />

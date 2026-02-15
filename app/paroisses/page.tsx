@@ -45,7 +45,7 @@ export default function ParoissesIndexPage() {
       {/* Header */}
       <div className="py-12 bg-white border-b">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h1 className="text-5xl font-bold text-neutral-anthracite mb-6">
             Secteur de Nendaz-Veysonnaz
           </h1>
           <div className="w-24 h-0.5 bg-sky-500 mx-auto mb-6"></div>
@@ -62,7 +62,7 @@ export default function ParoissesIndexPage() {
 
             {/* Titre Section Nendaz */}
             <div className="text-center mb-20">
-              <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
                 Paroisse de Nendaz
               </h2>
               <div className="w-24 h-0.5 bg-sky-500 mx-auto mb-6"></div>
@@ -86,7 +86,7 @@ export default function ParoissesIndexPage() {
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <div className="mb-3">
-                            <h3 className={`text-2xl font-bold text-neutral-anthracite group-hover:text-${color.replace('500', '600')} transition-colors mb-2`} style={{ fontFamily: 'Playfair Display, serif' }}>
+                            <h3 className={`text-2xl font-bold text-neutral-anthracite group-hover:text-${color.replace('500', '600')} transition-colors mb-2`}>
                               {calendar.name}
                             </h3>
                             <p className={`text-sm text-${color.replace('500', '600')} font-semibold uppercase tracking-wide`}>
@@ -120,7 +120,7 @@ export default function ParoissesIndexPage() {
 
             {/* Titre Section Veysonnaz */}
             <div className="text-center mb-20">
-              <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
                 Paroisse de Veysonnaz
               </h2>
               <div className="w-24 h-0.5 bg-emerald-500 mx-auto mb-6"></div>
@@ -144,7 +144,7 @@ export default function ParoissesIndexPage() {
                       <div className="flex items-start justify-between">
                         <div className="flex-1">
                           <div className="mb-3">
-                            <h3 className={`text-2xl font-bold text-neutral-anthracite group-hover:text-${color.replace('500', '600')} transition-colors mb-2`} style={{ fontFamily: 'Playfair Display, serif' }}>
+                            <h3 className={`text-2xl font-bold text-neutral-anthracite group-hover:text-${color.replace('500', '600')} transition-colors mb-2`}>
                               {calendar.name}
                             </h3>
                             <p className={`text-sm text-${color.replace('500', '600')} font-semibold uppercase tracking-wide`}>
@@ -179,7 +179,7 @@ export default function ParoissesIndexPage() {
 
               {/* Titre Section Autres */}
               <div className="text-center mb-20">
-                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
                   Autres secteurs
                 </h2>
                 <div className="w-24 h-0.5 bg-amber-500 mx-auto mb-6"></div>
@@ -203,7 +203,7 @@ export default function ParoissesIndexPage() {
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="mb-3">
-                              <h3 className={`text-2xl font-bold text-neutral-anthracite group-hover:text-${color.replace('500', '600')} transition-colors mb-2`} style={{ fontFamily: 'Playfair Display, serif' }}>
+                              <h3 className={`text-2xl font-bold text-neutral-anthracite group-hover:text-${color.replace('500', '600')} transition-colors mb-2`}>
                                 {calendar.name}
                               </h3>
                               <p className={`text-sm text-${color.replace('500', '600')} font-semibold uppercase tracking-wide`}>
@@ -237,7 +237,7 @@ export default function ParoissesIndexPage() {
           <div className="max-w-4xl mx-auto">
             <div className="relative py-12">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
-              <p className="text-neutral-anthracite text-2xl leading-relaxed max-w-2xl mx-auto text-center" style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+              <p className="text-neutral-anthracite text-2xl leading-relaxed max-w-2xl mx-auto text-center">
                 « Là où deux ou trois sont réunis en mon nom,<br />je suis au milieu d'eux. »
               </p>
               <p className="text-neutral-gris text-center mt-4">— Matthieu 18, 20</p>

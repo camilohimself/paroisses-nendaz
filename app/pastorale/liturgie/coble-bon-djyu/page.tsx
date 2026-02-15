@@ -85,12 +85,12 @@ export default function CobleBonDjyuPage() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 mb-4 tracking-tight"
-              style={{ fontFamily: 'Playfair Display, serif' }}>
+             >
             i cöble dû Bon Djyû
           </h1>
 
           <p className="text-lg sm:text-xl text-rose-400 font-medium mb-6"
-             style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+            >
             « La bande du Bon Dieu » en patois nendard
           </p>
 
@@ -114,7 +114,7 @@ export default function CobleBonDjyuPage() {
         <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-white rounded-2xl shadow-lg border border-stone-200 p-8 md:p-10">
             <h2 className="text-2xl font-bold text-stone-800 mb-6"
-                style={{ fontFamily: 'Playfair Display, serif' }}>
+               >
               Notre mission
             </h2>
 
@@ -153,7 +153,7 @@ export default function CobleBonDjyuPage() {
         {/* FAQ Accordion */}
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold text-stone-800 mb-6 text-center"
-              style={{ fontFamily: 'Playfair Display, serif' }}>
+             >
             Questions fréquentes
           </h2>
 
@@ -191,7 +191,7 @@ export default function CobleBonDjyuPage() {
         {/* Prochaines dates */}
         <div className="max-w-4xl mx-auto mb-12">
           <h2 className="text-2xl font-bold text-stone-800 mb-6 text-center"
-              style={{ fontFamily: 'Playfair Display, serif' }}>
+             >
             Prochaines célébrations
           </h2>
 
@@ -226,7 +226,7 @@ export default function CobleBonDjyuPage() {
         <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-gradient-to-br from-rose-50 via-rose-100 to-stone-100 rounded-2xl p-8 md:p-10 border-2 border-rose-200">
             <h2 className="text-2xl font-bold mb-2 text-center text-stone-800"
-                style={{ fontFamily: 'Playfair Display, serif' }}>
+               >
               Rejoignez-nous
             </h2>
             <p className="text-stone-600 text-center mb-8">
@@ -265,7 +265,7 @@ export default function CobleBonDjyuPage() {
             <div className="absolute bottom-0 right-0 w-10 h-10 border-b-4 border-r-4 border-rose-300 rounded-br-2xl"></div>
 
             <p className="text-2xl md:text-3xl font-bold text-stone-800 mb-4 leading-relaxed"
-               style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+              >
               « Là où deux ou trois sont réunis en mon nom,<br />je suis au milieu d'eux. »
             </p>
             <div className="w-12 h-px bg-rose-300 mx-auto mb-3"></div>

@@ -13,8 +13,8 @@ interface PlaceSchemaProps {
   postalCode?: string;
   addressRegion?: string;
   addressCountry?: string;
-  latitude?: string;
-  longitude?: string;
+  latitude?: number;
+  longitude?: number;
   telephone?: string;
   email?: string;
   image?: string;

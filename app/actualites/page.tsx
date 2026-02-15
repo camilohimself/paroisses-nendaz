@@ -552,12 +552,12 @@ export default function ActualitesPage() {
             </span>
 
             {/* Titre principal */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
               Carême 2026 : Prophète ? Moi ?
             </h1>
 
             {/* Citation biblique */}
-            <blockquote className="text-xl md:text-2xl text-white/90 italic mb-2" style={{ fontFamily: 'Crimson Text, serif' }}>
+            <blockquote className="text-xl md:text-2xl text-white/90 italic mb-2">
               « Avant que tu ne sois formé, je t'ai consacré »
             </blockquote>
             <p className="text-white/70 mb-6">
@@ -577,7 +577,7 @@ export default function ActualitesPage() {
 
           {/* Header section */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-neutral-anthracite mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-anthracite mb-4">
               Prochains événements
             </h2>
             <p className="text-xl text-neutral-gris max-w-2xl mx-auto">
@@ -590,7 +590,7 @@ export default function ActualitesPage() {
             {/* ÉVÉNEMENTS AVEC IMAGES - Cartes mise en valeur */}
             {highlightEvents.length > 0 && (
               <div className="mb-16">
-                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
                   <span className="w-10 h-1 bg-paroisse-jaune"></span>
                   Rencontres et partages
                 </h3>
@@ -644,7 +644,7 @@ export default function ActualitesPage() {
                           </span>
                         </div>
 
-                        <h3 className="text-2xl font-bold text-neutral-anthracite mb-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                        <h3 className="text-2xl font-bold text-neutral-anthracite mb-3">
                           {event.title}
                         </h3>
 
@@ -679,7 +679,7 @@ export default function ActualitesPage() {
             {/* ÉVÉNEMENTS SANS IMAGES - Liste compacte et ordonnée */}
             {regularEvents.length > 0 && (
               <div className="mb-16">
-                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
                   <span className="w-10 h-1 bg-paroisse-vert"></span>
                   Agenda paroissial
                 </h3>
@@ -692,7 +692,7 @@ export default function ActualitesPage() {
                           {/* Date */}
                           <div className="flex-shrink-0 md:w-32">
                             <div className="inline-flex flex-col items-center bg-paroisse-vert/10 rounded-lg p-3 border-2 border-paroisse-vert/30">
-                              <span className="text-3xl font-bold text-paroisse-vertFonce" style={{ fontFamily: 'Playfair Display, serif' }}>
+                              <span className="text-3xl font-bold text-paroisse-vertFonce">
                                 {new Date(event.date).getDate()}
                               </span>
                               <span className="text-sm font-semibold text-paroisse-vert uppercase">
@@ -709,7 +709,7 @@ export default function ActualitesPage() {
                               </span>
                             </div>
 
-                            <h3 className="text-xl font-bold text-neutral-anthracite mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                            <h3 className="text-xl font-bold text-neutral-anthracite mb-2">
                               {event.title}
                             </h3>
 
@@ -746,7 +746,7 @@ export default function ActualitesPage() {
             {/* ÉVÉNEMENTS PASSÉS - Section condensée */}
             {pastEvents.length > 0 && (
               <div className="mt-24">
-                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
                   <span className="w-10 h-1 bg-neutral-gris"></span>
                   Archives
                 </h3>
@@ -758,7 +758,7 @@ export default function ActualitesPage() {
                         <span className={`inline-block px-2 py-1 border text-xs font-bold uppercase tracking-wider rounded mb-2 ${getCategoryColor(event.category)}`}>
                           {event.category}
                         </span>
-                        <h3 className="font-bold text-neutral-anthracite text-base mb-2 group-hover:text-paroisse-vert transition-colors line-clamp-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                        <h3 className="font-bold text-neutral-anthracite text-base mb-2 group-hover:text-paroisse-vert transition-colors line-clamp-2">
                           {event.title}
                         </h3>
                         <p className="text-neutral-gris text-xs">{formatDate(event.date)}</p>
@@ -773,7 +773,7 @@ export default function ActualitesPage() {
 
           {/* Liens utiles */}
           <div className="mt-16 pt-12 border-t border-neutral-gris/20">
-            <h3 className="text-xl font-bold text-neutral-anthracite mb-6 text-center" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h3 className="text-xl font-bold text-neutral-anthracite mb-6 text-center">
               Découvrir aussi
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
@@ -798,6 +798,9 @@ export default function ActualitesPage() {
       {/* Lightbox */}
       {lightboxImage && (
         <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image agrandie"
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           onClick={() => setLightboxImage(null)}
         >

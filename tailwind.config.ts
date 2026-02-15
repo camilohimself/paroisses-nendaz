@@ -88,8 +88,9 @@ const config: Omit<Config, 'content'> & {
         enoria: '#2A8B8C',         // Couleur officielle plateforme Enoria (ratio 4.5:1 ✅)
       },
       fontFamily: {
-        'montserrat': ['Montserrat', 'sans-serif'],
-        'crimson': ['Crimson Text', 'serif'],
+        'serif': ['var(--font-playfair)', 'serif'],
+        'sans': ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        'crimson': ['var(--font-crimson)', 'serif'],
       },
     },
   },

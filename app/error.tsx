@@ -36,8 +36,7 @@ export default function Error({
         {/* Message principal */}
         <h1
           className="text-2xl md:text-3xl font-bold text-stone-800 mb-4"
-          style={{ fontFamily: 'Playfair Display, serif' }}
-        >
+                 >
           Une erreur est survenue
         </h1>
 

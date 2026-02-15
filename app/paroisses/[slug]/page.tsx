@@ -157,7 +157,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             {content && (
               <div className="mb-20">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
                     Histoire & Patrimoine
                   </h2>
                   <div className={`w-24 h-0.5 bg-${typeColor} mx-auto`}></div>
@@ -170,7 +170,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
 
                   {content.particularites && content.particularites.length > 0 && (
                     <div className="mt-8 pt-8 border-t border-neutral-grisClaire">
-                      <h3 className="text-2xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      <h3 className="text-2xl font-bold text-neutral-anthracite mb-6">
                         Particularités
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -202,7 +202,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             {content?.horaires && Object.keys(content.horaires).length > 0 && (
               <div className="mb-20">
                 <div className="text-center mb-12">
-                  <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
                     Horaires habituels
                   </h2>
                   <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
@@ -219,7 +219,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
                         <div className={`block py-8 px-8 hover:bg-neutral-grisClaire/50 transition-all duration-300 border-l-4 border-transparent hover:border-${typeColor}`}>
                           <div className="flex items-start justify-between">
                             <div className="flex-1">
-                              <h3 className={`text-xl font-bold text-neutral-anthracite group-hover:text-${typeColor.replace('500', '600')} transition-colors mb-2`} style={{ fontFamily: 'Playfair Display, serif' }}>
+                              <h3 className={`text-xl font-bold text-neutral-anthracite group-hover:text-${typeColor.replace('500', '600')} transition-colors mb-2`}>
                                 {item.label}
                               </h3>
                               <p className="text-neutral-gris leading-relaxed">
@@ -238,7 +238,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             {/* Prochaines célébrations - CALENDRIER FILTRÉ */}
             <div className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
                   Prochaines célébrations
                 </h2>
                 <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
@@ -256,7 +256,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             {/* Navigation vers autres lieux */}
             <div className="mb-20">
               <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
                   Autres lieux du secteur
                 </h2>
                 <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
@@ -300,7 +300,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
             {/* Citation finale */}
             <div className="relative py-12">
               <div className={`absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-${typeColor} to-transparent`}></div>
-              <p className="text-neutral-anthracite text-2xl leading-relaxed max-w-2xl mx-auto text-center" style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+              <p className="text-neutral-anthracite text-2xl leading-relaxed max-w-2xl mx-auto text-center">
                 « Venez à moi, vous tous qui peinez et ployez sous le fardeau,<br />et moi je vous soulagerai. »
               </p>
               <p className="text-neutral-gris text-center mt-4">— Matthieu 11, 28</p>

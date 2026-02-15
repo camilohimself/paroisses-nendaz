@@ -121,7 +121,7 @@ function VideoHeroContent() {
           </h1>
 
           {/* Citation biblique */}
-          <p className="text-2xl md:text-3xl lg:text-4xl mb-8 italic" style={{ fontFamily: 'Crimson Text, serif' }}>
+          <p className="text-2xl md:text-3xl lg:text-4xl mb-8 italic">
             « Là où deux ou trois sont réunis en mon nom,<br />
             je suis au milieu d&apos;eux. »
           </p>

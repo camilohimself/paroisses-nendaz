@@ -113,7 +113,7 @@ function VarianteCarte({ saint, dateFormatee }: { saint: SaintType; dateFormatee
               </div>
 
               {/* Saint */}
-              <h3 className={`text-xl font-bold mb-2 ${saint.estFete ? 'text-amber-800' : 'text-stone-800'}`} style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className={`text-xl font-bold mb-2 ${saint.estFete ? 'text-amber-800' : 'text-stone-800'}`}>
                 {saint.nom}
               </h3>
 
@@ -160,7 +160,7 @@ function VarianteBandeau({ saint, dateFormatee }: { saint: SaintType; dateFormat
 
           {/* Célébration / Saint */}
           <div className="flex items-center gap-2">
-            <span className={`text-base sm:text-lg font-semibold ${isSpecial ? 'text-amber-800' : 'text-stone-800'}`} style={{ fontFamily: 'Playfair Display, serif' }}>
+            <span className={`text-base sm:text-lg font-semibold ${isSpecial ? 'text-amber-800' : 'text-stone-800'}`}>
               {saint.nom}
             </span>
             {saint.estDimanche && (

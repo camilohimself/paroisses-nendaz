@@ -1,5 +1,56 @@
+import type { Metadata } from 'next'
+import Image from 'next/image'
 import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema';
+import PersonSchema from '@/components/structured-data/PersonSchema';
 import ContactForm from '@/components/ContactForm';
+
+const teamMembers = [
+  {
+    name: 'Abbé Félicien Roux',
+    jobTitle: 'Prêtre',
+    telephone: '+41272882250',
+    email: 'felicienroux20@gmail.com',
+    image: '/images/equipe/felicien.jpg',
+  },
+  {
+    name: 'Blandine Bornet',
+    jobTitle: 'Agent pastoral',
+    telephone: '+41272885159',
+    email: 'bllescretes@gmail.com',
+    image: '/images/equipe/blandine.jpg',
+  },
+  {
+    name: 'Jean-Philippe Glassey',
+    jobTitle: 'Agent pastoral',
+    telephone: '+41272071318',
+    email: 'jpglassey@bluewin.ch',
+    image: '/images/equipe/jp.jpg',
+  },
+  {
+    name: 'Martin Fendrych',
+    jobTitle: 'Agent pastoral',
+    telephone: '+41273460003',
+    email: 'martinbruno@bluewin.ch',
+    image: '/images/equipe/martin.jpg',
+  },
+  {
+    name: 'Nadia Fendrych',
+    jobTitle: 'Agent pastoral',
+    telephone: '+41273460003',
+    email: 'nadia.fendrych@gmail.com',
+    image: '/images/equipe/nadia.jpg',
+  },
+];
+
+export const metadata: Metadata = {
+  title: 'Contact et informations',
+  description: 'Contactez les paroisses de Nendaz et Veysonnaz. Secrétariat paroissial, équipe pastorale, formulaire de contact et horaires d\'ouverture.',
+  openGraph: {
+    title: 'Contact - Paroisses de Nendaz',
+    description: 'Contactez les paroisses de Nendaz et Veysonnaz. Secrétariat, équipe pastorale et formulaire de contact.',
+    url: 'https://www.paroisses-nendaz.ch/contact',
+  },
+}
 
 export default function ContactPage() {
   return (
@@ -9,6 +60,7 @@ export default function ContactPage() {
           { name: 'Contact', url: 'https://www.paroisses-nendaz.ch/contact' }
         ]}
       />
+      <PersonSchema persons={teamMembers} />
 
       {/* Header VERSION 2 - Grandes lettres épurées */}
       <section className="bg-white py-24 border-b-4 border-amber-500">
@@ -112,11 +164,13 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Abbé Félicien Roux */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 overflow-hidden">
-                <img
+              <div className="relative h-48 bg-gray-200 overflow-hidden">
+                <Image
                   src="/images/equipe/felicien.jpg"
-                  alt="Abbé Félicien Roux"
-                  className="w-full h-full object-cover"
+                  alt="Abbé Félicien Roux, prêtre des paroisses de Nendaz"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">
@@ -135,11 +189,13 @@ export default function ContactPage() {
 
             {/* Blandine Bornet */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 overflow-hidden">
-                <img
+              <div className="relative h-48 bg-gray-200 overflow-hidden">
+                <Image
                   src="/images/equipe/blandine.jpg"
-                  alt="Blandine Bornet"
-                  className="w-full h-full object-cover"
+                  alt="Blandine Bornet, agent pastoral"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">
@@ -158,11 +214,13 @@ export default function ContactPage() {
 
             {/* Jean-Philippe Glassey */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 overflow-hidden">
-                <img
+              <div className="relative h-48 bg-gray-200 overflow-hidden">
+                <Image
                   src="/images/equipe/jp.jpg"
-                  alt="Jean-Philippe Glassey"
-                  className="w-full h-full object-cover"
+                  alt="Jean-Philippe Glassey, agent pastoral"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">
@@ -181,11 +239,13 @@ export default function ContactPage() {
 
             {/* Martin Fendrych */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 overflow-hidden">
-                <img
+              <div className="relative h-48 bg-gray-200 overflow-hidden">
+                <Image
                   src="/images/equipe/martin.jpg"
-                  alt="Martin Fendrych"
-                  className="w-full h-full object-cover"
+                  alt="Martin Fendrych, agent pastoral"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">
@@ -204,11 +264,13 @@ export default function ContactPage() {
 
             {/* Nadia Fendrych */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="h-48 bg-gray-200 overflow-hidden">
-                <img
+              <div className="relative h-48 bg-gray-200 overflow-hidden">
+                <Image
                   src="/images/equipe/nadia.jpg"
-                  alt="Nadia Fendrych"
-                  className="w-full h-full object-cover"
+                  alt="Nadia Fendrych, agent pastoral"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
                 />
               </div>
               <div className="p-6">

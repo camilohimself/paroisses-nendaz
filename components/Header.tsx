@@ -17,7 +17,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo temporairement supprimé - en attente nouveau logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <span className="text-xl md:text-2xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <span className="text-xl md:text-2xl font-bold text-stone-800 font-serif">
               Secteur de Nendaz
             </span>
           </Link>
@@ -291,6 +291,8 @@ export default function Header() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-md hover:bg-stone-100 text-stone-700"
+            aria-expanded={isMenuOpen}
+            aria-label="Menu de navigation"
           >
             <svg
               className="w-6 h-6"
@@ -341,6 +343,7 @@ export default function Header() {
                 <button
                   onClick={() => setIsPastoraleOpen(!isPastoraleOpen)}
                   className="w-full text-left text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4 flex items-center justify-between"
+                  aria-expanded={isPastoraleOpen}
                 >
                   <span>Pastorale</span>
                   <svg
@@ -406,6 +409,7 @@ export default function Header() {
                 <button
                   onClick={() => setIsContactOpen(!isContactOpen)}
                   className="w-full text-left text-stone-700 hover:text-stone-900 transition-colors font-medium py-2 border-l-4 border-transparent hover:border-stone-700 pl-4 flex items-center justify-between"
+                  aria-expanded={isContactOpen}
                 >
                   <span>Contact</span>
                   <svg

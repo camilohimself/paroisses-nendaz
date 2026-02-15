@@ -1,8 +1,27 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+
+export const metadata: Metadata = {
+  title: 'Service liturgique',
+  description: 'Inscrivez-vous au service liturgique : lecteurs, servants de messe, chorale et technique. Participez activement à la vie de nos paroisses.',
+  openGraph: {
+    title: 'Service liturgique - Paroisses de Nendaz',
+    description: 'Inscriptions et informations pour le service liturgique de nos paroisses.',
+    url: 'https://www.paroisses-nendaz.ch/pastorale/liturgie',
+  },
+}
 
 export default function LiturgiePage() {
   return (
+    <>
+    <BreadcrumbSchema
+      items={[
+        { name: 'Vie pastorale', url: 'https://www.paroisses-nendaz.ch/pastorale' },
+        { name: 'Liturgie', url: 'https://www.paroisses-nendaz.ch/pastorale/liturgie' },
+      ]}
+    />
     <div className="min-h-screen bg-gradient-to-b from-stone-50 to-amber-50/30">
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-24">
 
@@ -16,8 +35,7 @@ export default function LiturgiePage() {
             </div>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-stone-800 mb-6 md:mb-10 tracking-tight leading-tight"
-              style={{ fontFamily: 'Playfair Display, serif' }}>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-stone-800 mb-6 md:mb-10 tracking-tight leading-tight">
             Liturgie
           </h1>
 
@@ -51,16 +69,14 @@ export default function LiturgiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-emerald-500/20 group-hover:text-emerald-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-emerald-500/20 group-hover:text-emerald-500/40 transition-colors duration-300">
                   01
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-emerald-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Auxiliaires de l'Eucharistie
                   </h3>
                   <div className="inline-block px-4 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded">
@@ -81,16 +97,14 @@ export default function LiturgiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300">
                   02
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-amber-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Chorales
                   </h3>
                   <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30 rounded">
@@ -182,16 +196,14 @@ export default function LiturgiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-sky-500/20 group-hover:text-sky-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-sky-500/20 group-hover:text-sky-500/40 transition-colors duration-300">
                   03
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-sky-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Lecteurs
                   </h3>
                   <div className="inline-block px-4 py-1 bg-sky-500/10 border border-sky-500/30 rounded">
@@ -212,16 +224,14 @@ export default function LiturgiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-emerald-500/20 group-hover:text-emerald-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-emerald-500/20 group-hover:text-emerald-500/40 transition-colors duration-300">
                   04
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-emerald-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Sacristains
                   </h3>
                   <div className="inline-block px-4 py-1 bg-emerald-500/10 border border-emerald-500/30 rounded">
@@ -242,16 +252,14 @@ export default function LiturgiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-amber-500/20 group-hover:text-amber-500/40 transition-colors duration-300">
                   05
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-amber-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Servants de messe
                   </h3>
                   <div className="inline-block px-4 py-1 bg-amber-500/10 border border-amber-500/30 rounded">
@@ -283,16 +291,14 @@ export default function LiturgiePage() {
           <div className="group relative">
             <div className="flex items-start gap-4 md:gap-8">
               <div className="flex-shrink-0 w-12 md:w-24 text-right">
-                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-sky-500/20 group-hover:text-sky-500/40 transition-colors duration-300"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                <span className="text-3xl md:text-5xl lg:text-6xl font-bold text-sky-500/20 group-hover:text-sky-500/40 transition-colors duration-300">
                   06
                 </span>
               </div>
 
               <div className="flex-1 border-l-2 border-sky-500 pl-4 md:pl-8 py-2">
                 <div className="mb-4">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2"
-                      style={{ fontFamily: 'Playfair Display, serif' }}>
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                     Service audiovisuel
                   </h3>
                   <div className="inline-block px-4 py-1 bg-sky-500/10 border border-sky-500/30 rounded">
@@ -321,7 +327,7 @@ export default function LiturgiePage() {
 
             <div className="text-center">
               <p className="text-4xl font-bold text-stone-800 mb-6 leading-relaxed"
-                 style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}>
+                >
                 « Que tout se fasse<br />décemment et avec ordre<br />pour l'édification de tous. »
               </p>
               <div className="w-16 h-px bg-amber-500 mx-auto mb-4"></div>
@@ -334,5 +340,6 @@ export default function LiturgiePage() {
 
       </div>
     </div>
+    </>
   )
 }

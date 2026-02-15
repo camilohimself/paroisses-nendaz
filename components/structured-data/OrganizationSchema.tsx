@@ -28,8 +28,8 @@ export default function OrganizationSchema() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "46.19",
-      "longitude": "7.30"
+      "latitude": 46.19,
+      "longitude": 7.30
     },
     "areaServed": {
       "@type": "Place",

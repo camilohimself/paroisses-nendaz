@@ -159,6 +159,10 @@ export async function GET(request: Request) {
         lastSync: new Date().toISOString(),
         totalEvents: allEvents.length
       }
+    }, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+      },
     });
 
   } catch (error) {

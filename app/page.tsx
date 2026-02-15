@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import QuickAccessCard from '@/components/QuickAccessCard'
 import VideoHero from '@/components/VideoHero'
 import SaintDuJour from '@/components/SaintDuJour'
@@ -9,6 +10,18 @@ const HorairesMesse = dynamic(() => import('@/components/HorairesMesse'), {
   loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-32" />
 })
 
+export const metadata: Metadata = {
+  title: 'Accueil | Paroisses de Nendaz et Veysonnaz',
+  description: 'Site officiel des paroisses catholiques de Nendaz et Veysonnaz. Horaires des messes, saint du jour, sacrements, événements et vie paroissiale en Valais.',
+  openGraph: {
+    title: 'Paroisses de Nendaz et Veysonnaz',
+    description: 'Horaires des messes, saint du jour, sacrements, événements et vie paroissiale en Valais.',
+    url: 'https://www.paroisses-nendaz.ch',
+  },
+  alternates: {
+    canonical: 'https://www.paroisses-nendaz.ch',
+  },
+}
 
 export default function Home() {
   return (
@@ -35,7 +48,7 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <div className="h-px w-16 bg-amber-300"></div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
               Accès rapides
             </h2>
             <div className="flex justify-center mt-4">
@@ -58,7 +71,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
                 Service Liturgique
               </h3>
               <p className="text-stone-600 text-sm mb-4">
@@ -101,7 +114,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
                 Sacrements
               </h3>
               <p className="text-stone-600 text-sm mb-4">
@@ -150,7 +163,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-[#2A8B8C] transition-colors" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-[#2A8B8C] transition-colors">
                 Base Enoria
               </h3>
               <p className="text-stone-600 text-sm mb-4">
@@ -180,7 +193,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
                 Feuille d'annonces
               </h3>
               <p className="text-stone-600 text-sm mb-4">
@@ -220,7 +233,7 @@ export default function Home() {
           {/* Titre section */}
           <div className="mb-10">
             <div className="h-px w-12 bg-amber-300 mb-3"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-800" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
               Annonce des prochaines célébrations
             </h2>
           </div>
@@ -234,7 +247,7 @@ export default function Home() {
 
           {/* Fallback horaires fixes */}
           <div className="max-w-5xl mx-auto mt-12 pt-8 border-t border-stone-300">
-            <h3 className="text-lg font-semibold mb-6 text-center text-stone-700" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h3 className="text-lg font-semibold mb-6 text-center text-stone-700">
               Horaires habituels
             </h3>
             <div className="space-y-6">

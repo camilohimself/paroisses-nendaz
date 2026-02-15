@@ -1,8 +1,26 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Calendar, Church, Heart, Star, MapPin, Sparkles, Sun, Target, Mail } from 'lucide-react'
+import BreadcrumbSchema from '@/components/structured-data/BreadcrumbSchema'
+
+export const metadata: Metadata = {
+  title: 'Vie pastorale',
+  description: 'Découvrez la vie pastorale des paroisses de Nendaz et Veysonnaz : sacrements, catéchèse, prière, liturgie et service fraternel.',
+  openGraph: {
+    title: 'Vie pastorale - Paroisses de Nendaz',
+    description: 'Sacrements, catéchèse, prière, liturgie et service fraternel dans nos paroisses.',
+    url: 'https://www.paroisses-nendaz.ch/pastorale',
+  },
+}
 
 export default function PastoralePage() {
   return (
+    <>
+    <BreadcrumbSchema
+      items={[
+        { name: 'Vie pastorale', url: 'https://www.paroisses-nendaz.ch/pastorale' },
+      ]}
+    />
     <div className="min-h-screen bg-stone-50">
 
       {/* ========================================= */}
@@ -27,7 +45,7 @@ export default function PastoralePage() {
             </div>
 
             {/* Titre principal */}
-            <h1 className="mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+            <h1 className="mb-6">
               <span className="block text-6xl md:text-8xl font-light text-stone-700 mb-4 tracking-wide">
                 Vie pastorale
               </span>
@@ -39,7 +57,7 @@ export default function PastoralePage() {
             {/* Citation biblique */}
             <div className="max-w-3xl mx-auto mb-12">
               <div className="h-px w-24 bg-amber-300 mx-auto mb-6"></div>
-              <p className="text-xl md:text-2xl text-stone-600 leading-relaxed italic" style={{ fontFamily: 'Crimson Text, serif' }}>
+              <p className="text-xl md:text-2xl text-stone-600 leading-relaxed italic">
                 « Je suis le chemin, la vérité et la vie. »
               </p>
               <p className="text-sm text-stone-400 mt-3 tracking-widest uppercase">Jean 14, 6</p>
@@ -96,7 +114,7 @@ export default function PastoralePage() {
               <div className="flex justify-center mb-4">
                 <div className="h-px w-16 bg-amber-300"></div>
               </div>
-              <h2 className="text-4xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-4xl font-bold text-stone-800 mb-4">
                 Les Sacrements
               </h2>
               <p className="text-stone-500 italic">Signes de la grâce divine</p>
@@ -112,7 +130,7 @@ export default function PastoralePage() {
               <Link href="/sacrements/bapteme" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2">
                       Baptême
                     </h3>
                     <p className="text-stone-600 text-sm">
@@ -131,7 +149,7 @@ export default function PastoralePage() {
               <Link href="/sacrements/pardon" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2">
                       Réconciliation
                     </h3>
                     <p className="text-stone-600 text-sm">
@@ -150,7 +168,7 @@ export default function PastoralePage() {
               <Link href="/sacrements/communion" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2">
                       Première Communion
                     </h3>
                     <p className="text-stone-600 text-sm">
@@ -169,7 +187,7 @@ export default function PastoralePage() {
               <Link href="/sacrements/confirmation" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2">
                       Confirmation
                     </h3>
                     <p className="text-stone-600 text-sm">
@@ -188,7 +206,7 @@ export default function PastoralePage() {
               <Link href="/sacrements/onction-malades" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2">
                       Onction des malades
                     </h3>
                     <p className="text-stone-600 text-sm">
@@ -207,7 +225,7 @@ export default function PastoralePage() {
               <Link href="/sacrements/mariage" className="group block p-6 border-l-4 border-stone-200 hover:border-amber-400 hover:bg-stone-50 transition-all duration-300">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-2xl font-semibold text-stone-800 group-hover:text-amber-700 transition-colors mb-2">
                       Mariage
                     </h3>
                     <p className="text-stone-600 text-sm">
@@ -227,7 +245,7 @@ export default function PastoralePage() {
             {/* Citation finale */}
             <div className="mt-20 text-center">
               <div className="h-px w-24 bg-stone-300 mx-auto mb-6"></div>
-              <p className="text-stone-600 italic text-lg max-w-2xl mx-auto" style={{ fontFamily: 'Crimson Text, serif' }}>
+              <p className="text-stone-600 italic text-lg max-w-2xl mx-auto">
                 « Les sacrements sont les signes efficaces de la grâce,<br />institués par le Christ et confiés à l&apos;Église. »
               </p>
               <div className="h-px w-24 bg-stone-300 mx-auto mt-6"></div>
@@ -249,7 +267,7 @@ export default function PastoralePage() {
               <div className="flex justify-center mb-4">
                 <div className="h-px w-16 bg-amber-300"></div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
                 Catéchèse
               </h2>
               <p className="text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
@@ -270,7 +288,7 @@ export default function PastoralePage() {
                     <Sparkles className="w-8 h-8 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                       Éveil à la foi
                     </h3>
                     <p className="text-sm font-semibold text-amber-700 uppercase tracking-wider">
@@ -316,7 +334,7 @@ export default function PastoralePage() {
                     <Sun className="w-8 h-8 text-orange-600" />
                   </div>
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                       Grain de Soleil
                     </h3>
                     <p className="text-sm font-semibold text-orange-700 uppercase tracking-wider">
@@ -369,7 +387,7 @@ export default function PastoralePage() {
                     <Star className="w-8 h-8 text-stone-600" />
                   </div>
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                       Parcours Adultes
                     </h3>
                     <p className="text-sm font-semibold text-stone-600 uppercase tracking-wider">
@@ -390,7 +408,7 @@ export default function PastoralePage() {
                     <Heart className="w-8 h-8 text-rose-600" />
                   </div>
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
+                    <h3 className="text-3xl md:text-4xl font-bold text-stone-800 mb-2">
                       Messes des familles
                     </h3>
                     <p className="text-sm font-semibold text-rose-700 uppercase tracking-wider">
@@ -434,7 +452,7 @@ export default function PastoralePage() {
             {/* Citation finale Catéchèse */}
             <div className="mt-20 text-center">
               <div className="h-px w-24 bg-stone-300 mx-auto mb-6"></div>
-              <p className="text-stone-700 italic text-xl max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Crimson Text, serif' }}>
+              <p className="text-stone-700 italic text-xl max-w-2xl mx-auto leading-relaxed">
                 « Laissez les enfants venir à moi,<br />car le royaume de Dieu est à ceux qui leur ressemblent. »
               </p>
               <p className="text-sm text-stone-500 mt-4 tracking-widest uppercase">Marc 10, 14</p>
@@ -457,7 +475,7 @@ export default function PastoralePage() {
               <div className="flex justify-center mb-4">
                 <div className="h-px w-16 bg-amber-300"></div>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-bold text-stone-800 mb-4">
                 Vie communautaire
               </h2>
               <p className="text-lg text-stone-600 max-w-3xl mx-auto leading-relaxed">
@@ -478,7 +496,7 @@ export default function PastoralePage() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-1 h-16 bg-amber-400"></div>
                     <div>
-                      <h3 className="text-2xl font-bold text-stone-800 mb-1 group-hover:text-amber-700 transition-colors" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      <h3 className="text-2xl font-bold text-stone-800 mb-1 group-hover:text-amber-700 transition-colors">
                         Prière
                       </h3>
                       <p className="text-xs uppercase tracking-widest text-amber-700 font-semibold">
@@ -529,7 +547,7 @@ export default function PastoralePage() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-1 h-16 bg-stone-500"></div>
                     <div>
-                      <h3 className="text-2xl font-bold text-stone-800 mb-1 group-hover:text-stone-700 transition-colors" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      <h3 className="text-2xl font-bold text-stone-800 mb-1 group-hover:text-stone-700 transition-colors">
                         Liturgie
                       </h3>
                       <p className="text-xs uppercase tracking-widest text-stone-600 font-semibold">
@@ -584,7 +602,7 @@ export default function PastoralePage() {
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-1 h-16 bg-amber-400"></div>
                     <div>
-                      <h3 className="text-2xl font-bold text-stone-800 mb-1 group-hover:text-amber-700 transition-colors" style={{ fontFamily: 'Playfair Display, serif' }}>
+                      <h3 className="text-2xl font-bold text-stone-800 mb-1 group-hover:text-amber-700 transition-colors">
                         Diaconie
                       </h3>
                       <p className="text-xs uppercase tracking-widest text-amber-700 font-semibold">
@@ -643,7 +661,7 @@ export default function PastoralePage() {
               <div className="flex justify-center mb-4">
                 <div className="h-px w-16 bg-amber-300"></div>
               </div>
-              <h2 className="text-4xl font-bold text-stone-800 mb-4" style={{ fontFamily: 'Playfair Display, serif' }}>
+              <h2 className="text-4xl font-bold text-stone-800 mb-4">
                 Contact et Informations
               </h2>
               <p className="text-lg text-stone-600 leading-relaxed">
@@ -657,7 +675,7 @@ export default function PastoralePage() {
             {/* Secrétariat */}
             <div className="max-w-2xl mx-auto mb-12">
               <div className="bg-white p-8 border-2 border-stone-300 shadow-lg">
-                <h3 className="text-2xl font-bold text-stone-800 mb-6" style={{ fontFamily: 'Playfair Display, serif' }}>
+                <h3 className="text-2xl font-bold text-stone-800 mb-6">
                   Secrétariat paroissial
                 </h3>
                 <div className="space-y-4 text-stone-700">
@@ -695,5 +713,6 @@ export default function PastoralePage() {
       </section>
 
     </div>
+    </>
   )
 }
