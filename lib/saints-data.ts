@@ -2,12 +2,100 @@
  * Calendrier des Saints 2026
  * Clé: "MM-DD" (ex: "01-07" pour 7 janvier)
  * Mise à jour automatique côté client selon la date du navigateur
+ *
+ * Note liturgique : Les dimanches priment toujours sur les saints.
+ * Chaque dimanche est "jour du Seigneur" (Résurrection) et porte
+ * son propre nom liturgique selon le temps (Ordinaire, Carême, Pâques, Avent).
  */
 
 export interface SaintDuJour {
   nom: string;
   estFete?: boolean; // true si c'est une fête liturgique majeure
+  estDimanche?: boolean; // true si c'est un dimanche liturgique
 }
+
+/**
+ * Dimanches liturgiques 2026 (Année A)
+ * Le dimanche prime toujours sur le saint du jour.
+ * Source : Calendrier romain général, diocèse de Sion (Valais)
+ */
+export const DIMANCHES_2026: Record<string, SaintDuJour> = {
+  // ========== JANVIER ==========
+  "01-04": { nom: "2e Dimanche après Noël", estFete: true, estDimanche: true },
+  "01-11": { nom: "Baptême du Seigneur", estFete: true, estDimanche: true },
+  "01-18": { nom: "2e Dimanche du Temps Ordinaire", estDimanche: true },
+  "01-25": { nom: "3e Dimanche du Temps Ordinaire", estDimanche: true },
+
+  // ========== FÉVRIER ==========
+  "02-01": { nom: "4e Dimanche du Temps Ordinaire", estDimanche: true },
+  "02-08": { nom: "5e Dimanche du Temps Ordinaire", estDimanche: true },
+  "02-15": { nom: "6e Dimanche du Temps Ordinaire", estDimanche: true },
+  "02-22": { nom: "1er Dimanche de Carême", estFete: true, estDimanche: true },
+
+  // ========== MARS ==========
+  "03-01": { nom: "2e Dimanche de Carême", estFete: true, estDimanche: true },
+  "03-08": { nom: "3e Dimanche de Carême", estFete: true, estDimanche: true },
+  "03-15": { nom: "4e Dimanche de Carême (Laetare)", estFete: true, estDimanche: true },
+  "03-22": { nom: "5e Dimanche de Carême", estFete: true, estDimanche: true },
+  "03-29": { nom: "Dimanche des Rameaux et de la Passion", estFete: true, estDimanche: true },
+
+  // ========== AVRIL ==========
+  "04-05": { nom: "Pâques — Résurrection du Seigneur", estFete: true, estDimanche: true },
+  "04-12": { nom: "2e Dimanche de Pâques (Miséricorde divine)", estFete: true, estDimanche: true },
+  "04-19": { nom: "3e Dimanche de Pâques", estFete: true, estDimanche: true },
+  "04-26": { nom: "4e Dimanche de Pâques", estFete: true, estDimanche: true },
+
+  // ========== MAI ==========
+  "05-03": { nom: "5e Dimanche de Pâques", estFete: true, estDimanche: true },
+  "05-10": { nom: "6e Dimanche de Pâques", estFete: true, estDimanche: true },
+  "05-17": { nom: "7e Dimanche de Pâques", estFete: true, estDimanche: true },
+  "05-24": { nom: "Dimanche de la Pentecôte", estFete: true, estDimanche: true },
+  "05-31": { nom: "La Très Sainte Trinité", estFete: true, estDimanche: true },
+
+  // ========== JUIN ==========
+  "06-07": { nom: "10e Dimanche du Temps Ordinaire", estDimanche: true },
+  "06-14": { nom: "11e Dimanche du Temps Ordinaire", estDimanche: true },
+  "06-21": { nom: "12e Dimanche du Temps Ordinaire", estDimanche: true },
+  "06-28": { nom: "13e Dimanche du Temps Ordinaire", estDimanche: true },
+
+  // ========== JUILLET ==========
+  "07-05": { nom: "14e Dimanche du Temps Ordinaire", estDimanche: true },
+  "07-12": { nom: "15e Dimanche du Temps Ordinaire", estDimanche: true },
+  "07-19": { nom: "16e Dimanche du Temps Ordinaire", estDimanche: true },
+  "07-26": { nom: "17e Dimanche du Temps Ordinaire", estDimanche: true },
+
+  // ========== AOÛT ==========
+  "08-02": { nom: "18e Dimanche du Temps Ordinaire", estDimanche: true },
+  "08-09": { nom: "19e Dimanche du Temps Ordinaire", estDimanche: true },
+  "08-16": { nom: "20e Dimanche du Temps Ordinaire", estDimanche: true },
+  "08-23": { nom: "21e Dimanche du Temps Ordinaire", estDimanche: true },
+  "08-30": { nom: "22e Dimanche du Temps Ordinaire", estDimanche: true },
+
+  // ========== SEPTEMBRE ==========
+  "09-06": { nom: "23e Dimanche du Temps Ordinaire", estDimanche: true },
+  "09-13": { nom: "24e Dimanche du Temps Ordinaire", estDimanche: true },
+  "09-20": { nom: "25e Dimanche du Temps Ordinaire", estDimanche: true },
+  "09-27": { nom: "26e Dimanche du Temps Ordinaire", estDimanche: true },
+
+  // ========== OCTOBRE ==========
+  "10-04": { nom: "27e Dimanche du Temps Ordinaire", estDimanche: true },
+  "10-11": { nom: "28e Dimanche du Temps Ordinaire", estDimanche: true },
+  "10-18": { nom: "29e Dimanche du Temps Ordinaire", estDimanche: true },
+  "10-25": { nom: "30e Dimanche du Temps Ordinaire", estDimanche: true },
+
+  // ========== NOVEMBRE ==========
+  "11-01": { nom: "Toussaint", estFete: true, estDimanche: true },
+  "11-08": { nom: "32e Dimanche du Temps Ordinaire", estDimanche: true },
+  "11-15": { nom: "33e Dimanche du Temps Ordinaire", estDimanche: true },
+  "11-22": { nom: "Le Christ, Roi de l'Univers", estFete: true, estDimanche: true },
+  "11-29": { nom: "1er Dimanche de l'Avent", estFete: true, estDimanche: true },
+
+  // ========== DÉCEMBRE ==========
+  "12-06": { nom: "2e Dimanche de l'Avent", estFete: true, estDimanche: true },
+  "12-13": { nom: "3e Dimanche de l'Avent (Gaudete)", estFete: true, estDimanche: true },
+  "12-20": { nom: "4e Dimanche de l'Avent", estFete: true, estDimanche: true },
+  "12-27": { nom: "Sainte Famille de Jésus, Marie et Joseph", estFete: true, estDimanche: true },
+};
 
 export const SAINTS_2026: Record<string, SaintDuJour> = {
   // ========== JANVIER ==========
@@ -401,13 +489,21 @@ export const SAINTS_2026: Record<string, SaintDuJour> = {
 };
 
 /**
- * Retourne le saint du jour pour une date donnée
+ * Retourne la célébration du jour pour une date donnée.
+ * Le dimanche prime toujours sur le saint : on affiche le nom
+ * liturgique du dimanche (ex: "6e Dimanche du Temps Ordinaire").
  * @param date - Date (par défaut: aujourd'hui)
  */
 export function getSaintDuJour(date: Date = new Date()): SaintDuJour | null {
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const day = String(date.getDate()).padStart(2, '0');
   const key = `${month}-${day}`;
+
+  // Le dimanche prime toujours sur le saint du jour
+  if (date.getDay() === 0 && DIMANCHES_2026[key]) {
+    return DIMANCHES_2026[key];
+  }
+
   return SAINTS_2026[key] || null;
 }
 

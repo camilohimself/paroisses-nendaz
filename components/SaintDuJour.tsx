@@ -12,7 +12,7 @@
 
 import { useState, useEffect } from 'react';
 import { getSaintDuJour, getDateFormatee, SaintDuJour as SaintType } from '@/lib/saints-data';
-import { Calendar, Sparkles, Church } from 'lucide-react';
+import { Calendar, Sparkles, Church, Sun } from 'lucide-react';
 
 interface SaintDuJourProps {
   variante?: 'discret' | 'carte' | 'bandeau';
@@ -55,13 +55,16 @@ function VarianteDiscret({ saint, dateFormatee }: { saint: SaintType; dateFormat
     <div className="py-4 bg-stone-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-3 text-stone-600">
-          <Calendar className="w-4 h-4 text-amber-500" />
+          {saint.estDimanche
+            ? <Sun className="w-4 h-4 text-amber-500" />
+            : <Calendar className="w-4 h-4 text-amber-500" />
+          }
           <span className="text-sm capitalize">{dateFormatee}</span>
           <span className="text-stone-300">|</span>
-          <span className={`text-sm font-medium ${saint.estFete ? 'text-amber-700' : 'text-stone-700'}`}>
+          <span className={`text-sm font-medium ${saint.estDimanche || saint.estFete ? 'text-amber-700' : 'text-stone-700'}`}>
             {saint.nom}
           </span>
-          {saint.estFete && <Sparkles className="w-4 h-4 text-amber-500" />}
+          {!saint.estDimanche && saint.estFete && <Sparkles className="w-4 h-4 text-amber-500" />}
         </div>
       </div>
     </div>
@@ -92,13 +95,16 @@ function VarianteCarte({ saint, dateFormatee }: { saint: SaintType; dateFormatee
             <div className="relative z-10">
               {/* Label */}
               <div className="flex items-center gap-2 mb-3">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${saint.estFete ? 'bg-amber-200' : 'bg-stone-200'}`}>
-                  <Calendar className={`w-4 h-4 ${saint.estFete ? 'text-amber-700' : 'text-stone-600'}`} />
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${saint.estDimanche ? 'bg-amber-200' : saint.estFete ? 'bg-amber-200' : 'bg-stone-200'}`}>
+                  {saint.estDimanche
+                    ? <Sun className="w-4 h-4 text-amber-700" />
+                    : <Calendar className={`w-4 h-4 ${saint.estFete ? 'text-amber-700' : 'text-stone-600'}`} />
+                  }
                 </div>
                 <span className="text-xs uppercase tracking-wider text-stone-500 font-medium">
-                  Saint du jour
+                  {saint.estDimanche ? 'Célébration du jour' : 'Saint du jour'}
                 </span>
-                {saint.estFete && (
+                {!saint.estDimanche && saint.estFete && (
                   <span className="ml-auto flex items-center gap-1 text-xs text-amber-600 font-medium">
                     <Sparkles className="w-3 h-3" />
                     Fête
@@ -127,10 +133,11 @@ function VarianteCarte({ saint, dateFormatee }: { saint: SaintType; dateFormatee
 // VARIANTE 3 : BANDEAU (pleine largeur)
 // ============================================
 function VarianteBandeau({ saint, dateFormatee }: { saint: SaintType; dateFormatee: string }) {
+  const isSpecial = saint.estDimanche || saint.estFete;
   return (
     <div className={`
       py-5
-      ${saint.estFete
+      ${isSpecial
         ? 'bg-gradient-to-r from-amber-100 via-amber-50 to-amber-100'
         : 'bg-gradient-to-r from-stone-100 via-stone-50 to-stone-100'
       }
@@ -139,8 +146,11 @@ function VarianteBandeau({ saint, dateFormatee }: { saint: SaintType; dateFormat
         <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6">
           {/* Date avec icône */}
           <div className="flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${saint.estFete ? 'bg-amber-200' : 'bg-stone-200'}`}>
-              <Calendar className={`w-4 h-4 ${saint.estFete ? 'text-amber-700' : 'text-stone-600'}`} />
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center ${isSpecial ? 'bg-amber-200' : 'bg-stone-200'}`}>
+              {saint.estDimanche
+                ? <Sun className={`w-4 h-4 text-amber-700`} />
+                : <Calendar className={`w-4 h-4 ${saint.estFete ? 'text-amber-700' : 'text-stone-600'}`} />
+              }
             </div>
             <span className="text-sm text-stone-600 capitalize">{dateFormatee}</span>
           </div>
@@ -148,12 +158,18 @@ function VarianteBandeau({ saint, dateFormatee }: { saint: SaintType; dateFormat
           {/* Séparateur (desktop) */}
           <div className="hidden sm:block w-px h-6 bg-stone-300"></div>
 
-          {/* Saint */}
+          {/* Célébration / Saint */}
           <div className="flex items-center gap-2">
-            <span className={`text-base sm:text-lg font-semibold ${saint.estFete ? 'text-amber-800' : 'text-stone-800'}`} style={{ fontFamily: 'Playfair Display, serif' }}>
+            <span className={`text-base sm:text-lg font-semibold ${isSpecial ? 'text-amber-800' : 'text-stone-800'}`} style={{ fontFamily: 'Playfair Display, serif' }}>
               {saint.nom}
             </span>
-            {saint.estFete && (
+            {saint.estDimanche && (
+              <span className="flex items-center gap-1 px-2 py-0.5 bg-amber-200 text-amber-800 text-xs font-medium rounded-full">
+                <Sun className="w-3 h-3" />
+                Dimanche
+              </span>
+            )}
+            {!saint.estDimanche && saint.estFete && (
               <span className="flex items-center gap-1 px-2 py-0.5 bg-amber-200 text-amber-800 text-xs font-medium rounded-full">
                 <Sparkles className="w-3 h-3" />
                 Fête
