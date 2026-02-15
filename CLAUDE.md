@@ -21,9 +21,27 @@ git push origin main
 
 ## Composants Cles
 
-- **Saint du Jour** : `lib/saints-data.ts` (366 jours) + `components/SaintDuJour.tsx` (bandeau homepage)
+- **Saint du Jour** : `lib/saints-data.ts` (366 jours + 52 dimanches liturgiques) + `components/SaintDuJour.tsx` (bandeau homepage)
+  - Les dimanches affichent le nom liturgique (ex: "6e Dimanche du Temps Ordinaire") au lieu du saint
+  - Mapping `DIMANCHES_2026` dans `saints-data.ts` (Annee A, diocese de Sion)
 - **Google Calendar** : `app/api/horaires/route.ts` — events reels, filtre par paroisse
 - **Feuille d'annonces** : `app/api/feuille-annonces/generate/route.tsx`
+
+## Saints du Jour enrichis (EN ATTENTE validation cure)
+
+**CSV** : `saints-2026-complet.csv` (552 entrees, 274 jours, 16 fev - 31 dec)
+- 2-3 saints par jour (rang 1 = principal, rang 2-3 = secondaires)
+- Chaque saint : description (2-3 phrases, ton "pain quotidien") + priere personnelle
+- Format CSV point-virgule : Date;Jour;Rang;Nom;Description;Priere
+- Soumis au pretre pour validation → puis integration au site
+
+**Design valide** : `app/preview-saints-v2/page.tsx`
+- Accordeon : nom du saint toujours visible, clic pour deplier description + priere
+- Saint principal ouvert par defaut, secondaires fermes
+- Style "manuscrit sacre" : fond parchemin, halos dores, guillemets decoratifs, arcs
+- Icones : Cross (rang 1), Sparkles (rang 2), BookOpen (priere), ChevronDown (accordeon)
+- Composant `SaintCard` avec props : saint, isPrimary, defaultOpen
+- Mobile-first, teste a 390px
 
 ## Careme 2026 — "Prophete ? Moi ?"
 
@@ -58,5 +76,7 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 ## Maintenance
 
 - **Fin 2026** : Mettre a jour `saints-data.ts` pour 2027 (fetes mobiles changent)
+- **Fin 2026** : Mettre a jour `DIMANCHES_2026` pour 2027 (Annee B, dates differentes)
+- **Fin 2026** : Regenerer CSV saints pour 2027
 
 *Historique sessions dans `_ARCHIVES/`*
