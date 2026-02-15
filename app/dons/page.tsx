@@ -55,13 +55,13 @@ export default function DonsPage() {
 
               {/* Image QR Code TWINT */}
               <div className="flex justify-center mb-10">
-                <div className="bg-white p-6 rounded-xl shadow-lg border-2 border-stone-200">
+                <div className="bg-white p-8 rounded-xl shadow-lg border-2 border-stone-200">
                   <Image
                     src="/images/twint-qr.jpg"
                     alt="QR Code TWINT - Paroisse de Nendaz"
-                    width={400}
-                    height={400}
-                    className="w-full max-w-md mx-auto rounded-lg"
+                    width={600}
+                    height={600}
+                    className="w-full max-w-lg mx-auto rounded-lg"
                   />
                 </div>
               </div>
