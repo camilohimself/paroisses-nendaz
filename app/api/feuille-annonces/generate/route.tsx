@@ -5,81 +5,9 @@ import { CalendarEvent } from '@/lib/calendars-config'
 
 export const dynamic = 'force-dynamic'
 
-// Événements Actualités (à synchroniser avec app/actualites/page.tsx)
-const allActualites = [
-  {
-    id: 'billet-priere-novembre',
-    title: 'Billet de prière - Novembre 2025',
-    excerpt: 'Intention de prière pour le mois de novembre.',
-    date: '2025-11-01',
-    category: 'Pastorale',
-    lieu: 'Toutes paroisses'
-  },
-  {
-    id: 'toussaint-2025',
-    title: 'Fête de la Toussaint',
-    excerpt: 'Messes suivies d\'un temps de prière pour les défunts au cimetière.',
-    date: '2025-11-01',
-    category: 'Événement',
-    lieu: 'Toutes paroisses'
-  },
-  {
-    id: 'confirmation-2026',
-    title: 'Présentation de la Confirmation 2026',
-    excerpt: 'Présentation du parcours de confirmation après la messe de 10h.',
-    date: '2025-11-09',
-    category: 'Formation',
-    lieu: 'Basse-Nendaz - 10h55'
-  },
-  {
-    id: 'loto-st-michel',
-    title: 'Loto du Chœur St-Michel',
-    excerpt: 'Après-midi loto. Ambiance conviviale et nombreux lots !',
-    date: '2025-11-09',
-    category: 'Événement',
-    lieu: 'Salle de la Biolette - 17h30'
-  },
-  {
-    id: 'messe-enfants-catechese',
-    title: 'Messe animée par les enfants',
-    excerpt: 'Messe animée par les enfants des activités catéchétiques.',
-    date: '2025-11-15',
-    category: 'Liturgie',
-    lieu: 'Haute-Nendaz - 17h30'
-  },
-  {
-    id: 'concert-cecilia-fey',
-    title: 'Concert anniversaire Caecilia de Fey',
-    excerpt: '80 ans de la Caecilia de Fey.',
-    date: '2025-11-15',
-    category: 'Culture',
-    lieu: 'Fey'
-  },
-  {
-    id: 'communion-priere',
-    title: 'Préparation 1ère Communion',
-    excerpt: 'Après-midi de préparation à la première communion.',
-    date: '2025-11-19',
-    category: 'Formation',
-    lieu: 'Basse-Nendaz'
-  },
-  {
-    id: 'christ-roi',
-    title: 'Fête patronale du Christ-Roi',
-    excerpt: 'Messe de la fête patronale.',
-    date: '2025-11-22',
-    category: 'Événement',
-    lieu: 'Église de Fey - 19h'
-  },
-  {
-    id: 'couronnes-avent',
-    title: 'Journée Couronnes de l\'Avent',
-    excerpt: 'Fabrication des couronnes. Messe à 17h30 avec enfants et familles.',
-    date: '2025-11-29',
-    category: 'Événement',
-    lieu: 'Haute-Nendaz'
-  }
-]
+// Événements Actualités supplémentaires (ajoutés manuellement si besoin)
+// Les données principales proviennent de l'API Google Calendar
+const allActualites: { id: string; title: string; excerpt: string; date: string; category: string; lieu: string }[] = []
 
 export async function GET(request: Request) {
   try {

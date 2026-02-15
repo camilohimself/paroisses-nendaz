@@ -19,35 +19,10 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        // Temporary hardcoded users for demo
-        const demoUsers = [
-          {
-            id: '1',
-            email: 'admin@paroisses-nendaz.ch',
-            name: 'Administrateur',
-            password: 'admin123',
-            role: 'ADMIN'
-          },
-          {
-            id: '2',
-            email: 'secretariat@paroisses-nendaz.ch',
-            name: 'Secrétariat',
-            password: 'admin123',
-            role: 'EDITOR'
-          }
-        ]
-
-        const user = demoUsers.find(u => u.email === credentials.email)
-        if (!user || user.password !== credentials.password) {
-          return null
-        }
-
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name,
-          role: user.role
-        }
+        // Auth désactivée — à configurer avec une base de données
+        // Voir: https://next-auth.js.org/providers/credentials
+        console.warn('Auth: credentials provider not configured — returning null')
+        return null
       }
     })
   ],
