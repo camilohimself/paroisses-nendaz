@@ -9,6 +9,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { ArrowDown } from 'lucide-react';
 
 // Vérifie si on est dans la période du mémorial (6-10 janvier 2026)
 function isMemorialPeriod(): boolean {
@@ -82,12 +84,12 @@ function VideoHeroContent() {
         poster="/videos/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover hidden md:block"
         preload="auto"
+        aria-hidden="true"
       >
         <source src="/videos/hero-desktop.mp4" type="video/mp4" />
-        {/* Fallback : image poster */}
         <img
           src="/videos/hero-poster.jpg"
-          alt="Paroisses de Nendaz et Veysonnaz"
+          alt=""
           className="w-full h-full object-cover"
         />
       </video>
@@ -101,12 +103,12 @@ function VideoHeroContent() {
         poster="/videos/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover block md:hidden"
         preload="auto"
+        aria-hidden="true"
       >
         <source src="/videos/hero-mobile.mp4" type="video/mp4" />
-        {/* Fallback : image poster */}
         <img
           src="/videos/hero-poster.jpg"
-          alt="Paroisses de Nendaz et Veysonnaz"
+          alt=""
           className="w-full h-full object-cover"
         />
       </video>
@@ -132,38 +134,26 @@ function VideoHeroContent() {
 
           {/* Boutons d'action */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/paroisses"
               className="inline-block px-8 py-4 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Nos paroisses
-            </a>
-            <a
+            </Link>
+            <Link
               href="/actualites"
               className="inline-block px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold rounded-lg border-2 border-white/40 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               Actualités
-            </a>
+            </Link>
           </div>
         </div>
       </div>
 
       {/* Indicateur de scroll (animation subtile) */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden lg:block">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 hidden lg:block" aria-hidden="true">
         <div className="animate-bounce">
-          <svg
-            className="w-6 h-6 text-white/70"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
+          <ArrowDown className="w-6 h-6 text-white/70" />
         </div>
       </div>
     </div>

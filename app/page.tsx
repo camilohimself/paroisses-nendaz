@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import QuickAccessCard from '@/components/QuickAccessCard'
+import Link from 'next/link'
 import VideoHero from '@/components/VideoHero'
 import SaintDuJour from '@/components/SaintDuJour'
 import AnnouncementModal from '@/components/AnnouncementModal'
+import { SlidersHorizontal, Briefcase, User, Eye, ExternalLink } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
 // Lazy load non-critical components
@@ -59,16 +60,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
 
             {/* Card 1 - Service Liturgique */}
-            <a
+            <Link
               href="/pastorale/liturgie"
               className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-1 h-12 bg-amber-400"></div>
                 <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
-                  <svg className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                  </svg>
+                  <SlidersHorizontal className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
@@ -99,19 +98,17 @@ export default function Home() {
                   <span>Chorale</span>
                 </div>
               </div>
-            </a>
+            </Link>
 
             {/* Card 2 - Sacrements */}
-            <a
+            <Link
               href="/pastorale#sacrements"
               className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-1 h-12 bg-amber-400"></div>
                 <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
-                  <svg className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                  <Briefcase className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
@@ -146,7 +143,7 @@ export default function Home() {
                   <span>Onction des malades</span>
                 </div>
               </div>
-            </a>
+            </Link>
 
             {/* Card 3 - Base Enoria */}
             <a
@@ -158,9 +155,7 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-1 h-12 bg-[#2A8B8C]"></div>
                 <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-[#2A8B8C] flex items-center justify-center transition-all">
-                  <svg className="w-5 h-5 text-stone-600 group-hover:text-[#2A8B8C] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
+                  <User className="w-5 h-5 text-stone-600 group-hover:text-[#2A8B8C] transition-colors" aria-hidden="true" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-[#2A8B8C] transition-colors">
@@ -171,9 +166,7 @@ export default function Home() {
               </p>
               <div className="flex items-center text-[#2A8B8C] font-semibold text-sm pt-4 border-t border-stone-300">
                 Lien externe
-                <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+                <ExternalLink className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </div>
             </a>
 
@@ -187,10 +180,7 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-1 h-12 bg-amber-400"></div>
                 <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
-                  <svg className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
+                  <Eye className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
                 </div>
               </div>
               <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
