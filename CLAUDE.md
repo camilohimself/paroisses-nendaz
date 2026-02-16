@@ -27,20 +27,19 @@ git push origin main
 - **Google Calendar** : `app/api/horaires/route.ts` — events reels, filtre par paroisse
 - **Feuille d'annonces** : `app/api/feuille-annonces/generate/route.tsx`
 
-## Saints du Jour enrichis (EN ATTENTE validation cure)
+## Saints du Jour enrichis (INTEGRE — valide par le cure 16 fev 2026)
 
-**CSV** : `saints-2026-complet.csv` (552 entrees, 274 jours, 16 fev - 31 dec)
+**Source CSV** : `docs/data/saints-2026-complet.csv` (552 entrees, 274 jours, 16 fev - 31 dec)
+**Donnees TS** : `lib/saints-enrichis-data.ts` (genere via `npx tsx scripts/parse-saints-csv.ts`)
+**Composant** : `components/SaintCard.tsx` — accordeon reutilisable
+**Integration** : `components/SaintDuJour.tsx` — bascule auto entre mode enrichi et simple
+
 - 2-3 saints par jour (rang 1 = principal, rang 2-3 = secondaires)
-- Chaque saint : description (2-3 phrases, ton "pain quotidien") + priere personnelle
-- Format CSV point-virgule : Date;Jour;Rang;Nom;Description;Priere
-- Soumis au pretre pour validation → puis integration au site
-
-**Design valide** : `app/preview-saints-v2/page.tsx`
-- Accordeon : nom du saint toujours visible, clic pour deplier description + priere
-- Saint principal ouvert par defaut, secondaires fermes
-- Style "manuscrit sacre" : fond parchemin, halos dores, guillemets decoratifs, arcs
+- Mode enrichi (fev-dec) : accordeon avec description + priere, style "manuscrit sacre"
+- Mode simple (jan ou fallback) : bandeau classique avec juste le nom
+- `getSaintsEnrichis()` dans `lib/saints-data.ts` — retourne tableau ou null
+- Les dimanches affichent toujours le nom liturgique (pas de saints enrichis)
 - Icones : Cross (rang 1), Sparkles (rang 2), BookOpen (priere), ChevronDown (accordeon)
-- Composant `SaintCard` avec props : saint, isPrimary, defaultOpen
 - Mobile-first, teste a 390px
 
 ## Careme 2026 — "Prophete ? Moi ?"
@@ -78,5 +77,17 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 - **Fin 2026** : Mettre a jour `saints-data.ts` pour 2027 (fetes mobiles changent)
 - **Fin 2026** : Mettre a jour `DIMANCHES_2026` pour 2027 (Annee B, dates differentes)
 - **Fin 2026** : Regenerer CSV saints pour 2027
+
+## Audit SEO & Nettoyage (15 fev 2026)
+
+**Score SEO** : 7/10 → ameliore via 4 sprints
+- [x] Sprint 1 : Metadata enrichies, geo types, cache API, ARIA labels
+- [x] Sprint 2 : next/font migration (Playfair, Crimson, Inter), inline styles, img→Image
+- [x] Sprint 3 : JSON-LD (BreadcrumbSchema, EventListSchema, PersonSchema)
+- [x] Sprint 4 : Accessibilite WCAG (skip-to-content, focus trap modal, aria-expanded)
+- [x] Nettoyage code : 25 fichiers, -1306 lignes dead code, images optimisees, securite auth.ts
+
+**Fichiers supprimes** : test-avent/, test-hero-communion/, test-hero-pardon/, EventCard.tsx, YouTubeLiveIndicator.tsx, SVG boilerplate
+**Images optimisees** : epiphanie (1.4MB→233KB), festival-familles (5.9MB→379KB)
 
 *Historique sessions dans `_ARCHIVES/`*

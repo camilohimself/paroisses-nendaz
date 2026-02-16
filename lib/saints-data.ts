@@ -8,6 +8,10 @@
  * son propre nom liturgique selon le temps (Ordinaire, Carême, Pâques, Avent).
  */
 
+import { SaintEnrichi, SAINTS_ENRICHIS_2026 } from './saints-enrichis-data';
+
+export type { SaintEnrichi };
+
 export interface SaintDuJour {
   nom: string;
   estFete?: boolean; // true si c'est une fête liturgique majeure
@@ -505,6 +509,23 @@ export function getSaintDuJour(date: Date = new Date()): SaintDuJour | null {
   }
 
   return SAINTS_2026[key] || null;
+}
+
+/**
+ * Retourne les saints enrichis du jour (avec descriptions et prières).
+ * Disponible du 16 fév au 31 déc 2026.
+ * Retourne null si pas de données enrichies pour cette date.
+ * Le dimanche, retourne null (on affiche le nom liturgique via getSaintDuJour).
+ */
+export function getSaintsEnrichis(date: Date = new Date()): SaintEnrichi[] | null {
+  // Le dimanche prime : pas de saints enrichis
+  if (date.getDay() === 0) return null;
+
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  const key = `${month}-${day}`;
+
+  return SAINTS_ENRICHIS_2026[key] || null;
 }
 
 /**
