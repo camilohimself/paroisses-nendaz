@@ -9,6 +9,7 @@ const EXPIRY_DATE = new Date('2026-02-23T00:00:00') // After event day (22 feb)
 
 export default function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
   const modalRef = useRef<HTMLDivElement>(null)
 
@@ -20,7 +21,11 @@ export default function AnnouncementModal() {
     if (localStorage.getItem(STORAGE_KEY)) return
 
     // Small delay for better UX (let page load first)
-    const timer = setTimeout(() => setIsOpen(true), 600)
+    const timer = setTimeout(() => {
+      setIsOpen(true)
+      // Trigger enter animation on next frame
+      requestAnimationFrame(() => setIsVisible(true))
+    }, 600)
     return () => clearTimeout(timer)
   }, [])
 
@@ -32,8 +37,12 @@ export default function AnnouncementModal() {
   }, [isOpen])
 
   const handleClose = useCallback(() => {
-    setIsOpen(false)
-    localStorage.setItem(STORAGE_KEY, 'true')
+    setIsVisible(false)
+    // Wait for exit animation before unmounting
+    setTimeout(() => {
+      setIsOpen(false)
+      localStorage.setItem(STORAGE_KEY, 'true')
+    }, 200)
   }, [])
 
   // Close on Escape key & trap focus inside modal
@@ -76,16 +85,29 @@ export default function AnnouncementModal() {
       role="dialog"
       aria-modal="true"
       aria-label="Annonce : Loto des Eglises"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-in fade-in duration-300"
+      className={`
+        fixed inset-0 z-50 flex items-center justify-center p-4
+        transition-opacity duration-300 ease-out
+        ${isVisible ? 'opacity-100' : 'opacity-0'}
+      `}
     >
       {/* Overlay */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className={`
+          absolute inset-0 bg-black/60 transition-all duration-300
+          ${isVisible ? 'backdrop-blur-sm' : ''}
+        `}
         onClick={handleClose}
       />
 
       {/* Modal */}
-      <div className="relative w-full max-w-md md:max-w-lg animate-in zoom-in-95 duration-300">
+      <div
+        className={`
+          relative w-full max-w-md md:max-w-lg
+          transition-transform duration-300 ease-out
+          ${isVisible ? 'scale-100' : 'scale-95'}
+        `}
+      >
         {/* Close button */}
         <button
           ref={closeButtonRef}

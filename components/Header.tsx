@@ -69,7 +69,7 @@ export default function Header() {
 
               {/* Sous-menu dropdown - Version sobre */}
               {isPastoraleOpen && (
-                <div className="absolute left-0 top-full mt-2 w-72 bg-white shadow-lg border border-stone-200 rounded-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 top-full mt-2 w-72 bg-white shadow-lg border border-stone-200 rounded-lg overflow-hidden z-50 transition-all duration-200 ease-out">
                   <Link
                     href="/pastorale"
                     className="block px-5 py-3 text-stone-800 hover:bg-stone-50 transition-all font-semibold border-b border-stone-200"
@@ -194,7 +194,7 @@ export default function Header() {
 
               {/* Sous-menu dropdown Contact */}
               {isContactOpen && (
-                <div className="absolute left-0 top-full mt-2 w-64 bg-white shadow-lg border border-stone-200 rounded-lg overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute left-0 top-full mt-2 w-64 bg-white shadow-lg border border-stone-200 rounded-lg overflow-hidden z-50 transition-all duration-200 ease-out">
                   <div className="py-1">
                     <Link
                       href="/contact"
