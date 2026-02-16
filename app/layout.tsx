@@ -52,6 +52,16 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "fr_CH",
@@ -61,10 +71,10 @@ export const metadata: Metadata = {
     description: "Site officiel des paroisses de Nendaz et Veysonnaz. Horaires des messes, événements, sacrements et vie paroissiale.",
     images: [
       {
-        url: "/logo-paroisses.png",
-        width: 1080,
-        height: 1350,
-        alt: "Logo Paroisses de Nendaz",
+        url: "/images/logo-paroisses-header@2x.png",
+        width: 1000,
+        height: 400,
+        alt: "Logo Paroisses de Nendaz et Veysonnaz",
       },
     ],
   },
@@ -72,7 +82,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Paroisses de Nendaz - Nendaz et Veysonnaz",
     description: "Site officiel des paroisses de Nendaz et Veysonnaz. Horaires des messes, événements, sacrements et vie paroissiale.",
-    images: ["/logo-paroisses.png"],
+    images: ["/images/logo-paroisses-header@2x.png"],
   },
   verification: {
     google: "votre-code-google-search-console", // À remplacer lors de la configuration GSC

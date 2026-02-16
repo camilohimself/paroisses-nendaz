@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import TrackedLink from './TrackedLink'
 
@@ -15,11 +16,15 @@ export default function Header() {
     <header className="bg-white shadow-sm border-b border-stone-200">
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          {/* Logo temporairement supprimé - en attente nouveau logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <span className="text-xl md:text-2xl font-bold text-stone-800 font-serif">
-              Secteur de Nendaz
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo-paroisses-header.png"
+              alt="Paroisses de Nendaz et Veysonnaz"
+              width={160}
+              height={64}
+              priority
+              className="h-12 md:h-14 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation - Pierre et Lumière */}

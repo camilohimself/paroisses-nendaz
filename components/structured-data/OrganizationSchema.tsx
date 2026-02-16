@@ -14,8 +14,8 @@ export default function OrganizationSchema() {
     "alternateName": "Paroisses de Nendaz et Veysonnaz",
     "description": "Unité pastorale catholique regroupant 7 paroisses : Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse et Veysonnaz",
     "url": "https://www.paroisses-nendaz.ch",
-    "logo": "https://www.paroisses-nendaz.ch/logo-paroisses.png",
-    "image": "https://www.paroisses-nendaz.ch/logo-paroisses.png",
+    "logo": "https://www.paroisses-nendaz.ch/images/logo-paroisses-header@2x.png",
+    "image": "https://www.paroisses-nendaz.ch/images/logo-paroisses-header@2x.png",
     "email": "paroisses.nendaz@netplus.ch",
     "telephone": "+41272882250",
     "address": {
