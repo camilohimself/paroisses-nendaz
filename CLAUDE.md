@@ -58,11 +58,11 @@ Source contenu : `../../careme2026/Demarche de careme prophete 2026.pdf` (28 pag
 - [x] 7 PDFs coloriage (1 par saint, decoupes)
 - [x] 7 PDFs bricolage (1 par saint, decoupes)
 
-**TODO Careme** :
-- [ ] Ajouter lien "Careme 2026" dans menu navigation
-- [ ] Vitrail x7 (a creer via Midjourney, decouper la rosace)
-- [ ] Metadonnees OpenGraph
-- [ ] QR code pour affichage physique
+**TODO Careme** : COMPLET
+- [x] Lien "Careme 2026" dans menu navigation (desktop + mobile, couleur lavande)
+- [x] Metadonnees OpenGraph + Twitter Card
+- [x] QR code : `public/documents/careme/qr-careme2026.png`
+- ~~Vitrail x7~~ (exclu du projet)
 
 ## Parcours Pelerins (perenne)
 

@@ -467,7 +467,6 @@ function JourModal({
                   label="Bricolage"
                   filename={`bricolage-${saint.id}.pdf`}
                 />
-                {/* TODO: Ajouter vitrail quand les fichiers seront prêts */}
               </div>
             </div>
           )}

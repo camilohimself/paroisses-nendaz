@@ -43,6 +43,13 @@ export default function Header() {
               <span>Actualités</span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-stone-800 transition-all duration-300 group-hover:w-full"></span>
             </Link>
+            <Link
+              href="/careme2026"
+              className="text-[#6B5B95] hover:text-[#4A4063] font-semibold transition-colors relative group"
+            >
+              <span>Carême 2026</span>
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#8B7CB3] transition-all duration-300 group-hover:bg-[#6B5B95]"></span>
+            </Link>
 
             {/* Pastorale avec sous-menu */}
             <div
@@ -341,6 +348,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Actualités
+              </Link>
+              <Link
+                href="/careme2026"
+                className="text-[#6B5B95] hover:text-[#4A4063] transition-colors font-semibold py-2 border-l-4 border-[#8B7CB3] pl-4"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Carême 2026
               </Link>
 
               {/* Pastorale mobile avec sous-menu */}
