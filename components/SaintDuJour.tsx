@@ -97,13 +97,6 @@ function SaintsEnrichisSection({
               'linear-gradient(135deg, rgba(217,170,75,0.12) 0%, rgba(245,235,215,0.6) 50%, rgba(217,170,75,0.08) 100%)',
           }}
         >
-          <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full pointer-events-none"
-            style={{
-              background:
-                'radial-gradient(circle, rgba(217,170,75,0.1) 0%, transparent 70%)',
-            }}
-          />
           <div className="relative flex flex-col items-center gap-1">
             <Sun className="w-5 h-5 text-amber-500/80" />
             <p className="text-[0.95rem] text-stone-700 capitalize font-medium">

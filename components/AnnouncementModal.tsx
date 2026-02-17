@@ -17,8 +17,8 @@ export default function AnnouncementModal() {
     // Auto-expire after event date
     if (new Date() >= EXPIRY_DATE) return
 
-    // Don't show if already dismissed
-    if (localStorage.getItem(STORAGE_KEY)) return
+    // Don't show if dismissed this session
+    if (sessionStorage.getItem(STORAGE_KEY)) return
 
     // Small delay for better UX (let page load first)
     const timer = setTimeout(() => {
@@ -41,7 +41,7 @@ export default function AnnouncementModal() {
     // Wait for exit animation before unmounting
     setTimeout(() => {
       setIsOpen(false)
-      localStorage.setItem(STORAGE_KEY, 'true')
+      sessionStorage.setItem(STORAGE_KEY, 'true')
     }, 200)
   }, [])
 
@@ -103,7 +103,7 @@ export default function AnnouncementModal() {
       {/* Modal */}
       <div
         className={`
-          relative w-full max-w-md md:max-w-lg
+          relative w-full max-w-sm sm:max-w-md md:max-w-lg
           transition-transform duration-300 ease-out
           ${isVisible ? 'scale-100' : 'scale-95'}
         `}
@@ -112,7 +112,7 @@ export default function AnnouncementModal() {
         <button
           ref={closeButtonRef}
           onClick={handleClose}
-          className="absolute -top-3 -right-3 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-stone-100 transition-colors"
+          className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-10 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-stone-100 transition-colors"
           aria-label="Fermer l'annonce"
         >
           <X className="w-5 h-5 text-stone-700" />

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Cross, BookOpen, Sparkles, ChevronDown } from 'lucide-react';
 
 interface SaintCardProps {
@@ -16,15 +16,22 @@ interface SaintCardProps {
 
 export default function SaintCard({ saint, isPrimary, defaultOpen = false }: SaintCardProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState<number>(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setContentHeight(contentRef.current.scrollHeight);
+    }
+  }, [saint]);
 
   return (
     <div className="relative">
       {isPrimary && (
         <div
-          className="absolute -inset-3 rounded-[2rem] opacity-40 blur-2xl pointer-events-none"
+          className="absolute -inset-2 rounded-[2rem] pointer-events-none"
           style={{
-            background:
-              'radial-gradient(ellipse at center, rgba(217,170,75,0.3) 0%, transparent 70%)',
+            boxShadow: '0 0 40px 8px rgba(217,170,75,0.12)',
           }}
         />
       )}
@@ -33,11 +40,10 @@ export default function SaintCard({ saint, isPrimary, defaultOpen = false }: Sai
         className={`
           relative overflow-hidden
           ${isPrimary
-            ? 'rounded-[1.5rem] bg-white/90 shadow-[0_4px_30px_rgba(120,90,30,0.08)]'
-            : 'rounded-[1.25rem] bg-white/70 shadow-[0_2px_20px_rgba(120,90,30,0.05)]'
+            ? 'rounded-[1.5rem] bg-white/95 shadow-[0_4px_30px_rgba(120,90,30,0.08)]'
+            : 'rounded-[1.25rem] bg-white/90 shadow-[0_2px_20px_rgba(120,90,30,0.05)]'
           }
         `}
-        style={{ backdropFilter: 'blur(6px)', WebkitBackdropFilter: 'blur(6px)' }}
       >
         {/* Arc decoratif */}
         <div
@@ -94,7 +100,7 @@ export default function SaintCard({ saint, isPrimary, defaultOpen = false }: Sai
 
           <ChevronDown
             className={`
-              w-5 h-5 flex-shrink-0 transition-transform duration-300 ease-out will-change-transform
+              w-5 h-5 flex-shrink-0 transition-transform duration-200 ease-out
               ${isPrimary ? 'text-amber-400' : 'text-stone-300'}
               ${isOpen ? 'rotate-180' : ''}
             `}
@@ -103,13 +109,13 @@ export default function SaintCard({ saint, isPrimary, defaultOpen = false }: Sai
 
         {/* Contenu depliable */}
         <div
-          className={`
-            grid will-change-[grid-template-rows] duration-300 ease-out
-            transition-[grid-template-rows,opacity]
-            ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}
-          `}
+          className="overflow-hidden transition-[max-height,opacity] duration-200 ease-out"
+          style={{
+            maxHeight: isOpen ? `${contentHeight}px` : '0px',
+            opacity: isOpen ? 1 : 0,
+          }}
         >
-          <div className="overflow-hidden min-h-0">
+          <div ref={contentRef}>
             <div className={`${isPrimary ? 'px-5 pb-5' : 'px-4 pb-4'}`}>
               <div
                 className={`mb-3 ${isPrimary ? 'mx-4' : 'mx-3'}`}
