@@ -4,459 +4,460 @@ import { useState } from 'react'
 import {
   JOURS_CAREME,
   SEMAINES_CAREME,
+  SAINTS_COACHS,
   getSaintById,
-  getEtatJour,
+  getJourByDate,
   getProgression,
+  getEtatJour,
   getJoursParSemaine,
   type JourCareme,
-  type EtatJour
+  type SaintCoach,
+  type SemaineCareme
 } from '@/lib/careme-data'
 import Image from 'next/image'
 import {
-  Lock,
-  Check,
   ChevronDown,
-  ChevronUp,
-  X,
   Download,
   Church,
   BookOpen,
   Palette,
   Scissors,
-  Star
+  Sun,
+  Heart,
+  CalendarDays
 } from 'lucide-react'
 
 // Palette "Lavande Douce" - Option A
 const COLORS = {
-  headerFrom: '#8B7CB3',      // Lavande moyenne
-  headerTo: '#6B5B95',        // Lavande profonde
-  active: '#8B7CB3',          // Lavande moyenne
-  activeRing: '#C4B7D4',      // Lavande claire
-  complete: '#7BA087',        // Vert sauge doux
-  accent: '#D4AF37',          // Or doux
-  bgFrom: '#F5F3F7',          // Fond très clair
-  bgTo: '#EDE8F2',            // Fond lavande pâle
-  text: '#4A4063',            // Texte violet foncé
-  textLight: '#7B6E8F',       // Texte violet moyen
-  lightBg: '#F0EBF4',         // Fond clair pour cards
+  headerFrom: '#8B7CB3',
+  headerTo: '#6B5B95',
+  active: '#8B7CB3',
+  activeRing: '#C4B7D4',
+  complete: '#7BA087',
+  accent: '#D4AF37',
+  bgFrom: '#F5F3F7',
+  bgTo: '#EDE8F2',
+  text: '#4A4063',
+  textLight: '#7B6E8F',
+  lightBg: '#F0EBF4',
 }
 
 // Mode production : suit le jour réel
 // Pour prévisualiser, décommenter une date fixe ci-dessous :
-// const DATE_DEMO = new Date('2026-03-08') // test mi-carême
+// const DATE_DEMO = new Date('2026-02-18') // jour 1
+// const DATE_DEMO = new Date('2026-03-08') // dimanche, mi-carême
+// const DATE_DEMO = new Date('2026-04-05') // Pâques
 const DATE_DEMO = new Date()
 
-export default function Careme2026Page() {
-  const [selectedJour, setSelectedJour] = useState<JourCareme | null>(null)
-  const [expandedSemaines, setExpandedSemaines] = useState<number[]>([0, 1, 2, 3, 4, 5, 6])
+// Dates clés
+const DATE_DEBUT = new Date('2026-02-18')
+const DATE_FIN = new Date('2026-04-05')
 
+function getTodayStr(date: Date): string {
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const d = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${d}`
+}
+
+function normalizeDate(date: Date): Date {
+  return new Date(date.getFullYear(), date.getMonth(), date.getDate())
+}
+
+export default function Careme2026Page() {
+  const [expandedPastJour, setExpandedPastJour] = useState<number | null>(null)
+  const [browseJour, setBrowseJour] = useState<number | null>(null)
+
+  const aujourdhui = normalizeDate(DATE_DEMO)
+  const todayStr = getTodayStr(DATE_DEMO)
   const progression = getProgression(DATE_DEMO)
 
-  const toggleSemaine = (numero: number) => {
-    setExpandedSemaines(prev =>
-      prev.includes(numero)
-        ? prev.filter(n => n !== numero)
-        : [...prev, numero]
+  // Avant le Carême ?
+  if (aujourdhui < normalizeDate(DATE_DEBUT)) {
+    return <CountdownView aujourdhui={aujourdhui} />
+  }
+
+  // Après Pâques ?
+  if (aujourdhui > normalizeDate(DATE_FIN)) {
+    return (
+      <CompletedView
+        browseJour={browseJour}
+        setBrowseJour={setBrowseJour}
+      />
     )
   }
 
-  const handleJourClick = (jour: JourCareme, etat: EtatJour) => {
-    if (etat !== 'verrouille') {
-      setSelectedJour(jour)
-    }
-  }
+  // Pendant le Carême : compagnon quotidien
+  const jourDuJour = getJourByDate(todayStr)
+  if (!jourDuJour) return null
+
+  const saintCoach = getSaintById(jourDuJour.saintCoachId)
+  const semaineCourante = SEMAINES_CAREME.find(s => {
+    const debut = normalizeDate(new Date(s.dateDebut))
+    const fin = normalizeDate(new Date(s.dateFin))
+    return aujourdhui >= debut && aujourdhui <= fin
+  })
+  const joursPassés = JOURS_CAREME.filter(j => {
+    const etat = getEtatJour(j.date, DATE_DEMO)
+    return etat === 'complete'
+  }).reverse()
+
+  const joursSemaine = semaineCourante
+    ? getJoursParSemaine(semaineCourante.numero)
+    : []
 
   return (
     <div
       className="min-h-screen"
       style={{ background: `linear-gradient(to bottom, ${COLORS.bgFrom}, ${COLORS.bgTo})` }}
     >
-      {/* Header */}
-      <header
-        className="text-white py-8 px-4"
-        style={{ background: `linear-gradient(to right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
-      >
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-white/70 text-sm uppercase tracking-wider mb-2">
-            Carême 2026
-          </p>
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">
-            Prophète ? Moi ?
-          </h1>
-          <p className="text-white/80 text-lg">
-            47 jours pour devenir porte-parole de Dieu
-          </p>
+      {/* ZONE A: Header sticky + barre de progression */}
+      <StickyProgressBar progression={progression} />
 
-          {/* Barre de progression */}
-          <div className="mt-6 max-w-md mx-auto">
-            <div className="flex justify-between text-sm text-white/70 mb-1">
-              <span>Jour {progression.joursCompletes} / {progression.joursTotal}</span>
-              <span>{progression.pourcentage}%</span>
-            </div>
-            <div className="h-3 bg-black/20 rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-500"
-                style={{ width: `${progression.pourcentage}%`, backgroundColor: COLORS.accent }}
-              />
-            </div>
-            <p className="text-xs text-white/60 mt-2">
-              18 février → 5 avril 2026
-            </p>
-          </div>
-        </div>
-      </header>
+      {/* ZONE B: Contenu du jour */}
+      <main className="max-w-2xl mx-auto px-4 pt-4 pb-8">
+        {jourDuJour.estDimanche && !jourDuJour.estPaques ? (
+          <TodaySunday
+            jour={jourDuJour}
+            saint={saintCoach}
+            semaine={semaineCourante}
+          />
+        ) : (
+          <TodaySection
+            jour={jourDuJour}
+            saint={saintCoach}
+            semaine={semaineCourante}
+          />
+        )}
 
-      {/* Timeline des semaines */}
-      <main className="max-w-2xl mx-auto px-4 py-8">
-        <div className="space-y-4">
-          {SEMAINES_CAREME.map((semaine) => {
-            const saint = getSaintById(semaine.saintCoachId)
-            const jours = getJoursParSemaine(semaine.numero)
-            const isExpanded = expandedSemaines.includes(semaine.numero)
+        {/* ZONE C: Piste de la semaine */}
+        {semaineCourante && (
+          <WeekStrip
+            jours={joursSemaine}
+            jourActif={jourDuJour.jour}
+            semaine={semaineCourante}
+          />
+        )}
 
-            return (
-              <section
-                key={semaine.numero}
-                className="bg-white rounded-2xl shadow-sm overflow-hidden"
-              >
-                {/* Header de la semaine */}
-                <button
-                  onClick={() => toggleSemaine(semaine.numero)}
-                  className="w-full px-4 py-4 flex items-center gap-4 transition-colors"
-                  style={{ backgroundColor: isExpanded ? COLORS.lightBg : 'white' }}
-                >
-                  {/* Avatar Saint */}
-                  <div className="w-14 h-14 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-md">
-                    {saint?.image ? (
-                      <Image
-                        src={saint.image}
-                        alt={saint.nom}
-                        width={56}
-                        height={56}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    ) : (
-                      <div
-                        className="w-full h-full flex items-center justify-center text-white text-xl font-bold"
-                        style={{ background: `linear-gradient(to bottom right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
-                      >
-                        {saint?.nom.charAt(0)}
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Infos semaine */}
-                  <div className="flex-1 text-left">
-                    <p
-                      className="text-xs font-medium uppercase tracking-wide"
-                      style={{ color: COLORS.active }}
-                    >
-                      {semaine.nom}
-                    </p>
-                    <h2 className="text-lg font-semibold" style={{ color: COLORS.text }}>
-                      {saint?.nom}
-                    </h2>
-                    {semaine.theme && (
-                      <p className="text-xs italic" style={{ color: COLORS.textLight }}>
-                        {semaine.theme}
-                      </p>
-                    )}
-                    {saint?.eglisePatronale && (
-                      <p className="text-sm flex items-center gap-1" style={{ color: COLORS.textLight }}>
-                        <Church className="w-3 h-3" />
-                        {saint.eglisePatronale}
-                      </p>
-                    )}
-                  </div>
-
-                  {/* Chevron */}
-                  <div style={{ color: COLORS.textLight }}>
-                    {isExpanded ? (
-                      <ChevronUp className="w-5 h-5" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5" />
-                    )}
-                  </div>
-                </button>
-
-                {/* Jours de la semaine */}
-                {isExpanded && (
-                  <div className="px-4 pb-4">
-                    <div className="grid grid-cols-7 gap-2">
-                      {jours.map((jour) => {
-                        const etat = getEtatJour(jour.date, DATE_DEMO)
-                        return (
-                          <JourCard
-                            key={jour.jour}
-                            jour={jour}
-                            etat={etat}
-                            onClick={() => handleJourClick(jour, etat)}
-                          />
-                        )
-                      })}
-                    </div>
-                  </div>
-                )}
-              </section>
-            )
-          })}
-        </div>
-
-        {/* Légende */}
-        <div className="mt-8 flex justify-center gap-6 text-sm" style={{ color: COLORS.textLight }}>
-          <div className="flex items-center gap-2">
-            <div className="w-4 h-4 rounded bg-gray-200 flex items-center justify-center">
-              <Lock className="w-2 h-2 text-gray-400" />
-            </div>
-            <span>À venir</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div
-              className="w-4 h-4 rounded"
-              style={{ backgroundColor: COLORS.active, boxShadow: `0 0 0 2px ${COLORS.activeRing}` }}
-            />
-            <span>Aujourd'hui</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div
-              className="w-4 h-4 rounded flex items-center justify-center"
-              style={{ backgroundColor: COLORS.complete }}
-            >
-              <Check className="w-2 h-2 text-white" />
-            </div>
-            <span>Fait</span>
-          </div>
-        </div>
+        {/* ZONE D: Journal des jours passés */}
+        {joursPassés.length > 0 && (
+          <PastDaysJournal
+            jours={joursPassés}
+            expandedJour={expandedPastJour}
+            onToggle={(num) =>
+              setExpandedPastJour(prev => prev === num ? null : num)
+            }
+          />
+        )}
       </main>
-
-      {/* Modal détail jour */}
-      {selectedJour && (
-        <JourModal
-          jour={selectedJour}
-          onClose={() => setSelectedJour(null)}
-        />
-      )}
     </div>
   )
 }
 
-// Composant carte jour
-function JourCard({
-  jour,
-  etat,
-  onClick
+// ═══════════════════════════════════════════════════════════
+// ZONE A : Barre de progression sticky
+// ═══════════════════════════════════════════════════════════
+
+function StickyProgressBar({
+  progression
 }: {
-  jour: JourCareme
-  etat: EtatJour
-  onClick: () => void
+  progression: { joursCompletes: number; joursTotal: number; pourcentage: number }
 }) {
-  const jourDuMois = new Date(jour.date).getDate()
-
-  const getStyles = () => {
-    switch (etat) {
-      case 'verrouille':
-        return {
-          backgroundColor: '#f3f4f6',
-          color: '#9ca3af',
-          cursor: 'not-allowed'
-        }
-      case 'actif':
-        return {
-          backgroundColor: COLORS.active,
-          color: 'white',
-          boxShadow: `0 0 0 4px ${COLORS.activeRing}, 0 10px 15px -3px rgba(0,0,0,0.1)`,
-          cursor: 'pointer'
-        }
-      case 'complete':
-        return {
-          backgroundColor: COLORS.complete,
-          color: 'white',
-          cursor: 'pointer'
-        }
-    }
-  }
-
   return (
-    <button
-      onClick={onClick}
-      disabled={etat === 'verrouille'}
-      className="aspect-square rounded-xl flex flex-col items-center justify-center transition-all duration-200"
-      style={{
-        ...getStyles(),
-        ...((jour.estDimanche || jour.estJourSaint) && etat !== 'verrouille' ? { boxShadow: `0 0 0 2px ${COLORS.accent}` } : {})
-      }}
+    <header
+      className="sticky top-0 z-40 text-white py-3 px-4 shadow-md"
+      style={{ background: `linear-gradient(to right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
     >
-      {etat === 'verrouille' ? (
-        <Lock className="w-4 h-4" />
-      ) : etat === 'complete' ? (
-        <>
-          <Check className="w-4 h-4" />
-          <span className="text-xs mt-0.5">{jourDuMois}</span>
-        </>
-      ) : (
-        <>
-          <span className="text-lg font-bold">{jourDuMois}</span>
-          {(jour.estDimanche || jour.estJourSaint) && <Star className="w-3 h-3 mt-0.5" style={{ color: COLORS.accent }} />}
-        </>
-      )}
-    </button>
+      <div className="max-w-2xl mx-auto">
+        <div className="flex items-center justify-between mb-1.5">
+          <h1 className="text-lg font-bold tracking-tight">
+            Carême 2026
+          </h1>
+          <span className="text-sm text-white/80">
+            Jour {progression.joursCompletes} / {progression.joursTotal}
+          </span>
+        </div>
+        <div className="h-1.5 bg-black/20 rounded-full overflow-hidden">
+          <div
+            className="h-full rounded-full transition-all duration-700"
+            style={{ width: `${progression.pourcentage}%`, backgroundColor: COLORS.accent }}
+          />
+        </div>
+      </div>
+    </header>
   )
 }
 
-// Modal détail jour
-function JourModal({
+// ═══════════════════════════════════════════════════════════
+// ZONE B : Contenu du jour (jours normaux)
+// ═══════════════════════════════════════════════════════════
+
+function TodaySection({
   jour,
-  onClose
+  saint,
+  semaine
 }: {
   jour: JourCareme
-  onClose: () => void
+  saint: SaintCoach | undefined
+  semaine: SemaineCareme | undefined
 }) {
-  const saint = getSaintById(jour.saintCoachId)
   const dateFormatee = new Date(jour.date).toLocaleDateString('fr-CH', {
     weekday: 'long',
     day: 'numeric',
-    month: 'long'
+    month: 'long',
+    year: 'numeric'
   })
 
   return (
-    <div
-      className="fixed inset-0 bg-black/50 z-50 flex items-end sm:items-center justify-center p-4"
-      onClick={onClose}
-    >
-      <div
-        className="bg-white rounded-t-3xl sm:rounded-3xl w-full max-w-lg max-h-[85vh] overflow-auto"
-        onClick={e => e.stopPropagation()}
-      >
-        {/* Header modal */}
-        <div
-          className="sticky top-0 text-white p-6 rounded-t-3xl"
-          style={{ background: `linear-gradient(to right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
-        >
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 hover:bg-white/20 rounded-full transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+    <section className="space-y-6 mt-2">
+      {/* En-tête du jour */}
+      <div className="text-center space-y-2">
+        <p className="text-sm capitalize" style={{ color: COLORS.textLight }}>
+          {dateFormatee}
+        </p>
+        <h2 className="text-2xl md:text-3xl font-bold" style={{ color: COLORS.text }}>
+          Jour {jour.jour}
+        </h2>
+        {semaine && (
+          <p className="text-sm font-medium" style={{ color: COLORS.active }}>
+            {semaine.nom} — {semaine.theme}
+          </p>
+        )}
+      </div>
 
-          <p className="text-white/70 text-sm capitalize">{dateFormatee}</p>
-          <h2 className="text-2xl font-bold mt-1">Jour {jour.jour}</h2>
-          {jour.estPaques && (
-            <p className="font-semibold mt-1" style={{ color: COLORS.accent }}>
-              Joyeuses Pâques !
+      {/* Saint coach du jour */}
+      {saint && (
+        <div
+          className="flex items-center gap-3 p-3 rounded-xl"
+          style={{ backgroundColor: COLORS.lightBg }}
+        >
+          <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
+            {saint.image ? (
+              <Image
+                src={saint.image}
+                alt={saint.nom}
+                width={40}
+                height={40}
+                className="w-full h-full object-cover object-top"
+              />
+            ) : (
+              <div
+                className="w-full h-full flex items-center justify-center text-white text-sm font-bold"
+                style={{ background: `linear-gradient(to bottom right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
+              >
+                {saint.nom.charAt(0)}
+              </div>
+            )}
+          </div>
+          <div className="min-w-0">
+            <p className="text-sm font-semibold" style={{ color: COLORS.text }}>
+              {saint.nom}
+            </p>
+            <p className="text-xs" style={{ color: COLORS.textLight }}>
+              {saint.titre}
+              {saint.eglisePatronale && ` — ${saint.eglisePatronale}`}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Pâques : message festif */}
+      {jour.estPaques && (
+        <div
+          className="text-center py-6 rounded-2xl"
+          style={{ backgroundColor: '#FEF9E7' }}
+        >
+          <Sun className="w-10 h-10 mx-auto mb-3" style={{ color: COLORS.accent }} />
+          <p className="text-2xl font-bold" style={{ color: COLORS.accent }}>
+            Joyeuses Pâques !
+          </p>
+          <p className="text-sm mt-1" style={{ color: '#92700C' }}>
+            Jésus est ressuscité !
+          </p>
+        </div>
+      )}
+
+      {/* Action / résumé du jour */}
+      <div
+        className="rounded-2xl p-5"
+        style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
+      >
+        <div className="flex items-start gap-3">
+          <CalendarDays className="w-5 h-5 mt-0.5 shrink-0" style={{ color: COLORS.active }} />
+          <p className="text-base leading-relaxed font-medium" style={{ color: COLORS.text }}>
+            {jour.contenu}
+          </p>
+        </div>
+      </div>
+
+      {/* Citation biblique */}
+      {jour.citationBiblique && (
+        <div
+          className="border-l-4 pl-5 py-3"
+          style={{ borderColor: COLORS.accent }}
+        >
+          <p
+            className="text-lg italic leading-relaxed"
+            style={{ color: COLORS.text, fontFamily: 'var(--font-crimson)' }}
+          >
+            {jour.citationBiblique}
+          </p>
+          {jour.verset && (
+            <p className="text-sm mt-3 font-medium" style={{ color: COLORS.active }}>
+              {jour.verset}
             </p>
           )}
         </div>
+      )}
 
-        {/* Contenu */}
-        <div className="p-6">
-          {/* Résumé du jour (grille) */}
-          <div className="rounded-2xl p-5 mb-6" style={{ backgroundColor: COLORS.lightBg }}>
-            <p className="text-lg leading-relaxed font-medium" style={{ color: COLORS.text }}>
-              {jour.contenu}
+      {/* Méditation */}
+      {jour.meditation && (
+        <div
+          className="rounded-2xl p-5"
+          style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <BookOpen className="w-4 h-4" style={{ color: COLORS.active }} />
+            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: COLORS.active }}>
+              Méditation
             </p>
           </div>
+          <p
+            className="leading-relaxed"
+            style={{ color: COLORS.textLight, fontSize: '17px', lineHeight: '1.75' }}
+          >
+            {jour.meditation}
+          </p>
+        </div>
+      )}
 
-          {/* Citation biblique */}
-          {jour.citationBiblique && (
-            <div className="mb-6 border-l-4 pl-4 py-2" style={{ borderColor: COLORS.accent }}>
-              <p className="italic leading-relaxed" style={{ color: COLORS.text }}>
-                {jour.citationBiblique}
+      {/* Prière */}
+      {jour.priere && (
+        <div
+          className="rounded-2xl p-5"
+          style={{ backgroundColor: '#FEF9E7' }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <Heart className="w-4 h-4" style={{ color: '#92700C' }} />
+            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#92700C' }}>
+              Prière
+            </p>
+          </div>
+          <p
+            className="italic leading-relaxed"
+            style={{ color: '#92700C', fontSize: '17px', lineHeight: '1.75', fontFamily: 'var(--font-crimson)' }}
+          >
+            {jour.priere}
+          </p>
+        </div>
+      )}
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════
+// ZONE B variante : Dimanche (fiche saint + PDFs)
+// ═══════════════════════════════════════════════════════════
+
+function TodaySunday({
+  jour,
+  saint,
+  semaine
+}: {
+  jour: JourCareme
+  saint: SaintCoach | undefined
+  semaine: SemaineCareme | undefined
+}) {
+  const dateFormatee = new Date(jour.date).toLocaleDateString('fr-CH', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  })
+
+  return (
+    <section className="space-y-6 mt-2">
+      {/* En-tête */}
+      <div className="text-center space-y-2">
+        <p className="text-sm capitalize" style={{ color: COLORS.textLight }}>
+          {dateFormatee}
+        </p>
+        <h2 className="text-2xl md:text-3xl font-bold" style={{ color: COLORS.text }}>
+          Jour {jour.jour}
+        </h2>
+        {semaine && (
+          <p className="text-sm font-medium" style={{ color: COLORS.active }}>
+            {semaine.nom} — {semaine.theme}
+          </p>
+        )}
+      </div>
+
+      {/* Fiche saint complète */}
+      {saint && (
+        <div
+          className="rounded-2xl overflow-hidden"
+          style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
+        >
+          {/* Image du saint */}
+          {saint.image && (
+            <div className="aspect-[4/3] relative overflow-hidden">
+              <Image
+                src={saint.image}
+                alt={`Fiche identité ${saint.nom}`}
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
+          )}
+
+          <div className="p-5 space-y-4">
+            {/* Nom et titre */}
+            <div>
+              <h3 className="text-xl font-bold" style={{ color: COLORS.text }}>
+                {saint.nom}
+              </h3>
+              <p className="font-medium" style={{ color: COLORS.active }}>
+                {saint.titre}
               </p>
-              {jour.verset && (
-                <p className="text-sm mt-2 font-medium" style={{ color: COLORS.active }}>
-                  {jour.verset}
+              {saint.eglisePatronale && (
+                <p className="text-sm flex items-center gap-1 mt-1" style={{ color: COLORS.textLight }}>
+                  <Church className="w-3.5 h-3.5" />
+                  Patron de {saint.eglisePatronale}
                 </p>
               )}
             </div>
-          )}
 
-          {/* Méditation */}
-          {jour.meditation && (
-            <div className="mb-6">
-              <p className="leading-relaxed" style={{ color: COLORS.textLight }}>
-                {jour.meditation}
-              </p>
-            </div>
-          )}
+            {/* Description */}
+            <p className="leading-relaxed" style={{ color: COLORS.textLight, fontSize: '16px', lineHeight: '1.7' }}>
+              {saint.description}
+            </p>
 
-          {/* Prière */}
-          {jour.priere && (
-            <div className="rounded-xl p-4 mb-6" style={{ backgroundColor: '#FEF9E7' }}>
-              <p className="text-sm font-medium mb-2" style={{ color: '#92700C' }}>
-                Prière
-              </p>
-              <p className="italic leading-relaxed" style={{ color: '#92700C' }}>
-                {jour.priere}
-              </p>
-            </div>
-          )}
-
-          {/* Section Saint (pour les dimanches et jours spéciaux comme le Mercredi des Cendres) */}
-          {(jour.estDimanche || jour.estJourSaint) && saint && (
-            <div className="border-t pt-6">
-              {/* Image fiche complète du saint */}
-              {saint.image && (
-                <div className="mb-6 rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src={saint.image}
-                    alt={`Fiche identité ${saint.nom}`}
-                    width={800}
-                    height={1200}
-                    className="w-full h-auto"
-                    priority
-                  />
-                </div>
-              )}
-
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-md shrink-0">
-                  {saint.image ? (
-                    <Image
-                      src={saint.image}
-                      alt={saint.nom}
-                      width={64}
-                      height={64}
-                      className="w-full h-full object-cover object-top"
-                    />
-                  ) : (
-                    <div
-                      className="w-full h-full flex items-center justify-center text-white text-2xl font-bold"
-                      style={{ background: `linear-gradient(to bottom right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
-                    >
-                      {saint.nom.charAt(0)}
-                    </div>
-                  )}
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg" style={{ color: COLORS.text }}>
-                    {saint.nom}
-                  </h3>
-                  <p style={{ color: COLORS.active }}>{saint.titre}</p>
-                  {saint.eglisePatronale && (
-                    <p className="text-sm flex items-center gap-1" style={{ color: COLORS.textLight }}>
-                      <Church className="w-3 h-3" />
-                      Patron de {saint.eglisePatronale}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <p className="mb-4" style={{ color: COLORS.textLight }}>
-                {saint.description}
-              </p>
-
-              <div className="rounded-xl p-4 mb-6" style={{ backgroundColor: '#FEF9E7' }}>
-                <p className="text-sm italic" style={{ color: '#92700C' }}>
-                  "{saint.priere}"
+            {/* Prière du saint */}
+            <div
+              className="rounded-xl p-4"
+              style={{ backgroundColor: '#FEF9E7' }}
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <Heart className="w-4 h-4" style={{ color: '#92700C' }} />
+                <p className="text-sm font-semibold" style={{ color: '#92700C' }}>
+                  Prière
                 </p>
               </div>
+              <p
+                className="italic leading-relaxed"
+                style={{ color: '#92700C', fontFamily: 'var(--font-crimson)' }}
+              >
+                &laquo; {saint.priere} &raquo;
+              </p>
+            </div>
 
-              {/* Boutons téléchargement */}
+            {/* Boutons téléchargement */}
+            <div className="pt-2">
+              <p className="text-sm font-medium mb-3" style={{ color: COLORS.text }}>
+                Activités pour les enfants :
+              </p>
               <div className="space-y-2">
-                <p className="text-sm font-medium mb-3" style={{ color: COLORS.text }}>
-                  Activités pour les enfants :
-                </p>
                 <DownloadButton
                   icon={<Palette className="w-4 h-4" />}
                   label="Coloriage"
@@ -469,6 +470,230 @@ function JourModal({
                 />
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Méditation dimanche (certains dimanches en ont) */}
+      {jour.meditation && (
+        <div
+          className="rounded-2xl p-5"
+          style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <BookOpen className="w-4 h-4" style={{ color: COLORS.active }} />
+            <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: COLORS.active }}>
+              Méditation
+            </p>
+          </div>
+          <p
+            className="leading-relaxed"
+            style={{ color: COLORS.textLight, fontSize: '17px', lineHeight: '1.75' }}
+          >
+            {jour.meditation}
+          </p>
+        </div>
+      )}
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════
+// ZONE C : Piste de la semaine
+// ═══════════════════════════════════════════════════════════
+
+function WeekStrip({
+  jours,
+  jourActif,
+  semaine
+}: {
+  jours: JourCareme[]
+  jourActif: number
+  semaine: SemaineCareme
+}) {
+  const saint = getSaintById(semaine.saintCoachId)
+
+  return (
+    <section className="mt-10 mb-8">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-sm font-semibold uppercase tracking-wide" style={{ color: COLORS.textLight }}>
+          {semaine.nom}
+        </h3>
+        {saint && (
+          <span className="text-xs" style={{ color: COLORS.active }}>
+            {saint.nom}
+          </span>
+        )}
+      </div>
+
+      {/* Trail horizontal */}
+      <div className="flex items-center justify-between relative">
+        {/* Ligne de fond */}
+        <div
+          className="absolute top-1/2 left-0 right-0 h-0.5 -translate-y-1/2"
+          style={{ backgroundColor: COLORS.activeRing }}
+        />
+
+        {jours.map((jour) => {
+          const etat = getEtatJour(jour.date, DATE_DEMO)
+          const isActif = jour.jour === jourActif
+          const jourDate = new Date(jour.date)
+          const jourDuMois = jourDate.getDate()
+          const jourLabel = jour.jourSemaine.slice(0, 2)
+
+          return (
+            <div key={jour.jour} className="flex flex-col items-center relative z-10">
+              <span
+                className="text-xs mb-1 font-medium"
+                style={{ color: isActif ? COLORS.active : COLORS.textLight }}
+              >
+                {jourLabel}
+              </span>
+              <div
+                className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold transition-all"
+                style={{
+                  backgroundColor: isActif
+                    ? COLORS.active
+                    : etat === 'complete'
+                      ? COLORS.complete
+                      : 'white',
+                  color: etat === 'verrouille' ? COLORS.textLight : 'white',
+                  boxShadow: isActif
+                    ? `0 0 0 3px ${COLORS.activeRing}, 0 4px 12px rgba(139,124,179,0.3)`
+                    : etat === 'verrouille'
+                      ? 'inset 0 0 0 1px #e5e7eb'
+                      : 'none',
+                  ...(jour.estDimanche ? { border: `2px solid ${COLORS.accent}` } : {})
+                }}
+              >
+                {jourDuMois}
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════
+// ZONE D : Journal des jours passés
+// ═══════════════════════════════════════════════════════════
+
+function PastDaysJournal({
+  jours,
+  expandedJour,
+  onToggle
+}: {
+  jours: JourCareme[]
+  expandedJour: number | null
+  onToggle: (num: number) => void
+}) {
+  return (
+    <section>
+      <h3
+        className="text-sm font-semibold uppercase tracking-wide mb-4"
+        style={{ color: COLORS.textLight }}
+      >
+        Jours précédents
+      </h3>
+      <div className="space-y-2">
+        {jours.map((jour) => (
+          <PastDayCard
+            key={jour.jour}
+            jour={jour}
+            isExpanded={expandedJour === jour.jour}
+            onToggle={() => onToggle(jour.jour)}
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function PastDayCard({
+  jour,
+  isExpanded,
+  onToggle
+}: {
+  jour: JourCareme
+  isExpanded: boolean
+  onToggle: () => void
+}) {
+  const dateFormatee = new Date(jour.date).toLocaleDateString('fr-CH', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short'
+  })
+
+  return (
+    <div
+      className="rounded-xl overflow-hidden transition-colors"
+      style={{ backgroundColor: 'white', boxShadow: '0 1px 2px rgba(0,0,0,0.05)' }}
+    >
+      <button
+        onClick={onToggle}
+        aria-expanded={isExpanded}
+        className="w-full flex items-center gap-3 p-3 text-left"
+      >
+        <div
+          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold shrink-0"
+          style={{ backgroundColor: COLORS.complete, color: 'white' }}
+        >
+          {jour.jour}
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-medium truncate" style={{ color: COLORS.text }}>
+            {jour.contenu}
+          </p>
+          <p className="text-xs capitalize" style={{ color: COLORS.textLight }}>
+            {dateFormatee}
+          </p>
+        </div>
+        <ChevronDown
+          className="w-4 h-4 shrink-0 transition-transform duration-200"
+          style={{
+            color: COLORS.textLight,
+            transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'
+          }}
+        />
+      </button>
+
+      {/* Contenu dépliable */}
+      <div
+        className="overflow-hidden transition-all duration-300"
+        style={{ maxHeight: isExpanded ? '800px' : '0' }}
+      >
+        <div className="px-4 pb-4 pt-1 space-y-3">
+          {jour.citationBiblique && (
+            <div className="border-l-2 pl-3 py-1" style={{ borderColor: COLORS.accent }}>
+              <p
+                className="text-sm italic leading-relaxed"
+                style={{ color: COLORS.text, fontFamily: 'var(--font-crimson)' }}
+              >
+                {jour.citationBiblique}
+              </p>
+              {jour.verset && (
+                <p className="text-xs mt-1 font-medium" style={{ color: COLORS.active }}>
+                  {jour.verset}
+                </p>
+              )}
+            </div>
+          )}
+          {jour.meditation && (
+            <p className="text-sm leading-relaxed" style={{ color: COLORS.textLight }}>
+              {jour.meditation}
+            </p>
+          )}
+          {jour.priere && (
+            <div className="rounded-lg p-3" style={{ backgroundColor: '#FEF9E7' }}>
+              <p
+                className="text-sm italic leading-relaxed"
+                style={{ color: '#92700C', fontFamily: 'var(--font-crimson)' }}
+              >
+                {jour.priere}
+              </p>
+            </div>
           )}
         </div>
       </div>
@@ -476,7 +701,10 @@ function JourModal({
   )
 }
 
-// Bouton de téléchargement
+// ═══════════════════════════════════════════════════════════
+// Bouton de téléchargement (conservé)
+// ═══════════════════════════════════════════════════════════
+
 function DownloadButton({
   icon,
   label,
@@ -504,5 +732,227 @@ function DownloadButton({
       <span className="flex-1" style={{ color: COLORS.text }}>{label}</span>
       <Download className="w-4 h-4" style={{ color: COLORS.textLight }} />
     </a>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════
+// CountdownView : Avant le Carême
+// ═══════════════════════════════════════════════════════════
+
+function CountdownView({ aujourdhui }: { aujourdhui: Date }) {
+  const joursRestants = Math.ceil(
+    (normalizeDate(DATE_DEBUT).getTime() - aujourdhui.getTime()) / (1000 * 60 * 60 * 24)
+  )
+
+  return (
+    <div
+      className="min-h-screen flex flex-col"
+      style={{ background: `linear-gradient(to bottom, ${COLORS.bgFrom}, ${COLORS.bgTo})` }}
+    >
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-12">
+        <div className="text-center space-y-4 max-w-md">
+          <p className="text-sm uppercase tracking-wider font-medium" style={{ color: COLORS.active }}>
+            Carême 2026
+          </p>
+          <h1 className="text-3xl md:text-4xl font-bold" style={{ color: COLORS.text }}>
+            Prophète ? Moi ?
+          </h1>
+          <p style={{ color: COLORS.textLight }}>
+            47 jours pour devenir porte-parole de Dieu
+          </p>
+
+          <div className="py-6">
+            <div
+              className="inline-flex items-center justify-center w-24 h-24 rounded-full text-white"
+              style={{ background: `linear-gradient(to bottom right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
+            >
+              <div className="text-center">
+                <span className="text-3xl font-bold block">{joursRestants}</span>
+                <span className="text-xs text-white/80">
+                  {joursRestants === 1 ? 'jour' : 'jours'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-sm" style={{ color: COLORS.textLight }}>
+            Le Carême commence le 18 février
+          </p>
+        </div>
+
+        {/* Aperçu des 7 saints coachs */}
+        <div className="mt-10 w-full max-w-md">
+          <p
+            className="text-sm font-semibold uppercase tracking-wide mb-4 text-center"
+            style={{ color: COLORS.textLight }}
+          >
+            Vos 7 saints coachs
+          </p>
+          <div className="flex justify-center flex-wrap gap-3">
+            {SAINTS_COACHS.map((saint) => (
+              <div key={saint.id} className="flex flex-col items-center gap-1">
+                <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                  {saint.image ? (
+                    <Image
+                      src={saint.image}
+                      alt={saint.nom}
+                      width={48}
+                      height={48}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full flex items-center justify-center text-white text-sm font-bold"
+                      style={{ background: `linear-gradient(to bottom right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
+                    >
+                      {saint.nom.charAt(0)}
+                    </div>
+                  )}
+                </div>
+                <span className="text-xs text-center max-w-[60px] leading-tight" style={{ color: COLORS.textLight }}>
+                  {saint.nom.split(' ').pop()}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════
+// CompletedView : Après Pâques (navigation libre)
+// ═══════════════════════════════════════════════════════════
+
+function CompletedView({
+  browseJour,
+  setBrowseJour
+}: {
+  browseJour: number | null
+  setBrowseJour: (j: number | null) => void
+}) {
+  const selectedJour = browseJour
+    ? JOURS_CAREME.find(j => j.jour === browseJour)
+    : null
+
+  return (
+    <div
+      className="min-h-screen"
+      style={{ background: `linear-gradient(to bottom, ${COLORS.bgFrom}, ${COLORS.bgTo})` }}
+    >
+      <header
+        className="text-white py-6 px-4 text-center"
+        style={{ background: `linear-gradient(to right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
+      >
+        <p className="text-white/70 text-sm uppercase tracking-wider mb-1">
+          Carême 2026
+        </p>
+        <h1 className="text-2xl md:text-3xl font-bold">
+          Prophète ? Moi ?
+        </h1>
+        <p className="text-white/80 text-sm mt-1">
+          Le chemin est accompli. Relisez les 47 jours.
+        </p>
+      </header>
+
+      <main className="max-w-2xl mx-auto px-4 py-6">
+        {/* Contenu sélectionné */}
+        {selectedJour && (
+          <div className="mb-8">
+            <button
+              onClick={() => setBrowseJour(null)}
+              className="text-sm mb-4 font-medium"
+              style={{ color: COLORS.active }}
+            >
+              Retour à la liste
+            </button>
+            <TodaySection
+              jour={selectedJour}
+              saint={getSaintById(selectedJour.saintCoachId)}
+              semaine={SEMAINES_CAREME.find(s => {
+                const debut = new Date(s.dateDebut)
+                const fin = new Date(s.dateFin)
+                const d = new Date(selectedJour.date)
+                return d >= debut && d <= fin
+              })}
+            />
+          </div>
+        )}
+
+        {/* Liste des 47 jours */}
+        {!selectedJour && (
+          <div className="space-y-2">
+            {SEMAINES_CAREME.map((semaine) => {
+              const saint = getSaintById(semaine.saintCoachId)
+              const jours = getJoursParSemaine(semaine.numero)
+
+              return (
+                <div key={semaine.numero}>
+                  <div className="flex items-center gap-2 py-3">
+                    {saint && saint.image && (
+                      <div className="w-8 h-8 rounded-full overflow-hidden border border-white shadow-sm shrink-0">
+                        <Image
+                          src={saint.image}
+                          alt={saint.nom}
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-cover object-top"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <p className="text-sm font-semibold" style={{ color: COLORS.text }}>
+                        {semaine.nom}
+                      </p>
+                      {semaine.theme && (
+                        <p className="text-xs" style={{ color: COLORS.textLight }}>
+                          {semaine.theme}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="space-y-1 mb-4">
+                    {jours.map((jour) => {
+                      const dateFormatee = new Date(jour.date).toLocaleDateString('fr-CH', {
+                        weekday: 'short',
+                        day: 'numeric',
+                        month: 'short'
+                      })
+                      return (
+                        <button
+                          key={jour.jour}
+                          onClick={() => setBrowseJour(jour.jour)}
+                          className="w-full flex items-center gap-3 p-2.5 rounded-lg text-left transition-colors hover:bg-white/80"
+                          style={{ backgroundColor: 'white', boxShadow: '0 1px 2px rgba(0,0,0,0.04)' }}
+                        >
+                          <div
+                            className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold shrink-0"
+                            style={{
+                              backgroundColor: jour.estPaques ? COLORS.accent : COLORS.complete,
+                              color: 'white'
+                            }}
+                          >
+                            {jour.jour}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm truncate" style={{ color: COLORS.text }}>
+                              {jour.contenu}
+                            </p>
+                          </div>
+                          <span className="text-xs shrink-0 capitalize" style={{ color: COLORS.textLight }}>
+                            {dateFormatee}
+                          </span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
+      </main>
+    </div>
   )
 }
