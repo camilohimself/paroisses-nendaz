@@ -244,11 +244,11 @@ export const JOURS_CAREME: JourCareme[] = [
   },
   {
     jour: 13, date: '2026-03-02', jourSemaine: 'Lundi',
-    contenu: 'Ô Viens Esprit Saint en mon cœur.',
+    contenu: 'Viens, Esprit Saint, en mon cœur.',
     verset: 'Luc 3, 22',
     citationBiblique: '« L\'Esprit Saint, sous une apparence corporelle, comme une colombe, descendit sur Jésus, et il y eut une voix venant du ciel : « Toi, tu es mon Fils bien-aimé ; en toi, je trouve ma joie. » »',
     meditation: 'Je lis à voix haute ce verset et je dialogue avec Dieu (Père, Jésus, Esprit Saint) au sujet de cette Parole. Comment cette Parole est-elle Bonne Nouvelle pour ma vie ? Celle des autres ? Comment puis-je la partager autour de moi, par ma vie ?',
-    priere: 'Ô viens Esprit Saint en mon cœur, en ma vie !',
+    priere: 'Viens, Esprit Saint, en mon cœur, en ma vie !',
     saintCoachId: 'leger', estDimanche: false
   },
   {
@@ -257,7 +257,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Matthieu 5, 5',
     citationBiblique: '« Heureux les doux, car ils recevront la terre en héritage. »',
     meditation: 'Je lis à voix haute ce verset et je dialogue avec Dieu (Père, Jésus, Esprit Saint) au sujet de cette Parole. Comment cette Parole est-elle Bonne Nouvelle pour ma vie ? Celle des autres ? Comment puis-je la partager autour de moi, par ma vie ?',
-    priere: 'Ô viens Esprit Saint en mon cœur, en ma vie !',
+    priere: 'Viens, Esprit Saint, en mon cœur, en ma vie !',
     saintCoachId: 'leger', estDimanche: false
   },
   {
@@ -266,7 +266,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Jean 5, 8',
     citationBiblique: '« Lève-toi, prends ton brancard, et marche. »',
     meditation: 'Je lis à voix haute ce verset et je dialogue avec Dieu (Père, Jésus, Esprit Saint) au sujet de cette Parole. Comment cette Parole est-elle Bonne Nouvelle pour ma vie ? Celle des autres ? Comment puis-je la partager autour de moi, par ma vie ?',
-    priere: 'Ô viens Esprit Saint en mon cœur, en ma vie !',
+    priere: 'Viens, Esprit Saint, en mon cœur, en ma vie !',
     saintCoachId: 'leger', estDimanche: false
   },
   {
@@ -275,16 +275,16 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Matthieu 25, 40',
     citationBiblique: '« Amen, je vous le dis : chaque fois que vous l\'avez fait à l\'un de ces plus petits de mes frères, c\'est à moi que vous l\'avez fait. »',
     meditation: 'Je lis à voix haute ce verset et je dialogue avec Dieu (Père, Jésus, Esprit Saint) au sujet de cette Parole. Comment cette Parole est-elle Bonne Nouvelle pour ma vie ? Celle des autres ? Comment puis-je la partager autour de moi, par ma vie ?',
-    priere: 'Ô viens Esprit Saint en mon cœur, en ma vie !',
+    priere: 'Viens, Esprit Saint, en mon cœur, en ma vie !',
     saintCoachId: 'leger', estDimanche: false
   },
   {
     jour: 17, date: '2026-03-06', jourSemaine: 'Vendredi',
-    contenu: 'Ô viens Esprit Saint en mon cœur, en ma vie !',
+    contenu: 'Viens, Esprit Saint, en mon cœur, en ma vie !',
     verset: 'Jean 15, 16',
     citationBiblique: '« Ce n\'est pas vous qui m\'avez choisi, c\'est moi qui vous ai choisis et établis, afin que vous alliez, que vous portiez du fruit, et que votre fruit demeure. »',
     meditation: 'Je lis à voix haute ce verset et je dialogue avec Dieu (Père, Jésus, Esprit Saint) au sujet de cette Parole. Comment cette Parole est-elle Bonne Nouvelle pour ma vie ? Celle des autres ? Comment puis-je la partager autour de moi, par ma vie ?',
-    priere: 'Ô viens Esprit Saint en mon cœur, en ma vie !',
+    priere: 'Viens, Esprit Saint, en mon cœur, en ma vie !',
     saintCoachId: 'leger', estDimanche: false
   },
   {
@@ -293,7 +293,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Marc 6, 31',
     citationBiblique: '« Venez à l\'écart dans un endroit désert, et reposez-vous un peu. »',
     meditation: 'Je lis à voix haute ce verset et je dialogue avec Dieu (Père, Jésus, Esprit Saint) au sujet de cette Parole. Comment cette Parole est-elle Bonne Nouvelle pour ma vie ? Celle des autres ? Comment puis-je la partager autour de moi, par ma vie ?',
-    priere: 'Ô viens Esprit Saint en mon cœur, en ma vie !',
+    priere: 'Viens, Esprit Saint, en mon cœur, en ma vie !',
     saintCoachId: 'leger', estDimanche: false
   },
 
