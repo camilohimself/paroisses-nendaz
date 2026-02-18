@@ -498,23 +498,23 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Il est écrit : Soyez toujours dans la joie du Seigneur.',
     verset: 'Sophonie 3, 17 / Philippiens 4, 4',
     citationBiblique: '« Le Seigneur ton Dieu est en toi, c\'est lui, le héros qui apporte le salut. Il aura en toi sa joie et son allégresse, il te renouvellera par son amour ; il exultera pour toi et se réjouira… » — « Soyez toujours dans la joie du Seigneur ; je le redis : soyez dans la joie. »',
-    priere: 'Ô Jésus, merci d\'être en moi et d\'être au milieu de nous en tant que communauté. Merci de nous libérer, de nous sauver. Viens nous renouveler par ton amour puis comme une fontaine, remplie à ras bord, déverse son eau, donne-nous la grâce de devenir prophète de la joie…',
+    priere: 'Jésus, merci d\'être en moi et d\'être au milieu de nous. Merci de nous libérer, de nous sauver. Viens nous renouveler par ton amour et, comme une fontaine remplie à ras bord déverse son eau, donne-nous la grâce de devenir prophètes de la joie…',
     saintCoachId: 'christ-roi', estDimanche: false
   },
   {
     jour: 42, date: '2026-03-31', jourSemaine: 'Mardi',
-    contenu: 'Ô Jésus, merci pour ta Parole, merci d\'être parole.',
+    contenu: 'Jésus, merci pour ta Parole, merci d\'être parole.',
     verset: 'Psaume 118, 102-103',
     citationBiblique: '« De tes décisions, je ne veux pas m\'écarter, car c\'est toi qui m\'enseignes. Qu\'elle est douce à mon palais ta promesse : le miel a moins de saveur dans ma bouche ! »',
-    priere: 'Ô Jésus, merci pour ta Parole, merci d\'être parole. Fais de moi un prophète selon ton Évangile…',
+    priere: 'Jésus, merci pour ta Parole, merci d\'être parole. Fais de moi un prophète selon ton Évangile…',
     saintCoachId: 'christ-roi', estDimanche: false
   },
   {
     jour: 43, date: '2026-04-01', jourSemaine: 'Mercredi',
-    contenu: 'Ô Jésus, apprends-moi à aimer… Fais de moi un prophète de l\'amour…',
+    contenu: 'Jésus, apprends-moi à aimer… Fais de moi un prophète de l\'amour…',
     verset: '1 Corinthiens 13, 2.4-8',
     citationBiblique: '« J\'aurais beau être prophète, avoir toute la science des mystères et toute la connaissance de Dieu, j\'aurais beau avoir toute la foi jusqu\'à transporter les montagnes, s\'il me manque l\'amour, je ne suis rien… L\'amour prend patience ; l\'amour rend service ; l\'amour ne jalouse pas ; il ne se vante pas, ne se gonfle pas d\'orgueil ; il ne fait rien d\'inconvenant ; il ne cherche pas son intérêt ; il ne s\'emporte pas ; il n\'entretient pas de rancune ; il ne se réjouit pas de ce qui est injuste, mais il trouve sa joie dans ce qui est vrai ; il supporte tout, il fait confiance en tout, il espère tout, il endure tout. L\'amour ne passera jamais. »',
-    priere: 'Ô Jésus, apprends-moi à aimer… Fais de moi un prophète de l\'amour…',
+    priere: 'Jésus, apprends-moi à aimer… Fais de moi un prophète de l\'amour…',
     saintCoachId: 'christ-roi', estDimanche: false
   },
   {
@@ -522,7 +522,7 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Si je peux, je participe à la célébration à Basse-Nendaz.',
     verset: 'Jean 6, 48',
     citationBiblique: '« Moi, je suis le pain de la vie. »',
-    priere: 'Ô Jésus, tu te fais pour moi nourriture et vie. Merci ! Viens habiter en moi, viens ajouter de la vie à mes jours. Fais de moi un prophète qui permet à la vie de grandir…',
+    priere: 'Jésus, tu te fais pour moi nourriture et vie. Merci ! Viens habiter en moi, viens ajouter de la vie à mes jours. Fais de moi un prophète qui permet à la vie de grandir…',
     saintCoachId: 'christ-roi', estDimanche: false
   },
   {
@@ -530,15 +530,15 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Si je peux, je fais un chemin de croix.',
     verset: 'Luc 23, 46',
     citationBiblique: '« Père, entre tes mains je remets mon esprit. »',
-    meditation: 'Ô Jésus, tu as tout donné. Merci ! Je fais une minute de silence pour accueillir l\'amour de Jésus.',
+    meditation: 'Jésus, tu as tout donné. Merci ! Je fais une minute de silence pour accueillir ton amour.',
     saintCoachId: 'christ-roi', estDimanche: false
   },
   {
     jour: 46, date: '2026-04-04', jourSemaine: 'Samedi',
-    contenu: 'Ô Jésus, donne-moi une âme qui sait veiller…',
+    contenu: 'Jésus, donne-moi une âme qui sait veiller…',
     verset: '1 Corinthiens 13, 13',
     citationBiblique: '« Ce qui demeure aujourd\'hui, c\'est la foi, l\'espérance et la charité… »',
-    priere: 'Ô Jésus, donne-moi une âme qui sait veiller…',
+    priere: 'Jésus, donne-moi une âme qui sait veiller…',
     saintCoachId: 'christ-roi', estDimanche: false
   },
   {
@@ -546,8 +546,8 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Jésus est ressuscité !',
     verset: '1 Corinthiens 15, 12',
     citationBiblique: '« Nous proclamons que le Christ est ressuscité d\'entre les morts. »',
-    meditation: 'Jésus est ressuscité et tout change… La vie est vainqueure de la mort, Alléluia ! La confiance est vainqueure de la peur, Alléluia ! L\'amour est vainqueur de la violence, Alléluia !',
-    priere: 'Ô Jésus, c\'est toi, notre Dieu, c\'est toi notre force, c\'est toi notre victoire ! Merci !',
+    meditation: 'Jésus est ressuscité et tout change… La vie est victorieuse de la mort, Alléluia ! La confiance est victorieuse de la peur, Alléluia ! L\'amour est victorieux de la violence, Alléluia !',
+    priere: 'Jésus, c\'est toi notre Dieu, c\'est toi notre force, c\'est toi notre victoire ! Merci !',
     saintCoachId: 'christ-roi', estDimanche: true, estPaques: true
   }
 ]
