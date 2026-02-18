@@ -311,8 +311,8 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Je lis en famille un passage de la Bible : Hébreux 4, 12.',
     verset: 'Hébreux 4, 12',
     citationBiblique: '« Elle est vivante, la parole de Dieu, et énergique. »',
-    meditation: 'La parole de Dieu est vivante, elle féconde chaque période de la vie, chaque siècle. Un prophète n\'est pas crispé sur le passé mais il puise dans la Parole de Dieu, la semence pour féconder sa vie et rendre féconde la vie qui l\'entoure.',
-    priere: 'Merci Seigneur pour les repères, les trésors que j\'ai reçus par ta Parole. Merci pour la puissance et la liberté qu\'elle me donne…',
+    meditation: 'La Parole de Dieu est vivante, elle féconde chaque période de la vie, chaque siècle. Un prophète n\'est pas crispé sur le passé : il puise dans la Parole de Dieu la semence pour nourrir sa vie et rendre féconde la vie qui l\'entoure.',
+    priere: 'Merci, Seigneur, pour les repères et les trésors que j\'ai reçus par ta Parole. Merci pour la puissance et la liberté qu\'elle me donne…',
     saintCoachId: 'nicolas-flue', estDimanche: false
   },
   {
@@ -320,15 +320,15 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Aujourd\'hui, je fais quelque chose d\'inattendu pour faire plaisir à quelqu\'un.',
     verset: 'Luc 1, 35',
     citationBiblique: '« L\'Esprit Saint viendra sur toi, et la puissance du Très-Haut te prendra sous son ombre ; c\'est pourquoi celui qui va naître sera saint, il sera appelé Fils de Dieu. »',
-    meditation: 'Un.e prophète vit sous la mouvance de l\'Esprit Saint et est souvent appelé.e à l\'inattendu. Il ou elle est rempli.e de Dieu, c\'est pourquoi ce que cette personne dit ou fait vient de Dieu. Il ou elle ne parle pas en son nom, ni ne donne un cours de morale. Elle habite et transmet l\'espérance, la justice, l\'amour, la joie qui vient de Dieu.',
-    priere: 'Merci Seigneur pour ta Parole, merci pour la force, l\'espérance, la joie que tu nous donnes. Ô viens Esprit Saint, viens m\'éclairer… Apprends-moi comment je pourrais être, aujourd\'hui, prophète du Dieu vivant.',
+    meditation: 'Un prophète vit sous la mouvance de l\'Esprit Saint et est souvent appelé à l\'inattendu. Rempli de Dieu, ce que cette personne dit ou fait vient de Dieu. Elle ne parle pas en son nom, ni ne donne un cours de morale. Elle habite et transmet l\'espérance, la justice, l\'amour, la joie qui viennent de Dieu.',
+    priere: 'Merci, Seigneur, pour ta Parole, merci pour la force, l\'espérance, la joie que tu nous donnes. Viens, Esprit Saint, viens m\'éclairer… Apprends-moi comment je pourrais être, aujourd\'hui, prophète du Dieu vivant.',
     saintCoachId: 'nicolas-flue', estDimanche: false
   },
   {
     jour: 22, date: '2026-03-11', jourSemaine: 'Mercredi',
-    contenu: 'Merci Jésus, pour tout ce que tu m\'as appris dans ma vie.',
+    contenu: 'Merci, Jésus, pour tout ce que tu m\'as appris dans ma vie.',
     meditation: 'Les prophètes ont su lire dans les événements de leur vie personnelle la volonté, la parole de Dieu. Qu\'est-ce que les événements de ma vie m\'ont appris ?',
-    priere: 'Merci Seigneur, pour tout ce que tu m\'as appris dans ma vie. (Je cherche 3 exemples.) Merci pour les personnes que tu as mises sur mon chemin qui m\'ont aidé.e, qui m\'aident à me construire. Donne-moi ton Esprit pour que je puisse comprendre ce que tu attends de moi, de ma vie, de ce que j\'ai à vivre aujourd\'hui.',
+    priere: 'Merci, Seigneur, pour tout ce que tu m\'as appris dans ma vie. (Je cherche 3 exemples.) Merci pour les personnes que tu as mises sur mon chemin, celles qui m\'ont aidé et celles qui m\'aident encore à me construire. Donne-moi ton Esprit pour que je puisse comprendre ce que tu attends de moi, de ma vie, de ce que j\'ai à vivre aujourd\'hui.',
     saintCoachId: 'nicolas-flue', estDimanche: false
   },
   {
@@ -337,7 +337,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Jean 1, 14',
     citationBiblique: '« Et le Verbe s\'est fait chair, il a habité parmi nous… »',
     meditation: 'Comme Jésus, c\'est par toute sa vie et non seulement par ses paroles qu\'un prophète parle…',
-    priere: 'Ô Seigneur, transforme mon cœur, ma vie à ton image… Aide-moi à sourire, à toujours croire en la vie, à faire confiance à ton amour, à accomplir les plus petites choses avec un grand amour… Aide-moi à vivre l\'Évangile.',
+    priere: 'Seigneur, transforme mon cœur et ma vie à ton image… Aide-moi à sourire, à toujours croire en la vie, à faire confiance à ton amour, à accomplir les plus petites choses avec un grand amour… Aide-moi à vivre l\'Évangile.',
     saintCoachId: 'nicolas-flue', estDimanche: false
   },
   {
@@ -346,7 +346,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Jean 15, 13',
     citationBiblique: '« Il n\'y a pas de plus grand amour que de donner sa vie pour ceux qu\'on aime. »',
     meditation: 'Moïse, jeune homme, voit la misère de ses frères et se laisse interpeller par l\'injustice alors qu\'il a la chance de vivre dans un palais.',
-    priere: 'Seigneur, fais de moi une sœur, un frère sur qui les autres peuvent compter. Aide-moi à me faire solidaire de ceux qui sont maltraités, de ceux qui souffrent. Montre-moi comment je peux aider ceux qui souffrent autour de moi. Ô viens Esprit Saint, viens m\'aider à vivre d\'amour !',
+    priere: 'Seigneur, fais de moi un frère, une sœur sur qui les autres peuvent compter. Aide-moi à me faire solidaire de ceux qui sont maltraités, de ceux qui souffrent. Montre-moi comment les aider autour de moi. Viens, Esprit Saint, viens m\'aider à vivre d\'amour !',
     saintCoachId: 'nicolas-flue', estDimanche: false
   },
   {
