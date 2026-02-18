@@ -445,7 +445,7 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Jésus, change mon cœur pour que je puisse voir les personnes à ta manière…',
     verset: 'Jean 13, 35',
     citationBiblique: '« À ceci, tous reconnaîtront que vous êtes mes disciples : si vous avez de l\'amour les uns pour les autres. »',
-    priere: 'Ô Jésus, donne-moi un cœur humble et compatissant, un cœur qui sait voir au-delà des apparences… Convertis mon cœur pour que je puisse voir les personnes à ta manière… Merci pour mes amis, ceux qui me comprennent… Je te prie pour ceux qui me sont antipathiques, ceux qui m\'ont fait ou qui me font du mal… Ô viens Esprit Saint en mon cœur pour que je devienne soleil d\'amour dans mon quotidien…',
+    priere: 'Jésus, donne-moi un cœur humble et compatissant, un cœur qui sait voir au-delà des apparences… Convertis mon cœur pour que je puisse voir les personnes à ta manière… Merci pour mes amis, ceux qui me comprennent… Je te prie pour ceux qui me sont antipathiques, ceux qui m\'ont fait ou qui me font du mal… Viens, Esprit Saint, en mon cœur, pour que je devienne soleil d\'amour dans mon quotidien…',
     saintCoachId: 'marie-auxiliatrice', estDimanche: false
   },
   {
@@ -453,7 +453,7 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Annonciation : je cherche 3 choses que je sais faire et je remercie Jésus pour ça.',
     verset: '1 Corinthiens 12, 4-7',
     citationBiblique: '« Les dons de la grâce sont variés, mais c\'est le même Esprit. Les services sont variés, mais c\'est le même Seigneur. Les activités sont variées, mais c\'est le même Dieu qui agit en tout et en tous. À chacun est donnée la manifestation de l\'Esprit en vue du bien. »',
-    priere: 'Ô Père, merci pour ton Esprit, merci de compter sur moi, de me faire confiance. Aide-moi à découvrir et à accepter mes dons et charismes… Aide-moi à les mettre au service des autres. Que je devienne comme un vitrail et refléter ainsi ta lumière avec les couleurs que tu m\'as données. Ô Marie, la première en chemin, je viens mettre mes pas dans tes pas pour devenir avec toi, prophète de celui qui a pris corps en nous. Ô viens Esprit Saint !',
+    priere: 'Père, merci pour ton Esprit, merci de compter sur moi, de me faire confiance. Aide-moi à découvrir et à accepter mes dons et charismes… Aide-moi à les mettre au service des autres. Que je devienne comme un vitrail et reflète ta lumière avec les couleurs que tu m\'as données. Marie, première en chemin, je viens mettre mes pas dans tes pas pour devenir avec toi prophète de celui qui a pris corps en nous. Viens, Esprit Saint !',
     saintCoachId: 'marie-auxiliatrice', estDimanche: false
   },
   {
@@ -462,7 +462,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Matthieu 25, 35-36',
     citationBiblique: '« Car j\'avais faim, et vous m\'avez donné à manger ; j\'avais soif, et vous m\'avez donné à boire ; j\'étais un étranger, et vous m\'avez accueilli ; j\'étais nu, et vous m\'avez habillé ; j\'étais malade, et vous m\'avez visité ; j\'étais en prison, et vous êtes venus jusqu\'à moi ! »',
     meditation: '« Qui a des semences peut semer l\'avenir. La faim bouffe l\'avenir. » — Thème de l\'action de carême de cette année.',
-    priere: 'Ô Jésus, toi qui as passé ta vie à guérir, remettre debout, faire le bien, apprends-moi à agir comme toi…',
+    priere: 'Jésus, toi qui as passé ta vie à guérir, remettre debout, faire le bien, apprends-moi à agir comme toi…',
     saintCoachId: 'marie-auxiliatrice', estDimanche: false
   },
   {
