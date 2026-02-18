@@ -24,7 +24,9 @@ import {
   Scissors,
   Sun,
   Heart,
-  CalendarDays
+  CalendarDays,
+  X,
+  ZoomIn
 } from 'lucide-react'
 
 // Palette "Lavande Douce" - Option A
@@ -225,8 +227,8 @@ function TodaySection({
         )}
       </div>
 
-      {/* Saint coach du jour */}
-      {saint && (
+      {/* Saint coach du jour (bandeau compact, masqué si fiche complète plus bas) */}
+      {saint && !jour.estJourSaint && (
         <div
           className="flex items-center gap-3 p-3 rounded-xl"
           style={{ backgroundColor: COLORS.lightBg }}
@@ -351,7 +353,122 @@ function TodaySection({
           </p>
         </div>
       )}
+
+      {/* Fiche saint + activités enfants (jours spéciaux uniquement, en bas) */}
+      {jour.estJourSaint && saint && (
+        <SaintCard saint={saint} />
+      )}
     </section>
+  )
+}
+
+// ═══════════════════════════════════════════════════════════
+// Fiche saint réutilisable (dimanche + jours spéciaux)
+// ═══════════════════════════════════════════════════════════
+
+function SaintCard({ saint }: { saint: SaintCoach }) {
+  const [lightbox, setLightbox] = useState(false)
+
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
+    >
+      {saint.image && (
+        <>
+          <button
+            onClick={() => setLightbox(true)}
+            className="aspect-[4/3] relative overflow-hidden w-full cursor-zoom-in group"
+            aria-label={`Voir la fiche complète de ${saint.nom}`}
+          >
+            <Image
+              src={saint.image}
+              alt={`Fiche identité ${saint.nom}`}
+              fill
+              sizes="(max-width: 672px) 100vw, 640px"
+              className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+              priority
+            />
+            <div className="absolute bottom-2 right-2 bg-black/40 text-white rounded-full p-1.5 opacity-0 group-hover:opacity-100 transition-opacity">
+              <ZoomIn className="w-4 h-4" />
+            </div>
+          </button>
+
+          {/* Lightbox plein écran */}
+          {lightbox && (
+            <div
+              className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+              onClick={() => setLightbox(false)}
+            >
+              <button
+                onClick={() => setLightbox(false)}
+                className="absolute top-4 right-4 text-white/80 hover:text-white z-50 p-2"
+                aria-label="Fermer"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              <div className="relative w-full max-w-lg max-h-[90vh] aspect-[2/3]">
+                <Image
+                  src={saint.image}
+                  alt={`Fiche identité ${saint.nom}`}
+                  fill
+                  sizes="(max-width: 512px) 100vw, 512px"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          )}
+        </>
+      )}
+      <div className="p-5 space-y-4">
+        <div>
+          <h3 className="text-xl font-bold" style={{ color: COLORS.text }}>
+            {saint.nom}
+          </h3>
+          <p className="font-medium" style={{ color: COLORS.active }}>
+            {saint.titre}
+          </p>
+          {saint.eglisePatronale && (
+            <p className="text-sm flex items-center gap-1 mt-1" style={{ color: COLORS.textLight }}>
+              <Church className="w-3.5 h-3.5" />
+              Patron de {saint.eglisePatronale}
+            </p>
+          )}
+        </div>
+        <p className="leading-relaxed" style={{ color: COLORS.textLight, fontSize: '16px', lineHeight: '1.7' }}>
+          {saint.description}
+        </p>
+        <div className="rounded-xl p-4" style={{ backgroundColor: '#FEF9E7' }}>
+          <div className="flex items-center gap-2 mb-2">
+            <Heart className="w-4 h-4" style={{ color: '#92700C' }} />
+            <p className="text-sm font-semibold" style={{ color: '#92700C' }}>Prière</p>
+          </div>
+          <p
+            className="italic leading-relaxed"
+            style={{ color: '#92700C', fontFamily: 'var(--font-crimson)' }}
+          >
+            &laquo; {saint.priere} &raquo;
+          </p>
+        </div>
+        <div className="pt-2">
+          <p className="text-sm font-medium mb-3" style={{ color: COLORS.text }}>
+            Activités pour les enfants :
+          </p>
+          <div className="space-y-2">
+            <DownloadButton
+              icon={<Palette className="w-4 h-4" />}
+              label="Coloriage"
+              filename={`coloriage-${saint.id}.pdf`}
+            />
+            <DownloadButton
+              icon={<Scissors className="w-4 h-4" />}
+              label="Bricolage"
+              filename={`bricolage-${saint.id}.pdf`}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -392,87 +509,18 @@ function TodaySunday({
         )}
       </div>
 
-      {/* Fiche saint complète */}
-      {saint && (
-        <div
-          className="rounded-2xl overflow-hidden"
-          style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
-        >
-          {/* Image du saint */}
-          {saint.image && (
-            <div className="aspect-[4/3] relative overflow-hidden">
-              <Image
-                src={saint.image}
-                alt={`Fiche identité ${saint.nom}`}
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
-          )}
-
-          <div className="p-5 space-y-4">
-            {/* Nom et titre */}
-            <div>
-              <h3 className="text-xl font-bold" style={{ color: COLORS.text }}>
-                {saint.nom}
-              </h3>
-              <p className="font-medium" style={{ color: COLORS.active }}>
-                {saint.titre}
-              </p>
-              {saint.eglisePatronale && (
-                <p className="text-sm flex items-center gap-1 mt-1" style={{ color: COLORS.textLight }}>
-                  <Church className="w-3.5 h-3.5" />
-                  Patron de {saint.eglisePatronale}
-                </p>
-              )}
-            </div>
-
-            {/* Description */}
-            <p className="leading-relaxed" style={{ color: COLORS.textLight, fontSize: '16px', lineHeight: '1.7' }}>
-              {saint.description}
-            </p>
-
-            {/* Prière du saint */}
-            <div
-              className="rounded-xl p-4"
-              style={{ backgroundColor: '#FEF9E7' }}
-            >
-              <div className="flex items-center gap-2 mb-2">
-                <Heart className="w-4 h-4" style={{ color: '#92700C' }} />
-                <p className="text-sm font-semibold" style={{ color: '#92700C' }}>
-                  Prière
-                </p>
-              </div>
-              <p
-                className="italic leading-relaxed"
-                style={{ color: '#92700C', fontFamily: 'var(--font-crimson)' }}
-              >
-                &laquo; {saint.priere} &raquo;
-              </p>
-            </div>
-
-            {/* Boutons téléchargement */}
-            <div className="pt-2">
-              <p className="text-sm font-medium mb-3" style={{ color: COLORS.text }}>
-                Activités pour les enfants :
-              </p>
-              <div className="space-y-2">
-                <DownloadButton
-                  icon={<Palette className="w-4 h-4" />}
-                  label="Coloriage"
-                  filename={`coloriage-${saint.id}.pdf`}
-                />
-                <DownloadButton
-                  icon={<Scissors className="w-4 h-4" />}
-                  label="Bricolage"
-                  filename={`bricolage-${saint.id}.pdf`}
-                />
-              </div>
-            </div>
-          </div>
+      {/* Action / résumé du jour */}
+      <div
+        className="rounded-2xl p-5"
+        style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
+      >
+        <div className="flex items-start gap-3">
+          <CalendarDays className="w-5 h-5 mt-0.5 shrink-0" style={{ color: COLORS.active }} />
+          <p className="text-base leading-relaxed font-medium" style={{ color: COLORS.text }}>
+            {jour.contenu}
+          </p>
         </div>
-      )}
+      </div>
 
       {/* Méditation dimanche (certains dimanches en ont) */}
       {jour.meditation && (
@@ -494,6 +542,9 @@ function TodaySunday({
           </p>
         </div>
       )}
+
+      {/* Fiche saint + activités enfants (en bas) */}
+      {saint && <SaintCard saint={saint} />}
     </section>
   )
 }

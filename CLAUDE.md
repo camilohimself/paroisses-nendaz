@@ -45,23 +45,30 @@ git push origin main
 ## Careme 2026 — "Prophete ? Moi ?"
 
 ```
-/app/careme2026/page.tsx     # Timeline interactive (DATE_DEMO = new Date())
+/app/careme2026/page.tsx     # Compagnon spirituel quotidien (4 zones verticales)
+/app/careme2026/layout.tsx   # SEO : OpenGraph, Twitter Card, BreadcrumbSchema
 /lib/careme-data.ts          # 47 jours enrichis (verset, meditation, priere) + 7 saints
-/public/documents/careme/    # 7 coloriages + 7 bricolages (PDFs)
+/public/documents/careme/    # 7 coloriages + 7 bricolages (PDFs) + QR code
 ```
 Palette "Lavande Douce" : `#8B7CB3` (header), `#7BA087` (complete), `#D4AF37` (or accent)
 Source contenu : `../../careme2026/Demarche de careme prophete 2026.pdf` (28 pages)
 
-**FAIT** :
+**Architecture page (reecrite 17 fev 2026)** :
+- Zone A : StickyProgressBar (header sticky + barre progression)
+- Zone B : TodaySection (contenu du jour inline, zero clic) / TodaySunday (fiche saint + PDFs)
+- Zone C : WeekStrip (trail horizontal 7 points)
+- Zone D : PastDaysJournal (jours passes en cartes depliables)
+- CountdownView (avant 18 fev) / CompletedView (apres 5 avr, navigation libre)
+- State minimal : `expandedPastJour` + `browseJour` (CompletedView)
+
+**COMPLET** :
 - [x] Contenu enrichi 47 jours (versets, meditations, prieres du carnet)
 - [x] DATE_DEMO → `new Date()` (production)
-- [x] 7 PDFs coloriage (1 par saint, decoupes)
-- [x] 7 PDFs bricolage (1 par saint, decoupes)
-
-**TODO Careme** : COMPLET
+- [x] 7 PDFs coloriage + 7 PDFs bricolage (1 par saint)
 - [x] Lien "Careme 2026" dans menu navigation (desktop + mobile, couleur lavande)
 - [x] Metadonnees OpenGraph + Twitter Card
 - [x] QR code : `public/documents/careme/qr-careme2026.png`
+- [x] Reecriture compagnon quotidien (commit 1ebcbd5, 17 fev 2026)
 - ~~Vitrail x7~~ (exclu du projet)
 
 ## Parcours Pelerins (perenne)
