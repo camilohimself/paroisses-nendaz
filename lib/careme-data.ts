@@ -137,11 +137,11 @@ export const JOURS_CAREME: JourCareme[] = [
 
   {
     jour: 1, date: '2026-02-18', jourSemaine: 'Mercredi',
-    contenu: 'Mercredi des Cendres : je fais un moment de calme dans mon coin prière.',
+    contenu: 'Mercredi des Cendres : aujourd\'hui, je me retire dans le silence pour écouter.',
     verset: '1 Samuel 3',
     citationBiblique: '« Parle, Seigneur, ton serviteur écoute… »',
-    meditation: 'Prophète ? Moi ? Par le baptême, nous devenons prêtre, prophète et roi. Par notre baptême, nous sommes appelés à devenir la « voix de Dieu », son porte-parole. Un prophète a donc une grande intimité avec Dieu et aussi un grand amour pour les personnes vers qui il est envoyé. Aujourd\'hui, laissons tomber nos jugements, nos peurs, notre volonté, pour faire silence, pour faire de la place en soi pour Dieu. On n\'entend rien dans le bruit.',
-    priere: 'Seigneur, nous t\'apportons nos doutes, nos questions, nos soucis, nos faiblesses, nos manques… nous t\'apportons aussi les doutes, les questions, les soucis, les faiblesses, les manques de tous les humains…',
+    meditation: 'Prophète ? Moi ? Par le baptême, nous devenons prêtres, prophètes et rois — appelés à devenir la voix de Dieu, ses porte-parole. Un prophète vit une grande intimité avec Dieu et un grand amour pour les personnes vers qui il est envoyé. Aujourd\'hui, déposons nos jugements, nos peurs, notre volonté. Faisons silence, faisons de la place en nous pour Dieu. On n\'entend rien dans le bruit.',
+    priere: 'Seigneur, nous t\'apportons nos doutes, nos questions, nos faiblesses et nos manques… Nous t\'apportons aussi ceux de tous les humains — leurs fardeaux, leurs solitudes, leurs espérances fragiles…',
     saintCoachId: 'carlo-acutis', estDimanche: false, estJourSaint: true
   },
   {
