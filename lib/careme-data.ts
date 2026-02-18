@@ -193,7 +193,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Genèse 12, 1-2',
     citationBiblique: '« Quitte ton pays, ta parenté et la maison de ton père, et va vers le pays que je te montrerai. Je ferai de toi une grande nation, je te bénirai, je rendrai grand ton nom, et tu deviendras une bénédiction. »',
     meditation: 'Dieu parle pour entrer en relation avec les humains, pour faire alliance avec eux.',
-    priere: 'Seigneur, merci de me rendre libre, libre de mes parents, libre de toutes les pressions que l\'on met sur moi pour aller là où tu veux que j\'aille, là où je pourrai être moi. Merci pour ta bénédiction… Aide-moi à grandir dans la vocation que tu as mise au plus profond de moi et à devenir à mon tour une bénédiction pour les autres.',
+    priere: 'Seigneur, merci de me rendre libre — libre des pressions que l\'on met sur moi, libre d\'aller là où tu veux que j\'aille, là où je pourrai être pleinement moi. Merci pour ta bénédiction… Aide-moi à grandir dans la vocation que tu as mise au plus profond de moi et à devenir à mon tour une bénédiction pour les autres.',
     saintCoachId: 'michel-archange', estDimanche: false
   },
   {
@@ -202,7 +202,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Genèse 12, 3',
     citationBiblique: '« En toi seront bénies toutes les familles de la terre. »',
     meditation: 'Dieu nous parle pour apporter une bénédiction sur la terre…',
-    priere: 'Seigneur, tu aimerais rencontrer chacune, chacun, et lui manifester ta tendresse. Tu as besoin de mon cœur, de mes mains pour le faire. Merci de m\'avoir choisi.e !',
+    priere: 'Seigneur, tu aimerais rencontrer chacune et chacun, et leur manifester ta tendresse. Tu as besoin de mon cœur et de mes mains pour le faire. Merci de m\'avoir choisi !',
     saintCoachId: 'michel-archange', estDimanche: false
   },
   {
@@ -210,8 +210,8 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Jésus, éclaire mon esprit afin que je fasse le bien.',
     verset: 'Psaume 118, 105',
     citationBiblique: '« Ta parole est la lumière de mes pas, la lampe de ma route. »',
-    meditation: 'Dieu nous parle pour nous éclairer, nous guider. Toutes les actions ne se valent pas : certaines mènent à la lumière, à la vie, à la paix… et d\'autres à la destruction, aux divisions, à l\'injustice...',
-    priere: 'Seigneur, éclaire mon esprit afin que je sache discerner ce qui est bien et donne-moi la force pour l\'accomplir… Guide mes pas… Seigneur, je te présente ce problème qui pèse sur moi… Ouvre mon esprit pour comprendre, demander conseil et aide-moi à aller dans la bonne direction…',
+    meditation: 'Dieu nous parle pour nous éclairer, nous guider. Toutes les actions ne se valent pas : certaines mènent à la lumière, à la vie, à la paix… d\'autres à la destruction, aux divisions, à l\'injustice…',
+    priere: 'Seigneur, éclaire mon esprit afin que je sache discerner ce qui est bien, et donne-moi la force de l\'accomplir… Guide mes pas… Seigneur, je te présente ce qui pèse sur moi… Ouvre mon esprit pour comprendre, pour demander conseil, et aide-moi à aller dans la bonne direction…',
     saintCoachId: 'michel-archange', estDimanche: false
   },
   {
@@ -220,16 +220,16 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: '1 Rois 19, 11-13',
     citationBiblique: '« Sors et tiens-toi sur la montagne devant le Seigneur, car il va passer. » À l\'approche du Seigneur, il y eut un ouragan, si fort et si violent qu\'il fendait les montagnes et brisait les rochers, mais le Seigneur n\'était pas dans l\'ouragan ; et après l\'ouragan, il y eut un tremblement de terre, mais le Seigneur n\'était pas dans le tremblement de terre ; et après ce tremblement de terre, un feu, mais le Seigneur n\'était pas dans ce feu ; et après ce feu, le murmure d\'une brise légère.',
     meditation: 'Dieu parle dans le silence…',
-    priere: 'Je fais silence… j\'écoute le bruit de mes pensées… Je les confie à Dieu. Puis, je fais un grand silence pour écouter Dieu être là, près de moi….',
+    priere: 'Je fais silence… j\'écoute le bruit de mes pensées… Je les confie à Dieu. Puis je fais un grand silence pour écouter Dieu, là, près de moi…',
     saintCoachId: 'michel-archange', estDimanche: false
   },
   {
     jour: 11, date: '2026-02-28', jourSemaine: 'Samedi',
-    contenu: 'Ô Jésus, ta Parole est vie, ta Parole est création, ta Parole me transforme.',
+    contenu: 'Jésus, ta Parole est vie, ta Parole est création, ta Parole me transforme.',
     verset: 'Genèse 1, 3-4',
     citationBiblique: '« Dieu dit : « Que la lumière soit. » Et la lumière fut. Dieu vit que la lumière était bonne. »',
     meditation: 'La parole de Dieu crée.',
-    priere: 'Ô Seigneur, ta Parole est vie, ta Parole est création, ta Parole me transforme… Louange à toi pour ta Parole !',
+    priere: 'Seigneur, ta Parole est vie, ta Parole est création, ta Parole me transforme… Louange à toi pour ta Parole !',
     saintCoachId: 'michel-archange', estDimanche: false
   },
 
