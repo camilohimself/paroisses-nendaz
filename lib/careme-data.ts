@@ -146,11 +146,11 @@ export const JOURS_CAREME: JourCareme[] = [
   },
   {
     jour: 2, date: '2026-02-19', jourSemaine: 'Jeudi',
-    contenu: 'Viens Esprit-Saint m\'aider à me rapprocher de toi.',
+    contenu: 'Viens, Esprit Saint, m\'aider à me rapprocher de toi.',
     verset: 'Deutéronome 11, 29',
     citationBiblique: '« Ah ! Si le Seigneur pouvait faire de tout son peuple un peuple de prophètes ! Si le Seigneur pouvait mettre son esprit sur eux ! »',
-    meditation: 'À la pentecôte c\'est chose faite. Choisir un exercice qui me rapproche de Dieu : choisir de prendre plus de temps pour la prière ou de mettre un accent plus spécial sur une facette de la prière comme faire confiance, accueillir le regard d\'amour de Dieu sur moi et arrêter de me voir au centre de l\'univers, développer la prière de louange ou d\'intercession, lire plus la Parole de Dieu ou… Choisir un exercice qui m\'aide à aimer les personnes vers qui Dieu m\'envoie messager de son amour, messager de sa joie, messager de son espérance…',
-    priere: 'Ô Viens Esprit-Saint, viens m\'éclairer et m\'aider à me rapprocher de toi. Je te confie toutes les personnes que je rencontrerai…',
+    meditation: 'À la Pentecôte, c\'est chose faite. Aujourd\'hui, je choisis un exercice qui me rapproche de Dieu : prendre plus de temps pour la prière, accueillir le regard d\'amour de Dieu sur moi, développer la louange ou l\'intercession, lire davantage la Parole de Dieu… Et je choisis un exercice qui m\'aide à aimer les personnes vers qui Dieu m\'envoie — messager de son amour, de sa joie, de son espérance.',
+    priere: 'Viens, Esprit Saint, viens m\'éclairer et m\'aider à me rapprocher de toi. Je te confie toutes les personnes que je rencontrerai…',
     saintCoachId: 'carlo-acutis', estDimanche: false
   },
   {
@@ -158,7 +158,7 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'J\'aide quelqu\'un en lui donnant beaucoup d\'amour.',
     verset: 'Mère Teresa',
     citationBiblique: '« Si vous ne pouvez pas faire de grandes choses, faites de petites choses avec beaucoup d\'amour. Si vous ne pouvez pas les faire avec un grand amour, faites-les avec un peu d\'amour. Si vous ne pouvez pas les faire avec un peu d\'amour, faites-les quand même. »',
-    priere: 'Prier avec la prière au dos du carnet.',
+    priere: 'Je prie avec la prière au dos du carnet.',
     saintCoachId: 'carlo-acutis', estDimanche: false
   },
   {
@@ -166,7 +166,7 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Jésus, je te confie toutes les personnes de ma famille.',
     verset: 'Mère Teresa',
     citationBiblique: '« La paix dans le monde commence en famille. »',
-    priere: 'Seigneur, je te confie toutes les personnes de ma famille… toutes les personnes dont je me suis occupé ou celles dont je m\'occupe en ce moment ou dont je m\'en occuperai, celles qui m\'entourent, celles qui me sont proches par le cœur, par la prière, celles dont la vie me rendra proches, celles pour qui je me ferai proche…',
+    priere: 'Seigneur, je te confie les personnes de ma famille… celles dont je me suis occupé, celles dont je m\'occupe aujourd\'hui, celles dont je m\'occuperai demain. Je te confie celles qui m\'entourent, celles qui me sont proches par le cœur et par la prière, celles dont la vie me rendra proche, celles pour qui je me ferai proche…',
     saintCoachId: 'carlo-acutis', estDimanche: false
   },
 
