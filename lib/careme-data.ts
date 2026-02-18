@@ -373,8 +373,8 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Jésus, aide-moi à ce que tous ceux qui viennent vers moi repartent plus heureux.',
     verset: '1 Corinthiens 14, 3',
     citationBiblique: '« Celui qui prophétise est constructif, il réconforte, il encourage. »',
-    meditation: 'Un prophète ne cherche pas à ramener à soi, ni à gouverner l\'Église, il édifie, montre le chemin, console.',
-    priere: 'Ô Seigneur, aide-moi à être constructif, à réconforter, à encourager. « Que tous ceux qui viennent vers moi repartent plus heureux. » (Mère Teresa) Ô viens Esprit Saint…',
+    meditation: 'Un prophète ne cherche pas à ramener à soi, ni à gouverner l\'Église. Il édifie, montre le chemin, console.',
+    priere: 'Seigneur, aide-moi à être constructif, à réconforter, à encourager. « Que tous ceux qui viennent vers moi repartent plus heureux. » (Mère Teresa) Viens, Esprit Saint…',
     saintCoachId: 'joseph', estDimanche: false
   },
   {
@@ -383,7 +383,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Matthieu 7, 21',
     citationBiblique: '« Ce n\'est pas en me disant : « Seigneur, Seigneur ! » qu\'on entrera dans le royaume des Cieux, mais c\'est en faisant la volonté de mon Père qui est aux cieux. »',
     meditation: 'Un chrétien prophète laisse l\'Évangile transformer sa vie.',
-    priere: 'Seigneur, aide-moi à vivre de ton Évangile pour que je devienne avec mes couleurs une « bonne nouvelle » pour ceux que je rencontrerai… Que les autres puissent mieux te connaître juste en me voyant vivre… Ô viens Esprit Saint !',
+    priere: 'Seigneur, aide-moi à vivre de ton Évangile pour que je devienne, avec mes couleurs, une « bonne nouvelle » pour ceux que je rencontrerai… Que les autres puissent mieux te connaître juste en me voyant vivre… Viens, Esprit Saint !',
     saintCoachId: 'joseph', estDimanche: false
   },
   {
@@ -397,11 +397,11 @@ export const JOURS_CAREME: JourCareme[] = [
   },
   {
     jour: 30, date: '2026-03-19', jourSemaine: 'Jeudi',
-    contenu: 'St Joseph, toi qui as veillé sur Jésus, toi qui as écouté l\'Esprit de Dieu tout au long de ta vie, aide-moi aujourd\'hui.',
+    contenu: 'Saint Joseph, toi qui as veillé sur Jésus, toi qui as écouté l\'Esprit de Dieu tout au long de ta vie, aide-moi aujourd\'hui.',
     verset: 'Jean 10, 10',
     citationBiblique: '« Moi, je suis venu pour que le monde ait la vie, la vie en abondance. »',
     meditation: 'Un chrétien prophète promeut la vie.',
-    priere: 'Seigneur, aide-moi à être prophète aujourd\'hui et à faire grandir la vie dans mon quotidien, par ma compassion, mon aide, mon sourire… St Joseph, toi qui as veillé sur Jésus et Marie, toi qui as écouté l\'Esprit de Dieu tout au long de ta vie, aide-moi à discerner et à accomplir son œuvre de vie…',
+    priere: 'Seigneur, aide-moi à être prophète aujourd\'hui et à faire grandir la vie dans mon quotidien, par ma compassion, mon aide, mon sourire… Saint Joseph, toi qui as veillé sur Jésus et Marie, toi qui as écouté l\'Esprit de Dieu tout au long de ta vie, aide-moi à discerner et à accomplir son œuvre de vie…',
     saintCoachId: 'joseph', estDimanche: false
   },
   {
@@ -410,7 +410,7 @@ export const JOURS_CAREME: JourCareme[] = [
     verset: 'Isaïe 49, 1.3-5',
     citationBiblique: '« J\'étais encore dans le sein maternel quand le Seigneur m\'a appelé… Il m\'a dit : « Tu es mon serviteur, en toi je manifesterai ma splendeur. » Et moi, je disais : « Je me suis fatigué pour rien… » Et pourtant, mon droit subsistait auprès du Seigneur… Oui, j\'ai de la valeur aux yeux du Seigneur, c\'est mon Dieu qui est ma force. »',
     meditation: 'Un prophète est d\'abord un serviteur de Dieu, appelé par lui.',
-    priere: 'Seigneur, montre-moi comment je peux être ton serviteur aujourd\'hui… Donne-moi la force de persévérer quand c\'est difficile à avancer, à aimer, à croire, à vivre. Loué sois-tu pour ton amour, ta tendresse, ta puissance de vie, de création, pour la beauté qui vient de toi…',
+    priere: 'Seigneur, montre-moi comment je peux être ton serviteur aujourd\'hui… Donne-moi la force de persévérer quand il est difficile d\'avancer, d\'aimer, de croire, de vivre. Loué sois-tu pour ton amour, ta tendresse, ta puissance de vie et de création, pour la beauté qui vient de toi…',
     saintCoachId: 'joseph', estDimanche: false
   },
   {
@@ -418,7 +418,7 @@ export const JOURS_CAREME: JourCareme[] = [
     contenu: 'Jésus, je te prie pour toutes les personnes qui souffrent.',
     verset: 'Isaïe 49, 6',
     citationBiblique: '« C\'est trop peu que tu sois mon serviteur… je fais de toi la lumière des nations, pour que mon salut parvienne jusqu\'aux extrémités de la terre. »',
-    priere: 'Seigneur, ouvre mon cœur aux dimensions du monde. Aide-moi à rayonner ta lumière dans ma famille, autour de moi et à me faire solidaire des plus pauvres. Je te prie pour toutes les personnes qui souffrent de la guerre, de l\'injustice et aide-moi à contribuer par un don, une prière, une aide concrète à plus de vie, de paix, d\'amour en ce monde.',
+    priere: 'Seigneur, ouvre mon cœur aux dimensions du monde. Aide-moi à rayonner ta lumière dans ma famille et autour de moi, et à me faire solidaire des plus pauvres. Je te prie pour toutes les personnes qui souffrent de la guerre et de l\'injustice. Aide-moi à contribuer — par un don, une prière, une aide concrète — à plus de vie, de paix et d\'amour en ce monde.',
     saintCoachId: 'joseph', estDimanche: false
   },
 
