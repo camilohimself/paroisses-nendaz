@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   JOURS_CAREME,
   SEMAINES_CAREME,
@@ -14,6 +14,7 @@ import {
   type SaintCoach,
   type SemaineCareme
 } from '@/lib/careme-data'
+import { trackCareme } from '@/lib/analytics-events'
 import Image from 'next/image'
 import {
   ChevronDown,
@@ -108,6 +109,14 @@ export default function Careme2026Page() {
     ? getJoursParSemaine(semaineCourante.numero)
     : []
 
+  // Tracking GA4 : vue page Carême
+  const hasTrackedPage = useRef(false)
+  useEffect(() => {
+    if (hasTrackedPage.current) return
+    hasTrackedPage.current = true
+    trackCareme.pageView(jourDuJour.jour, semaineCourante?.numero ?? 0)
+  }, [jourDuJour.jour, semaineCourante?.numero])
+
   return (
     <div
       className="min-h-screen"
@@ -146,9 +155,10 @@ export default function Careme2026Page() {
           <PastDaysJournal
             jours={joursPassés}
             expandedJour={expandedPastJour}
-            onToggle={(num) =>
+            onToggle={(num) => {
               setExpandedPastJour(prev => prev === num ? null : num)
-            }
+              trackCareme.jourExpand(num)
+            }}
           />
         )}
       </main>
@@ -354,9 +364,33 @@ function TodaySection({
         </div>
       )}
 
-      {/* Fiche saint + activités enfants (jours spéciaux uniquement, en bas) */}
+      {/* Fiche saint complète (jours spéciaux : Cendres, etc.) */}
       {jour.estJourSaint && saint && (
         <SaintCard saint={saint} />
+      )}
+
+      {/* Activités enfants — saint de la semaine (toujours visible, sauf si SaintCard déjà affichée) */}
+      {saint && !jour.estJourSaint && (
+        <div
+          className="rounded-2xl p-5"
+          style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
+        >
+          <p className="text-sm font-medium mb-3" style={{ color: COLORS.text }}>
+            Activités pour les enfants — {saint.nom} :
+          </p>
+          <div className="space-y-2">
+            <DownloadButton
+              icon={<Palette className="w-4 h-4" />}
+              label="Coloriage"
+              filename={`coloriage-${saint.id}.pdf`}
+            />
+            <DownloadButton
+              icon={<Scissors className="w-4 h-4" />}
+              label="Bricolage"
+              filename={`bricolage-${saint.id}.pdf`}
+            />
+          </div>
+        </div>
       )}
     </section>
   )
@@ -377,7 +411,10 @@ function SaintCard({ saint }: { saint: SaintCoach }) {
       {saint.image && (
         <>
           <button
-            onClick={() => setLightbox(true)}
+            onClick={() => {
+              setLightbox(true)
+              trackCareme.saintView(saint.id as Parameters<typeof trackCareme.saintView>[0])
+            }}
             className="aspect-[4/3] relative overflow-hidden w-full cursor-zoom-in group"
             aria-label={`Voir la fiche complète de ${saint.nom}`}
           >
@@ -765,10 +802,19 @@ function DownloadButton({
   label: string
   filename: string
 }) {
+  // Extraire saintId et pdfType depuis le nom de fichier (ex: "coloriage-carlo-acutis.pdf")
+  const handleClick = () => {
+    const match = filename.match(/^(coloriage|bricolage)-(.+)\.pdf$/)
+    if (match) {
+      trackCareme.pdfDownload(match[2] as Parameters<typeof trackCareme.pdfDownload>[0], match[1] as 'coloriage' | 'bricolage')
+    }
+  }
+
   return (
     <a
       href={`/documents/careme/${filename}`}
       download
+      onClick={handleClick}
       className="flex items-center gap-3 p-3 rounded-xl transition-colors group"
       style={{ backgroundColor: '#f9fafb' }}
       onMouseEnter={(e) => e.currentTarget.style.backgroundColor = COLORS.lightBg}
@@ -973,7 +1019,10 @@ function CompletedView({
                       return (
                         <button
                           key={jour.jour}
-                          onClick={() => setBrowseJour(jour.jour)}
+                          onClick={() => {
+                            setBrowseJour(jour.jour)
+                            trackCareme.browsePastDay(jour.jour)
+                          }}
                           className="w-full flex items-center gap-3 p-2.5 rounded-lg text-left transition-colors hover:bg-white/80"
                           style={{ backgroundColor: 'white', boxShadow: '0 1px 2px rgba(0,0,0,0.04)' }}
                         >

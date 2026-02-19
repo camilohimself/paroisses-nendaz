@@ -280,6 +280,52 @@ export const trackAvent = {
 }
 
 // ============================================
+// 7. CARÊME 2026
+// ============================================
+
+type CaremeSaintId = 'carlo-acutis' | 'michel-archange' | 'leger' | 'nicolas-flue' | 'joseph' | 'marie-auxiliatrice' | 'christ-roi'
+type CaremePdfType = 'coloriage' | 'bricolage'
+
+export const trackCareme = {
+  /** Vue de la page Carême avec le numéro du jour */
+  pageView: (jourNumero: number, semaineNumero: number) => {
+    trackEvent('careme_page_view', {
+      jour_numero: jourNumero,
+      semaine_numero: semaineNumero
+    })
+  },
+
+  /** Téléchargement d'un PDF (coloriage ou bricolage) */
+  pdfDownload: (saintId: CaremeSaintId, pdfType: CaremePdfType) => {
+    trackEvent('careme_pdf_download', {
+      saint_id: saintId,
+      pdf_type: pdfType
+    })
+  },
+
+  /** Déplier un jour passé dans le journal */
+  jourExpand: (jourNumero: number) => {
+    trackEvent('careme_jour_expand', {
+      jour_numero: jourNumero
+    })
+  },
+
+  /** Vue de la fiche saint (lightbox ouverte) */
+  saintView: (saintId: CaremeSaintId) => {
+    trackEvent('careme_saint_view', {
+      saint_id: saintId
+    })
+  },
+
+  /** Navigation dans CompletedView (après Pâques) */
+  browsePastDay: (jourNumero: number) => {
+    trackEvent('careme_browse_day', {
+      jour_numero: jourNumero
+    })
+  }
+}
+
+// ============================================
 // ALIAS RÉTROCOMPATIBILITÉ (pour les missions Avent existantes)
 // ============================================
 
