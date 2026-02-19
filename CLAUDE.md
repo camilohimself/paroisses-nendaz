@@ -61,10 +61,21 @@ Source contenu : `../../careme2026/Demarche de careme prophete 2026.pdf` (28 pag
 - CountdownView (avant 18 fev) / CompletedView (apres 5 avr, navigation libre)
 - State minimal : `expandedPastJour` + `browseJour` (CompletedView)
 
+**PDFs enfants** : accessibles tous les jours (saint de la semaine en cours), pas seulement le dimanche. Change automatiquement chaque dimanche. Pas d'accumulation — seul le saint courant est affiche.
+
+**Tracking GA4** : module `trackCareme` dans `lib/analytics-events.ts` (commit d001034, 19 fev 2026)
+- `careme_page_view` (jour_numero, semaine_numero)
+- `careme_pdf_download` (saint_id, pdf_type)
+- `careme_jour_expand` (jour_numero)
+- `careme_saint_view` (saint_id)
+- `careme_browse_day` (jour_numero)
+
 **COMPLET** :
 - [x] Contenu enrichi 47 jours (versets, meditations, prieres du carnet)
 - [x] DATE_DEMO → `new Date()` (production)
 - [x] 7 PDFs coloriage + 7 PDFs bricolage (1 par saint)
+- [x] PDFs saint semaine visible tous les jours (commit d001034, 19 fev 2026)
+- [x] Tracking GA4 Careme — 5 evenements custom (commit d001034, 19 fev 2026)
 - [x] Lien "Careme 2026" dans menu navigation (desktop + mobile, couleur lavande)
 - [x] Metadonnees OpenGraph + Twitter Card
 - [x] QR code : `public/documents/careme/qr-careme2026.png`
