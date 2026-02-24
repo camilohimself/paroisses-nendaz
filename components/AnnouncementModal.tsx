@@ -124,7 +124,7 @@ export default function AnnouncementModal() {
             height={1200}
             sizes="(max-width: 640px) 280px, (max-width: 768px) 384px, 448px"
             className="w-full h-auto"
-            priority
+            loading="lazy"
           />
         </div>
       </div>
