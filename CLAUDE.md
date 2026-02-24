@@ -48,20 +48,24 @@ git push origin main
 /app/careme2026/page.tsx     # Compagnon spirituel quotidien (4 zones verticales)
 /app/careme2026/layout.tsx   # SEO : OpenGraph, Twitter Card, BreadcrumbSchema
 /lib/careme-data.ts          # 47 jours enrichis (verset, meditation, priere) + 7 saints
-/public/documents/careme/    # 7 coloriages + 7 bricolages (PDFs) + QR code
+/public/documents/careme/    # 7 coloriages + 7 bricolages + vitrail-7-saints (PDFs) + QR code
 ```
-Palette "Lavande Douce" : `#8B7CB3` (header), `#7BA087` (complete), `#D4AF37` (or accent)
+Palette "Violet Liturgique" : `#4B0082` (header/active), `#7BA087` (complete), `#D4AF37` (or accent)
 Source contenu : `../../careme2026/Demarche de careme prophete 2026.pdf` (28 pages)
 
 **Architecture page (reecrite 17 fev 2026)** :
 - Zone A : StickyProgressBar (header sticky + barre progression)
-- Zone B : TodaySection (contenu du jour inline, zero clic) / TodaySunday (fiche saint + PDFs)
+- Zone B : TodaySection (contenu du jour inline, zero clic + SaintCard en bas) / TodaySunday (fiche saint + PDFs)
 - Zone C : WeekStrip (trail horizontal 7 points)
 - Zone D : PastDaysJournal (jours passes en cartes depliables)
 - CountdownView (avant 18 fev) / CompletedView (apres 5 avr, navigation libre)
 - State minimal : `expandedPastJour` + `browseJour` (CompletedView)
 
-**PDFs enfants** : accessibles tous les jours (saint de la semaine en cours), pas seulement le dimanche. Change automatiquement chaque dimanche. Pas d'accumulation — seul le saint courant est affiche.
+**PDFs enfants** : accessibles tous les jours (saint de la semaine en cours), pas seulement le dimanche. Change automatiquement chaque dimanche. Pas d'accumulation — seul le saint courant est affiche. + Vitrail des 7 saints (commun toutes les semaines).
+
+**Ordre TodaySection (IMMUABLE)** : en-tete → contenu du jour → citation biblique → meditation → priere → SaintCard (EN BAS). Ne jamais changer cet ordre.
+
+**AnnouncementModal** : `components/AnnouncementModal.tsx` — lazy loaded via `dynamic()`, image `loading="lazy"`. Modifier `STORAGE_KEY` + `EXPIRY_DATE` + image pour chaque nouvelle annonce.
 
 **Tracking GA4** : module `trackCareme` dans `lib/analytics-events.ts` (commit d001034, 19 fev 2026)
 - `careme_page_view` (jour_numero, semaine_numero)
@@ -80,7 +84,10 @@ Source contenu : `../../careme2026/Demarche de careme prophete 2026.pdf` (28 pag
 - [x] Metadonnees OpenGraph + Twitter Card
 - [x] QR code : `public/documents/careme/qr-careme2026.png`
 - [x] Reecriture compagnon quotidien (commit 1ebcbd5, 17 fev 2026)
-- ~~Vitrail x7~~ (exclu du projet)
+- [x] Fiche saint complete visible tous les jours (commit fcf71c2, 24 fev 2026)
+- [x] Vitrail des 7 saints en PDF telechargeable (commit a02f52f, 24 fev 2026)
+- [x] Palette violet liturgique #4B0082 (commit 89b5168, 24 fev 2026)
+- ~~Vitrail x7 individuels~~ (exclu du projet)
 
 ## Parcours Pelerins (perenne)
 
