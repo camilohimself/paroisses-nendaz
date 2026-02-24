@@ -27,7 +27,8 @@ import {
   Heart,
   CalendarDays,
   X,
-  ZoomIn
+  ZoomIn,
+  Puzzle
 } from 'lucide-react'
 
 // Palette "Lavande Douce" - Option A
@@ -440,6 +441,11 @@ function SaintCard({ saint }: { saint: SaintCoach }) {
               icon={<Scissors className="w-4 h-4" />}
               label="Bricolage"
               filename={`bricolage-${saint.id}.pdf`}
+            />
+            <DownloadButton
+              icon={<Puzzle className="w-4 h-4" />}
+              label="Vitrail des 7 saints"
+              filename="vitrail-7-saints.pdf"
             />
           </div>
         </div>
