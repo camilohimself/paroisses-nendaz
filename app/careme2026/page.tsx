@@ -31,19 +31,19 @@ import {
   Puzzle
 } from 'lucide-react'
 
-// Palette "Lavande Douce" - Option A
+// Palette "Violet Liturgique" — #4B0082 (Indigo, couleur du Carême)
 const COLORS = {
-  headerFrom: '#8B7CB3',
-  headerTo: '#6B5B95',
-  active: '#8B7CB3',
-  activeRing: '#C4B7D4',
+  headerFrom: '#4B0082',
+  headerTo: '#360060',
+  active: '#4B0082',
+  activeRing: '#9B72CF',
   complete: '#7BA087',
   accent: '#D4AF37',
-  bgFrom: '#F5F3F7',
-  bgTo: '#EDE8F2',
-  text: '#4A4063',
-  textLight: '#7B6E8F',
-  lightBg: '#F0EBF4',
+  bgFrom: '#F7F3FA',
+  bgTo: '#EDE5F5',
+  text: '#2D004E',
+  textLight: '#6B4D8A',
+  lightBg: '#F0E8F7',
 }
 
 // Mode production : suit le jour réel
