@@ -3,8 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import { MapPin, Calendar, ChevronLeft, Lock } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 import { trackMission } from '@/lib/analytics-events'
 
 
@@ -27,11 +26,6 @@ const IMAGES_FE = {
 
 // Teaser semaine 3
 const IMAGE_XIN_TEASER = 'Xin.png'
-
-// ============================================
-// DATE D'ACTIVATION DE LA MISSION
-// ============================================
-const DATE_ACTIVATION = new Date('2025-12-07T00:00:00+01:00')
 
 // ============================================
 // TYPE POUR LES SLIDES
@@ -302,109 +296,10 @@ function BulleAvecTriangle({
 }
 
 // ============================================
-// ÉCRAN "PAS ENCORE DISPONIBLE"
-// ============================================
-function EcranNonDisponible() {
-  const [timeLeft, setTimeLeft] = useState({
-    jours: 0,
-    heures: 0,
-    minutes: 0,
-    secondes: 0
-  })
-
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date()
-      const difference = DATE_ACTIVATION.getTime() - now.getTime()
-
-      if (difference <= 0) {
-        window.location.reload()
-        return
-      }
-
-      const jours = Math.floor(difference / (1000 * 60 * 60 * 24))
-      const heures = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-      const secondes = Math.floor((difference % (1000 * 60)) / 1000)
-
-      setTimeLeft({ jours, heures, minutes, secondes })
-    }
-
-    updateCountdown()
-    const interval = setInterval(updateCountdown, 1000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-red-100 via-red-50 to-red-100 flex flex-col items-center justify-center p-4">
-      <div className="text-center max-w-md">
-        {/* Icône cadenas */}
-        <div className="mb-6">
-          <div className="w-20 h-20 mx-auto bg-red-200 rounded-full flex items-center justify-center">
-            <Lock className="w-10 h-10 text-red-600" />
-          </div>
-        </div>
-
-        {/* Fe en aperçu */}
-        <div className="mb-6 opacity-60">
-          <Image
-            src="/images/avent/personnages/Fe.png"
-            alt="Fe"
-            width={150}
-            height={187}
-            className="mx-auto object-contain"
-          />
-        </div>
-
-        <h1 className="text-2xl md:text-3xl font-bold text-red-800 mb-4">
-          Mission pas encore disponible
-        </h1>
-
-        <p className="text-lg text-red-700 mb-6">
-          Fe t'attend à l'église de <strong>Fey</strong> à partir du <strong>7 décembre</strong> !
-        </p>
-
-        {/* Compteur */}
-        <div className="grid grid-cols-4 gap-2 mb-8">
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-red-600">{timeLeft.jours}</div>
-            <div className="text-xs text-slate-500">jours</div>
-          </div>
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-red-600">{timeLeft.heures}</div>
-            <div className="text-xs text-slate-500">heures</div>
-          </div>
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-red-600">{timeLeft.minutes}</div>
-            <div className="text-xs text-slate-500">min</div>
-          </div>
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-red-600">{timeLeft.secondes}</div>
-            <div className="text-xs text-slate-500">sec</div>
-          </div>
-        </div>
-
-        {/* Lien retour */}
-        <Link
-          href="/avent"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-red-500 text-white rounded-full font-medium hover:bg-red-600 transition-colors"
-        >
-          <ChevronLeft className="w-5 h-5" />
-          Retour aux missions
-        </Link>
-      </div>
-    </div>
-  )
-}
-
-// ============================================
 // PAGE PRINCIPALE MISSION 2
 // ============================================
 export default function Mission2Page() {
   
-  const [isAccessible, setIsAccessible] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
   const [slideIndex, setSlideIndex] = useState(0)
   const [tentativesNon, setTentativesNon] = useState(0)
   const [showBravoBible, setShowBravoBible] = useState(false)
@@ -415,17 +310,9 @@ export default function Mission2Page() {
   const hasTrackedStart = useRef(false)
   const hasTrackedComplete = useRef(false)
 
-  // Vérification de la date d'accès (avec bypass dev via ?dev=true)
+  // Tracker le début de la mission (une seule fois)
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const devMode = params.get('dev') === 'true'
-    const now = new Date()
-    const accessible = devMode || now >= DATE_ACTIVATION
-    setIsAccessible(accessible)
-    setIsLoading(false)
-
-    // Tracker le début de la mission (une seule fois)
-    if (accessible && !hasTrackedStart.current) {
+    if (!hasTrackedStart.current) {
       hasTrackedStart.current = true
       trackMission.start(2, 'Fe', 'Fey')
     }
@@ -527,20 +414,6 @@ export default function Mission2Page() {
     setShowBravoAmbon(false)
     setSlideIndex(SLIDES_ETAPE1.length + SLIDES_ETAPE2.length) // Premier slide étape 3
     setEtape(3)
-  }
-
-  // Loading
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-red-100 via-red-50 to-red-100 flex items-center justify-center">
-        <div className="animate-pulse text-red-600 text-xl">Chargement...</div>
-      </div>
-    )
-  }
-
-  // Pas encore accessible
-  if (!isAccessible) {
-    return <EcranNonDisponible />
   }
 
   // ============================================
@@ -836,9 +709,8 @@ export default function Mission2Page() {
                 <MapPin className="w-4 h-4 text-emerald-500" />
                 <span><strong>Xin</strong> t'attend à l'église de <strong>Veysonnaz</strong></span>
               </p>
-              <p className="text-sm text-emerald-600 mt-1 font-medium flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                À partir du 14 décembre
+              <p className="text-sm text-emerald-600 mt-1 font-medium">
+                Découvre sa mission !
               </p>
             </div>
           </div>

@@ -130,7 +130,7 @@ const SLIDES_ETAPE3: Slide[] = [
   },
   {
     id: 14,
-    texte: "Un moment de silence et de prière... La présence réelle de Dieu parmi nous, pendant que nous attendons Noël.",
+    texte: "Un moment de silence et de prière... La présence réelle de Dieu parmi nous.",
     bullePosition: 'top',
     animation: 'pulse',
     image: 'Luce-priere.png'

@@ -3,8 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import { MapPin, Calendar, ChevronLeft, Lock, Music, Star } from 'lucide-react'
+import { MapPin, Music, Star } from 'lucide-react'
 import { trackMission } from '@/lib/analytics-events'
 
 
@@ -28,11 +27,6 @@ const IMAGES_AUTRES = {
   fe: 'Fe.png',
   xin: 'Xin.png',
 }
-
-// ============================================
-// DATE D'ACTIVATION DE LA MISSION
-// ============================================
-const DATE_ACTIVATION = new Date('2025-12-21T00:00:00+01:00')
 
 // ============================================
 // TYPE POUR LES SLIDES
@@ -68,7 +62,7 @@ const SLIDES_ETAPE1: Slide[] = [
   },
   {
     id: 3,
-    texte: "C'est la dernière semaine avant Noël... et je suis tellement content de t'accompagner pour ce dernier défi\u00A0!",
+    texte: "Je suis tellement content de t'accompagner pour cette aventure\u00A0!",
     bullePosition: 'bottom',
     animation: 'pulse',
     image: IMAGES_SKY.presentation
@@ -118,7 +112,7 @@ const SLIDES_ETAPE2: Slide[] = [
   },
   {
     id: 10,
-    texte: "Maintenant, ouvre grand les yeux et parcours l'église... Tu me trouveras peut-être sur la crèche\u00A0! Bonne chance\u00A0!",
+    texte: "Maintenant, ouvre grand les yeux et parcours l'église... Bonne chance\u00A0!",
     bullePosition: 'top',
     animation: 'zoom',
     image: IMAGES_SKY.cherche,
@@ -132,7 +126,7 @@ const SLIDES_ETAPE2: Slide[] = [
 const SLIDES_ETAPE3: Slide[] = [
   {
     id: 11,
-    texte: "Tu l'as trouvé\u00A0! C'est l'Ange\u00A0! Il est là, tout en haut de la crèche, avec son message «\u00A0Paix sur la terre\u00A0».",
+    texte: "Tu l'as trouvé\u00A0! C'est l'Ange\u00A0! Il veille sur l'église avec son message «\u00A0Paix sur la terre\u00A0».",
     bullePosition: 'bottom',
     animation: 'glow',
     image: IMAGES_SKY.ange,
@@ -140,7 +134,7 @@ const SLIDES_ETAPE3: Slide[] = [
   },
   {
     id: 12,
-    texte: "Les anges sont les messagers de Dieu. Tu sais, la nuit de Noël, c'est un ange qui est venu dire aux bergers : «\u00A0N'ayez pas peur\u00A0! Le Sauveur est né\u00A0!\u00A0»",
+    texte: "Les anges sont les messagers de Dieu. Tu sais, dans la Bible, c'est un ange qui est venu dire aux bergers\u00A0: «\u00A0N'ayez pas peur\u00A0! Le Sauveur est né\u00A0!\u00A0»",
     bullePosition: 'top',
     animation: 'float',
     image: IMAGES_SKY.ange,
@@ -161,7 +155,7 @@ const SLIDES_ETAPE3: Slide[] = [
 const SLIDES_ETAPE4: Slide[] = [
   {
     id: 14,
-    texte: "Maintenant, j'ai un petit défi pour toi... Est-ce que tu voudrais chanter une chanson de Noël\u00A0? Celle que tu préfères\u00A0! Ou si tu veux, on peut lire ensemble une belle prière...",
+    texte: "Maintenant, j'ai un petit défi pour toi... Est-ce que tu voudrais chanter un chant que tu aimes\u00A0? Celui que tu préfères\u00A0! Ou si tu veux, on peut lire ensemble une belle prière...",
     bullePosition: 'top',
     animation: 'float',
     image: IMAGES_SKY.chant,
@@ -175,14 +169,14 @@ const SLIDES_ETAPE4: Slide[] = [
 const SLIDES_ETAPE5: Slide[] = [
   {
     id: 15,
-    texte: "BRAVO\u00A0! Tu as réussi toutes les missions du calendrier de l'Avent\u00A0!",
+    texte: "BRAVO\u00A0! Tu as réussi toutes les missions du parcours des pèlerins\u00A0!",
     bullePosition: 'top',
     animation: 'bounce',
     image: IMAGES_SKY.bravo
   },
   {
     id: 16,
-    texte: "Tu es prêt pour Noël\u00A0! Merci d'avoir participé à cette belle aventure avec nous.",
+    texte: "Tu as vécu une belle aventure\u00A0! Merci d'avoir participé avec nous.",
     bullePosition: 'bottom',
     animation: 'glow',
     image: IMAGES_SKY.fin,
@@ -192,16 +186,16 @@ const SLIDES_ETAPE5: Slide[] = [
 
 const ALL_SLIDES = [...SLIDES_ETAPE1, ...SLIDES_ETAPE2, ...SLIDES_ETAPE3, ...SLIDES_ETAPE4, ...SLIDES_ETAPE5]
 
-const PRIERE_SKY = `Seigneur, je te loue pour cette belle aventure de l'Avent\u00A0!
+const PRIERE_SKY = `Seigneur, je te loue pour cette belle aventure\u00A0!
 
 Merci pour la lumière, la foi, l'espérance et la joie
 que tu as semées dans mon cœur.
 
-En ce temps de Noël, aide-moi à partager
+Chaque jour, aide-moi à partager
 ton amour avec tous ceux que je rencontre.
 
 Que les anges chantent dans mon cœur\u00A0!
-Joyeux Noël, Jésus\u00A0!`
+Merci, Jésus\u00A0!`
 
 const REPONSES_NON_GUITARE = [
   "Regarde bien dans mon dos...",
@@ -275,109 +269,10 @@ function BulleAvecTriangle({
 }
 
 // ============================================
-// ÉCRAN "PAS ENCORE DISPONIBLE"
-// ============================================
-function EcranNonDisponible() {
-  const [timeLeft, setTimeLeft] = useState({
-    jours: 0,
-    heures: 0,
-    minutes: 0,
-    secondes: 0
-  })
-
-  useEffect(() => {
-    const updateCountdown = () => {
-      const now = new Date()
-      const difference = DATE_ACTIVATION.getTime() - now.getTime()
-
-      if (difference <= 0) {
-        window.location.reload()
-        return
-      }
-
-      const jours = Math.floor(difference / (1000 * 60 * 60 * 24))
-      const heures = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-      const secondes = Math.floor((difference % (1000 * 60)) / 1000)
-
-      setTimeLeft({ jours, heures, minutes, secondes })
-    }
-
-    updateCountdown()
-    const interval = setInterval(updateCountdown, 1000)
-
-    return () => clearInterval(interval)
-  }, [])
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
-      <div className="text-center max-w-md">
-        {/* Icône cadenas */}
-        <div className="mb-6">
-          <div className="w-20 h-20 mx-auto bg-blue-200 rounded-full flex items-center justify-center">
-            <Lock className="w-10 h-10 text-blue-600" />
-          </div>
-        </div>
-
-        {/* Sky en aperçu */}
-        <div className="mb-6 opacity-60">
-          <Image
-            src="/images/avent/personnages/Sky.png"
-            alt="Sky"
-            width={150}
-            height={187}
-            className="mx-auto object-contain"
-          />
-        </div>
-
-        <h1 className="text-2xl md:text-3xl font-bold text-blue-800 mb-4">
-          Mission pas encore disponible
-        </h1>
-
-        <p className="text-lg text-blue-700 mb-6">
-          Sky t'attend à l'église d'<strong>Aproz</strong> à partir du <strong>21 décembre</strong> !
-        </p>
-
-        {/* Compteur */}
-        <div className="grid grid-cols-4 gap-2 mb-8">
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-blue-600">{timeLeft.jours}</div>
-            <div className="text-xs text-slate-500">jours</div>
-          </div>
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-blue-600">{timeLeft.heures}</div>
-            <div className="text-xs text-slate-500">heures</div>
-          </div>
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-blue-600">{timeLeft.minutes}</div>
-            <div className="text-xs text-slate-500">min</div>
-          </div>
-          <div className="bg-white rounded-xl p-3 shadow-lg">
-            <div className="text-2xl font-bold text-blue-600">{timeLeft.secondes}</div>
-            <div className="text-xs text-slate-500">sec</div>
-          </div>
-        </div>
-
-        {/* Lien retour */}
-        <Link
-          href="/avent"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-colors"
-        >
-          <ChevronLeft className="w-5 h-5" />
-          Retour aux missions
-        </Link>
-      </div>
-    </div>
-  )
-}
-
-// ============================================
 // PAGE PRINCIPALE MISSION 4
 // ============================================
 export default function Mission4Page() {
   
-  const [isAccessible, setIsAccessible] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
   const [slideIndex, setSlideIndex] = useState(0)
   const [tentativesNon, setTentativesNon] = useState(0)
   const [showBravoGuitare, setShowBravoGuitare] = useState(false)
@@ -389,17 +284,9 @@ export default function Mission4Page() {
   const hasTrackedStart = useRef(false)
   const hasTrackedComplete = useRef(false)
 
-  // Vérification de la date d'accès (avec bypass dev via ?dev=true)
+  // Tracker le début de la mission (une seule fois)
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const devMode = params.get('dev') === 'true'
-    const now = new Date()
-    const accessible = devMode || now >= DATE_ACTIVATION
-    setIsAccessible(accessible)
-    setIsLoading(false)
-
-    // Tracker le début de la mission (une seule fois)
-    if (accessible && !hasTrackedStart.current) {
+    if (!hasTrackedStart.current) {
       hasTrackedStart.current = true
       trackMission.start(4, 'Sky', 'Aproz')
     }
@@ -500,20 +387,6 @@ export default function Mission4Page() {
     setShowBravoAnge(false)
     setSlideIndex(SLIDES_ETAPE1.length + SLIDES_ETAPE2.length)
     setEtape(3)
-  }
-
-  // Loading
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex items-center justify-center">
-        <div className="animate-pulse text-blue-600 text-xl">Chargement...</div>
-      </div>
-    )
-  }
-
-  // Pas encore accessible
-  if (!isAccessible) {
-    return <EcranNonDisponible />
   }
 
   // ============================================
@@ -674,7 +547,7 @@ export default function Mission4Page() {
         <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col items-center justify-center p-4">
           {/* Carte prière */}
           <div className="w-full max-w-md mx-auto bg-white rounded-3xl p-8 shadow-2xl mb-6">
-            <p className="text-sm text-blue-500 font-medium mb-3 text-center">Prière de Noël :</p>
+            <p className="text-sm text-blue-500 font-medium mb-3 text-center">Prière :</p>
             <p className="text-lg text-slate-700 leading-relaxed text-center font-serif whitespace-pre-line italic">
               {PRIERE_SKY}
             </p>
@@ -758,12 +631,12 @@ export default function Mission4Page() {
   if (currentSlide.type === 'scene-creche') {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-100 flex flex-col p-4">
-        {/* Image crèche en grand - pleine largeur */}
+        {/* Image ange en grand - pleine largeur */}
         <div className="flex-1 flex items-center justify-center mb-4">
           <div className="w-full max-w-2xl">
             <Image
               src={`/images/avent/personnages/${currentSlide.image}`}
-              alt="Sky devant la crèche avec l'ange"
+              alt="Sky avec l'ange"
               width={800}
               height={450}
               className="w-full h-auto rounded-2xl shadow-2xl object-contain"
@@ -852,36 +725,14 @@ export default function Mission4Page() {
           </div>
 
           <p className="text-lg text-slate-700">
-            Tu es prêt pour Noël !
+            Tu as vécu une belle aventure !
           </p>
         </div>
 
-        {/* 3. RDV Épiphanie */}
-        <div className="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl p-5 border-2 border-amber-200 shadow-lg mb-6 max-w-md">
-          <div className="text-center">
-            <p className="text-lg text-amber-700 font-bold mb-2">
-              On a un petit secret pour toi...
-            </p>
-            <p className="text-slate-600 mb-2">
-              Rendez-vous à la <strong>messe de l'Épiphanie</strong> pour une surprise !
-            </p>
-            <div className="flex items-center justify-center gap-4 text-sm">
-              <span className="flex items-center gap-1 text-amber-600">
-                <Calendar className="w-4 h-4" />
-                <strong>Dimanche 4 janvier à 10h</strong>
-              </span>
-              <span className="flex items-center gap-1 text-amber-600">
-                <MapPin className="w-4 h-4" />
-                <strong>Basse-Nendaz</strong>
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* 4. Message Joyeux Noël */}
+        {/* 3. Message de fin */}
         <div className="text-center mb-6">
-          <p className="text-3xl font-black bg-gradient-to-r from-red-500 via-green-500 to-red-500 bg-clip-text text-transparent">
-            Joyeux Noël !
+          <p className="text-3xl font-black bg-gradient-to-r from-amber-500 via-blue-500 to-emerald-500 bg-clip-text text-transparent">
+            Bravo, pèlerin !
           </p>
         </div>
 
