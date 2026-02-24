@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, MapPin, Star, X, ExternalLink, Clock } from 'lucide-react'
+import { Calendar, MapPin, Star, X, ExternalLink, Clock, Download } from 'lucide-react'
 
 // Date de début du Carême 2026 (Mercredi des Cendres)
 const CAREME_START = new Date('2026-02-18T00:00:00')
@@ -191,6 +191,19 @@ const allEvents = [
     displayUntil: '2026-04-01'
   },
   // === ÉVÉNEMENTS PAROISSES NENDAZ ===
+  {
+    id: 'journee-malades-2026',
+    title: 'Journée de prière pour les malades',
+    excerpt: 'Ce dimanche, durant la messe de 10h, le sacrement des malades sera célébré. Si vous êtes absent, contactez le secrétariat de la paroisse pour prendre un rendez-vous afin de recevoir le sacrement des malades.',
+    date: '2026-03-01',
+    image: '/images/articles/journee-malades-2026.jpg',
+    hasImage: true,
+    category: 'Pastorale',
+    lieu: 'Église de Basse-Nendaz - Messe de 10h00',
+    pdfUrl: '/documents/message-eveques-journee-malades-2026.pdf',
+    pdfLabel: 'Message des évêques suisses',
+    displayUntil: '2026-03-01'
+  },
   {
     id: 'loto-eglises-basse-haute-nendaz',
     title: 'Loto des églises de Basse-Nendaz et Haute-Nendaz',
@@ -413,22 +426,34 @@ export default function ActualitesPage() {
                           {event.excerpt}
                         </p>
 
-                        <div className="flex items-center justify-between">
+                        <div className="flex items-center justify-between flex-wrap gap-2">
                           <div className="flex items-center gap-2 text-neutral-gris text-sm">
                             <MapPin className="w-4 h-4" />
                             <span className="font-medium">{event.lieu}</span>
                           </div>
-                          {'externalUrl' in event && event.externalUrl && (
-                            <a
-                              href={event.externalUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-2 px-4 py-2 bg-paroisse-vert text-white text-sm font-semibold rounded-full hover:bg-paroisse-vertFonce transition-colors"
-                            >
-                              Plus d'infos
-                              <ExternalLink className="w-4 h-4" />
-                            </a>
-                          )}
+                          <div className="flex items-center gap-2">
+                            {'pdfUrl' in event && event.pdfUrl && (
+                              <a
+                                href={event.pdfUrl}
+                                download
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-stone-700 text-white text-sm font-semibold rounded-full hover:bg-stone-800 transition-colors"
+                              >
+                                <Download className="w-4 h-4" />
+                                {'pdfLabel' in event && event.pdfLabel ? event.pdfLabel : 'Document PDF'}
+                              </a>
+                            )}
+                            {'externalUrl' in event && event.externalUrl && (
+                              <a
+                                href={event.externalUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 px-4 py-2 bg-paroisse-vert text-white text-sm font-semibold rounded-full hover:bg-paroisse-vertFonce transition-colors"
+                              >
+                                Plus d'infos
+                                <ExternalLink className="w-4 h-4" />
+                              </a>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </article>
