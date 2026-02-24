@@ -29,7 +29,7 @@ export default function Home() {
     <div className="min-h-screen bg-stone-50">
 
       {/* ========================================= */}
-      {/* MODAL ANNONCE - LOTO DES ÉGLISES         */}
+      {/* MODAL ANNONCE - JOURNÉE DES MALADES      */}
       {/* ========================================= */}
       <AnnouncementModal />
 

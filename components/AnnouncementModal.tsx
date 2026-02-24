@@ -4,8 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 
-const STORAGE_KEY = 'loto-eglises-2026-dismissed'
-const EXPIRY_DATE = new Date('2026-02-23T00:00:00') // After event day (22 feb)
+const STORAGE_KEY = 'journee-malades-2026-dismissed'
+const EXPIRY_DATE = new Date('2026-03-01T10:00:00') // Disparaît dimanche 1er mars à 10h
 
 export default function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +14,7 @@ export default function AnnouncementModal() {
   const modalRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // Auto-expire after event date
+    // Auto-expire after event
     if (new Date() >= EXPIRY_DATE) return
 
     // Don't show if dismissed this session
@@ -23,7 +23,6 @@ export default function AnnouncementModal() {
     // Small delay for better UX (let page load first)
     const timer = setTimeout(() => {
       setIsOpen(true)
-      // Trigger enter animation on next frame
       requestAnimationFrame(() => setIsVisible(true))
     }, 600)
     return () => clearTimeout(timer)
@@ -38,7 +37,6 @@ export default function AnnouncementModal() {
 
   const handleClose = useCallback(() => {
     setIsVisible(false)
-    // Wait for exit animation before unmounting
     setTimeout(() => {
       setIsOpen(false)
       sessionStorage.setItem(STORAGE_KEY, 'true')
@@ -55,7 +53,6 @@ export default function AnnouncementModal() {
         return
       }
 
-      // Focus trap: keep Tab cycling within the modal
       if (e.key === 'Tab' && modalRef.current) {
         const focusable = modalRef.current.querySelectorAll<HTMLElement>(
           'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -84,7 +81,7 @@ export default function AnnouncementModal() {
       ref={modalRef}
       role="dialog"
       aria-modal="true"
-      aria-label="Annonce : Loto des Eglises"
+      aria-label="Annonce : Journée de prière pour les malades"
       className={`
         fixed inset-0 z-50 flex items-center justify-center p-4
         transition-opacity duration-300 ease-out
@@ -103,7 +100,7 @@ export default function AnnouncementModal() {
       {/* Modal */}
       <div
         className={`
-          relative w-full max-w-sm sm:max-w-md md:max-w-lg
+          relative w-full max-w-[280px] sm:max-w-sm md:max-w-md
           transition-transform duration-300 ease-out
           ${isVisible ? 'scale-100' : 'scale-95'}
         `}
@@ -121,10 +118,11 @@ export default function AnnouncementModal() {
         {/* Poster image */}
         <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-white/20">
           <Image
-            src="/images/loto-eglises-2026.jpg"
-            alt="Loto des Eglises de Basse-Nendaz et Haute-Nendaz - Dimanche 22 fevrier 2026 a 17h30 - Salle de la Biolette"
-            width={800}
-            height={1131}
+            src="/images/articles/journee-malades-2026.jpg"
+            alt="Journée de prière pour les malades - Dimanche 1er mars 2026 - Messe de 10h - Église de Basse-Nendaz"
+            width={849}
+            height={1200}
+            sizes="(max-width: 640px) 280px, (max-width: 768px) 384px, 448px"
             className="w-full h-auto"
             priority
           />
