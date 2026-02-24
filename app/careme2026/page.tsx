@@ -237,42 +237,6 @@ function TodaySection({
         )}
       </div>
 
-      {/* Saint coach du jour (bandeau compact, masqué si fiche complète plus bas) */}
-      {saint && !jour.estJourSaint && (
-        <div
-          className="flex items-center gap-3 p-3 rounded-xl"
-          style={{ backgroundColor: COLORS.lightBg }}
-        >
-          <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 border-2 border-white shadow-sm">
-            {saint.image ? (
-              <Image
-                src={saint.image}
-                alt={saint.nom}
-                width={40}
-                height={40}
-                className="w-full h-full object-cover object-top"
-              />
-            ) : (
-              <div
-                className="w-full h-full flex items-center justify-center text-white text-sm font-bold"
-                style={{ background: `linear-gradient(to bottom right, ${COLORS.headerFrom}, ${COLORS.headerTo})` }}
-              >
-                {saint.nom.charAt(0)}
-              </div>
-            )}
-          </div>
-          <div className="min-w-0">
-            <p className="text-sm font-semibold" style={{ color: COLORS.text }}>
-              {saint.nom}
-            </p>
-            <p className="text-xs" style={{ color: COLORS.textLight }}>
-              {saint.titre}
-              {saint.eglisePatronale && ` — ${saint.eglisePatronale}`}
-            </p>
-          </div>
-        </div>
-      )}
-
       {/* Pâques : message festif */}
       {jour.estPaques && (
         <div
@@ -364,34 +328,9 @@ function TodaySection({
         </div>
       )}
 
-      {/* Fiche saint complète (jours spéciaux : Cendres, etc.) */}
-      {jour.estJourSaint && saint && (
-        <SaintCard saint={saint} />
-      )}
+      {/* Fiche saint de la semaine (visible tous les jours, en bas après le contenu du jour) */}
+      {saint && <SaintCard saint={saint} />}
 
-      {/* Activités enfants — saint de la semaine (toujours visible, sauf si SaintCard déjà affichée) */}
-      {saint && !jour.estJourSaint && (
-        <div
-          className="rounded-2xl p-5"
-          style={{ backgroundColor: 'white', boxShadow: '0 1px 3px rgba(0,0,0,0.08)' }}
-        >
-          <p className="text-sm font-medium mb-3" style={{ color: COLORS.text }}>
-            Activités pour les enfants — {saint.nom} :
-          </p>
-          <div className="space-y-2">
-            <DownloadButton
-              icon={<Palette className="w-4 h-4" />}
-              label="Coloriage"
-              filename={`coloriage-${saint.id}.pdf`}
-            />
-            <DownloadButton
-              icon={<Scissors className="w-4 h-4" />}
-              label="Bricolage"
-              filename={`bricolage-${saint.id}.pdf`}
-            />
-          </div>
-        </div>
-      )}
     </section>
   )
 }
