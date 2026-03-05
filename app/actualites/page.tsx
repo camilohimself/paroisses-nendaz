@@ -160,14 +160,14 @@ const allEvents = [
     displayUntil: '2026-03-11'
   },
   {
-    id: 'temps-fort-careme-2026',
-    title: 'Temps Fort de Carême — Soupe & Témoignage',
-    excerpt: 'Soirée spéciale Carême : Messe ATAC à 19h, suivie d\'une soupe partagée et d\'un témoignage sur le Rwanda. Un moment fort de partage et de fraternité.',
+    id: 'soiree-careme-2026',
+    title: 'Soirée de Carême — Soupe, film et témoignages',
+    excerpt: '18h : Adoration et confession. 19h : Messe chantée animée par le groupe ATAC. Suivie d\'une soupe de Carême organisée par les confirmants à la salle Davidica, puis projection du film et témoignages du voyage au Rwanda 2025 (Association Tête au Cœur — ATAC).',
     date: '2026-03-13',
-    hasImage: false,
+    image: '/images/articles/soiree-careme-2026.jpg',
+    hasImage: true,
     category: 'Événement',
-    lieu: 'Église de Basse-Nendaz - 19h00',
-    featured: true,
+    lieu: 'Église de Basse-Nendaz & Salle Davidica — dès 18h00',
     displayUntil: '2026-03-13'
   },
   {
@@ -214,15 +214,6 @@ const allEvents = [
     lieu: 'Salle de la Biolette, Basse-Nendaz - 17h30'
   },
   {
-    id: 'soupe-careme-2026',
-    title: 'Soupe de Carême et temps de ressourcement',
-    excerpt: 'Soirée de partage autour d\'une soupe de Carême suivie d\'un temps de ressourcement spirituel. Un moment simple et fraternel pour vivre le Carême ensemble.',
-    date: '2026-03-13',
-    hasImage: false,
-    category: 'Pastorale',
-    lieu: 'Salle paroissiale de Basse-Nendaz - 19h30'
-  },
-  {
     id: 'concert-caecilia-mars-2026',
     title: 'Concert Caecilia',
     excerpt: 'Concert du chœur La Caecilia de Fey. Une soirée musicale à ne pas manquer !',
@@ -243,7 +234,6 @@ const allEvents = [
 ]
 
 export default function ActualitesPage() {
-  const [featuredEvent, setFeaturedEvent] = useState<typeof allEvents[0] | null>(null)
   const [highlightEvents, setHighlightEvents] = useState<typeof allEvents>([])
   const [regularEvents, setRegularEvents] = useState<typeof allEvents>([])
   const [pastEvents, setPastEvents] = useState<typeof allEvents>([])
@@ -253,12 +243,7 @@ export default function ActualitesPage() {
     const today = new Date()
     today.setHours(0, 0, 0, 0)
 
-    // Trouver l'événement featured
-    const featured = allEvents.find(e => e.featured) || null
-    setFeaturedEvent(featured)
-
-    // Séparer les autres événements
-    const otherEvents = allEvents.filter(e => !e.featured)
+    const otherEvents = allEvents
 
     // Fonction pour déterminer si un événement doit rester visible
     const isStillVisible = (event: typeof allEvents[0]) => {
