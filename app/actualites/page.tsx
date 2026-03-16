@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, MapPin, Star, X, ExternalLink, Clock, Download } from 'lucide-react'
+import MemorialTeaser from '@/components/MemorialTeaser'
 
 // Date de début du Carême 2026 (Mercredi des Cendres)
 const CAREME_START = new Date('2026-02-18T00:00:00')
@@ -331,6 +332,9 @@ export default function ActualitesPage() {
           </div>
         </div>
       </section>
+
+      {/* MUR DE PRIÈRES — CRANS-MONTANA */}
+      <MemorialTeaser />
 
       {/* SECTION ACTUALITÉS - LAYOUT STRUCTURÉ */}
       <section className="py-16 md:py-24">

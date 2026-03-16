@@ -95,38 +95,17 @@ const degres = [
 const flyers = [
   {
     niveau: '1-2H',
-    titre: 'Patricia Délèze',
+    titre: 'Veysonnaz',
     description: 'Découvrir l\'Église et Jésus mon ami',
     disponible: true,
-    href: '/documents/activites-catechetiques/flyer-1-2h-patricia-deleze.pdf',
-  },
-  {
-    niveau: '1-2H',
-    titre: 'Christelle Briguet',
-    description: 'Découvrir l\'Église et Jésus mon ami',
-    disponible: true,
-    href: '/documents/activites-catechetiques/flyer-1-2h-christelle-briguet.pdf',
-  },
-  {
-    niveau: '1-2H',
-    titre: 'Christelle Maytain',
-    description: 'Découvrir l\'Église et Jésus mon ami',
-    disponible: true,
-    href: '/documents/activites-catechetiques/flyer-1-2h-christelle-maytain.pdf',
+    href: '/documents/activites-catechetiques/flyer-1-2h-veysonnaz.pdf',
   },
   {
     niveau: '3H',
-    titre: 'Flyer 3H',
+    titre: 'Veysonnaz',
     description: 'Ouvre ton cœur à Jésus',
     disponible: true,
-    href: '/documents/activites-catechetiques/flyer-3h.pdf',
-  },
-  {
-    niveau: '6H',
-    titre: 'Aproz-Fey',
-    description: 'Prends soin de ton prochain (Missio)',
-    disponible: true,
-    href: '/documents/activites-catechetiques/flyer-6h.pdf',
+    href: '/documents/activites-catechetiques/flyer-3h-veysonnaz.pdf',
   },
   {
     niveau: '6H',
@@ -137,24 +116,10 @@ const flyers = [
   },
   {
     niveau: '7H',
-    titre: 'Aproz-Fey',
-    description: 'Accueillir la Lumière de Dieu',
-    disponible: true,
-    href: '/documents/activites-catechetiques/flyer-7h.pdf',
-  },
-  {
-    niveau: '7H',
     titre: 'Veysonnaz',
     description: 'Accueillir la Lumière de Dieu',
     disponible: true,
     href: '/documents/activites-catechetiques/flyer-7h-veysonnaz.pdf',
-  },
-  {
-    niveau: '8H',
-    titre: 'Aproz-Fey',
-    description: 'Game of Church - Chasse au trésor',
-    disponible: true,
-    href: '/documents/activites-catechetiques/flyer-8h.pdf',
   },
   {
     niveau: '8H',
