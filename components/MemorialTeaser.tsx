@@ -51,7 +51,7 @@ export default function MemorialTeaser() {
   if (today < from || today > until) return null
 
   return (
-    <section className="py-16 bg-stone-300 relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-b from-amber-50 via-amber-100 to-stone-100 relative overflow-hidden">
       {/* Texture */}
       <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0iYmxhY2siIG9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==')]" />
 

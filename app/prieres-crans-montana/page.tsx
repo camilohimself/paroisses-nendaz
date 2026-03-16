@@ -52,7 +52,7 @@ const rotations = [
 
 export default function PrieresCransMontanaPage() {
   return (
-    <div className="min-h-screen bg-stone-300 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 via-amber-100 to-stone-100 relative overflow-hidden">
       {/* Texture subtile */}
       <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMSIgZmlsbD0iYmxhY2siIG9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==')]" />
 
