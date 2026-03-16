@@ -29,7 +29,7 @@ export default function Home() {
     <div className="min-h-screen bg-stone-50">
 
       {/* ========================================= */}
-      {/* MODAL ANNONCE - JOURNÉE DES MALADES      */}
+      {/* MODAL ANNONCE                            */}
       {/* ========================================= */}
       <AnnouncementModal />
 
@@ -39,183 +39,7 @@ export default function Home() {
       <VideoHero />
 
       {/* ========================================= */}
-      {/* ACCÈS RAPIDES - PIERRE ET LUMIÈRE       */}
-      {/* ========================================= */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
-
-          {/* Titre section */}
-          <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <div className="h-px w-16 bg-amber-300"></div>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
-              Accès rapides
-            </h2>
-            <div className="flex justify-center mt-4">
-              <div className="h-px w-16 bg-amber-300"></div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-
-            {/* Card 1 - Service Liturgique */}
-            <Link
-              href="/pastorale/liturgie"
-              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-12 bg-amber-400"></div>
-                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
-                  <SlidersHorizontal className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
-                Service Liturgique
-              </h3>
-              <p className="text-stone-600 text-sm mb-4">
-                Inscriptions et informations
-              </p>
-              <div className="space-y-1 text-xs text-stone-500">
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Jeunes lecteurs</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Lecteurs</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Servants de Messe</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Technique</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Chorale</span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Card 2 - Sacrements */}
-            <Link
-              href="/pastorale#sacrements"
-              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-12 bg-amber-400"></div>
-                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
-                  <Briefcase className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
-                Sacrements
-              </h3>
-              <p className="text-stone-600 text-sm mb-4">
-                Inscriptions et informations
-              </p>
-              <div className="space-y-1 text-xs text-stone-500">
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Baptême</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Pardon</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Communion</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Confirmation</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Mariage</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Onction des malades</span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Card 3 - Base Enoria */}
-            <a
-              href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-[#2A8B8C] hover:shadow-xl transition-all duration-500"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-12 bg-[#2A8B8C]"></div>
-                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-[#2A8B8C] flex items-center justify-center transition-all">
-                  <User className="w-5 h-5 text-stone-600 group-hover:text-[#2A8B8C] transition-colors" aria-hidden="true" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-[#2A8B8C] transition-colors">
-                Base Enoria
-              </h3>
-              <p className="text-stone-600 text-sm mb-4">
-                Accès paroissiens
-              </p>
-              <div className="flex items-center text-[#2A8B8C] font-semibold text-sm pt-4 border-t border-stone-300">
-                Lien externe
-                <ExternalLink className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-              </div>
-            </a>
-
-            {/* Card 4 - Feuille d'annonces */}
-            <a
-              href="/api/feuille-annonces/generate"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-1 h-12 bg-amber-400"></div>
-                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
-                  <Eye className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
-                </div>
-              </div>
-              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
-                Feuille d'annonces
-              </h3>
-              <p className="text-stone-600 text-sm mb-4">
-                Voir le PDF
-              </p>
-              <div className="space-y-1 text-xs text-stone-500">
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Messes 2 prochaines semaines</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Événements paroissiaux</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
-                  <span>Format A4 imprimable</span>
-                </div>
-              </div>
-            </a>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================= */}
-      {/* SAINT DU JOUR - BANDEAU                 */}
-      {/* ========================================= */}
-      <SaintDuJour variante="bandeau" />
-
-      {/* ========================================= */}
-      {/* PROCHAINS ÉVÉNEMENTS - PIERRE ET LUMIÈRE */}
+      {/* PROCHAINES CÉLÉBRATIONS                  */}
       {/* ========================================= */}
       <section className="py-16 md:py-20 bg-gradient-to-b from-stone-50 to-white">
         <div className="container mx-auto px-4">
@@ -262,6 +86,182 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ========================================= */}
+      {/* ACCÈS RAPIDES - PIERRE ET LUMIÈRE       */}
+      {/* ========================================= */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4">
+
+          {/* Titre section */}
+          <div className="text-center mb-12">
+            <div className="flex justify-center mb-4">
+              <div className="h-px w-16 bg-amber-300"></div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-800">
+              Accès rapides
+            </h2>
+            <div className="flex justify-center mt-4">
+              <div className="h-px w-16 bg-amber-300"></div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+
+            {/* Card 1 - Feuille d'annonces (usage hebdomadaire) */}
+            <a
+              href="/api/feuille-annonces/generate"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-12 bg-amber-400"></div>
+                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
+                  <Eye className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
+                Feuille d&apos;annonces
+              </h3>
+              <p className="text-stone-600 text-sm mb-4">
+                Voir le PDF
+              </p>
+              <div className="space-y-1 text-xs text-stone-500">
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Messes 2 prochaines semaines</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Événements paroissiaux</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Format A4 imprimable</span>
+                </div>
+              </div>
+            </a>
+
+            {/* Card 2 - Sacrements (usage régulier) */}
+            <Link
+              href="/pastorale#sacrements"
+              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-12 bg-amber-400"></div>
+                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
+                  <Briefcase className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
+                Sacrements
+              </h3>
+              <p className="text-stone-600 text-sm mb-4">
+                Inscriptions et informations
+              </p>
+              <div className="space-y-1 text-xs text-stone-500">
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Baptême</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Pardon</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Communion</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Confirmation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Mariage</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Onction des malades</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Card 3 - Base Enoria (usage ponctuel) */}
+            <a
+              href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-[#2A8B8C] hover:shadow-xl transition-all duration-500"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-12 bg-[#2A8B8C]"></div>
+                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-[#2A8B8C] flex items-center justify-center transition-all">
+                  <User className="w-5 h-5 text-stone-600 group-hover:text-[#2A8B8C] transition-colors" aria-hidden="true" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-[#2A8B8C] transition-colors">
+                Base Enoria
+              </h3>
+              <p className="text-stone-600 text-sm mb-4">
+                Accès paroissiens
+              </p>
+              <div className="flex items-center text-[#2A8B8C] font-semibold text-sm pt-4 border-t border-stone-300">
+                Lien externe
+                <ExternalLink className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+              </div>
+            </a>
+
+            {/* Card 4 - Service Liturgique (usage rare) */}
+            <Link
+              href="/pastorale/liturgie"
+              className="group bg-stone-50 p-8 border-2 border-stone-200 hover:border-amber-400 hover:shadow-xl transition-all duration-500"
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-12 bg-amber-400"></div>
+                <div className="w-10 h-10 rounded-full border-2 border-stone-300 group-hover:border-amber-500 flex items-center justify-center transition-all">
+                  <SlidersHorizontal className="w-5 h-5 text-stone-600 group-hover:text-amber-700 transition-colors" aria-hidden="true" />
+                </div>
+              </div>
+              <h3 className="text-xl font-bold text-stone-800 mb-2 group-hover:text-amber-700 transition-colors">
+                Service Liturgique
+              </h3>
+              <p className="text-stone-600 text-sm mb-4">
+                Inscriptions et informations
+              </p>
+              <div className="space-y-1 text-xs text-stone-500">
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Jeunes lecteurs</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Lecteurs</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Servants de Messe</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Technique</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 bg-amber-500 rounded-full"></div>
+                  <span>Chorale</span>
+                </div>
+              </div>
+            </Link>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================= */}
+      {/* SAINT DU JOUR - BANDEAU                 */}
+      {/* ========================================= */}
+      <SaintDuJour variante="bandeau" />
 
     </div>
   )

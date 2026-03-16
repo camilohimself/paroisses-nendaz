@@ -31,7 +31,7 @@ export default function VideoHero() {
 
   // Évite le flash pendant l'hydratation - fond neutre
   if (!mounted) {
-    return <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] bg-white" />;
+    return <div className="relative w-full h-[400px] md:h-[450px] lg:h-[500px] bg-white" />;
   }
 
   // Période mémorial : affiche l'image statique
@@ -46,7 +46,7 @@ export default function VideoHero() {
 // Hero Mémorial Crans-Montana (6-10 janvier 2026)
 function MemorialHero() {
   return (
-    <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-white">
+    <div className="relative w-full h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden bg-white">
       {/* Image mémorial - version mobile (portrait) */}
       <div className="absolute inset-0 flex items-center justify-center p-4 md:hidden">
         <img
@@ -74,7 +74,7 @@ function MemorialHero() {
 // Hero vidéo standard (contenu original)
 function VideoHeroContent() {
   return (
-    <div className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden bg-neutral-anthracite">
+    <div className="relative w-full h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden bg-neutral-anthracite">
       {/* Vidéo background - Desktop (>768px) */}
       <video
         autoPlay
