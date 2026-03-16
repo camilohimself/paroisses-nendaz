@@ -195,34 +195,42 @@ export default function ActualitesPage() {
   return (
     <div className="min-h-screen bg-neutral-grisClaire">
 
-      {/* HERO GÉNÉRIQUE */}
-      <section className="relative bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900 py-16 md:py-24">
-        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==')]" />
-        <div className="container mx-auto px-4 relative">
+      {/* HERO AVEC IMAGE */}
+      <section className="relative h-[300px] md:h-[380px] overflow-hidden">
+        <Image
+          src="/images/articles/hero-careme-2026.webp"
+          alt="Vue sur les paroisses de Nendaz et Veysonnaz"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+        <div className="container mx-auto px-4 relative h-full flex items-end pb-10 md:pb-14">
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <span className="w-10 h-1 bg-amber-400"></span>
               <span className="text-amber-400 text-sm font-semibold uppercase tracking-wider">Paroisses de Nendaz et Veysonnaz</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-              Actualites
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">
+              Actualit&eacute;s
             </h1>
-            <p className="text-xl text-stone-300 max-w-2xl">
+            <p className="text-lg text-white/80 max-w-2xl">
               Suivez la vie de nos paroisses et ne manquez aucun rendez-vous
             </p>
-          </div>
 
-          {/* Liens rapides */}
-          <div className="flex flex-wrap gap-3 mt-10">
-            <Link href="/pastorale" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-              Vie pastorale
-            </Link>
-            <Link href="/paroisses" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-              Nos paroisses
-            </Link>
-            <Link href="/contact" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors">
-              Nous contacter
-            </Link>
+            {/* Liens rapides */}
+            <div className="flex flex-wrap gap-3 mt-6">
+              <Link href="/pastorale" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors backdrop-blur-sm">
+                Vie pastorale
+              </Link>
+              <Link href="/paroisses" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors backdrop-blur-sm">
+                Nos paroisses
+              </Link>
+              <Link href="/contact" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors backdrop-blur-sm">
+                Nous contacter
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -234,17 +242,17 @@ export default function ActualitesPage() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-center sm:text-left">
                 <p className="text-white/70 text-sm font-medium uppercase tracking-wider mb-1">
-                  18 fevrier — 5 avril 2026
+                  18 f&eacute;vrier — 5 avril 2026
                 </p>
                 <p className="text-white text-xl md:text-2xl font-bold">
-                  Careme 2026 : Prophete ? Moi ?
+                  Car&ecirc;me 2026 : Proph&egrave;te ? Moi ?
                 </p>
               </div>
               <Link
                 href="/careme2026"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#4B0082] font-semibold rounded-full hover:bg-amber-50 transition-colors flex-shrink-0"
               >
-                Decouvrir le parcours
+                D&eacute;couvrir le parcours
                 <ExternalLink className="w-4 h-4" />
               </Link>
             </div>
@@ -266,7 +274,7 @@ export default function ActualitesPage() {
               <div className="mb-16">
                 <h2 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
                   <span className="w-10 h-1 bg-paroisse-vert"></span>
-                  Prochains evenements
+                  Prochains &eacute;v&eacute;nements
                 </h2>
 
                 <div className="space-y-6">
@@ -350,7 +358,7 @@ export default function ActualitesPage() {
             ) : (
               <div className="mb-16 text-center py-12">
                 <Star className="w-12 h-12 text-neutral-gris/30 mx-auto mb-4" strokeWidth={1} />
-                <p className="text-neutral-gris text-lg">Aucun evenement a venir pour le moment</p>
+                <p className="text-neutral-gris text-lg">Aucun &eacute;v&eacute;nement &agrave; venir pour le moment</p>
               </div>
             )}
 
@@ -403,7 +411,7 @@ export default function ActualitesPage() {
           <div className="relative w-full h-full max-w-4xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
             <Image
               src={lightboxImage}
-              alt="Affiche evenement"
+              alt="Affiche &eacute;v&eacute;nement"
               fill
               sizes="100vw"
               className="object-contain"
