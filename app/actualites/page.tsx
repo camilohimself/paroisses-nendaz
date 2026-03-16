@@ -3,104 +3,8 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, MapPin, Star, X, ExternalLink, Clock, Download } from 'lucide-react'
+import { Calendar, MapPin, Star, X, ExternalLink, Download } from 'lucide-react'
 import MemorialTeaser from '@/components/MemorialTeaser'
-
-// Date de début du Carême 2026 (Mercredi des Cendres)
-const CAREME_START = new Date('2026-02-18T00:00:00')
-
-interface TimeLeft {
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
-}
-
-function useCountdown(targetDate: Date): { timeLeft: TimeLeft | null; isStarted: boolean } {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
-  const [isStarted, setIsStarted] = useState(false)
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const now = new Date()
-      const difference = targetDate.getTime() - now.getTime()
-
-      if (difference <= 0) {
-        setIsStarted(true)
-        setTimeLeft(null)
-        return
-      }
-
-      setTimeLeft({
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60)
-      })
-    }
-
-    calculateTimeLeft()
-    const timer = setInterval(calculateTimeLeft, 1000)
-
-    return () => clearInterval(timer)
-  }, [targetDate])
-
-  return { timeLeft, isStarted }
-}
-
-function CaremeCTA() {
-  const { timeLeft, isStarted } = useCountdown(CAREME_START)
-
-  if (isStarted) {
-    return (
-      <Link
-        href="/careme2026"
-        className="inline-flex items-center gap-2 px-6 py-3 bg-white text-stone-800 font-semibold rounded-full hover:bg-amber-50 transition-colors"
-      >
-        Découvrir le parcours
-        <ExternalLink className="w-4 h-4" />
-      </Link>
-    )
-  }
-
-  return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-      {/* Bouton désactivé */}
-      <span className="inline-flex items-center gap-2 px-6 py-3 bg-white/30 text-white/80 font-semibold rounded-full cursor-not-allowed backdrop-blur-sm">
-        <Clock className="w-4 h-4" />
-        Disponible le 18 février
-      </span>
-
-      {/* Compte à rebours */}
-      {timeLeft && (
-        <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20">
-          <span className="text-white/70 text-sm hidden sm:inline">Dans</span>
-          <div className="flex items-center gap-2 text-white font-mono">
-            <div className="text-center">
-              <span className="text-lg font-bold">{timeLeft.days}</span>
-              <span className="text-xs text-white/60 ml-1">j</span>
-            </div>
-            <span className="text-white/40">:</span>
-            <div className="text-center">
-              <span className="text-lg font-bold">{String(timeLeft.hours).padStart(2, '0')}</span>
-              <span className="text-xs text-white/60 ml-1">h</span>
-            </div>
-            <span className="text-white/40">:</span>
-            <div className="text-center">
-              <span className="text-lg font-bold">{String(timeLeft.minutes).padStart(2, '0')}</span>
-              <span className="text-xs text-white/60 ml-1">m</span>
-            </div>
-            <span className="text-white/40 hidden sm:inline">:</span>
-            <div className="text-center hidden sm:block">
-              <span className="text-lg font-bold">{String(timeLeft.seconds).padStart(2, '0')}</span>
-              <span className="text-xs text-white/60 ml-1">s</span>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
 
 // Données temporaires - seront remplacées par la base de données
 const allEvents = [
@@ -234,37 +138,36 @@ const allEvents = [
   }
 ]
 
+// Date de fin du Carême 2026
+const CAREME_END = new Date('2026-04-06T00:00:00')
+
 export default function ActualitesPage() {
-  const [highlightEvents, setHighlightEvents] = useState<typeof allEvents>([])
-  const [regularEvents, setRegularEvents] = useState<typeof allEvents>([])
+  const [upcomingEvents, setUpcomingEvents] = useState<typeof allEvents>([])
   const [pastEvents, setPastEvents] = useState<typeof allEvents>([])
   const [lightboxImage, setLightboxImage] = useState<string | null>(null)
+  const [showCaremeBanner, setShowCaremeBanner] = useState(false)
 
   useEffect(() => {
     const today = new Date()
     today.setHours(0, 0, 0, 0)
 
-    const otherEvents = allEvents
+    setShowCaremeBanner(today < CAREME_END)
 
-    // Fonction pour déterminer si un événement doit rester visible
     const isStillVisible = (event: typeof allEvents[0]) => {
-      // Si l'événement a une date de fin d'affichage (displayUntil), on vérifie celle-ci
       if ('displayUntil' in event && event.displayUntil) {
         return new Date(event.displayUntil) >= today
       }
-      // Sinon, on utilise la date de l'événement
       return new Date(event.date) >= today
     }
 
-    const upcoming = otherEvents.filter(event => isStillVisible(event)).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    const past = otherEvents.filter(event => !isStillVisible(event)).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    const upcoming = allEvents
+      .filter(event => isStillVisible(event))
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    const past = allEvents
+      .filter(event => !isStillVisible(event))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
-    // Séparer événements avec images (highlights) et sans images (réguliers)
-    const withImages = upcoming.filter(e => e.hasImage)
-    const withoutImages = upcoming.filter(e => !e.hasImage)
-
-    setHighlightEvents(withImages)
-    setRegularEvents(withoutImages)
+    setUpcomingEvents(upcoming)
     setPastEvents(past)
   }, [])
 
@@ -292,156 +195,151 @@ export default function ActualitesPage() {
   return (
     <div className="min-h-screen bg-neutral-grisClaire">
 
-      {/* HERO - CARÊME 2026 */}
-      <section className="relative h-[400px] md:h-[500px] overflow-hidden">
-        {/* Image de fond */}
-        <Image
-          src="/images/articles/hero-careme-2026.webp"
-          alt="Chemin forestier vers la croix - Carême 2026"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
-
-        <div className="container mx-auto px-4 relative h-full flex items-end pb-12 md:pb-16">
+      {/* HERO GÉNÉRIQUE */}
+      <section className="relative bg-gradient-to-br from-stone-800 via-stone-700 to-stone-900 py-16 md:py-24">
+        <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIgZmlsbD0id2hpdGUiIG9wYWNpdHk9IjAuMyIvPjwvc3ZnPg==')]" />
+        <div className="container mx-auto px-4 relative">
           <div className="max-w-3xl">
-
-            {/* Badge */}
-            <span className="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm text-white text-sm font-medium rounded-full mb-4">
-              18 février — 5 avril 2026
-            </span>
-
-            {/* Titre principal */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Carême 2026 : Prophète ? Moi ?
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-10 h-1 bg-amber-400"></span>
+              <span className="text-amber-400 text-sm font-semibold uppercase tracking-wider">Paroisses de Nendaz et Veysonnaz</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Actualites
             </h1>
-
-            {/* Citation biblique */}
-            <blockquote className="text-xl md:text-2xl text-white/90 italic mb-2">
-              « Avant que tu ne sois formé, je t'ai consacré »
-            </blockquote>
-            <p className="text-white/70 mb-6">
-              — Jérémie 1, 5
-            </p>
-
-            {/* CTA avec compte à rebours */}
-            <CaremeCTA />
-
-          </div>
-        </div>
-      </section>
-
-      {/* MUR DE PRIÈRES — CRANS-MONTANA */}
-      <MemorialTeaser />
-
-      {/* SECTION ACTUALITÉS - LAYOUT STRUCTURÉ */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
-
-          {/* Header section */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-neutral-anthracite mb-4">
-              Prochains événements
-            </h2>
-            <p className="text-xl text-neutral-gris max-w-2xl mx-auto">
+            <p className="text-xl text-stone-300 max-w-2xl">
               Suivez la vie de nos paroisses et ne manquez aucun rendez-vous
             </p>
           </div>
 
+          {/* Liens rapides */}
+          <div className="flex flex-wrap gap-3 mt-10">
+            <Link href="/pastorale" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+              Vie pastorale
+            </Link>
+            <Link href="/paroisses" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+              Nos paroisses
+            </Link>
+            <Link href="/contact" className="px-5 py-2 bg-white/10 text-white text-sm font-medium rounded-full border border-white/20 hover:bg-white/20 transition-colors">
+              Nous contacter
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* BANNIÈRE CARÊME (temporaire, jusqu'au 5 avril) */}
+      {showCaremeBanner && (
+        <section className="bg-gradient-to-r from-[#4B0082] to-[#360060] py-6">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="text-center sm:text-left">
+                <p className="text-white/70 text-sm font-medium uppercase tracking-wider mb-1">
+                  18 fevrier — 5 avril 2026
+                </p>
+                <p className="text-white text-xl md:text-2xl font-bold">
+                  Careme 2026 : Prophete ? Moi ?
+                </p>
+              </div>
+              <Link
+                href="/careme2026"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#4B0082] font-semibold rounded-full hover:bg-amber-50 transition-colors flex-shrink-0"
+              >
+                Decouvrir le parcours
+                <ExternalLink className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* MUR DE PRIÈRES — CRANS-MONTANA */}
+      <MemorialTeaser />
+
+      {/* ÉVÉNEMENTS — LISTE UNIFIÉE CHRONOLOGIQUE */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+
           <div className="max-w-6xl mx-auto">
 
-            {/* ÉVÉNEMENTS AVEC IMAGES - Cartes mise en valeur */}
-            {highlightEvents.length > 0 && (
+            {/* ÉVÉNEMENTS À VENIR */}
+            {upcomingEvents.length > 0 ? (
               <div className="mb-16">
-                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
-                  <span className="w-10 h-1 bg-paroisse-jaune"></span>
-                  Rencontres et partages
-                </h3>
+                <h2 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
+                  <span className="w-10 h-1 bg-paroisse-vert"></span>
+                  Prochains evenements
+                </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {highlightEvents.map(event => (
-                    <article key={event.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
-                      {/* Image */}
-                      <div
-                        className="relative h-64 bg-gradient-to-br from-neutral-gris/20 to-neutral-grisClaire overflow-hidden cursor-pointer"
-                        onClick={() => {
-                          if ('image' in event && event.image) {
-                            setLightboxImage(event.image)
-                          }
-                        }}
-                      >
-                        {'image' in event && event.image ? (
-                          <Image
-                            src={event.image}
-                            alt={event.title}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
-                        ) : (
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <Star className="w-24 h-24 text-neutral-gris/40" strokeWidth={1} />
+                <div className="space-y-6">
+                  {upcomingEvents.map(event => (
+                    <article
+                      key={event.id}
+                      className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+                    >
+                      <div className="flex flex-col md:flex-row">
+                        {/* Image (si disponible) */}
+                        {event.hasImage && 'image' in event && event.image && (
+                          <div
+                            className="relative w-full md:w-72 h-48 md:h-auto flex-shrink-0 cursor-pointer overflow-hidden"
+                            onClick={() => setLightboxImage(event.image!)}
+                          >
+                            <Image
+                              src={event.image}
+                              alt={event.title}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 288px"
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
                           </div>
                         )}
-                        {/* Overlay avec indication de clic */}
-                        {'image' in event && event.image && (
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                            <div className="bg-white/90 px-4 py-2 rounded-full text-neutral-anthracite font-semibold text-sm">
-                              Cliquer pour agrandir
+
+                        {/* Contenu */}
+                        <div className="flex-1 p-6">
+                          <div className="flex flex-wrap items-center gap-3 mb-3">
+                            <span className={`inline-block px-3 py-1 border text-xs font-bold uppercase tracking-wider rounded-full ${getCategoryColor(event.category)}`}>
+                              {event.category}
+                            </span>
+                            <span className="text-neutral-gris text-sm font-medium flex items-center gap-1">
+                              <Calendar className="w-4 h-4" />
+                              {formatDate(event.date)}
+                            </span>
+                          </div>
+
+                          <h3 className="text-xl md:text-2xl font-bold text-neutral-anthracite mb-2 group-hover:text-paroisse-vert transition-colors">
+                            {event.title}
+                          </h3>
+
+                          <p className="text-neutral-gris leading-relaxed mb-4">
+                            {event.excerpt}
+                          </p>
+
+                          <div className="flex items-center justify-between flex-wrap gap-2">
+                            <div className="flex items-center gap-2 text-neutral-gris text-sm">
+                              <MapPin className="w-4 h-4" />
+                              <span className="font-medium">{event.lieu}</span>
                             </div>
-                          </div>
-                        )}
-                      </div>
-
-                      {/* Contenu */}
-                      <div className="p-6">
-                        <div className="flex flex-wrap items-center gap-3 mb-4">
-                          <span className={`inline-block px-3 py-1 border text-xs font-bold uppercase tracking-wider rounded-full ${getCategoryColor(event.category)}`}>
-                            {event.category}
-                          </span>
-                          <span className="text-neutral-gris text-sm font-medium flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            {formatDate(event.date)}
-                          </span>
-                        </div>
-
-                        <h3 className="text-2xl font-bold text-neutral-anthracite mb-3">
-                          {event.title}
-                        </h3>
-
-                        <p className="text-neutral-gris leading-relaxed mb-4">
-                          {event.excerpt}
-                        </p>
-
-                        <div className="flex items-center justify-between flex-wrap gap-2">
-                          <div className="flex items-center gap-2 text-neutral-gris text-sm">
-                            <MapPin className="w-4 h-4" />
-                            <span className="font-medium">{event.lieu}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            {'pdfUrl' in event && event.pdfUrl && (
-                              <a
-                                href={event.pdfUrl}
-                                download
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-stone-700 text-white text-sm font-semibold rounded-full hover:bg-stone-800 transition-colors"
-                              >
-                                <Download className="w-4 h-4" />
-                                {'pdfLabel' in event && event.pdfLabel ? event.pdfLabel : 'Document PDF'}
-                              </a>
-                            )}
-                            {'externalUrl' in event && event.externalUrl && (
-                              <a
-                                href={event.externalUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-4 py-2 bg-paroisse-vert text-white text-sm font-semibold rounded-full hover:bg-paroisse-vertFonce transition-colors"
-                              >
-                                Plus d'infos
-                                <ExternalLink className="w-4 h-4" />
-                              </a>
-                            )}
+                            <div className="flex items-center gap-2">
+                              {'pdfUrl' in event && event.pdfUrl && (
+                                <a
+                                  href={event.pdfUrl}
+                                  download
+                                  className="inline-flex items-center gap-2 px-4 py-2 bg-stone-700 text-white text-sm font-semibold rounded-full hover:bg-stone-800 transition-colors"
+                                >
+                                  <Download className="w-4 h-4" />
+                                  {'pdfLabel' in event && event.pdfLabel ? event.pdfLabel : 'Document PDF'}
+                                </a>
+                              )}
+                              {'externalUrl' in event && event.externalUrl && (
+                                <a
+                                  href={event.externalUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-2 px-4 py-2 bg-paroisse-vert text-white text-sm font-semibold rounded-full hover:bg-paroisse-vertFonce transition-colors"
+                                >
+                                  Plus d&apos;infos
+                                  <ExternalLink className="w-4 h-4" />
+                                </a>
+                              )}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -449,85 +347,23 @@ export default function ActualitesPage() {
                   ))}
                 </div>
               </div>
-            )}
-
-            {/* ÉVÉNEMENTS SANS IMAGES - Liste compacte et ordonnée */}
-            {regularEvents.length > 0 && (
-              <div className="mb-16">
-                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
-                  <span className="w-10 h-1 bg-paroisse-vert"></span>
-                  Agenda paroissial
-                </h3>
-
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                  <div className="divide-y divide-neutral-gris/20">
-                    {regularEvents.map(event => (
-                      <article key={event.id} className="group p-6 hover:bg-neutral-grisClaire transition-colors duration-300">
-                        <div className="flex flex-col md:flex-row md:items-center gap-4">
-                          {/* Date */}
-                          <div className="flex-shrink-0 md:w-32">
-                            <div className="inline-flex flex-col items-center bg-paroisse-vert/10 rounded-lg p-3 border-2 border-paroisse-vert/30">
-                              <span className="text-3xl font-bold text-paroisse-vertFonce">
-                                {new Date(event.date).getDate()}
-                              </span>
-                              <span className="text-sm font-semibold text-paroisse-vert uppercase">
-                                {new Date(event.date).toLocaleDateString('fr-FR', { month: 'short' })}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Contenu */}
-                          <div className="flex-1">
-                            <div className="flex flex-wrap items-center gap-2 mb-2">
-                              <span className={`inline-block px-2 py-1 border text-xs font-bold uppercase tracking-wider rounded ${getCategoryColor(event.category)}`}>
-                                {event.category}
-                              </span>
-                            </div>
-
-                            <h3 className="text-xl font-bold text-neutral-anthracite mb-2">
-                              {event.title}
-                            </h3>
-
-                            <p className="text-neutral-gris text-sm mb-2 line-clamp-2">
-                              {event.excerpt}
-                            </p>
-
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2 text-neutral-gris text-sm">
-                                <MapPin className="w-4 h-4" />
-                                <span className="font-medium">{event.lieu}</span>
-                              </div>
-                              {'externalUrl' in event && event.externalUrl && (
-                                <a
-                                  href={event.externalUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center gap-1 text-paroisse-vert text-sm font-semibold hover:text-paroisse-vertFonce transition-colors"
-                                >
-                                  Plus d'infos
-                                  <ExternalLink className="w-3 h-3" />
-                                </a>
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </div>
+            ) : (
+              <div className="mb-16 text-center py-12">
+                <Star className="w-12 h-12 text-neutral-gris/30 mx-auto mb-4" strokeWidth={1} />
+                <p className="text-neutral-gris text-lg">Aucun evenement a venir pour le moment</p>
               </div>
             )}
 
-            {/* ÉVÉNEMENTS PASSÉS - Section condensée */}
+            {/* ARCHIVES */}
             {pastEvents.length > 0 && (
-              <div className="mt-24">
-                <h3 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
+              <div>
+                <h2 className="text-2xl font-bold text-neutral-anthracite mb-8 flex items-center gap-3">
                   <span className="w-10 h-1 bg-neutral-gris"></span>
                   Archives
-                </h3>
+                </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {pastEvents.slice(0, 4).map(event => (
+                  {pastEvents.slice(0, 8).map(event => (
                     <article key={event.id} className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 opacity-75 hover:opacity-100">
                       <div className="p-4">
                         <span className={`inline-block px-2 py-1 border text-xs font-bold uppercase tracking-wider rounded mb-2 ${getCategoryColor(event.category)}`}>
@@ -545,28 +381,6 @@ export default function ActualitesPage() {
             )}
 
           </div>
-
-          {/* Liens utiles */}
-          <div className="mt-16 pt-12 border-t border-neutral-gris/20">
-            <h3 className="text-xl font-bold text-neutral-anthracite mb-6 text-center">
-              Découvrir aussi
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-              <a href="/pastorale" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center border border-neutral-gris/20">
-                <p className="font-semibold text-neutral-anthracite group-hover:text-paroisse-vert transition-colors">Vie pastorale</p>
-                <p className="text-xs text-neutral-gris">Sacrements & catéchèse</p>
-              </a>
-              <a href="/paroisses" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center border border-neutral-gris/20">
-                <p className="font-semibold text-neutral-anthracite group-hover:text-paroisse-vert transition-colors">Nos paroisses</p>
-                <p className="text-xs text-neutral-gris">Églises & chapelles</p>
-              </a>
-              <a href="/contact" className="group bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center border border-neutral-gris/20">
-                <p className="font-semibold text-neutral-anthracite group-hover:text-paroisse-vert transition-colors">Nous contacter</p>
-                <p className="text-xs text-neutral-gris">Questions & demandes</p>
-              </a>
-            </div>
-          </div>
-
         </div>
       </section>
 
@@ -589,7 +403,7 @@ export default function ActualitesPage() {
           <div className="relative w-full h-full max-w-4xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
             <Image
               src={lightboxImage}
-              alt="Affiche événement"
+              alt="Affiche evenement"
               fill
               sizes="100vw"
               className="object-contain"
