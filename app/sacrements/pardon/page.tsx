@@ -31,7 +31,7 @@ export default function PardonPage() {
           </div>
         </nav>
 
-        {/* Header avec image - Option B rectangulaire */}
+        {/* Header avec image */}
         <div className="mb-12 bg-white rounded-xl shadow-lg p-8">
           <div className="flex flex-col lg:flex-row items-start gap-8">
             {/* Texte - 2/3 */}
@@ -62,44 +62,80 @@ export default function PardonPage() {
           </div>
         </div>
 
-        {/* Navigation sacrements */}
-        <div className="bg-white rounded-xl shadow-md p-6 mb-12">
-          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            <Link href="/sacrements/bapteme" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Baptême
-            </Link>
-            <Link href="/sacrements/communion" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Communion
-            </Link>
-            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Confirmation
-            </Link>
-            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Mariage
-            </Link>
-            <Link href="/sacrements/onction-malades" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Onction des malades
-            </Link>
-          </div>
-        </div>
-
-        {/* Contenu principal */}
+        {/* Contenu principal - Grid restructuré mobile-first */}
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Colonne principale - 2/3 */}
+          {/* Sidebar - premier sur mobile, à droite sur desktop */}
+          <div className="lg:order-last lg:col-span-1 space-y-6">
+            {/* Infos pratiques */}
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <BookOpen className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Autres noms</p>
+                    <p className="text-neutral-gris">Réconciliation, Pénitence, Confession</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <UsersRound className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Pour les enfants</p>
+                    <p className="text-neutral-gris">Préparation dès 4H</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Calendar className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Horaire des confessions</p>
+                    <p className="text-neutral-gris mb-2">Vendredis 18h-18h45 et dimanches 9h-9h45 à Basse-Nendaz</p>
+                    <p className="text-neutral-gris">Sur demande au secrétariat.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Enoria */}
+              <div className="mt-6 pt-6 border-t border-neutral-grisClaire">
+                <a
+                  href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center py-3 px-4 rounded-lg font-semibold text-white transition-all shadow-md hover:shadow-lg bg-enoria hover:opacity-90"
+                >
+                  Enoria - Mon Foyer
+                </a>
+              </div>
+            </div>
+
+            {/* Contact CTA */}
+            <div className="bg-gradient-to-br from-emerald-700 to-teal-700 text-white rounded-xl shadow-lg p-6 lg:sticky lg:top-6">
+              <h3 className="text-xl font-bold mb-4 text-white">Demander le sacrement</h3>
+              <p className="mb-6 text-white">
+                Contactez un prêtre pour recevoir le sacrement du pardon.
+              </p>
+              <Link
+                href="/contact?sujet=Pardon"
+                className="block w-full bg-white text-emerald-800 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
+              >
+                Prendre contact
+              </Link>
+            </div>
+          </div>
+
+          {/* Contenu principal */}
           <div className="lg:col-span-2 space-y-8">
 
-            {/* Texte principal */}
+            {/* Introduction spirituelle */}
             <div className="bg-white rounded-xl shadow-md p-8">
               <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Une réalité de notre quotidien</h2>
 
               <div className="prose prose-lg max-w-none text-neutral-anthracite">
                 <p className="text-lg leading-relaxed mb-6">
-                  Le sacrement du pardon est une réalité qui s'inscrit dans notre quotidien.
+                  Le sacrement du pardon est une réalité qui s&apos;inscrit dans notre quotidien.
                 </p>
 
                 <p className="leading-relaxed mb-6">
-                  Depuis les débuts de l'humanité, l'homme est marqué par sa fragilité et son inclination au péché, qui n'est rien d'autre qu'un manque d'amour. Le pardon vient libérer l'âme de la culpabilité et de la faute, rétablissant ainsi les liens essentiels avec Dieu. Pour le croyant, l'amour de Dieu surpasse toutes les ruptures et faiblesses humaines.
+                  Depuis les débuts de l&apos;humanité, l&apos;homme est marqué par sa fragilité et son inclination au péché, qui n&apos;est rien d&apos;autre qu&apos;un manque d&apos;amour. Le pardon vient libérer l&apos;âme de la culpabilité et de la faute, rétablissant ainsi les liens essentiels avec Dieu. Pour le croyant, l&apos;amour de Dieu surpasse toutes les ruptures et faiblesses humaines.
                 </p>
 
                 <div className="bg-emerald-50 border-l-4 border-emerald-700 p-6 rounded-r-lg my-8">
@@ -108,12 +144,12 @@ export default function PardonPage() {
                   </p>
                 </div>
 
-                <h3 className="text-xl font-semibold text-emerald-800 mt-8 mb-4">Parcours de l'initiation au sacrement du pardon pour les enfants</h3>
+                <h3 className="text-xl font-semibold text-emerald-800 mt-8 mb-4">Parcours de l&apos;initiation au sacrement du pardon pour les enfants</h3>
                 <p className="leading-relaxed mb-4">
                   <strong>Chers parents,</strong>
                 </p>
                 <p className="leading-relaxed mb-6">
-                  Nous sommes heureux d'accueillir vos enfants qui souhaitent se préparer à son premier Pardon. Cette préparation peut se faire à tout âge, dès que l'enfant est prêt à s'engager sur ce cheminement spirituel. Chez nous, ce parcours de préparation commence habituellement en 4H.
+                  Nous sommes heureux d&apos;accueillir vos enfants qui souhaitent se préparer à son premier Pardon. Cette préparation peut se faire à tout âge, dès que l&apos;enfant est prêt à s&apos;engager sur ce cheminement spirituel. Chez nous, ce parcours de préparation commence habituellement en 4H.
                 </p>
 
                 <p className="leading-relaxed">
@@ -130,7 +166,7 @@ export default function PardonPage() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Temps 1 - Ton pierre montagne */}
+                {/* Temps 1 */}
                 <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -153,7 +189,7 @@ export default function PardonPage() {
                   </ul>
                 </div>
 
-                {/* Temps 2 - Ton forêt alpine */}
+                {/* Temps 2 */}
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-xl border-2 border-emerald-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-emerald-700 rounded-full flex items-center justify-center flex-shrink-0">
@@ -172,7 +208,7 @@ export default function PardonPage() {
                   </ul>
                 </div>
 
-                {/* Temps 3 - Ton terre chaude */}
+                {/* Temps 3 */}
                 <div className="bg-gradient-to-br from-stone-50 to-amber-50 p-6 rounded-xl border-2 border-stone-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-stone-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -211,7 +247,7 @@ export default function PardonPage() {
                   </ul>
                 </div>
 
-                {/* Temps 4 - Ton soleil alpin */}
+                {/* Temps 4 */}
                 <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-xl border-2 border-amber-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -231,7 +267,7 @@ export default function PardonPage() {
                 </div>
               </div>
 
-              {/* Retraite + Célébrations - Un seul bloc */}
+              {/* Retraite + Célébrations */}
               <div className="mt-6">
                 <div className="bg-gradient-to-r from-emerald-50 to-teal-50 p-6 rounded-xl border-2 border-emerald-200">
                   <h4 className="font-bold text-neutral-anthracite mb-2 flex items-center gap-2">
@@ -257,40 +293,13 @@ export default function PardonPage() {
               </div>
             </div>
 
-            {/* Document téléchargeable */}
-            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl shadow-md p-8">
-              <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Document pour les parents</h2>
-              <a
-                href="/documents/pardon/deplent-info-parents-2025-26.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all border-2 border-transparent hover:border-emerald-700 group flex items-start gap-4"
-              >
-                <FileText className="w-10 h-10 text-emerald-700 group-hover:scale-110 transition-transform flex-shrink-0" />
-                <div className="flex-1">
-                  <h3 className="font-bold text-neutral-anthracite mb-2 group-hover:text-emerald-700 transition-colors">
-                    Dépliant Info Parents 2025-2026
-                  </h3>
-                  <p className="text-sm text-neutral-gris mb-3">
-                    Toutes les informations pour accompagner votre enfant
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-emerald-700 text-sm font-semibold">
-                    Télécharger (PDF)
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            </div>
-
             {/* Responsables et catéchistes */}
             <div className="bg-white rounded-xl shadow-md p-8">
               <h2 className="text-2xl font-bold text-neutral-anthracite mb-6 flex items-center gap-2">
                 <Users className="w-6 h-6 text-emerald-700" />
                 Responsables et catéchistes
               </h2>
-              <p className="text-sm text-neutral-gris mb-6">L'équipe du pardon</p>
+              <p className="text-sm text-neutral-gris mb-6">L&apos;équipe du pardon</p>
 
               <div className="grid md:grid-cols-2 gap-6">
 
@@ -373,64 +382,55 @@ export default function PardonPage() {
               </div>
             </div>
 
-          </div>
-
-          {/* Sidebar - 1/3 */}
-          <div className="lg:col-span-1">
-            {/* Contact */}
-            <div className="bg-gradient-to-br from-emerald-700 to-teal-700 text-white rounded-xl shadow-lg p-6 mb-6 sticky top-6">
-              <h3 className="text-xl font-bold mb-4 text-white">Demander le sacrement</h3>
-              <p className="mb-6 text-white">
-                Contactez un prêtre pour recevoir le sacrement du pardon.
-              </p>
-              <Link
-                href="/contact?sujet=Pardon"
-                className="block w-full bg-white text-emerald-800 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
+            {/* Document téléchargeable */}
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl shadow-md p-8">
+              <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Document pour les parents</h2>
+              <a
+                href="/documents/pardon/deplent-info-parents-2025-26.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all border-2 border-transparent hover:border-emerald-700 group flex items-start gap-4"
               >
-                Prendre contact
-              </Link>
+                <FileText className="w-10 h-10 text-emerald-700 group-hover:scale-110 transition-transform flex-shrink-0" />
+                <div className="flex-1">
+                  <h3 className="font-bold text-neutral-anthracite mb-2 group-hover:text-emerald-700 transition-colors">
+                    Dépliant Info Parents 2025-2026
+                  </h3>
+                  <p className="text-sm text-neutral-gris mb-3">
+                    Toutes les informations pour accompagner votre enfant
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-emerald-700 text-sm font-semibold">
+                    Télécharger (PDF)
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </span>
+                </div>
+              </a>
             </div>
 
-            {/* Infos pratiques */}
-            <div className="bg-white rounded-xl shadow-md p-6">
-              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
-              <div className="space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <BookOpen className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Autres noms</p>
-                    <p className="text-neutral-gris">Réconciliation, Pénitence, Confession</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <UsersRound className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Pour les enfants</p>
-                    <p className="text-neutral-gris">Préparation dès 4H</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Calendar className="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Horaire des confessions</p>
-                    <p className="text-neutral-gris mb-2">Vendredis 18h-18h45 et dimanches 9h-9h45 à Basse-Nendaz</p>
-                    <p className="text-neutral-gris">Sur demande au secrétariat.</p>
-                  </div>
-                </div>
-              </div>
+          </div>
+        </div>
 
-              {/* CTA Enoria */}
-              <div className="mt-6 pt-6 border-t border-neutral-grisClaire">
-                <a
-                  href="https://public.enoria.app/pubinsc/auth?type=foyer&p=598"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center py-3 px-4 rounded-lg font-semibold text-white transition-all shadow-md hover:shadow-lg bg-enoria hover:opacity-90"
-                >
-                  Enoria - Mon Foyer
-                </a>
-              </div>
-            </div>
+        {/* Navigation autres sacrements - en bas */}
+        <div className="bg-white rounded-xl shadow-md p-6 mt-12">
+          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            <Link href="/sacrements/bapteme" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Baptême
+            </Link>
+            <Link href="/sacrements/communion" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Communion
+            </Link>
+            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Confirmation
+            </Link>
+            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Mariage
+            </Link>
+            <Link href="/sacrements/onction-malades" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Onction des malades
+            </Link>
           </div>
         </div>
       </div>

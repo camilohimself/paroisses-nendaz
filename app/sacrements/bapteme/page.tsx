@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { Calendar } from 'lucide-react'
+import { Calendar, MapPin, Clock } from 'lucide-react'
 import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
@@ -39,35 +39,58 @@ export default function BaptemePage() {
             Baptême
           </h1>
           <p className="text-xl text-neutral-gris max-w-3xl">
-            Premier sacrement de la vie chrétienne, porte d'entrée dans la communauté des croyants.
+            Premier sacrement de la vie chrétienne, porte d&apos;entrée dans la communauté des croyants.
           </p>
         </div>
 
-        {/* Navigation sacrements */}
-        <div className="bg-white rounded-xl shadow-md p-6 mb-12">
-          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            <Link href="/sacrements/communion" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Communion
-            </Link>
-            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Confirmation
-            </Link>
-            <Link href="/sacrements/pardon" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Pardon/Réconciliation
-            </Link>
-            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Mariage
-            </Link>
-            <Link href="/sacrements/onction-malades" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Onction des malades
-            </Link>
-          </div>
-        </div>
-
-        {/* Contenu principal */}
+        {/* Contenu principal - Grid restructuré mobile-first */}
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Texte principal */}
+          {/* Sidebar - premier sur mobile, à droite sur desktop */}
+          <div className="lg:order-last lg:col-span-1 space-y-6">
+            {/* Infos pratiques */}
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Lieux</p>
+                    <p className="text-neutral-gris">Basse-Nendaz, Haute-Nendaz, Veysonnaz, Aproz</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Calendar className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Quand ?</p>
+                    <p className="text-neutral-gris">Dimanche ou samedi après la messe</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Préparation</p>
+                    <p className="text-neutral-gris">Rencontre à la cure de Basse-Nendaz</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact CTA */}
+            <div className="bg-paroisse-bleuRoi text-white rounded-xl shadow-lg p-6 lg:sticky lg:top-6">
+              <h3 className="text-xl font-bold mb-4">Préparer un baptême</h3>
+              <p className="mb-6 text-white/90">
+                Prenez contact avec le curé pour organiser le baptême.
+              </p>
+              <Link
+                href="/contact?sujet=Bapteme"
+                className="block w-full bg-white text-paroisse-bleuRoi hover:bg-white/90 font-semibold py-3 px-4 rounded-lg text-center transition-colors"
+              >
+                Prendre contact
+              </Link>
+            </div>
+          </div>
+
+          {/* Contenu principal */}
           <div className="lg:col-span-2 space-y-8">
             {/* Baptême des nouveau-nés */}
             <div className="bg-white rounded-xl shadow-md p-8">
@@ -75,7 +98,7 @@ export default function BaptemePage() {
 
               <div className="prose prose-lg max-w-none text-neutral-anthracite">
                 <p className="text-lg leading-relaxed mb-6">
-                  Merci aux parents qui présentent un nouveau-né au baptême de bien s'adresser au curé suffisamment tôt afin de convenir d'un rendez-vous pour la préparation.
+                  Merci aux parents qui présentent un nouveau-né au baptême de bien s&apos;adresser au curé suffisamment tôt afin de convenir d&apos;un rendez-vous pour la préparation.
                 </p>
 
                 <h3 className="text-xl font-semibold text-paroisse-bleuRoi mt-8 mb-4">Rencontre de préparation</h3>
@@ -97,11 +120,11 @@ export default function BaptemePage() {
 
             {/* Baptême enfants et adultes */}
             <div className="bg-white rounded-xl shadow-md p-8">
-              <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Baptême d'enfants en âge de scolarité et baptême d'adultes</h2>
+              <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Baptême d&apos;enfants en âge de scolarité et baptême d&apos;adultes</h2>
 
               <div className="prose prose-lg max-w-none text-neutral-anthracite">
                 <p className="leading-relaxed mb-6">
-                  Le baptême d'enfants en âge de scolarité et le baptême d'adultes nécessite une préparation individuelle dans le cadre du catéchuménat des adultes. La démarche catéchuménale s'inscrit dans la durée.
+                  Le baptême d&apos;enfants en âge de scolarité et le baptême d&apos;adultes nécessite une préparation individuelle dans le cadre du catéchuménat des adultes. La démarche catéchuménale s&apos;inscrit dans la durée.
                 </p>
 
                 <p className="leading-relaxed mb-6">
@@ -120,50 +143,27 @@ export default function BaptemePage() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
-            {/* Contact */}
-            <div className="bg-paroisse-bleuRoi text-white rounded-xl shadow-lg p-6 mb-6">
-              <h3 className="text-xl font-bold mb-4">Préparer un baptême</h3>
-              <p className="mb-6 text-white/90">
-                Prenez contact avec le curé pour organiser le baptême.
-              </p>
-              <Link
-                href="/contact?sujet=Bapteme"
-                className="block w-full bg-white text-paroisse-bleuRoi hover:bg-white/90 font-semibold py-3 px-4 rounded-lg text-center transition-colors"
-              >
-                Prendre contact
-              </Link>
-            </div>
-
-            {/* Infos pratiques */}
-            <div className="bg-white rounded-xl shadow-md p-6">
-              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
-              <div className="space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">📍</span>
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Lieux</p>
-                    <p className="text-neutral-gris">Basse-Nendaz, Haute-Nendaz, Veysonnaz, Aproz</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Calendar className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Quand ?</p>
-                    <p className="text-neutral-gris">Dimanche ou samedi après la messe</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">⏱️</span>
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Préparation</p>
-                    <p className="text-neutral-gris">Rencontre à la cure de Basse-Nendaz</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        {/* Navigation autres sacrements - en bas */}
+        <div className="bg-white rounded-xl shadow-md p-6 mt-12">
+          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            <Link href="/sacrements/communion" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Communion
+            </Link>
+            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Confirmation
+            </Link>
+            <Link href="/sacrements/pardon" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Pardon/Réconciliation
+            </Link>
+            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Mariage
+            </Link>
+            <Link href="/sacrements/onction-malades" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Onction des malades
+            </Link>
           </div>
         </div>
       </div>

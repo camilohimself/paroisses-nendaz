@@ -52,7 +52,7 @@ export default function CommunionPage() {
           </div>
         </nav>
 
-        {/* Header avec image - Option B rectangulaire */}
+        {/* Header avec image */}
         <div className="mb-12 bg-white rounded-xl shadow-lg p-8">
           <div className="flex flex-col lg:flex-row items-start gap-8">
             {/* Texte - 2/3 */}
@@ -83,31 +83,54 @@ export default function CommunionPage() {
           </div>
         </div>
 
-        {/* Navigation sacrements */}
-        <div className="bg-white rounded-xl shadow-md p-6 mb-12">
-          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            <Link href="/sacrements/bapteme" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Baptême
-            </Link>
-            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Confirmation
-            </Link>
-            <Link href="/sacrements/pardon" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Pardon/Réconciliation
-            </Link>
-            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Mariage
-            </Link>
-            <Link href="/sacrements/onction-malades" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Onction des malades
-            </Link>
-          </div>
-        </div>
-
-        {/* Contenu principal */}
+        {/* Contenu principal - Grid restructuré mobile-first */}
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Colonne principale (2/3) */}
+          {/* Sidebar - premier sur mobile, à droite sur desktop */}
+          <div className="lg:order-last lg:col-span-1 space-y-6">
+            {/* Infos pratiques */}
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <Cake className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Âge</p>
+                    <p className="text-neutral-gris">À partir de 9 ans (âge de raison)</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <BookOpen className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Parcours</p>
+                    <p className="text-neutral-gris">4 temps + retraite + célébrations</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Sparkles className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Eucharistie</p>
+                    <p className="text-neutral-gris">Jésus Pain de Vie</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact CTA */}
+            <div className="bg-gradient-to-br from-amber-500 to-yellow-500 text-white rounded-xl shadow-lg p-6 lg:sticky lg:top-6">
+              <h3 className="text-xl font-bold mb-4 text-white">Inscrire votre enfant</h3>
+              <p className="mb-6 text-white">
+                Prenez contact avec nous pour inscrire votre enfant au parcours de préparation.
+              </p>
+              <Link
+                href="/contact?sujet=Communion"
+                className="block w-full bg-white text-amber-700 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
+              >
+                Prendre contact
+              </Link>
+            </div>
+          </div>
+
+          {/* Contenu principal */}
           <div className="lg:col-span-2 space-y-8">
 
             {/* Introduction */}
@@ -152,7 +175,7 @@ export default function CommunionPage() {
               </p>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {/* Temps 1 - Ton pierre montagne */}
+                {/* Temps 1 */}
                 <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -183,7 +206,7 @@ export default function CommunionPage() {
                   </ul>
                 </div>
 
-                {/* Temps 2 - Ton forêt alpine */}
+                {/* Temps 2 */}
                 <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-xl border-2 border-emerald-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-emerald-700 rounded-full flex items-center justify-center flex-shrink-0">
@@ -210,7 +233,7 @@ export default function CommunionPage() {
                   </ul>
                 </div>
 
-                {/* Temps 3 - Ton terre chaude */}
+                {/* Temps 3 */}
                 <div className="bg-gradient-to-br from-stone-50 to-amber-50 p-6 rounded-xl border-2 border-stone-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-stone-600 rounded-full flex items-center justify-center flex-shrink-0">
@@ -233,7 +256,7 @@ export default function CommunionPage() {
                   </ul>
                 </div>
 
-                {/* Temps 4 - Ton soleil alpin */}
+                {/* Temps 4 */}
                 <div className="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-xl border-2 border-amber-200">
                   <div className="flex items-start gap-4 mb-4">
                     <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0">
@@ -261,7 +284,7 @@ export default function CommunionPage() {
                 </div>
               </div>
 
-              {/* Retraite + Célébrations - Palette Valais */}
+              {/* Retraite + Célébrations */}
               <div className="mt-6 grid md:grid-cols-2 gap-6">
                 <div className="bg-gradient-to-r from-slate-50 to-slate-100 p-6 rounded-xl border-2 border-slate-200">
                   <h4 className="font-bold text-neutral-anthracite mb-2 flex items-center gap-2">
@@ -288,7 +311,7 @@ export default function CommunionPage() {
               </p>
 
               <div className="space-y-4">
-                {/* Rencontre 1 - Ton pierre montagne */}
+                {/* Rencontre 1 */}
                 <div className="border-2 border-slate-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleAccordion(1)}
@@ -390,7 +413,7 @@ export default function CommunionPage() {
                   )}
                 </div>
 
-                {/* Rencontre 2 - Ton forêt alpine */}
+                {/* Rencontre 2 */}
                 <div className="border-2 border-emerald-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleAccordion(2)}
@@ -420,7 +443,7 @@ export default function CommunionPage() {
                       <div className="space-y-6">
                         <div>
                           <h4 className="font-semibold text-neutral-anthracite mb-3 flex items-center gap-2">
-                            <span className="text-xl">🎯</span> Objectifs
+                            <Target className="w-5 h-5 text-emerald-700" /> Objectifs
                           </h4>
                           <ul className="space-y-3 text-sm text-neutral-anthracite">
                             <li className="flex items-start gap-3">
@@ -462,7 +485,7 @@ export default function CommunionPage() {
                   )}
                 </div>
 
-                {/* Rencontre 3 - Ton terre chaude */}
+                {/* Rencontre 3 */}
                 <div className="border-2 border-stone-200 rounded-lg overflow-hidden">
                   <button
                     onClick={() => toggleAccordion(3)}
@@ -592,54 +615,9 @@ export default function CommunionPage() {
             </div>
 
           </div>
-
-          {/* Sidebar (1/3) */}
-          <div className="lg:col-span-1">
-            {/* Contact */}
-            <div className="bg-gradient-to-br from-amber-500 to-yellow-500 text-white rounded-xl shadow-lg p-6 mb-6 sticky top-6">
-              <h3 className="text-xl font-bold mb-4 text-white">Inscrire votre enfant</h3>
-              <p className="mb-6 text-white">
-                Prenez contact avec nous pour inscrire votre enfant au parcours de préparation.
-              </p>
-              <Link
-                href="/contact?sujet=Communion"
-                className="block w-full bg-white text-amber-700 hover:bg-white/90 font-bold py-3 px-4 rounded-lg text-center transition-colors shadow-md"
-              >
-                Prendre contact
-              </Link>
-            </div>
-
-            {/* Infos pratiques */}
-            <div className="bg-white rounded-xl shadow-md p-6 mb-6">
-              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
-              <div className="space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <Cake className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Âge</p>
-                    <p className="text-neutral-gris">À partir de 9 ans (âge de raison)</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <BookOpen className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Parcours</p>
-                    <p className="text-neutral-gris">4 temps + retraite + célébrations</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Sparkles className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Eucharistie</p>
-                    <p className="text-neutral-gris">Jésus Pain de Vie</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Section Documents téléchargeables */}
+        {/* Section Documents téléchargeables - full width */}
         <div className="bg-gradient-to-br from-paroisse-jaune/10 to-paroisse-jaune/5 rounded-xl shadow-md p-8 mt-8">
           <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Documents et Ressources</h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -725,7 +703,7 @@ export default function CommunionPage() {
           </div>
         </div>
 
-        {/* Section Chants YouTube avec Embeds */}
+        {/* Section Chants YouTube */}
         <div className="bg-white rounded-xl shadow-md p-8 mt-8">
           <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Chants sur YouTube</h2>
           <p className="text-neutral-gris mb-6">
@@ -733,7 +711,7 @@ export default function CommunionPage() {
           </p>
           <div className="grid md:grid-cols-2 gap-8">
 
-            {/* Chant 1 - Embed */}
+            {/* Chant 1 */}
             <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg shadow-lg border-2 border-red-200">
               <h3 className="font-bold text-neutral-anthracite mb-4 text-lg flex items-center gap-2">
                 <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
@@ -755,7 +733,7 @@ export default function CommunionPage() {
               </div>
             </div>
 
-            {/* Chant 2 - Embed */}
+            {/* Chant 2 */}
             <div className="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg shadow-lg border-2 border-red-200">
               <h3 className="font-bold text-neutral-anthracite mb-4 text-lg flex items-center gap-2">
                 <svg className="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
@@ -779,7 +757,7 @@ export default function CommunionPage() {
 
           </div>
 
-          {/* Vidéos des activités du parcours */}
+          {/* Vidéos des activités */}
           <div className="mt-8">
             <h3 className="text-2xl font-bold text-neutral-anthracite mb-6 flex items-center gap-2">
               <Video className="w-6 h-6 text-slate-600" />
@@ -820,6 +798,28 @@ export default function CommunionPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Navigation autres sacrements - en bas */}
+        <div className="bg-white rounded-xl shadow-md p-6 mt-8">
+          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            <Link href="/sacrements/bapteme" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Baptême
+            </Link>
+            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Confirmation
+            </Link>
+            <Link href="/sacrements/pardon" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Pardon/Réconciliation
+            </Link>
+            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Mariage
+            </Link>
+            <Link href="/sacrements/onction-malades" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Onction des malades
+            </Link>
           </div>
         </div>
 

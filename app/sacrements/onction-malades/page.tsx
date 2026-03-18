@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Metadata } from 'next'
-import { HandHeart } from 'lucide-react'
+import { HandHeart, Clock, Heart } from 'lucide-react'
 import PageTracker from '@/components/PageTracker'
 
 export const metadata: Metadata = {
@@ -39,80 +39,47 @@ export default function OnctionMaladesPage() {
             Onction des malades
           </h1>
           <p className="text-xl text-neutral-gris max-w-3xl">
-            Confier la souffrance à la compassion du Christ par l'onction avec l'huile bénite.
+            Confier la souffrance à la compassion du Christ par l&apos;onction avec l&apos;huile bénite.
           </p>
         </div>
 
-        {/* Navigation sacrements */}
-        <div className="bg-white rounded-xl shadow-md p-6 mb-12">
-          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            <Link href="/sacrements/bapteme" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Baptême
-            </Link>
-            <Link href="/sacrements/communion" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Communion
-            </Link>
-            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Confirmation
-            </Link>
-            <Link href="/sacrements/pardon" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Pardon/Réconciliation
-            </Link>
-            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
-              Mariage
-            </Link>
-          </div>
-        </div>
-
-        {/* Contenu principal */}
+        {/* Contenu principal - Grid restructuré mobile-first */}
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Texte principal */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-md p-8 mb-8">
-              <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Un sacrement de réconfort</h2>
-
-              <div className="prose prose-lg max-w-none text-neutral-anthracite">
-                <p className="text-lg leading-relaxed mb-6">
-                  L'onction des malades est un sacrement par lequel celui qui souffre est confié à la compassion du Christ. L'onction est faite avec une huile bénite.
-                </p>
-
-                <div className="bg-paroisse-turquoise/10 border-l-4 border-paroisse-turquoise p-6 rounded-r-lg my-8">
-                  <p className="text-lg font-semibold text-paroisse-bleuRoi">
-                    N'hésitez pas à contacter un prêtre pour célébrer le sacrement de l'onction des malades.
-                  </p>
+          {/* Sidebar - premier sur mobile, à droite sur desktop */}
+          <div className="lg:order-last lg:col-span-1 space-y-6">
+            {/* Infos pratiques */}
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <HandHeart className="w-6 h-6 text-slate-700 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Sacrement</p>
+                    <p className="text-neutral-gris">Onction avec huile bénite</p>
+                  </div>
                 </div>
-
-                <h3 className="text-xl font-semibold text-paroisse-bleuRoi mt-8 mb-4">Le bon moment pour recevoir l'onction</h3>
-                <p className="leading-relaxed mb-6">
-                  Dans la mesure du possible, il est préférable de célébrer le sacrement des malades, quand la personne parle encore. Car ce sacrement réconforte, rassure, console, fait dissiper angoisses et peurs.
-                </p>
-
-                <div className="bg-paroisse-vert/10 border-l-4 border-paroisse-vert p-6 rounded-r-lg my-8">
-                  <p className="text-lg font-semibold text-paroisse-vertFonce">
-                    Le plus tôt, c'est le mieux !
-                  </p>
+                <div className="flex items-start gap-3">
+                  <Clock className="w-6 h-6 text-slate-700 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Quand ?</p>
+                    <p className="text-neutral-gris">Le plus tôt possible, tant que la personne parle</p>
+                  </div>
                 </div>
-
-                <h3 className="text-xl font-semibold text-paroisse-bleuRoi mt-8 mb-4">Le dimanche des malades</h3>
-                <p className="leading-relaxed mb-6">
-                  Le dimanche des malades offre aussi l'occasion de recevoir ce sacrement au cours d'une messe dominicale.
-                </p>
-
-                <p className="text-lg font-semibold text-neutral-anthracite mt-8">
-                  Merci pour votre précieuse collaboration !
-                </p>
+                <div className="flex items-start gap-3">
+                  <Heart className="w-6 h-6 text-slate-700 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-neutral-anthracite">Bienfaits</p>
+                    <p className="text-neutral-gris">Réconfort, apaisement, consolation</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Sidebar */}
-          <div className="lg:col-span-1">
             {/* Contact urgence */}
-            <div className="bg-gradient-to-br from-slate-700 to-blue-800 text-white rounded-xl shadow-lg p-6 mb-6">
+            <div className="bg-gradient-to-br from-slate-700 to-blue-800 text-white rounded-xl shadow-lg p-6 lg:sticky lg:top-6">
               <h3 className="text-xl font-bold mb-4 text-white">Contacter un prêtre</h3>
               <p className="mb-4 text-white/90 text-sm">
-                N'hésitez pas à appeler directement :
+                N&apos;hésitez pas à appeler directement :
               </p>
               <div className="space-y-3 mb-6">
                 <div className="bg-white/10 p-3 rounded-lg">
@@ -135,34 +102,67 @@ export default function OnctionMaladesPage() {
                 Formulaire de contact
               </Link>
             </div>
+          </div>
 
-            {/* Infos pratiques */}
-            <div className="bg-white rounded-xl shadow-md p-6">
-              <h3 className="text-lg font-bold text-neutral-anthracite mb-4">Informations pratiques</h3>
-              <div className="space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <HandHeart className="w-6 h-6 text-slate-700 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Sacrement</p>
-                    <p className="text-neutral-gris">Onction avec huile bénite</p>
-                  </div>
+          {/* Contenu principal */}
+          <div className="lg:col-span-2">
+            <div className="bg-white rounded-xl shadow-md p-8">
+              <h2 className="text-2xl font-bold text-neutral-anthracite mb-6">Un sacrement de réconfort</h2>
+
+              <div className="prose prose-lg max-w-none text-neutral-anthracite">
+                <p className="text-lg leading-relaxed mb-6">
+                  L&apos;onction des malades est un sacrement par lequel celui qui souffre est confié à la compassion du Christ. L&apos;onction est faite avec une huile bénite.
+                </p>
+
+                <div className="bg-paroisse-turquoise/10 border-l-4 border-paroisse-turquoise p-6 rounded-r-lg my-8">
+                  <p className="text-lg font-semibold text-paroisse-bleuRoi">
+                    N&apos;hésitez pas à contacter un prêtre pour célébrer le sacrement de l&apos;onction des malades.
+                  </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">⏰</span>
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Quand ?</p>
-                    <p className="text-neutral-gris">Le plus tôt possible, tant que la personne parle</p>
-                  </div>
+
+                <h3 className="text-xl font-semibold text-paroisse-bleuRoi mt-8 mb-4">Le bon moment pour recevoir l&apos;onction</h3>
+                <p className="leading-relaxed mb-6">
+                  Dans la mesure du possible, il est préférable de célébrer le sacrement des malades, quand la personne parle encore. Car ce sacrement réconforte, rassure, console, fait dissiper angoisses et peurs.
+                </p>
+
+                <div className="bg-paroisse-vert/10 border-l-4 border-paroisse-vert p-6 rounded-r-lg my-8">
+                  <p className="text-lg font-semibold text-paroisse-vertFonce">
+                    Le plus tôt, c&apos;est le mieux !
+                  </p>
                 </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-2xl">🕊️</span>
-                  <div>
-                    <p className="font-semibold text-neutral-anthracite">Bienfaits</p>
-                    <p className="text-neutral-gris">Réconfort, apaisement, consolation</p>
-                  </div>
-                </div>
+
+                <h3 className="text-xl font-semibold text-paroisse-bleuRoi mt-8 mb-4">Le dimanche des malades</h3>
+                <p className="leading-relaxed mb-6">
+                  Le dimanche des malades offre aussi l&apos;occasion de recevoir ce sacrement au cours d&apos;une messe dominicale.
+                </p>
+
+                <p className="text-lg font-semibold text-neutral-anthracite mt-8">
+                  Merci pour votre précieuse collaboration !
+                </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Navigation autres sacrements - en bas */}
+        <div className="bg-white rounded-xl shadow-md p-6 mt-12">
+          <h3 className="text-sm font-semibold text-neutral-gris mb-4">Autres sacrements</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            <Link href="/sacrements/bapteme" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Baptême
+            </Link>
+            <Link href="/sacrements/communion" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Communion
+            </Link>
+            <Link href="/sacrements/confirmation" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Confirmation
+            </Link>
+            <Link href="/sacrements/pardon" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Pardon/Réconciliation
+            </Link>
+            <Link href="/sacrements/mariage" className="text-sm text-paroisse-bleuRoi hover:bg-paroisse-bleuRoi/10 px-3 py-2 rounded-lg transition-colors">
+              Mariage
+            </Link>
           </div>
         </div>
       </div>
