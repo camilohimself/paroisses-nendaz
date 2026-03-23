@@ -97,6 +97,19 @@ const allEvents = [
   },
   // === ÉVÉNEMENTS PAROISSES NENDAZ ===
   {
+    id: 'montee-paques-2026',
+    title: 'Mont\u00e9e vers P\u00e2ques — Semaine Sainte',
+    excerpt: 'Vivez les temps forts de la Semaine Sainte dans nos paroisses. Jeudi Saint : MVP enfants et Messe de la derni\u00e8re C\u00e8ne. Vendredi Saint : Chemins de croix \u00e0 15h (familles \u00e0 Basse-Nendaz, paroisses \u00e0 Haute-Nendaz, Aproz, Veysonnaz) et C\u00e9l\u00e9bration de la Passion \u00e0 20h. Samedi Saint : MVP confirmands et Veill\u00e9e pascale \u00e0 20h30. Dimanche de P\u00e2ques : Messes \u00e0 9h (Veysonnaz), 10h (Basse-Nendaz, Haute-Nendaz, Aproz) et 10h30 (Fey).',
+    date: '2026-04-02',
+    image: '/images/articles/montee-paques-2026.webp',
+    hasImage: true,
+    category: '\u00c9v\u00e9nement',
+    lieu: 'Toutes les paroisses — du 2 au 5 avril 2026',
+    pdfUrl: '/documents/montee-vers-paques-2026.pdf',
+    pdfLabel: 'Affiche Semaine Sainte',
+    displayUntil: '2026-04-05'
+  },
+  {
     id: 'journee-malades-2026',
     title: 'Journée de prière pour les malades',
     excerpt: 'Ce dimanche, durant la messe de 10h, le sacrement des malades sera célébré. Si vous êtes absent, contactez le secrétariat de la paroisse pour prendre un rendez-vous afin de recevoir le sacrement des malades.',

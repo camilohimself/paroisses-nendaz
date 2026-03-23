@@ -4,8 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 
-const STORAGE_KEY = 'journee-malades-2026-dismissed'
-const EXPIRY_DATE = new Date('2026-03-01T10:00:00') // Disparaît dimanche 1er mars à 10h
+const STORAGE_KEY = 'montee-paques-2026-dismissed'
+const EXPIRY_DATE = new Date('2026-04-05T12:00:00') // Disparaît dimanche de Pâques à midi
 
 export default function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -81,7 +81,7 @@ export default function AnnouncementModal() {
       ref={modalRef}
       role="dialog"
       aria-modal="true"
-      aria-label="Annonce : Journée de prière pour les malades"
+      aria-label="Annonce : Montée vers Pâques — Semaine Sainte 2026"
       className={`
         fixed inset-0 z-50 flex items-center justify-center p-4
         transition-opacity duration-300 ease-out
@@ -118,15 +118,24 @@ export default function AnnouncementModal() {
         {/* Poster image */}
         <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-white/20">
           <Image
-            src="/images/articles/journee-malades-2026.jpg"
-            alt="Journée de prière pour les malades - Dimanche 1er mars 2026 - Messe de 10h - Église de Basse-Nendaz"
-            width={849}
-            height={1200}
+            src="/images/articles/montee-paques-2026.webp"
+            alt="Montée vers Pâques — Semaine Sainte du 2 au 5 avril 2026 — Paroisses de Nendaz et Veysonnaz"
+            width={1200}
+            height={1697}
             sizes="(max-width: 640px) 280px, (max-width: 768px) 384px, 448px"
             className="w-full h-auto"
             loading="lazy"
           />
         </div>
+
+        {/* Lien vers le PDF */}
+        <a
+          href="/documents/montee-vers-paques-2026.pdf"
+          download
+          className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-white/95 text-stone-800 text-sm font-semibold rounded-lg hover:bg-white transition-colors shadow-lg backdrop-blur-sm"
+        >
+          T&eacute;l&eacute;charger l&apos;affiche PDF
+        </a>
       </div>
     </div>
   )
