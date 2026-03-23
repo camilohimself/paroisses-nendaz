@@ -127,15 +127,6 @@ export default function AnnouncementModal() {
             priority
           />
         </div>
-
-        {/* Lien vers le PDF */}
-        <a
-          href="/documents/montee-vers-paques-2026.pdf"
-          download
-          className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-white/95 text-stone-800 text-sm font-semibold rounded-lg hover:bg-white transition-colors shadow-lg backdrop-blur-sm"
-        >
-          T&eacute;l&eacute;charger l&apos;affiche PDF
-        </a>
       </div>
     </div>
   )
