@@ -100,7 +100,7 @@ export default function AnnouncementModal() {
       {/* Modal */}
       <div
         className={`
-          relative w-full max-w-[280px] sm:max-w-sm md:max-w-md
+          relative w-full max-w-[340px] sm:max-w-md md:max-w-lg
           transition-transform duration-300 ease-out
           ${isVisible ? 'scale-100' : 'scale-95'}
         `}
@@ -122,9 +122,9 @@ export default function AnnouncementModal() {
             alt="Montée vers Pâques — Semaine Sainte du 2 au 5 avril 2026 — Paroisses de Nendaz et Veysonnaz"
             width={1200}
             height={1697}
-            sizes="(max-width: 640px) 280px, (max-width: 768px) 384px, 448px"
+            sizes="(max-width: 640px) 340px, (max-width: 768px) 448px, 512px"
             className="w-full h-auto"
-            loading="lazy"
+            priority
           />
         </div>
 

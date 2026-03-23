@@ -4,12 +4,12 @@ import VideoHero from '@/components/VideoHero'
 import SaintDuJour from '@/components/SaintDuJour'
 import { SlidersHorizontal, Briefcase, User, Eye, ExternalLink } from 'lucide-react'
 import dynamic from 'next/dynamic'
+import AnnouncementModal from '@/components/AnnouncementModal'
 
 // Lazy load non-critical components
 const HorairesMesse = dynamic(() => import('@/components/HorairesMesse'), {
   loading: () => <div className="animate-pulse bg-gray-200 rounded-lg h-32" />
 })
-const AnnouncementModal = dynamic(() => import('@/components/AnnouncementModal'))
 
 export const metadata: Metadata = {
   title: 'Accueil | Paroisses de Nendaz et Veysonnaz',
