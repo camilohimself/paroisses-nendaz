@@ -211,8 +211,8 @@ export default function ActualitesPage() {
       {/* HERO AVEC IMAGE */}
       <section className="relative h-[300px] md:h-[380px] overflow-hidden">
         <Image
-          src="/images/articles/hero-careme-2026.webp"
-          alt="Vue sur les paroisses de Nendaz et Veysonnaz"
+          src="/images/paroisses/basse-nendaz/hero-desktop.webp"
+          alt="Église de Basse-Nendaz — Paroisses de Nendaz et Veysonnaz"
           fill
           className="object-cover"
           priority

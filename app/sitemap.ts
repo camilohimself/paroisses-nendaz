@@ -38,8 +38,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/careme2026`,
       lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.8,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
     {
       url: `${baseUrl}/prieres-crans-montana`,
