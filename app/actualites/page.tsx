@@ -148,6 +148,17 @@ const allEvents = [
     hasImage: false,
     category: 'Culture',
     lieu: 'Église de Haute-Nendaz - 17h30'
+  },
+  {
+    id: 'soiree-cinema-sacre-coeur-2026',
+    title: 'Soirée cinéma — Sacré Cœur',
+    excerpt: 'Ce vendredi, solennité du Sacré Cœur de Jésus : projection du film « Sacré Cœur — Son règne n\'a pas de fin », une fresque spirituelle sur le mystère du Cœur de Jésus, suivie de la messe. Un moment de recueillement et de partage ouvert à toute la paroisse.',
+    date: '2026-06-12',
+    image: '/images/articles/soiree-cinema-sacre-coeur-2026.webp',
+    hasImage: true,
+    category: 'Événement',
+    lieu: 'Salle de gym du CO, Basse-Nendaz — 17h00 (film) puis messe à 19h00',
+    displayUntil: '2026-06-12'
   }
 ]
 
