@@ -116,3 +116,10 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 **Images optimisees** : epiphanie (1.4MB→233KB), festival-familles (5.9MB→379KB)
 
 *Historique sessions dans `_ARCHIVES/`*
+
+## Notes Audit (8 mars 2026)
+
+- [ ] Maintenance annuelle : saints-data.ts + DIMANCHES_2026 + CSV saints a regenerer pour 2027 — aucun owner ni process documente
+- [ ] Decap CMS : pas de checklist d'onboarding pour les membres de l'equipe paroissiale
+- [ ] Aucun contrat de maintenance documente dans ce fichier (MRR ~1 500 CHF/mois mentionne ailleurs)
+- [ ] Dossier technique excellent — site le plus complet du portfolio
