@@ -80,7 +80,7 @@ export default function EnoriaPage() {
           <div className="mt-8 text-center">
             <p className="text-sm text-neutral-gris">
               Besoin d&apos;aide ? Contactez le secrétariat au{' '}
-              <a href="tel:+41772693529" className="text-[#2A8B8C] font-semibold hover:underline">
+              <a href="tel:+41772693529" className="text-[#2A8B8C] font-semibold hover:underline whitespace-nowrap">
                 +41 77 269 35 29
               </a>
             </p>

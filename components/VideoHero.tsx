@@ -74,7 +74,7 @@ function MemorialHero() {
 // Hero vidéo standard (contenu original)
 function VideoHeroContent() {
   return (
-    <div className="relative w-full h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden bg-neutral-anthracite">
+    <div className="relative w-full h-[520px] md:h-[520px] lg:h-[600px] overflow-hidden bg-neutral-anthracite">
       {/* Vidéo background - Desktop (>768px) */}
       <video
         autoPlay
@@ -115,20 +115,20 @@ function VideoHeroContent() {
 
 
       {/* Contenu textuel - CENTRÉ SANS BOX */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 py-8">
         <div className="text-center max-w-4xl">
           {/* Titre principal */}
-          <h1 className="text-6xl md:text-7xl lg:text-9xl font-serif font-bold mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-9xl font-serif font-bold mb-4 md:mb-6 leading-tight">
             Paroisses de Nendaz<br />et Veysonnaz
           </h1>
 
           {/* Citation biblique */}
-          <p className="text-2xl md:text-3xl lg:text-4xl mb-8 italic">
+          <p className="text-lg sm:text-xl md:text-3xl lg:text-4xl mb-4 md:mb-8 italic">
             « Là où deux ou trois sont réunis en mon nom,<br />
             je suis au milieu d&apos;eux. »
           </p>
 
-          <p className="text-xl md:text-2xl mb-8">
+          <p className="text-base sm:text-lg md:text-2xl mb-6 md:mb-8">
             — Matthieu 18, 20
           </p>
 
