@@ -150,6 +150,46 @@ const allEvents = [
     lieu: 'Église de Haute-Nendaz - 17h30'
   },
   {
+    id: 'messe-rogations-clebes-2026',
+    title: 'Messe des Rogations — Chapelle de Clèbes',
+    excerpt: 'Messe des Rogations à la chapelle de Clèbes. Départ de la procession à 18h au chemin de Champlan, suivie de la messe à 19h. Une tradition ancienne qui invite à confier à Dieu les travaux des champs et le temps qui vient.',
+    date: '2026-05-12',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Chapelle de Clèbes — procession 18h (chemin de Champlan), messe 19h',
+    displayUntil: '2026-05-12'
+  },
+  {
+    id: 'ascension-premiere-communion-basse-nendaz-2026',
+    title: 'Ascension — Messe de la Première Communion',
+    excerpt: 'Messe de l\'Ascension du Seigneur et célébration de la Première Communion à l\'église de Basse-Nendaz. Un grand jour pour les enfants de la paroisse et leurs familles, à vivre dans la joie de la communauté.',
+    date: '2026-05-14',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Église de Basse-Nendaz — 10h00',
+    displayUntil: '2026-05-14'
+  },
+  {
+    id: 'patronale-premiere-communion-veysonnaz-2026',
+    title: 'Patronale de Veysonnaz — Première Communion',
+    excerpt: 'Messe de la Fête Patronale de Veysonnaz et célébration de la Première Communion à l\'église de Veysonnaz. Les enfants s\'avanceront pour la première fois vers la table eucharistique au cœur de la fête de leur paroisse.',
+    date: '2026-05-24',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Église de Veysonnaz — 10h00',
+    displayUntil: '2026-05-24'
+  },
+  {
+    id: 'patronale-notre-dame-esperance-brignon-2026',
+    title: 'Patronale Notre-Dame de l\'Espérance — Brignon',
+    excerpt: 'Messe de la Fête Patronale Notre-Dame de l\'Espérance à la chapelle de Brignon, suivie d\'un apéritif convivial. Un moment pour honorer la patronne de la chapelle et partager un temps de rencontre avec la communauté.',
+    date: '2026-05-28',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Chapelle de Brignon — 19h00, suivi de l\'apéritif',
+    displayUntil: '2026-05-28'
+  },
+  {
     id: 'soiree-cinema-sacre-coeur-2026',
     title: 'Soirée cinéma — Sacré Cœur',
     excerpt: 'Ce vendredi, solennité du Sacré Cœur de Jésus : projection du film « Sacré Cœur — Son règne n\'a pas de fin », une fresque spirituelle sur le mystère du Cœur de Jésus, suivie de la messe. Un moment de recueillement et de partage ouvert à toute la paroisse.',

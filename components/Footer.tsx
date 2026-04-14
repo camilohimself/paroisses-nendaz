@@ -97,7 +97,7 @@ export default function Footer() {
         <div className="border-t border-gray-200 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-neutral-gris text-sm">
-              © 2025 Paroisses de Nendaz et Veysonnaz. Tous droits réservés.
+              © 2026 Paroisses de Nendaz et Veysonnaz. Tous droits réservés.
               <span className="mx-2 opacity-40">·</span>
               <span className="text-xs opacity-60">
                 Site par{' '}
@@ -112,17 +112,18 @@ export default function Footer() {
               </span>
             </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
-              <a
-                href="https://www.facebook.com/paroisses.nendazveysonnaz/"
+              <TrackedLink
+                href="https://www.facebook.com/paroissesnendaz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-neutral-gris hover:text-paroisse-bleuRoi transition-colors"
                 aria-label="Facebook"
+                context="footer-social"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
-              </a>
+              </TrackedLink>
               <TrackedLink
                 href="https://www.youtube.com/@paroissesnendazetveysonnaz"
                 target="_blank"
