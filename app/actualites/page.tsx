@@ -150,6 +150,19 @@ const allEvents = [
     lieu: 'Église de Haute-Nendaz - 17h30'
   },
   {
+    id: 'chapelet-mois-de-marie-2026',
+    title: 'Chapelet du mois de Marie — Tournée des Hospitaliers de Lourdes',
+    excerpt: 'Durant tout le mois de mai, les Hospitaliers de Lourdes vous invitent chaque soir à 19h30 à prier le chapelet dans nos paroisses. Du 1er au 2 mai au Foyer Ma Vallée, du 4 au 9 mai à l\'église de Veysonnaz, du 11 au 16 mai à l\'église d\'Aproz, du 18 au 23 mai à la chapelle St-Michel, du 25 au 30 mai à la chapelle de Brignon. Les dimanches, le chapelet est prié à la chapelle de Saclentse.',
+    date: '2026-05-01',
+    image: '/images/articles/mois-de-marie-2026.webp',
+    hasImage: true,
+    category: 'Pastorale',
+    lieu: '5 lieux dans nos paroisses — chaque soir à 19h30',
+    pdfUrl: '/documents/mois-de-marie-2026.pdf',
+    pdfLabel: 'Affiche Mois de Marie',
+    displayUntil: '2026-05-30'
+  },
+  {
     id: 'messe-rogations-clebes-2026',
     title: 'Messe des Rogations — Chapelle de Clèbes',
     excerpt: 'Messe des Rogations à la chapelle de Clèbes. Départ de la procession à 18h au chemin de Champlan, suivie de la messe à 19h. Une tradition ancienne qui invite à confier à Dieu les travaux des champs et le temps qui vient.',
@@ -198,6 +211,8 @@ const allEvents = [
     hasImage: true,
     category: 'Événement',
     lieu: 'Salle de gym du CO, Basse-Nendaz — 17h00 (film) puis messe à 19h00',
+    pdfUrl: '/documents/sacre-coeur-2026.pdf',
+    pdfLabel: 'Affiche Soirée Cinéma',
     displayUntil: '2026-06-12'
   }
 ]

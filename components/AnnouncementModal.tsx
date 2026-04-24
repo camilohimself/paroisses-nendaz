@@ -4,8 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { X } from 'lucide-react'
 import Image from 'next/image'
 
-const STORAGE_KEY = 'montee-paques-2026-dismissed'
-const EXPIRY_DATE = new Date('2026-04-05T12:00:00') // Disparaît dimanche de Pâques à midi
+const STORAGE_KEY = 'mois-marie-2026-dismissed'
+const EXPIRY_DATE = new Date('2026-06-01T00:00:00') // Disparaît le 1er juin (fin du mois de Marie)
 
 export default function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -81,7 +81,7 @@ export default function AnnouncementModal() {
       ref={modalRef}
       role="dialog"
       aria-modal="true"
-      aria-label="Annonce : Montée vers Pâques — Semaine Sainte 2026"
+      aria-label="Annonce : Mois de Marie 2026 — Prière du Chapelet"
       className={`
         fixed inset-0 z-50 flex items-center justify-center p-4
         transition-opacity duration-300 ease-out
@@ -118,10 +118,10 @@ export default function AnnouncementModal() {
         {/* Poster image */}
         <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-white/20">
           <Image
-            src="/images/articles/montee-paques-2026.webp"
-            alt="Montée vers Pâques — Semaine Sainte du 2 au 5 avril 2026 — Paroisses de Nendaz et Veysonnaz"
-            width={1200}
-            height={1697}
+            src="/images/articles/mois-de-marie-2026.webp"
+            alt="Mois de Marie 2026 — Prière du Chapelet avec les Hospitaliers de Lourdes, du 1er au 30 mai — Paroisses de Nendaz et Veysonnaz"
+            width={1240}
+            height={1754}
             sizes="(max-width: 640px) 340px, (max-width: 768px) 448px, 512px"
             className="w-full h-auto"
             priority
