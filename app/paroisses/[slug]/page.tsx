@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import HorairesMesse from '@/components/HorairesMesse';
 import ParoisseHero from '@/components/ParoisseHero';
 import ImageGallery from '@/components/ImageGallery';
 import ParoisseTracker from '@/components/ParoisseTracker';
@@ -234,24 +233,6 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
                 </div>
               </div>
             )}
-
-            {/* Prochaines célébrations - CALENDRIER FILTRÉ */}
-            <div className="mb-20">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold text-neutral-anthracite mb-6">
-                  Prochaines célébrations
-                </h2>
-                <div className={`w-24 h-0.5 bg-${typeColor} mx-auto mb-6`}></div>
-              </div>
-
-              <div className="bg-white rounded-lg shadow-lg p-8">
-                <HorairesMesse
-                  calendarId={calendar.id}
-                  showCalendarSelector={false}
-                  maxEvents={10}
-                />
-              </div>
-            </div>
 
             {/* Navigation vers autres lieux */}
             <div className="mb-20">
