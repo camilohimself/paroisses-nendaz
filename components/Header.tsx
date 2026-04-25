@@ -264,6 +264,23 @@ export default function Header() {
                         </div>
                       </div>
                     </a>
+
+                    <Link
+                      href="/accompagnement-deuil"
+                      className="block px-5 py-3 hover:bg-stone-50 transition-all group border-t border-stone-100"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-stone-50 group-hover:bg-stone-100 flex items-center justify-center transition-colors">
+                          <svg className="w-4 h-4 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-stone-700 group-hover:text-stone-900">Accompagnement du deuil</div>
+                          <div className="text-xs text-stone-500">Démarches de deuil</div>
+                        </div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               )}
@@ -457,6 +474,13 @@ export default function Header() {
                     >
                       Réservation salle
                     </a>
+                    <Link
+                      href="/accompagnement-deuil"
+                      className="block text-stone-600 hover:text-amber-600 transition-colors py-1 text-sm"
+                      onClick={() => { setIsMenuOpen(false); setIsContactOpen(false); }}
+                    >
+                      Accompagnement du deuil
+                    </Link>
                   </div>
                 )}
               </div>

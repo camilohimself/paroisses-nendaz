@@ -60,6 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/accompagnement-deuil`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/pastorale`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
