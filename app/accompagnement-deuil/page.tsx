@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import {
-  Flame,
+  Cross,
   Church,
-  Users,
-  BookOpen,
-  Sparkles,
-  HelpCircle,
+  HandHeart,
+  Sun,
+  Feather,
+  HandHelping,
   Download,
   Mail,
   Phone,
@@ -15,7 +15,8 @@ import {
 
 const SECTIONS = [
   {
-    icon: Flame,
+    icon: Cross,
+    label: 'Veillée',
     title: 'Les veillées de prière dans les églises du secteur',
     body: (
       <p>
@@ -30,6 +31,7 @@ const SECTIONS = [
   },
   {
     icon: Church,
+    label: 'Liturgie publique',
     title: 'Messe de funérailles publique',
     body: (
       <>
@@ -44,7 +46,7 @@ const SECTIONS = [
           célébration. Elles peuvent demander ou non une veillée de prière la veille des
           funérailles.
         </p>
-        <div className="mt-5 border-l-2 border-amber-500/70 bg-amber-50/60 px-4 py-3 text-sm italic text-stone-700">
+        <div className="mt-5 border-l-2 border-[#1A7FA0]/40 bg-stone-100/70 px-4 py-3 text-sm italic text-stone-700">
           <span className="font-semibold not-italic text-stone-900">NB.</span> Dès l’annonce du
           décès et sauf cas exceptionnels, les chorales qui desservent les différentes églises
           du secteur se rendent disponibles pour venir chanter la messe d’enterrement publique.
@@ -53,7 +55,8 @@ const SECTIONS = [
     ),
   },
   {
-    icon: Users,
+    icon: HandHeart,
+    label: 'Intimité',
     title: (
       <>
         Funérailles dans l’intimité
@@ -77,21 +80,21 @@ const SECTIONS = [
           disponibilités&nbsp;: il s’agit de MM{' '}
           <a
             href="mailto:martinbruno@bluewin.ch"
-            className="text-amber-700 underline decoration-amber-500/40 underline-offset-2 hover:text-amber-800"
+            className="text-[#1A7FA0] underline decoration-[#2A8B8C]/40 underline-offset-2 hover:text-[#14627E]"
           >
             Martin Fendrych
           </a>{' '}
           et{' '}
           <a
             href="mailto:jpglassey@bluewin.ch"
-            className="text-amber-700 underline decoration-amber-500/40 underline-offset-2 hover:text-amber-800"
+            className="text-[#1A7FA0] underline decoration-[#2A8B8C]/40 underline-offset-2 hover:text-[#14627E]"
           >
             Jean-Philippe Glassey
           </a>
           . Une rencontre de préparation avec celui qui conduira la cérémonie est indispensable
           pour une bonne préparation de ce moment.
         </p>
-        <div className="mt-5 border-l-2 border-amber-500/70 bg-amber-50/60 px-4 py-3 text-sm italic text-stone-700">
+        <div className="mt-5 border-l-2 border-[#1A7FA0]/40 bg-stone-100/70 px-4 py-3 text-sm italic text-stone-700">
           <span className="font-semibold not-italic text-stone-900">NB.</span>{' '}
           <span className="font-semibold not-italic text-stone-700">*</span>
           Les funérailles sans messe proposées par les paroisses sont chrétiennes et peuvent
@@ -103,7 +106,8 @@ const SECTIONS = [
     ),
   },
   {
-    icon: BookOpen,
+    icon: Sun,
+    label: 'Souvenir',
     title: 'La messe de 7ème ou du souvenir',
     body: (
       <p>
@@ -116,7 +120,8 @@ const SECTIONS = [
     ),
   },
   {
-    icon: Sparkles,
+    icon: Feather,
+    label: 'Dépôt',
     title: 'Dépôt de l’urne',
     body: (
       <p>
@@ -129,7 +134,8 @@ const SECTIONS = [
     ),
   },
   {
-    icon: HelpCircle,
+    icon: HandHelping,
+    label: 'Démarches',
     title: 'Autres demandes',
     body: (
       <p>
@@ -172,7 +178,7 @@ export default function AccompagnementDeuilPage() {
             >
               Office pastoral du deuil
             </span>
-            <span className="h-px w-12 bg-amber-600/40" aria-hidden="true" />
+            <span className="h-px w-12 bg-[#2A8B8C]/50" aria-hidden="true" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-stone-400 font-medium">
               Nendaz · Veysonnaz
             </span>
@@ -222,22 +228,45 @@ export default function AccompagnementDeuilPage() {
               return (
                 <section
                   key={idx}
-                  className="bg-white rounded-xl border border-stone-200 shadow-sm p-6 md:p-8"
+                  className="bg-stone-50 border border-stone-200/60 rounded-2xl p-6 md:p-8 transition-colors hover:bg-stone-50/70"
                 >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-amber-700" />
+                  <div className="flex items-start gap-5 md:gap-6 mb-4">
+                    <div
+                      aria-hidden="true"
+                      className="flex-shrink-0 rounded-full flex items-center justify-center"
+                      style={{
+                        width: '56px',
+                        height: '56px',
+                        background:
+                          'radial-gradient(circle at 30% 30%, #2A8B8C 0%, #1A7FA0 65%, #14627E 100%)',
+                        boxShadow:
+                          '0 6px 18px -6px rgba(26,127,160,0.45), inset 0 1px 0 rgba(255,255,255,0.18)',
+                      }}
+                    >
+                      <Icon
+                        className="text-white"
+                        style={{ width: '24px', height: '24px' }}
+                        strokeWidth={1.5}
+                      />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs uppercase tracking-widest text-stone-400 font-semibold mb-1">
-                        {roman}
+                    <div className="flex-1 min-w-0 pt-1">
+                      <div
+                        className="mb-2 font-semibold"
+                        style={{
+                          fontSize: '10px',
+                          letterSpacing: '0.25em',
+                          textTransform: 'uppercase',
+                          color: '#1A7FA0',
+                        }}
+                      >
+                        {section.label} <span className="opacity-50">·</span> {roman}
                       </div>
-                      <h2 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight">
+                      <h2 className="text-xl md:text-2xl font-semibold text-[#3E3E3E] leading-tight tracking-tight">
                         {section.title}
                       </h2>
                     </div>
                   </div>
-                  <div className="text-stone-700 leading-relaxed text-[15px] md:text-base pl-0 md:pl-15 text-justify hyphens-auto">
+                  <div className="text-stone-600 leading-relaxed text-[15px] md:text-base text-justify hyphens-auto">
                     {section.body}
                   </div>
                 </section>
@@ -284,14 +313,14 @@ export default function AccompagnementDeuilPage() {
                   <div className="space-y-2">
                     <a
                       href="mailto:martinbruno@bluewin.ch"
-                      className="flex items-center gap-2 text-stone-700 hover:text-amber-700 transition-colors"
+                      className="flex items-center gap-2 text-stone-700 hover:text-[#1A7FA0] transition-colors"
                     >
                       <Mail className="w-3.5 h-3.5 flex-shrink-0" />
                       <span>Martin Fendrych</span>
                     </a>
                     <a
                       href="mailto:jpglassey@bluewin.ch"
-                      className="flex items-center gap-2 text-stone-700 hover:text-amber-700 transition-colors"
+                      className="flex items-center gap-2 text-stone-700 hover:text-[#1A7FA0] transition-colors"
                     >
                       <Mail className="w-3.5 h-3.5 flex-shrink-0" />
                       <span>Jean-Philippe Glassey</span>
@@ -302,7 +331,7 @@ export default function AccompagnementDeuilPage() {
             </div>
 
             {/* Secrétariat paroissial */}
-            <div className="bg-white rounded-xl border border-stone-200 shadow-sm border-l-2 border-l-amber-700 p-6">
+            <div className="bg-white rounded-xl border border-stone-200 shadow-sm border-l-2 border-l-[#1A7FA0] p-6">
               <p className="text-[11px] uppercase tracking-[0.22em] text-stone-400 font-medium mb-1">
                 Coordonnées
               </p>
@@ -315,14 +344,14 @@ export default function AccompagnementDeuilPage() {
 
               <dl className="divide-y divide-stone-100 text-sm">
                 <div className="flex items-baseline gap-3 py-3 first:pt-0">
-                  <Phone className="w-3.5 h-3.5 text-amber-700 flex-shrink-0 self-center" />
+                  <Phone className="w-3.5 h-3.5 text-[#1A7FA0] flex-shrink-0 self-center" />
                   <dt className="text-[11px] uppercase tracking-[0.18em] text-stone-500 font-medium w-20 flex-shrink-0">
                     Téléphone
                   </dt>
                   <dd className="flex-1">
                     <a
                       href="tel:+41272882250"
-                      className="text-stone-800 hover:text-amber-700 transition-colors"
+                      className="text-stone-800 hover:text-[#1A7FA0] transition-colors"
                     >
                       +41 27 288 22 50
                     </a>
@@ -330,14 +359,14 @@ export default function AccompagnementDeuilPage() {
                 </div>
 
                 <div className="flex items-baseline gap-3 py-3">
-                  <Mail className="w-3.5 h-3.5 text-amber-700 flex-shrink-0 self-center" />
+                  <Mail className="w-3.5 h-3.5 text-[#1A7FA0] flex-shrink-0 self-center" />
                   <dt className="text-[11px] uppercase tracking-[0.18em] text-stone-500 font-medium w-20 flex-shrink-0">
                     Courriel
                   </dt>
                   <dd className="flex-1 min-w-0">
                     <a
                       href="mailto:paroisse_nendaz@bluemail.ch"
-                      className="text-stone-800 hover:text-amber-700 transition-colors break-all"
+                      className="text-stone-800 hover:text-[#1A7FA0] transition-colors break-all"
                     >
                       paroisse_nendaz@bluemail.ch
                     </a>
@@ -345,7 +374,7 @@ export default function AccompagnementDeuilPage() {
                 </div>
 
                 <div className="flex items-baseline gap-3 py-3 last:pb-0">
-                  <Clock className="w-3.5 h-3.5 text-amber-700 flex-shrink-0 self-start mt-1" />
+                  <Clock className="w-3.5 h-3.5 text-[#1A7FA0] flex-shrink-0 self-start mt-1" />
                   <dt className="text-[11px] uppercase tracking-[0.18em] text-stone-500 font-medium w-20 flex-shrink-0 self-start mt-0.5">
                     Heures
                   </dt>
