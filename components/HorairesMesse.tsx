@@ -59,8 +59,6 @@ export default function HorairesMesse({
 
   useEffect(() => {
     fetchEvents();
-    const interval = setInterval(fetchEvents, 3600000); // Rafraîchir toutes les heures
-    return () => clearInterval(interval);
   }, [selectedCalendar, selectedSector]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Reset displayed count when filters change

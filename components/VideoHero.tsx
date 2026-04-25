@@ -83,7 +83,7 @@ function VideoHeroContent() {
         playsInline
         poster="/videos/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover hidden md:block"
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
       >
         <source src="/videos/hero-desktop.mp4" type="video/mp4" />
@@ -102,7 +102,7 @@ function VideoHeroContent() {
         playsInline
         poster="/videos/hero-poster.jpg"
         className="absolute inset-0 w-full h-full object-cover block md:hidden"
-        preload="auto"
+        preload="metadata"
         aria-hidden="true"
       >
         <source src="/videos/hero-mobile.mp4" type="video/mp4" />
