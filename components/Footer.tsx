@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import TrackedLink from './TrackedLink'
+import NewsletterBandeau from './NewsletterBandeau'
 
 export default function Footer() {
   return (
@@ -94,7 +95,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-200 mt-12 pt-8">
+        <div className="mt-12">
+          <NewsletterBandeau />
+        </div>
+
+        <div className="border-t border-gray-200 mt-6 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-neutral-gris text-sm">
               © 2026 Paroisses de Nendaz et Veysonnaz. Tous droits réservés.

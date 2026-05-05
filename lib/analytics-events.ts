@@ -326,6 +326,27 @@ export const trackCareme = {
 }
 
 // ============================================
+// 8. NEWSLETTER
+// ============================================
+
+export const trackNewsletter = {
+  /** Soumission du formulaire newsletter (avant appel API) */
+  submit: () => {
+    trackEvent('newsletter_submit', {})
+  },
+
+  /** Inscription envoyée avec succès (DOI lancé côté Brevo) */
+  subscribed: () => {
+    trackEvent('newsletter_subscribed', {})
+  },
+
+  /** Erreur lors de la soumission */
+  error: (errorType: string) => {
+    trackEvent('newsletter_error', { error_type: errorType })
+  }
+}
+
+// ============================================
 // ALIAS RÉTROCOMPATIBILITÉ (pour les missions Avent existantes)
 // ============================================
 
