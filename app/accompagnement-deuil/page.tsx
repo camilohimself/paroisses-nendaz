@@ -59,8 +59,8 @@ const SECTIONS = [
     label: 'Intimité',
     title: (
       <>
-        Funérailles dans l’intimité
-        <sup className="ml-0.5 text-xs font-medium text-stone-500">*</sup> et sans messe
+        Funérailles chrétiennes dans l’intimité
+        <sup className="ml-0.5 text-xs font-medium text-stone-500">*</sup> sans messe
       </>
     ),
     body: (
@@ -75,7 +75,7 @@ const SECTIONS = [
           l’intimité. Les funérailles dans l’intimité se déroulent sans la présence d’un prêtre.
         </p>
         <p className="mt-4">
-          Deux agents pastoraux laïcs formés à cette tâche prennent en charge ce type de
+          Deux agents pastoraux formés à cette tâche prennent en charge ce type de
           célébrations dans notre secteur selon une répartition préétablie en fonction de leurs
           disponibilités&nbsp;: il s’agit de MM{' '}
           <a
@@ -308,7 +308,7 @@ export default function AccompagnementDeuilPage() {
                 <div className="pt-4 border-t border-stone-100">
                   <p className="font-semibold text-stone-900 mb-2">Funérailles dans l’intimité</p>
                   <p className="text-stone-600 leading-relaxed mb-3">
-                    Agents pastoraux laïcs :
+                    Agents pastoraux :
                   </p>
                   <div className="space-y-2">
                     <a
