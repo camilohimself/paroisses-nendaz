@@ -2,15 +2,36 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Search } from 'lucide-react'
 import TrackedLink from './TrackedLink'
+import SearchModal from './SearchModal'
+import { trackSearch } from '@/lib/analytics-events'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isPastoraleOpen, setIsPastoraleOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
   const [contactTimeoutId, setContactTimeoutId] = useState<NodeJS.Timeout | null>(null)
+
+  const openSearch = (source: 'header_button' | 'keyboard_shortcut') => {
+    setIsSearchOpen(true)
+    trackSearch.open(source)
+  }
+
+  // Raccourci global Cmd+K / Ctrl+K
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        if (!isSearchOpen) openSearch('keyboard_shortcut')
+      }
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [isSearchOpen])
 
   return (
     <header className="bg-white shadow-sm border-b border-stone-200">
@@ -288,12 +309,25 @@ export default function Header() {
           </div>
 
           {/* Quick Access Buttons - Pierre et Lumière */}
-          <div className="hidden md:flex space-x-2">
+          <div className="hidden md:flex items-center space-x-2">
+            <button
+              type="button"
+              onClick={() => openSearch('header_button')}
+              className="group flex items-center gap-2 px-2.5 py-1.5 rounded-md text-sm text-stone-500 hover:text-stone-900 hover:bg-stone-100/80 transition-colors"
+              aria-label="Ouvrir la recherche"
+              title="Rechercher (⌘K)"
+            >
+              <Search className="w-[18px] h-[18px]" strokeWidth={1.75} aria-hidden="true" />
+              <span className="hidden lg:inline">Rechercher</span>
+              <kbd className="hidden lg:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] text-stone-400 group-hover:text-stone-500 font-sans border border-stone-200/70">
+                ⌘K
+              </kbd>
+            </button>
             <TrackedLink
               href="https://www.youtube.com/@paroissesnendazetveysonnaz"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#FF0000] text-white border-2 border-[#FF0000] px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#CC0000] transition-colors font-semibold flex items-center gap-2 shadow-sm"
+              className="bg-[#DC2626] text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg text-xs md:text-sm hover:bg-[#B91C1C] transition-colors font-semibold flex items-center gap-2 shadow-sm"
               context="header-button"
             >
               <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
@@ -308,10 +342,19 @@ export default function Header() {
             </TrackedLink>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile : recherche + burger */}
+          <div className="md:hidden flex items-center gap-1">
+            <button
+              type="button"
+              onClick={() => openSearch('header_button')}
+              className="p-2 rounded-md hover:bg-stone-100 text-stone-700"
+              aria-label="Ouvrir la recherche"
+            >
+              <Search className="w-5 h-5" aria-hidden="true" />
+            </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md hover:bg-stone-100 text-stone-700"
+            className="p-2 rounded-md hover:bg-stone-100 text-stone-700"
             aria-expanded={isMenuOpen}
             aria-label="Menu de navigation"
           >
@@ -338,6 +381,7 @@ export default function Header() {
               )}
             </svg>
           </button>
+          </div>
         </div>
 
         {/* Mobile Menu - Pierre et Lumière */}
@@ -490,7 +534,7 @@ export default function Header() {
                   href="https://www.youtube.com/@paroissesnendazetveysonnaz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#FF0000] text-white border-2 border-[#FF0000] px-3 py-2 rounded-lg text-sm hover:bg-[#CC0000] transition-colors font-semibold flex items-center gap-2"
+                  className="bg-[#DC2626] text-white px-3 py-2 rounded-lg text-sm hover:bg-[#B91C1C] transition-colors font-semibold flex items-center gap-2"
                   onClick={() => setIsMenuOpen(false)}
                   context="header-mobile"
                 >
@@ -510,6 +554,7 @@ export default function Header() {
           </div>
         )}
       </nav>
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </header>
   )
 }

@@ -377,3 +377,28 @@ export const trackMission = {
     trackAvent.objectFound(mission as 1 | 2 | 3 | 4, 'angel')
   }
 }
+
+// ============================================
+// RECHERCHE GLOBALE
+// ============================================
+
+export const trackSearch = {
+  open: (source: 'header_button' | 'keyboard_shortcut') => {
+    trackEvent('search_open', { source })
+  },
+  search: (query: string, resultsCount?: number) => {
+    trackEvent('search', {
+      search_term: query,
+      ...(typeof resultsCount === 'number' ? { results_count: resultsCount } : {}),
+    })
+  },
+  resultClick: (query: string, url: string) => {
+    trackEvent('search_result_click', {
+      search_term: query,
+      target_url: url,
+    })
+  },
+  noResults: (query: string) => {
+    trackEvent('search_no_results', { search_term: query })
+  },
+}
