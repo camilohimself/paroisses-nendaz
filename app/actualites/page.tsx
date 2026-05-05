@@ -97,6 +97,18 @@ const allEvents = [
   },
   // === ÉVÉNEMENTS PAROISSES NENDAZ ===
   {
+    id: 'billet-priere-mai-2026',
+    title: 'Billet de prière — Mai 2026',
+    excerpt: 'Intentions de prière pour le mois de mai : du pape Léon XIV (gaspillage alimentaire), des évêques suisses (femmes en difficulté) et propres à notre secteur (chorales, nouveaux baptisés, premières communions de Nendaz le 14 et de Veysonnaz le 24, patronales, Pentecôte). Le billet se conclut par une prière à l\'Esprit Saint de Blandine pour Pentecôte 2026.',
+    date: '2026-05-01',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'À recevoir et à prier — Mois de mai 2026',
+    pdfUrl: '/documents/billets-priere/billet-priere-mai-2026.pdf',
+    pdfLabel: 'Télécharger le billet',
+    displayUntil: '2026-05-31'
+  },
+  {
     id: 'montee-paques-2026',
     title: 'Mont\u00e9e vers P\u00e2ques — Semaine Sainte',
     excerpt: 'Vivez les temps forts de la Semaine Sainte dans nos paroisses. Jeudi Saint : MVP enfants et Messe de la derni\u00e8re C\u00e8ne. Vendredi Saint : Chemins de croix \u00e0 15h (familles \u00e0 Basse-Nendaz, paroisses \u00e0 Haute-Nendaz, Aproz, Veysonnaz) et C\u00e9l\u00e9bration de la Passion \u00e0 20h. Samedi Saint : MVP confirmands et Veill\u00e9e pascale \u00e0 20h30. Dimanche de P\u00e2ques : Messes \u00e0 9h (Veysonnaz), 10h (Basse-Nendaz, Haute-Nendaz, Aproz) et 10h30 (Fey).',

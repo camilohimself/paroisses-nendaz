@@ -37,8 +37,18 @@ export const searchDocuments: SearchDocument[] = [
     url: '/actualites',
     title: 'Actualités',
     category: 'Accueil',
-    keywords: ['actualités', 'news', 'annonces', 'événements', 'feuille annonces'],
-    body: 'Actualités, annonces et événements des paroisses de Nendaz et Veysonnaz. Feuille d\'annonces hebdomadaire.',
+    keywords: [
+      'actualités',
+      'news',
+      'annonces',
+      'événements',
+      'feuille annonces',
+      'billet de prière',
+      'billet priere',
+      'intentions de prière',
+      'intentions mensuelles',
+    ],
+    body: 'Actualités, annonces et événements des paroisses de Nendaz et Veysonnaz. Feuille d\'annonces hebdomadaire et billet de prière mensuel.',
   },
 
   // ===== Paroisses (vue d'ensemble + 7 villages) =====
