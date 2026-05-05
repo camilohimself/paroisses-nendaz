@@ -61,7 +61,7 @@ export default function NewsletterBandeau() {
               Recevez la newsletter
             </p>
             <p className="text-xs text-neutral-gris mt-0.5 leading-relaxed">
-              Un mot mensuel des paroisses de Nendaz et Veysonnaz dans votre boîte mail.
+              Un mot saisonnier des paroisses de Nendaz et Veysonnaz dans votre boîte mail.
             </p>
           </div>
         </div>
