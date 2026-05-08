@@ -23,7 +23,6 @@ import {
   SaintEnrichi,
 } from '@/lib/saints-data';
 import { Calendar, Sparkles, Church, Sun, Cross } from 'lucide-react';
-import SaintCard from '@/components/SaintCard';
 
 interface SaintDuJourProps {
   variante?: 'discret' | 'carte' | 'bandeau';
@@ -71,7 +70,7 @@ export default function SaintDuJour({ variante = 'discret' }: SaintDuJourProps) 
 }
 
 // ============================================
-// MODE ENRICHI : ACCORDÉON SAINTS
+// MODE ENRICHI : LISTE WIKI / INFOBOX
 // ============================================
 function SaintsEnrichisSection({
   saints,
@@ -83,55 +82,75 @@ function SaintsEnrichisSection({
   return (
     <section
       aria-label="Saints du jour"
-      style={{
-        background:
-          'linear-gradient(170deg, #faf8f3 0%, #f5f0e8 30%, #f0ece3 60%, #ebe6db 100%)',
-      }}
+      className="bg-stone-50/60 py-12 px-4 border-t border-b border-stone-200"
     >
-      {/* Bandeau date */}
-      <div className="relative overflow-hidden">
-        <div
-          className="py-4 px-4"
-          style={{
-            background:
-              'linear-gradient(135deg, rgba(217,170,75,0.12) 0%, rgba(245,235,215,0.6) 50%, rgba(217,170,75,0.08) 100%)',
-          }}
-        >
-          <div className="relative flex flex-col items-center gap-1">
-            <Sun className="w-5 h-5 text-amber-500/80" />
-            <p className="text-[0.95rem] text-stone-700 capitalize font-medium">
-              {dateFormatee}
-            </p>
-            <p className="text-[10px] uppercase tracking-[0.25em] text-stone-400 font-medium">
-              Saints du jour
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Cartes saints */}
-      <div className="px-4 py-5 max-w-lg mx-auto">
-        <div className="space-y-4">
-          {saints.map((saint, index) => (
-            <SaintCard
-              key={index}
-              saint={saint}
-              isPrimary={saint.rang === 1}
-              defaultOpen={saint.rang === 1}
-            />
+      <div className="max-w-3xl mx-auto">
+        <header className="border-b border-stone-300 pb-3 mb-6 flex items-baseline justify-between flex-wrap gap-2">
+          <h2 className="text-[0.7rem] uppercase tracking-[0.25em] text-stone-500 font-bold">
+            Saints du jour
+          </h2>
+          <span className="text-xs text-stone-500 capitalize">{dateFormatee}</span>
+        </header>
+        <div className="divide-y divide-stone-200">
+          {saints.map((saint, idx) => (
+            <SaintWikiRow key={idx} saint={saint} />
           ))}
         </div>
       </div>
-
-      {/* Croix decorative */}
-      <div className="flex justify-center pb-5">
-        <div className="flex items-center gap-3 opacity-30">
-          <div className="w-8 h-px bg-stone-400" />
-          <Cross className="w-3 h-3 text-stone-400" />
-          <div className="w-8 h-px bg-stone-400" />
-        </div>
-      </div>
     </section>
+  );
+}
+
+function SaintWikiRow({ saint }: { saint: SaintEnrichi }) {
+  const [open, setOpen] = useState(false);
+  const isPrimary = saint.rang === 1;
+  return (
+    <div className="py-5 grid grid-cols-[auto_1fr] gap-4">
+      <div
+        className={`flex-shrink-0 ${
+          isPrimary ? 'w-12 h-12' : 'w-9 h-9'
+        } rounded-sm bg-stone-100 border border-stone-200 flex items-center justify-center`}
+      >
+        {isPrimary ? (
+          <Cross className="w-5 h-5 text-amber-700" />
+        ) : (
+          <Sparkles className="w-3.5 h-3.5 text-stone-400" />
+        )}
+      </div>
+      <div>
+        <h3
+          className={`font-serif ${
+            isPrimary ? 'text-lg text-stone-800' : 'text-base text-stone-700'
+          } leading-tight`}
+        >
+          {saint.nom}
+          {!isPrimary && (
+            <span className="ml-2 text-[10px] uppercase tracking-wider text-stone-400 font-sans">
+              également célébré
+            </span>
+          )}
+        </h3>
+        <p
+          className={`mt-1.5 text-sm text-stone-600 leading-relaxed ${
+            !open ? 'line-clamp-2' : ''
+          }`}
+        >
+          {saint.description}
+        </p>
+        {open && (
+          <p className="mt-3 text-[0.85rem] italic text-stone-600 leading-relaxed border-l-2 border-amber-300 pl-3">
+            « {saint.priere} »
+          </p>
+        )}
+        <button
+          onClick={() => setOpen(!open)}
+          className="mt-2 text-xs text-amber-700 hover:underline"
+          aria-expanded={open}
+        >
+          {open ? '− Réduire' : '+ Lire la prière'}
+        </button>
+      </div>
+    </div>
   );
 }
 
