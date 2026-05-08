@@ -187,7 +187,7 @@ const allEvents = [
   {
     id: 'ascension-premiere-communion-basse-nendaz-2026',
     title: 'Ascension — Messe de la Première Communion',
-    excerpt: 'Messe de l\'Ascension du Seigneur et célébration de la Première Communion à l\'église de Basse-Nendaz. Un grand jour pour les enfants de la paroisse et leurs familles, à vivre dans la joie de la communauté.',
+    excerpt: 'Messe de l\'Ascension du Seigneur et célébration de la Première Communion à l\'église de Basse-Nendaz, animée par la Davidica et la fanfare La Rosablanche. Un grand jour pour les enfants de la paroisse et leurs familles, à vivre dans la joie de la communauté.',
     date: '2026-05-14',
     hasImage: false,
     category: 'Liturgie',
@@ -197,7 +197,7 @@ const allEvents = [
   {
     id: 'patronale-premiere-communion-veysonnaz-2026',
     title: 'Patronale de Veysonnaz — Première Communion',
-    excerpt: 'Messe de la Fête Patronale de Veysonnaz et célébration de la Première Communion à l\'église de Veysonnaz. Les enfants s\'avanceront pour la première fois vers la table eucharistique au cœur de la fête de leur paroisse.',
+    excerpt: 'Pentecôte. Messe de la Fête Patronale de Veysonnaz et célébration de la Première Communion à l\'église de Veysonnaz. Les enfants s\'avanceront pour la première fois vers la table eucharistique au cœur de la fête de leur paroisse.',
     date: '2026-05-24',
     hasImage: false,
     category: 'Liturgie',
@@ -226,6 +226,86 @@ const allEvents = [
     pdfUrl: '/documents/sacre-coeur-2026.pdf',
     pdfLabel: 'Affiche Soirée Cinéma',
     displayUntil: '2026-06-12'
+  },
+  {
+    id: 'fete-dieu-basse-nendaz-2026',
+    title: 'Fête-Dieu — Procession et messe à Basse-Nendaz',
+    excerpt: 'Procession dans le village suivie de la messe à 10h à l\'église de Basse-Nendaz, avec la participation de toutes les chorales de notre secteur et de la fanfare La Concordia. Un temps fort de la vie eucharistique de la communauté.',
+    date: '2026-06-04',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Église de Basse-Nendaz — 10h00, après procession',
+    displayUntil: '2026-06-04'
+  },
+  {
+    id: 'soiree-confirmands-2026',
+    title: 'Soirée des confirmands et de leurs parrains-marraines',
+    excerpt: 'Adoration eucharistique dès 18h, office des Vêpres à 18h30, messe à 19h, suivie d\'une soirée pour les confirmands de l\'année et leurs parrains et marraines. Un moment d\'engagement et de communion familiale autour du sacrement reçu.',
+    date: '2026-06-05',
+    hasImage: false,
+    category: 'Pastorale',
+    lieu: 'Église de Basse-Nendaz — dès 18h00',
+    displayUntil: '2026-06-05'
+  },
+  {
+    id: 'messe-patois-siviez-2026',
+    title: 'Messe à Basse-Nendaz et messe en patois à Siviez',
+    excerpt: 'Messe dominicale à 10h à l\'église de Basse-Nendaz, suivie d\'une messe en patois à 11h à Siviez. Une rencontre entre liturgie et patrimoine local, ouverte à toutes les personnes attachées à la langue de chez nous.',
+    date: '2026-06-21',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Basse-Nendaz 10h00 — Siviez 11h00 (en patois)',
+    displayUntil: '2026-06-21'
+  },
+  {
+    id: 'reprise-messes-mayens-2026',
+    title: 'Reprise des messes dans les chapelles des mayens',
+    excerpt: 'À partir du week-end des 4 et 5 juillet, les messes reprennent dans les chapelles des mayens à 11h. La messe du dimanche à Basse-Nendaz passe alors à 9h30 jusqu\'à fin août. Le programme détaillé figure sur les feuilles d\'annonces, disponibles sur le site.',
+    date: '2026-07-05',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Chapelles des mayens 11h00 — Basse-Nendaz 9h30',
+    displayUntil: '2026-08-30'
+  },
+  {
+    id: 'messe-ems-ma-vallee-2026',
+    title: 'Messe en plein air avec l\'EMS Ma Vallée',
+    excerpt: 'Messe à 10h en plein air, en présence des résidents de l\'EMS Ma Vallée, à Basse-Nendaz. Un moment de communion intergénérationnelle, ouvert à tous les paroissiens qui souhaitent se joindre à la célébration.',
+    date: '2026-07-12',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Basse-Nendaz — 10h00, en plein air',
+    displayUntil: '2026-07-12'
+  },
+  {
+    id: 'assomption-rairettes-2026',
+    title: 'Messe de l\'Assomption à la Chapelle des Rairettes',
+    excerpt: 'Messe de l\'Assomption de la Vierge Marie à 10h à la Chapelle des Rairettes. NB. Vendredi 14 août, messe à 17h30 à Veysonnaz. Pas de messe le 15 août à Planchouet, ni le dimanche 16 août à la Chapelle des Rairettes.',
+    date: '2026-08-15',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Chapelle des Rairettes — 10h00',
+    displayUntil: '2026-08-16'
+  },
+  {
+    id: 'saint-barthelemy-cleuson-2026',
+    title: 'Pèlerinage de la Saint-Barthélemy à Cleuson',
+    excerpt: 'Pèlerinage et fête de la Saint-Barthélemy. Messe à 11h à la Chapelle de Cleuson, avec bénédiction des fromages des différents alpages de notre secteur pastoral. Animations par les chanteurs du secteur, les amis de Sonville et les souffleurs de Cor des Alpes.',
+    date: '2026-08-24',
+    hasImage: false,
+    category: 'Événement',
+    lieu: 'Chapelle de Cleuson — 11h00, en altitude',
+    displayUntil: '2026-08-24'
+  },
+  {
+    id: 'rentree-scolaire-2026',
+    title: 'Messe de rentrée scolaire et bénédiction des cartables',
+    excerpt: 'Le week-end des 29 et 30 août marque l\'entrée en vigueur de l\'horaire d\'hiver et la fin des messes dans les mayens. Messe de rentrée à 10h à Basse-Nendaz, avec la bénédiction des cartables et des élèves pour ouvrir l\'année scolaire.',
+    date: '2026-08-30',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Église de Basse-Nendaz — 10h00 (dimanche 30 août)',
+    displayUntil: '2026-08-30'
   }
 ]
 
