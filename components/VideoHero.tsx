@@ -201,6 +201,15 @@ function SortieJeunesHero() {
                   077 211 18 42
                 </a>
               </div>
+              <div>
+                Secrétariat :{' '}
+                <a
+                  href="mailto:paroisse_nendaz@bluemail.ch"
+                  className="text-amber-700 font-medium hover:underline"
+                >
+                  paroisse_nendaz@bluemail.ch
+                </a>
+              </div>
             </div>
           </div>
 
