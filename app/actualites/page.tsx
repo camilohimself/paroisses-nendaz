@@ -288,6 +288,16 @@ const allEvents = [
     displayUntil: '2026-08-16'
   },
   {
+    id: 'messe-bleusy-aout-2026',
+    title: 'Messe au Bleusy — 4e dimanche d\'août',
+    excerpt: 'Messe dominicale à la chapelle du Bleusy, dans le cadre de la tournée d\'été des messes des mayens. Un rendez-vous attendu pour célébrer en altitude au cœur du dimanche.',
+    date: '2026-08-23',
+    hasImage: false,
+    category: 'Liturgie',
+    lieu: 'Chapelle du Bleusy — 11h00',
+    displayUntil: '2026-08-23'
+  },
+  {
     id: 'saint-barthelemy-cleuson-2026',
     title: 'Pèlerinage de la Saint-Barthélemy à Cleuson',
     excerpt: 'Pèlerinage et fête de la Saint-Barthélemy. Messe à 11h à la Chapelle de Cleuson, avec bénédiction des fromages des différents alpages de notre secteur pastoral. Animations par les chanteurs du secteur, les amis de Sonville et les souffleurs de Cor des Alpes.',
