@@ -222,7 +222,8 @@ const allEvents = [
     image: '/images/articles/soiree-cinema-sacre-coeur-2026.webp',
     hasImage: true,
     category: 'Événement',
-    lieu: 'Salle de gym du CO, Basse-Nendaz — 17h00 (film) puis messe à 19h00',
+    noticeBadge: 'Lieu modifié',
+    lieu: 'Église de Basse-Nendaz — 17h00 (film) puis messe à 19h00',
     pdfUrl: '/documents/sacre-coeur-2026.pdf',
     pdfLabel: 'Affiche Soirée Cinéma',
     displayUntil: '2026-06-12'
@@ -487,6 +488,11 @@ export default function ActualitesPage() {
                             <span className={`inline-block px-3 py-1 border text-xs font-bold uppercase tracking-wider rounded-full ${getCategoryColor(event.category)}`}>
                               {event.category}
                             </span>
+                            {'noticeBadge' in event && event.noticeBadge && (
+                              <span className="inline-block px-3 py-1 border text-xs font-bold uppercase tracking-wider rounded-full bg-red-50 text-red-700 border-red-300">
+                                {event.noticeBadge}
+                              </span>
+                            )}
                             <span className="text-neutral-gris text-sm font-medium flex items-center gap-1">
                               <Calendar className="w-4 h-4" />
                               {formatDate(event.date)}
