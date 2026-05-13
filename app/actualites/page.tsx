@@ -311,12 +311,12 @@ const allEvents = [
   {
     id: 'rentree-scolaire-2026',
     title: 'Messe de rentrée scolaire et bénédiction des cartables',
-    excerpt: 'Le week-end des 29 et 30 août marque l\'entrée en vigueur de l\'horaire d\'hiver et la fin des messes dans les mayens. Messe de rentrée à 10h à Basse-Nendaz, avec la bénédiction des cartables et des élèves pour ouvrir l\'année scolaire.',
-    date: '2026-08-30',
+    excerpt: 'Le dimanche 30 août marque la dernière messe dans les mayens à 11h. Le week-end des 5 et 6 septembre marque l\'entrée en vigueur de l\'horaire d\'hiver. Messe de rentrée à 10h à Basse-Nendaz, avec la bénédiction des cartables et des élèves pour ouvrir l\'année scolaire.',
+    date: '2026-09-06',
     hasImage: false,
     category: 'Liturgie',
-    lieu: 'Église de Basse-Nendaz — 10h00 (dimanche 30 août)',
-    displayUntil: '2026-08-30'
+    lieu: 'Église de Basse-Nendaz — 10h00 (dimanche 6 septembre)',
+    displayUntil: '2026-09-06'
   }
 ]
 
