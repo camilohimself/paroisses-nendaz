@@ -4,7 +4,7 @@
 **Dev** : http://localhost:3002
 **Stack** : Next.js 15, React 19, TypeScript, Tailwind, Google Calendar API (20+ lieux), Vercel
 **GA4** : G-M20DBECFYY | **GSC** : Verifie
-**FormSubmit** : paroisse_nendaz@bluemail.ch
+**FormSubmit** : paroisse.nendaz@outlook.com
 
 ## Commandes
 
