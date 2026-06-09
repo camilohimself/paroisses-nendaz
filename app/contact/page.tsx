@@ -115,8 +115,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline">
-                      paroisse_nendaz@bluemail.ch
+                    <a href="mailto:paroisse.nendaz@outlook.com" className="text-amber-600 hover:underline">
+                      paroisse.nendaz@outlook.com
                     </a>
                   </div>
                 </div>

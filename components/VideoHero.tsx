@@ -204,10 +204,10 @@ function SortieJeunesHero() {
               <div>
                 Secrétariat :{' '}
                 <a
-                  href="mailto:paroisse_nendaz@bluemail.ch"
+                  href="mailto:paroisse.nendaz@outlook.com"
                   className="text-amber-700 font-medium hover:underline"
                 >
-                  paroisse_nendaz@bluemail.ch
+                  paroisse.nendaz@outlook.com
                 </a>
               </div>
             </div>

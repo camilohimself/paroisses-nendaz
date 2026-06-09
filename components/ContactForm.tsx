@@ -30,7 +30,7 @@ export default function ContactForm() {
   return (
     <form
       ref={formRef}
-      action="https://formsubmit.co/paroisse_nendaz@bluemail.ch"
+      action="https://formsubmit.co/paroisse.nendaz@outlook.com"
       method="POST"
       className="space-y-6"
       onSubmit={handleSubmit}
