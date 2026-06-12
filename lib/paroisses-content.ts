@@ -48,7 +48,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
     horaires: {
       dominicale: 'tous les samedis à 17h30',
       semaine: 'le 4e mardi du mois à 19h00',
-      adoration: 'les lundis et jeudis de 6h à 7h - Responsable : Eugène Fournier, les 4èmes mardis du mois de 18h15 à 18h45'
+      adoration: 'le 4e mardi du mois de 18h à 18h45'
     },
     particularites: ['Construction communautaire', 'Messes dans bâtiment sans toit', 'Défi des barrages'],
     galleryCount: 1

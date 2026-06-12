@@ -97,16 +97,16 @@ const allEvents = [
   },
   // === ÉVÉNEMENTS PAROISSES NENDAZ ===
   {
-    id: 'billet-priere-mai-2026',
-    title: 'Billet de prière — Mai 2026',
-    excerpt: 'Intentions de prière pour le mois de mai : du pape Léon XIV (gaspillage alimentaire), des évêques suisses (femmes en difficulté) et propres à notre secteur (chorales, nouveaux baptisés, premières communions de Nendaz le 14 et de Veysonnaz le 24, patronales, Pentecôte). Le billet se conclut par une prière à l\'Esprit Saint de Blandine pour Pentecôte 2026.',
-    date: '2026-05-01',
+    id: 'billet-priere-juin-juillet-aout-2026',
+    title: 'Billet de prière — Juin, juillet et août 2026',
+    excerpt: 'Billet de prière de l\'été, sur le thème « Adorer, louer, aimer ! ». Trois mois d\'intentions : du pape Léon XIV (le sport instrument de paix, le respect de la vie, l\'annonce de l\'Évangile dans les villes), des évêques suisses (les réfugiés, les personnes âgées, les jeunes de la rentrée) et propres à notre secteur (les 13 ans de sacerdoce du curé Félicien, la patronale de Clèbes, la Fête-Dieu, les résidents des foyers Ma Vallée et des Vergers, les communautés de Veysonnaz et des Rairettes pour l\'Assomption, les pèlerins de la Saint-Barthélemy et nos écoliers). Le billet se conclut par une prière de saint Paul aux Corinthiens.',
+    date: '2026-06-01',
     hasImage: false,
     category: 'Pastorale',
-    lieu: 'À recevoir et à prier — Mois de mai 2026',
-    pdfUrl: '/documents/billets-priere/billet-priere-mai-2026.pdf',
+    lieu: 'À recevoir et à prier — Été 2026 (juin, juillet, août)',
+    pdfUrl: '/documents/billets-priere/billet-priere-juin-juillet-aout-2026.pdf',
     pdfLabel: 'Télécharger le billet',
-    displayUntil: '2026-05-31'
+    displayUntil: '2026-08-31'
   },
   {
     id: 'montee-paques-2026',
