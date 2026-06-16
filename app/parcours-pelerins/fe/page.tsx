@@ -61,7 +61,7 @@ const SLIDES_ETAPE1: Slide[] = [
   },
   {
     id: 3,
-    texte: "Fe à Fey... Pas mal comme cachette, non\u00A0?",
+    texte: "Et me voilà à l'église de Haute-Nendaz\u00A0! Pas mal comme cachette, non\u00A0?",
     bullePosition: 'bottom',
     animation: 'float',
     image: IMAGES_FE.presentation
@@ -314,7 +314,7 @@ export default function Mission2Page() {
   useEffect(() => {
     if (!hasTrackedStart.current) {
       hasTrackedStart.current = true
-      trackMission.start(2, 'Fe', 'Fey')
+      trackMission.start(2, 'Fe', 'Haute-Nendaz')
     }
   }, [])
 

@@ -606,7 +606,7 @@ export default function Mission1Page() {
               </p>
               <p className="text-slate-600 flex items-center gap-1">
                 <MapPin className="w-4 h-4 text-red-500" />
-                <span><strong>Fe</strong> t'attend à l'église de <strong>Fey</strong></span>
+                <span><strong>Fe</strong> t'attend à l'église de <strong>Haute-Nendaz</strong></span>
               </p>
               <p className="text-sm text-red-600 mt-1 font-medium">
                 Découvre sa mission !

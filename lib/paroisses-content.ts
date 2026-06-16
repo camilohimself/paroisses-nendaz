@@ -51,7 +51,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       adoration: 'le 4e mardi du mois de 18h à 18h45'
     },
     particularites: ['Construction communautaire', 'Messes dans bâtiment sans toit', 'Défi des barrages'],
-    galleryCount: 1
+    galleryCount: 8
   },
   {
     id: 'fey',
@@ -65,7 +65,7 @@ export const PAROISSES_CONTENT: ParoisseContent[] = [
       special: 'Messes annuelles : Fête patronale (Christ-Roi) samedi 19h, Toussaint 15h, Noël 18h, Pâques 10h30, Messe à la Moudonne le 2ème samedi de juin'
     },
     particularites: ['Ancienne chapelle 30 places', 'Clocher conservé au cimetière'],
-    galleryCount: 0
+    galleryCount: 2
   },
   {
     id: 'aproz',

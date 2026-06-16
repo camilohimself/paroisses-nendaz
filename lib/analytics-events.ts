@@ -18,7 +18,7 @@ type DonCommune = 'Nendaz' | 'Veysonnaz'
 type PaymentMethod = 'twint' | 'iban_nendaz' | 'iban_veysonnaz'
 type ContentType = 'external_link' | 'phone_number' | 'email' | 'video' | 'platform'
 type AventPersonnage = 'Luce' | 'Fe' | 'Xin' | 'Sky'
-type AventLieu = 'Basse-Nendaz' | 'Fey' | 'Veysonnaz' | 'Aproz'
+type AventLieu = 'Basse-Nendaz' | 'Fey' | 'Haute-Nendaz' | 'Veysonnaz' | 'Aproz'
 
 // Paramètres typés pour chaque catégorie d'événement
 interface SacrementViewParams {

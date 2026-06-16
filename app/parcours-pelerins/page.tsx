@@ -23,7 +23,7 @@ const missions = [
     slug: 'fe',
     name: 'Fe',
     theme: 'Foi',
-    church: 'Fey',
+    church: 'Haute-Nendaz',
     bgGradient: 'from-red-50 to-rose-50',
     borderColor: 'border-red-300',
     textColor: 'text-red-700',
