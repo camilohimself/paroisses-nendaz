@@ -117,9 +117,8 @@ Aproz, Basse-Nendaz, Brignon, Fey, Haute-Nendaz, Saclentse, Veysonnaz
 
 *Historique sessions dans `_ARCHIVES/`*
 
-## Notes Audit (8 mars 2026)
+## À faire
 
-- [ ] Maintenance annuelle : saints-data.ts + DIMANCHES_2026 + CSV saints a regenerer pour 2027 — aucun owner ni process documente
-- [ ] Decap CMS : pas de checklist d'onboarding pour les membres de l'equipe paroissiale
-- [ ] Aucun contrat de maintenance documente dans ce fichier (MRR ~1 500 CHF/mois mentionne ailleurs)
-- [ ] Dossier technique excellent — site le plus complet du portfolio
+- [ ] **Upgrade léger du jeu « Parcours Pèlerins »** (prévu prochainement, à cadrer) — analyser d'abord l'usage via GA4 (`avent_mission_start` / `avent_mission_complete`, ventilés par `personnage`/`lieu`) avant de décider du périmètre
+- [ ] Decap CMS : pas de checklist d'onboarding pour les membres de l'équipe paroissiale
+- [ ] Alignement éventuel de la page `/avent` (index saisonnier 2025) : affiche encore « Fey » pour la mission Fe — non bloquant (les routes `/avent/mission-X` sont redirigées vers `/parcours-pelerins/*`)
