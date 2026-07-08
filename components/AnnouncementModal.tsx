@@ -3,9 +3,10 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { X } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
-const STORAGE_KEY = 'mois-marie-2026-dismissed'
-const EXPIRY_DATE = new Date('2026-06-01T00:00:00') // Disparaît le 1er juin (fin du mois de Marie)
+const STORAGE_KEY = 'messes-ete-2026-dismissed'
+const EXPIRY_DATE = new Date('2026-08-31T00:00:00') // Disparaît fin août (fin des messes d'été)
 
 export default function AnnouncementModal() {
   const [isOpen, setIsOpen] = useState(false)
@@ -81,7 +82,7 @@ export default function AnnouncementModal() {
       ref={modalRef}
       role="dialog"
       aria-modal="true"
-      aria-label="Annonce : Mois de Marie 2026 — Prière du Chapelet"
+      aria-label="Annonce : Messes d'été en montagne 2026 — Paroisses de Nendaz et Veysonnaz"
       className={`
         fixed inset-0 z-50 flex items-center justify-center p-4
         transition-opacity duration-300 ease-out
@@ -115,18 +116,22 @@ export default function AnnouncementModal() {
           <X className="w-5 h-5 text-stone-700" />
         </button>
 
-        {/* Poster image */}
-        <div className="rounded-xl overflow-hidden shadow-2xl border-2 border-white/20">
+        {/* Poster image — cliquable vers les actualités */}
+        <Link
+          href="/actualites"
+          onClick={handleClose}
+          className="block rounded-xl overflow-hidden shadow-2xl border-2 border-white/20"
+        >
           <Image
-            src="/images/articles/mois-de-marie-2026.webp"
-            alt="Mois de Marie 2026 — Prière du Chapelet avec les Hospitaliers de Lourdes, du 1er au 30 mai — Paroisses de Nendaz et Veysonnaz"
-            width={1240}
-            height={1754}
+            src="/images/articles/messes-ete-2026.webp"
+            alt="Messes d'été en montagne 2026 — horaires d'été des paroisses de Nendaz et Veysonnaz, du 5 juillet au 30 août"
+            width={1080}
+            height={1440}
             sizes="(max-width: 640px) 340px, (max-width: 768px) 448px, 512px"
             className="w-full h-auto"
             priority
           />
-        </div>
+        </Link>
       </div>
     </div>
   )
