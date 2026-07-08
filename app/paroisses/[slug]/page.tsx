@@ -113,7 +113,7 @@ export default async function ParoissePage({ params }: ParoissePageProps) {
         addressLocality={calendar.name.replace('Église de ', '').replace('Chapelle de ', '').replace('Chapelle des ', '').replace('Chapelle ', '')}
         postalCode={calendar.id.includes('aproz') ? '1974' : calendar.id.includes('veysonnaz') ? '1993' : '1997'}
         telephone="+41272882250"
-        email="paroisses.nendaz@netplus.ch"
+        email="paroisse_nendaz@bluemail.ch"
         url={`https://www.paroisses-nendaz.ch/paroisses/${calendar.id}`}
         paroisseName={calendar.name}
       />

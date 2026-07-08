@@ -682,7 +682,7 @@ export default function PastoralePage() {
                   <p className="text-lg font-semibold text-stone-800">Caroline Karlen</p>
                   <div className="space-y-2 text-sm">
                     <p>Route de Nendaz 355, 1996 Basse-Nendaz</p>
-                    <p>paroisse.nendaz@outlook.com</p>
+                    <p>paroisse_nendaz@bluemail.ch</p>
                     <p>+41 27 288 22 50</p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-stone-300">

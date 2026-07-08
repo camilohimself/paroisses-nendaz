@@ -115,8 +115,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
-                    <a href="mailto:paroisse.nendaz@outlook.com" className="text-amber-600 hover:underline">
-                      paroisse.nendaz@outlook.com
+                    <a href="mailto:paroisse_nendaz@bluemail.ch" className="text-amber-600 hover:underline">
+                      paroisse_nendaz@bluemail.ch
                     </a>
                   </div>
                 </div>
@@ -182,6 +182,22 @@ export default function ContactPage() {
                   </a>
                   <a href="mailto:felicienroux20@gmail.com" className="text-amber-600 hover:underline block">
                     felicienroux20@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Père Joseph — remplaçant estival du curé */}
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+              <div className="h-48 bg-gray-200 flex items-center justify-center">
+                <p className="text-gray-400 text-sm">Photo à venir</p>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2">Père Joseph</h3>
+                <p className="text-stone-600 font-medium mb-3">Prêtre remplaçant (été)</p>
+                <div className="text-sm text-stone-600">
+                  <a href="tel:+41786170846" className="text-amber-600 hover:underline font-medium block">
+                    +41 78 617 08 46
                   </a>
                 </div>
               </div>

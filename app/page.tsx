@@ -78,7 +78,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col sm:flex-row sm:justify-between py-3 border-b border-stone-200 hover:bg-stone-50 px-4 transition-colors">
                     <span className="font-medium text-stone-800">Basse-Nendaz</span>
-                    <span className="text-stone-600">Tous les dimanches 10h00</span>
+                    <span className="text-stone-600">Dimanches 9h30 en été (juillet-août), 10h00 le reste de l&apos;année</span>
                   </div>
                 </div>
               </div>

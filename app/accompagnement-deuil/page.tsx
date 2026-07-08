@@ -365,10 +365,10 @@ export default function AccompagnementDeuilPage() {
                   </dt>
                   <dd className="flex-1 min-w-0">
                     <a
-                      href="mailto:paroisse.nendaz@outlook.com"
+                      href="mailto:paroisse_nendaz@bluemail.ch"
                       className="text-stone-800 hover:text-[#1A7FA0] transition-colors break-all"
                     >
-                      paroisse.nendaz@outlook.com
+                      paroisse_nendaz@bluemail.ch
                     </a>
                   </dd>
                 </div>

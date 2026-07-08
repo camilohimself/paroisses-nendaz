@@ -210,7 +210,7 @@ export const FeuilleAnnoncesPDF: React.FC<FeuilleAnnoncesPDFProps> = ({
           <View style={styles.headerContact}>
             <Text>027 288 22 50</Text>
             <Text>paroisses-nendaz.ch</Text>
-            <Text>paroisse.nendaz@outlook.com</Text>
+            <Text>paroisse_nendaz@bluemail.ch</Text>
           </View>
         </View>
 

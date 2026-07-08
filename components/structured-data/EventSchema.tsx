@@ -47,6 +47,8 @@ export default function EventSchema({
     return "https://schema.org/OfflineEventAttendanceMode";
   };
 
+  const FALLBACK_IMAGE = "https://www.paroisses-nendaz.ch/images/paroisses/basse-nendaz/hero-desktop.jpg";
+
   const eventData = {
     "@context": "https://schema.org",
     "@type": eventType === 'Mass' ? "ReligiousEvent" : "Event",
@@ -73,8 +75,20 @@ export default function EventSchema({
       "name": organizer.name,
       "url": organizer.url
     },
+    "performer": {
+      "@type": "Organization",
+      "name": "Paroisses de Nendaz et Veysonnaz"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "CHF",
+      "availability": "https://schema.org/InStock",
+      "validFrom": startDate,
+      "url": url || "https://www.paroisses-nendaz.ch"
+    },
     "url": url,
-    "image": image,
+    "image": image || FALLBACK_IMAGE,
     "inLanguage": "fr-CH",
     "isAccessibleForFree": true
   };

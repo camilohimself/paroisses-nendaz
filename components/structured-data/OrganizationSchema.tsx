@@ -16,7 +16,7 @@ export default function OrganizationSchema() {
     "url": "https://www.paroisses-nendaz.ch",
     "logo": "https://www.paroisses-nendaz.ch/images/logo-paroisses-header@2x.png",
     "image": "https://www.paroisses-nendaz.ch/images/logo-paroisses-header@2x.png",
-    "email": "paroisses.nendaz@netplus.ch",
+    "email": "paroisse_nendaz@bluemail.ch",
     "telephone": "+41272882250",
     "address": {
       "@type": "PostalAddress",
